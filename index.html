@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Chronos — A Daily History Puzzle</title>
+<title>Chronl — A Daily History Puzzle</title>
 
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-t_vbjTf4hFMPaLpLuH51O.js"></script>
@@ -83,7 +83,7 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 <body>
 <div class="game-container">
     <header>
-        <h1>Chronos</h1>
+        <h1>Chronl</h1>
         <div class="subtitle">Organize history from past to present</div>
         <div class="date-line" id="date-line"></div>
     </header>
@@ -187,7 +187,7 @@ function lockIn() {
 
     let correctCount = 0;
     let gridHTML = "";
-    shareString = "Today's Chronos History Puzzle:\n";
+    shareString = "Today's Chronl History Puzzle:\n";
 
     cards.forEach((card, index) => {
         const item = data.find(d => d.id == card.dataset.id);
