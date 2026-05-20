@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Chronos — A Daily History Puzzle</title>
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-t_vbjTf4hFMPaLpLuH51O.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+
+<!-- Mobile-friendly drag reorder -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+<style>
+:root {
+    --bg: #ffffff;
+    --card-bg: #f8f9fa;
+    --text-main: #121212;
+    --text-muted: #5a5a5a;
+    --nyt-line: #e2e2e2;
+    --nyt-dark: #121212;
+    --correct-bg: #6aaa64;
+    --correct-text: #ffffff;
+    --incorrect-bg: #e35252;
+    --incorrect-text: #ffffff;
+    --font-serif: "Imperial", Georgia, serif;
+    --font-sans: "Franklin Standard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); background-color: var(--bg); color: var(--text-main); display: flex; justify-content: center; padding: 0 16px; -webkit-font-smoothing: antialiased; }
+
+.game-container { width: 100%; max-width: 500px; margin-top: 24px; margin-bottom: 40px; display: flex; flex-direction: column; }
+
+header { text-align: center; border-bottom: 1px solid var(--nyt-line); padding-bottom: 16px; margin-bottom: 24px; }
+h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-spacing: -0.5px; color: var(--text-main); margin-bottom: 4px; }
+.subtitle { font-family: var(--font-sans); color: var(--text-muted); font-size: 14px; letter-spacing: 0.2px; }
+.date-line { font-family: var(--font-sans); color: var(--text-muted); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-top: 8px; }
+
+.board-wrapper { display: flex; flex-direction: row; gap: 16px; margin-bottom: 24px; }
+.axis-column { display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: 60px; flex-shrink: 0; padding-top: 20px; padding-bottom: 20px; }
+.axis-label-text { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); text-align: center; }
+.axis-line { flex-grow: 1; width: 1px; background-color: #bcbcbc; margin: 12px 0; }
+
+.timeline { flex-grow: 1; display: flex; flex-direction: column; gap: 10px; }
+.item { background-color: #ffffff; border: 1px solid var(--nyt-line); border-radius: 6px; padding: 16px; display: flex; justify-content: space-between; align-items: center; cursor: grab; user-select: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease, border-color 0.3s ease, filter 0.2s ease; }
+.item.dragging { opacity: 0.4; transform: scale(0.98); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+.card-content { display: flex; align-items: center; gap: 12px; flex-grow: 1; }
+.emoji { font-size: 20px; flex-shrink: 0; }
+.text-block { display: flex; flex-direction: column; gap: 2px; }
+.text { font-size: 16px; font-weight: 500; letter-spacing: -0.2px; }
+.year-reveal { font-size: 12px; font-weight: 600; opacity: 0.9; letter-spacing: 0.3px; }
+
+.drag-handle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; width: 20px; height: 20px; }
+.drag-handle span { height: 2px; background-color: #bcbcbc; width: 12px; border-radius: 1px; }
+
+.action-btn { width: 100%; background-color: transparent; color: var(--text-main); border: 1px solid var(--text-main); border-radius: 24px; padding: 14px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
+.action-btn:hover:not(:disabled) { background-color: var(--nyt-dark); color: #ffffff; }
+
+.result-panel { display: none; margin-top: 28px; padding: 24px; background-color: var(--card-bg); border-radius: 8px; text-align: center; border: 1px solid var(--nyt-line); }
+.result-heading { font-family: var(--font-serif); font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.score-display { font-size: 15px; color: var(--text-muted); margin-bottom: 16px; }
+
+.visual-grid { display: flex; justify-content: center; gap: 6px; margin-bottom: 24px; }
+.grid-block { width: 24px; height: 24px; border-radius: 4px; }
+.grid-block.correct { background-color: var(--correct-bg); }
+.grid-block.incorrect { background-color: var(--incorrect-bg); }
+
+.helper-callout { display: flex; align-items: center; gap: 12px; background-color: #f1f8ff; border: 1px solid #cce5ff; color: #004085; padding: 14px 16px; border-radius: 8px; font-size: 14px; margin-bottom: 24px; text-align: left; line-height: 1.4; }
+.helper-emoji { font-size: 20px; flex-shrink: 0; }
+
+.item.eval-correct { background-color: var(--correct-bg) !important; color: var(--correct-text) !important; border-color: var(--correct-bg) !important; }
+.item.eval-incorrect { background-color: var(--incorrect-bg) !important; color: var(--incorrect-text) !important; border-color: var(--incorrect-bg) !important; }
+</style>
+</head>
+
+<body>
+<div class="game-container">
+    <header>
+        <h1>Chronos</h1>
+        <div class="subtitle">Organize history from past to present</div>
+        <div class="date-line" id="date-line"></div>
+    </header>
+
+    <div class="board-wrapper">
+        <div class="axis-column">
+            <div class="axis-label-text">Oldest</div>
+            <div class="axis-line"></div>
+            <div class="axis-label-text">Newest</div>
+        </div>
+        <div id="timeline" class="timeline"></div>
+    </div>
+
+    <button id="submit-btn" class="action-btn" onclick="lockIn()">Submit Timeline</button>
+
+    <div class="result-panel" id="result-panel">
+        <div class="result-heading" id="result-title"></div>
+        <div class="score-display" id="score-text"></div>
+        <div id="visual-grid" class="visual-grid"></div>
+
+        <div class="helper-callout">
+            <div class="helper-emoji">💡</div>
+            <div><strong>Keep exploring:</strong> Tap any historical event on the board above to read its full Wikipedia article.</div>
+        </div>
+
+        <button class="action-btn" id="copy-btn" onclick="copyResults()">Copy Results</button>
+    </div>
+</div>
+
+<script>
+// ===== TODAY'S PUZZLE =====
+// To change the puzzle, replace this `data` array with one of your saved batches.
+const data = [
+    {id:1, emoji:"🗿", event:"Construction of Stonehenge begins", year:-3000, wiki:"https://en.wikipedia.org/wiki/Stonehenge"},
+    {id:2, emoji:"🐪", event:"Construction of Great Pyramids", year:-2560, wiki:"https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"},
+    {id:3, emoji:"⚖️", event:"Code of Hammurabi is written", year:-1754, wiki:"https://en.wikipedia.org/wiki/Code_of_Hammurabi"},
+    {id:4, emoji:"🏛️", event:"Parthenon completed in Athens", year:-438, wiki:"https://en.wikipedia.org/wiki/Parthenon"},
+    {id:5, emoji:"🌋", event:"Eruption of Mount Vesuvius destroys Pompeii", year:79, wiki:"https://en.wikipedia.org/wiki/Eruption_of_Mount_Vesuvius_in_79_AD"},
+    {id:6, emoji:"⛪", event:"Fall of the Western Roman Empire", year:476, wiki:"https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire"}
+];
+// ==========================
+
+// Show today's date in the header
+document.getElementById("date-line").innerText = new Date().toLocaleDateString(undefined, {
+    weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+});
+
+// Format a year as "3000 BC" or "1969 AD"
+function formatYear(y) {
+    if (y < 0) return Math.abs(y) + " BC";
+    return y + " AD";
+}
+
+// Shuffle, but make sure it's not already in the correct order
+function shuffleData() {
+    const correctIds = [...data].sort((a, b) => a.year - b.year).map(d => d.id);
+    let shuffled;
+    do {
+        shuffled = [...data].sort(() => Math.random() - 0.5);
+    } while (shuffled.every((item, i) => item.id === correctIds[i]));
+    return shuffled;
+}
+
+let state = shuffleData();
+let shareString = "";
+
+function render() {
+    const el = document.getElementById("timeline");
+    el.innerHTML = "";
+
+    state.forEach(item => {
+        const d = document.createElement("div");
+        d.className = "item";
+        d.dataset.id = item.id;
+
+        d.innerHTML = `
+            <div class="card-content">
+                <span class="emoji">${item.emoji}</span>
+                <div class="text-block">
+                    <span class="text">${item.event}</span>
+                </div>
+            </div>
+            <div class="drag-handle">
+                <span></span><span></span><span></span>
+            </div>
+        `;
+
+        el.appendChild(d);
+    });
+
+    new Sortable(el, {
+        animation: 150,
+        ghostClass: "dragging"
+    });
+}
+
+function lockIn() {
+    document.getElementById("submit-btn").disabled = true;
+    const correctOrder = [...data].sort((a, b) => a.year - b.year);
+    const cards = [...document.querySelectorAll(".item")];
+
+    let correctCount = 0;
+    let gridHTML = "";
+    shareString = "Today's Chronos History Puzzle:\n";
+
+    cards.forEach((card, index) => {
+        const item = data.find(d => d.id == card.dataset.id);
+        const isCorrect = (item.id === correctOrder[index].id);
+
+        card.classList.add(isCorrect ? "eval-correct" : "eval-incorrect");
+        card.style.cursor = "pointer";
+        card.onclick = () => window.open(item.wiki, '_blank');
+
+        // Reveal the year on each card
+        const textBlock = card.querySelector('.text-block');
+        const yearEl = document.createElement('span');
+        yearEl.className = 'year-reveal';
+        yearEl.innerText = formatYear(item.year);
+        textBlock.appendChild(yearEl);
+
+        // Swap drag handle for an external-link icon
+        const handle = card.querySelector('.drag-handle');
+        handle.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
+
+        gridHTML += `<div class="grid-block ${isCorrect ? 'correct' : 'incorrect'}"></div>`;
+        shareString += isCorrect ? "🟩" : "🟥";
+        if(isCorrect) correctCount++;
+    });
+
+    shareString += "\n\nSee if you can beat me here: " + window.location.href;
+
+    let performanceTitle = "Keep Studying!";
+    if (correctCount === data.length) performanceTitle = "Perfect Chronology!";
+    else if (correctCount >= data.length / 2) performanceTitle = "Splendid Record!";
+
+    document.getElementById("result-title").innerText = performanceTitle;
+    document.getElementById("score-text").innerText =
+        `You correctly placed ${correctCount} out of ${data.length} historical landmarks.`;
+    document.getElementById("visual-grid").innerHTML = gridHTML;
+    document.getElementById("result-panel").style.display = "block";
+    document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyResults() {
+    navigator.clipboard.writeText(shareString).then(() => {
+        const btn = document.getElementById("copy-btn");
+        const originalText = btn.innerText;
+        btn.innerText = "Copied to Clipboard!";
+        setTimeout(() => btn.innerText = originalText, 2000);
+    });
+}
+
+render();
+</script>
+</body>
+</html>
