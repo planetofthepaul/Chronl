@@ -51,6 +51,30 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 .item { background-color: #ffffff; border: 1px solid var(--nyt-line); border-radius: 6px; padding: 16px; display: flex; justify-content: space-between; align-items: center; cursor: grab; user-select: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease, border-color 0.3s ease, filter 0.2s ease; }
 .item.dragging { opacity: 0.4; transform: scale(0.98); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
+/* Mobile-only: fill the screen, cards stretch to fill space between header and button */
+@media (max-width: 600px) {
+    html, body { height: 100%; }
+    body { padding: 0 16px; }
+    .game-container {
+        height: 100dvh;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    header { padding-bottom: 12px; margin-bottom: 14px; flex-shrink: 0; }
+    h1 { font-size: 30px; }
+    .board-wrapper {
+        flex: 1 1 auto;
+        min-height: 0;
+        margin-bottom: 14px;
+    }
+    .axis-column { padding-top: 10px; padding-bottom: 10px; }
+    .timeline { gap: 8px; min-height: 0; }
+    .item { flex: 1 1 0; min-height: 0; padding: 10px 14px; }
+    #submit-btn { flex-shrink: 0; }
+}
+
 .card-content { display: flex; align-items: center; gap: 12px; flex-grow: 1; }
 .emoji { font-size: 20px; flex-shrink: 0; }
 .text-block { display: flex; flex-direction: column; gap: 2px; }
