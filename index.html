@@ -160,12 +160,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🌕", event:"Apollo 11 Moon Landing", year:1969, wiki:"https://en.wikipedia.org/wiki/Apollo_11"},
-    {id:2, emoji:"🎤", event:"Elvis Presley dies at Graceland", year:1977, wiki:"https://en.wikipedia.org/wiki/Death_of_Elvis_Presley"},
-    {id:3, emoji:"😺", event:"Garfield comic strip debuts", year:1978, wiki:"https://en.wikipedia.org/wiki/Garfield"},
-    {id:4, emoji:"📼", event:"MTV launches", year:1981, wiki:"https://en.wikipedia.org/wiki/MTV"},
-    {id:5, emoji:"🕹️", event:"Nintendo releases the NES in America", year:1985, wiki:"https://en.wikipedia.org/wiki/Nintendo_Entertainment_System"},
-    {id:6, emoji:"🧱", event:"Fall of the Berlin Wall", year:1989, wiki:"https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall"}
+    {id:1, emoji:"🐑", event:"Dolly the sheep cloned", year:1996, wiki:"https://en.wikipedia.org/wiki/Dolly_(sheep)"},
+    {id:2, emoji:"💿", event:"Napster launches", year:1999, wiki:"https://en.wikipedia.org/wiki/Napster"},
+    {id:3, emoji:"📺", event:"Survivor premieres on CBS", year:2000, wiki:"https://en.wikipedia.org/wiki/Survivor_(American_TV_series)"},
+    {id:4, emoji:"📱", event:"BlackBerry phone released", year:2002, wiki:"https://en.wikipedia.org/wiki/BlackBerry"},
+    {id:5, emoji:"🎵", event:"iTunes Store opens", year:2003, wiki:"https://en.wikipedia.org/wiki/ITunes_Store"},
+    {id:6, emoji:"📘", event:"Facebook launches at Harvard", year:2004, wiki:"https://en.wikipedia.org/wiki/History_of_Facebook"}
 ];
 // ==========================
 
@@ -230,7 +230,7 @@ function lockIn() {
 
     let correctCount = 0;
     let gridHTML = "";
-    shareString = "Today's Chronl History Puzzle - Late 20th Century Edition:\n";
+   shareString = "Today's Chronl History Puzzle - Turn of the Millennium Edition:\n";
 
     cards.forEach((card, index) => {
         const item = data.find(d => d.id == card.dataset.id);
