@@ -126,15 +126,15 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 .result-heading { font-family: var(--font-serif); font-size: 22px; font-weight: 700; margin-bottom: 8px; }
 .score-display { font-size: 15px; color: var(--text-muted); margin-bottom: 16px; }
 
-.visual-grid { display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; }
-.grid-row { display: flex; gap: 6px; }
-.grid-row-label { font-size: 11px; color: var(--text-muted); margin-right: 8px; align-self: center; min-width: 60px; text-align: right; font-weight: 600; letter-spacing: 0.5px; }
-.grid-block { width: 24px; height: 24px; border-radius: 4px; }
+/* Single chronological grid — squares match the order of the final board (oldest → newest).
+   Green = you got it right (either attempt), red = you missed it. */
+.result-grid { display: flex; justify-content: center; gap: 6px; margin-bottom: 14px; }
+.grid-block { width: 26px; height: 26px; border-radius: 4px; }
 .grid-block.correct { background-color: var(--correct-bg); }
 .grid-block.incorrect { background-color: var(--incorrect-bg); }
 
-.attempts-grid { display: flex; flex-direction: column; gap: 6px; align-items: center; margin-bottom: 24px; }
-.attempt-row { display: flex; align-items: center; gap: 6px; }
+.summary-line { font-size: 13px; color: var(--text-muted); margin-bottom: 22px; line-height: 1.5; }
+.summary-line strong { color: var(--text-main); font-weight: 600; }
 
 .helper-callout { display: flex; align-items: center; gap: 12px; background-color: #f1f8ff; border: 1px solid #cce5ff; color: #004085; padding: 14px 16px; border-radius: 8px; font-size: 14px; margin-bottom: 24px; text-align: left; line-height: 1.4; }
 .helper-emoji { font-size: 20px; flex-shrink: 0; }
@@ -174,7 +174,8 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
         <div class="result-heading" id="result-title"></div>
         <div class="score-display" id="score-text"></div>
 
-        <div class="attempts-grid" id="attempts-grid"></div>
+        <div class="result-grid" id="result-grid"></div>
+        <div class="summary-line" id="summary-line"></div>
 
         <div class="helper-callout">
             <div class="helper-emoji">💡</div>
@@ -339,7 +340,7 @@ function finalize(results, perfectFirstTry) {
 
     const cards = [...document.querySelectorAll(".item")];
 
-    // First, color cards based on whether they were ever placed wrong
+    // First, color cards based on whether they ended up wrong
     cards.forEach(card => {
         const id = parseInt(card.dataset.id);
         card.classList.remove("eval-correct", "eval-incorrect", "locked");
@@ -350,45 +351,47 @@ function finalize(results, perfectFirstTry) {
         }
     });
 
-    // Build share string + grid data
-    const correctCount = results.filter(r => r.correct).length;
-    shareString = "Today's Chronl History Puzzle - Tetris to Tesla Edition:\n";
+    // === Build the chronological result grid + summary ===
+    // The grid reads in chronological order (oldest → newest), matching the final board.
+    // Each square: green if the user ever placed it correctly, red if they never did.
+    // This is the same color as the card above, so the squares and the board agree.
+    const lockedCount = lockedIds.size;                             // got right on attempt 1
+    const fixedCount = perfectFirstTry
+        ? 0
+        : results.filter(r => r.correct).length - lockedCount;      // got right on attempt 2
+    const missedCount = data.length - lockedCount - fixedCount;
+    const correctCount = lockedCount + fixedCount;
 
+    // Build the on-screen grid in chronological order
+    const gridEl = document.getElementById("result-grid");
+    gridEl.innerHTML = "";
+    correctOrder.forEach(item => {
+        const block = document.createElement("div");
+        const isCorrect = !stillWrongIds.has(item.id);
+        block.className = `grid-block ${isCorrect ? 'correct' : 'incorrect'}`;
+        gridEl.appendChild(block);
+    });
+
+    // Summary line
+    const summaryEl = document.getElementById("summary-line");
     if (perfectFirstTry) {
-        shareString += "Attempt 1: ";
-        results.forEach(r => shareString += r.correct ? "🟩" : "🟥");
-        shareString += " ✨ Perfect first try!";
+        summaryEl.innerHTML = `<strong>All ${data.length} correct on your first try.</strong> ✨`;
     } else {
-        shareString += "Attempt 1: ";
-        firstAttemptResults.forEach(r => shareString += r.correct ? "🟩" : "🟥");
-        shareString += "\nAttempt 2: ";
-        secondAttemptResults.forEach(r => shareString += r.correct ? "🟩" : "🟥");
+        const parts = [];
+        if (lockedCount > 0) parts.push(`<strong>${lockedCount}</strong> on first try`);
+        if (fixedCount > 0) parts.push(`<strong>${fixedCount}</strong> fixed on second`);
+        if (missedCount > 0) parts.push(`<strong>${missedCount}</strong> missed`);
+        summaryEl.innerHTML = parts.join(" · ");
     }
+
+    // Build the shareable text — chronological grid matching the on-screen result
+    shareString = "Today's Chronl History Puzzle - Tetris to Tesla Edition:\n";
+    correctOrder.forEach(item => {
+        shareString += stillWrongIds.has(item.id) ? "🟥" : "🟩";
+    });
     shareString += "\n\nSee if you can beat me here: " + window.location.href;
 
-    // Build the attempts grid display
-    const attemptsGridEl = document.getElementById("attempts-grid");
-    attemptsGridEl.innerHTML = "";
-
-    function buildRow(label, res) {
-        const row = document.createElement("div");
-        row.className = "attempt-row";
-        let html = `<span class="grid-row-label">${label}</span>`;
-        res.forEach(r => {
-            html += `<div class="grid-block ${r.correct ? 'correct' : 'incorrect'}"></div>`;
-        });
-        row.innerHTML = html;
-        return row;
-    }
-
-    if (perfectFirstTry) {
-        attemptsGridEl.appendChild(buildRow("Attempt 1", results));
-    } else {
-        attemptsGridEl.appendChild(buildRow("Attempt 1", firstAttemptResults));
-        attemptsGridEl.appendChild(buildRow("Attempt 2", secondAttemptResults));
-    }
-
-    // Result text
+    // Result title
     let performanceTitle;
     if (perfectFirstTry) {
         performanceTitle = "Perfect Chronology!";
@@ -412,13 +415,10 @@ function finalize(results, perfectFirstTry) {
     document.getElementById("attempt-banner").style.display = "none";
 
     // Animate cards into the correct chronological order so the user can see it clearly
-    if (!perfectFirstTry && stillWrongIds.size > 0) {
-        setTimeout(() => animateToCorrectOrder(stillWrongIds), 600);
-    } else if (!perfectFirstTry) {
-        // Final attempt got everything right — reorder to chronological too (locked + fixed cards may not be in order)
+    if (!perfectFirstTry) {
         setTimeout(() => animateToCorrectOrder(stillWrongIds), 600);
     } else {
-        // Perfect first try — already in correct order, just attach wiki links
+        // Perfect first try — already in correct order
         attachWikiLinks();
         revealYears();
         document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth' });
