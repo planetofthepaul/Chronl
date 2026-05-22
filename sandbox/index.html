@@ -142,6 +142,51 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 .item.eval-correct { background-color: var(--correct-bg) !important; color: var(--correct-text) !important; border-color: var(--correct-bg) !important; }
 .item.eval-incorrect { background-color: var(--incorrect-bg) !important; color: var(--incorrect-text) !important; border-color: var(--incorrect-bg) !important; }
 
+/* Streak pill in the header — quietly persistent reminder */
+.streak-pill {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--nyt-line);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: 0.3px;
+}
+.streak-pill.visible { display: inline-flex; }
+.streak-pill .flame { font-size: 13px; line-height: 1; }
+
+/* Streak announcement inside the result panel — the celebration moment */
+.streak-announce {
+    display: none;
+    margin: 0 auto 16px;
+    padding: 10px 16px;
+    border-radius: 24px;
+    background-color: #fff4e6;
+    border: 1px solid #ffd9a8;
+    color: #8a4a00;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    width: fit-content;
+    max-width: 100%;
+}
+.streak-announce.visible { display: block; }
+.streak-announce.milestone {
+    background-color: #fff;
+    border: 2px solid #ff9500;
+    color: #b85c00;
+    font-family: var(--font-serif);
+    font-size: 18px;
+    padding: 12px 22px;
+}
+
 /* Animation when cards get reordered into correct sequence */
 .item.reordering { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
 </style>
@@ -153,6 +198,7 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
         <h1>Chronl</h1>
         <div class="subtitle">Organize history from past to present</div>
         <div class="date-line" id="date-line"></div>
+        <div class="streak-pill" id="streak-pill"><span class="flame">🔥</span><span id="streak-pill-count"></span></div>
     </header>
 
     <div class="attempt-banner" id="attempt-banner">
@@ -176,6 +222,7 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 
         <div class="result-grid" id="result-grid"></div>
         <div class="summary-line" id="summary-line"></div>
+        <div class="streak-announce" id="streak-announce"></div>
 
         <div class="helper-callout">
             <div class="helper-emoji">💡</div>
@@ -209,6 +256,125 @@ function formatYear(y) {
     if (y < 0) return Math.abs(y) + " BC";
     return y + " AD";
 }
+
+// ===== STREAK SYSTEM =====
+// Counts consecutive days the user finished a puzzle.
+// Stored in localStorage, scoped to this browser on this device.
+// Recorded once per game, in finalize() — so a perfect first try and a
+// two-attempt finish both count exactly once.
+const STREAK_KEY = "chronl_streak_v1";
+
+// Get the user's local date as "YYYY-MM-DD" so timezones behave.
+function localDateStr(d) {
+    d = d || new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+}
+
+function yesterdayStr() {
+    const d = new Date();
+    d.setDate(d.getDate() - 1);
+    return localDateStr(d);
+}
+
+function readStreak() {
+    try {
+        const raw = localStorage.getItem(STREAK_KEY);
+        if (!raw) return { lastPlayDate: null, currentStreak: 0 };
+        const parsed = JSON.parse(raw);
+        return {
+            lastPlayDate: parsed.lastPlayDate || null,
+            currentStreak: Number(parsed.currentStreak) || 0
+        };
+    } catch (e) {
+        return { lastPlayDate: null, currentStreak: 0 };
+    }
+}
+
+function writeStreak(s) {
+    try {
+        localStorage.setItem(STREAK_KEY, JSON.stringify(s));
+    } catch (e) { /* private mode etc — fail silently */ }
+}
+
+// Called once when finalize() runs. Returns updated streak state plus a
+// `change` flag: "same" | "continued" | "started" | "reset"
+function recordPlay() {
+    const today = localDateStr();
+    const yesterday = yesterdayStr();
+    const s = readStreak();
+
+    let change;
+    if (s.lastPlayDate === today) {
+        change = "same"; // already counted today (refresh / replay safety)
+    } else if (s.lastPlayDate === yesterday) {
+        s.currentStreak += 1;
+        s.lastPlayDate = today;
+        change = "continued";
+    } else if (s.lastPlayDate === null) {
+        s.currentStreak = 1;
+        s.lastPlayDate = today;
+        change = "started";
+    } else {
+        s.currentStreak = 1;
+        s.lastPlayDate = today;
+        change = "reset";
+    }
+
+    writeStreak(s);
+    return { streak: s.currentStreak, change };
+}
+
+// Render the small streak pill in the header. Shows only if the streak
+// is "alive" — played today or yesterday. Stale streaks stay hidden.
+function renderHeaderStreak() {
+    const s = readStreak();
+    const today = localDateStr();
+    const yesterday = yesterdayStr();
+    const isAlive = s.currentStreak >= 1 && (s.lastPlayDate === today || s.lastPlayDate === yesterday);
+    const pill = document.getElementById("streak-pill");
+    if (isAlive) {
+        document.getElementById("streak-pill-count").innerText = s.currentStreak;
+        pill.classList.add("visible");
+    } else {
+        pill.classList.remove("visible");
+    }
+}
+
+// Show the streak announcement inside the result panel.
+function showStreakAnnounce(streak, change) {
+    const el = document.getElementById("streak-announce");
+    const milestones = [7, 30, 50, 100, 365];
+    let text = "";
+    let isMilestone = false;
+
+    if (change === "started") {
+        text = "🔥 Streak started";
+    } else if (change === "continued") {
+        if (milestones.includes(streak)) {
+            isMilestone = true;
+            if (streak === 7) text = `🔥 ${streak} DAYS — One week!`;
+            else if (streak === 30) text = `🔥 ${streak} DAYS — One month!`;
+            else if (streak === 365) text = `🔥 ${streak} DAYS — One year!`;
+            else text = `🔥 ${streak} DAYS`;
+        } else {
+            text = `🔥 ${streak}-day streak`;
+        }
+    } else if (change === "reset") {
+        text = "🔥 Streak: 1";
+    } else {
+        // "same" — already played today, just reaffirm the number
+        text = `🔥 ${streak}-day streak`;
+    }
+
+    el.innerText = text;
+    el.classList.toggle("milestone", isMilestone);
+    el.classList.add("visible");
+}
+// =========================
+
 
 // Shuffle, but make sure it's not already in the correct order
 function shuffleData() {
@@ -446,6 +612,17 @@ function finalize(results, perfectFirstTry) {
     correctOrder.forEach(item => {
         shareString += stillWrongIds.has(item.id) ? "🟥" : "🟩";
     });
+
+    // Record this play toward the streak and update the UI
+    const streakResult = recordPlay();
+    showStreakAnnounce(streakResult.streak, streakResult.change);
+    renderHeaderStreak();
+
+    // Bake the streak into the share string (subtle flex, no explanation needed)
+    if (streakResult.streak >= 1) {
+        shareString += ` 🔥${streakResult.streak}`;
+    }
+
     shareString += "\n\nSee if you can beat me here: " + window.location.href;
 
     // Result title
@@ -588,6 +765,7 @@ function copyResults() {
 }
 
 render();
+renderHeaderStreak();
 </script>
 </body>
 </html>
