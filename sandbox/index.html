@@ -263,9 +263,47 @@ function render() {
     sortableInstance = new Sortable(el, {
         animation: 150,
         ghostClass: "dragging",
-        filter: ".locked",      // locked items can't be picked up
-        preventOnFilter: false
+        // Only unlocked cards are draggable — locked cards can't be picked up.
+        draggable: ".item:not(.locked)",
+        // After every drag, force locked cards back to their captured DOM indices.
+        // SortableJS can still displace locked cards as neighbors during a swap,
+        // so we restore them as a backstop.
+        onEnd: function () {
+            restoreLockedPositions();
+        }
     });
+}
+
+// Captured at the start of attempt 2 — maps locked id → its DOM index in the timeline.
+// Locked cards must always sit at exactly these indices.
+let lockedPositions = new Map();
+
+// If any locked card has drifted from its captured slot, snap it back. Unlocked
+// cards keep their current relative order and fill the remaining slots.
+function restoreLockedPositions() {
+    if (lockedPositions.size === 0) return;
+    const timelineEl = document.getElementById("timeline");
+    const current = [...timelineEl.children];
+    const unlockedInOrder = current.filter(c => !c.classList.contains("locked"));
+    const finalOrder = new Array(current.length);
+
+    // Pin locked cards at their captured indices
+    lockedPositions.forEach((idx, id) => {
+        const card = current.find(c => parseInt(c.dataset.id) === id);
+        if (card) finalOrder[idx] = card;
+    });
+
+    // Fill the remaining slots with unlocked cards in their current relative order
+    let u = 0;
+    for (let i = 0; i < finalOrder.length; i++) {
+        if (!finalOrder[i]) finalOrder[i] = unlockedInOrder[u++];
+    }
+
+    // Only touch the DOM if something needs to change
+    const needsRestore = finalOrder.some((c, i) => c !== current[i]);
+    if (needsRestore) {
+        finalOrder.forEach(c => timelineEl.appendChild(c));
+    }
 }
 
 // First or second submit attempt
@@ -314,6 +352,17 @@ function checkAttempt() {
             // state stays in current visual order; locked items keep their position
             state = currentOrderIds.map(id => data.find(d => d.id === id));
             render();
+
+            // Snapshot the DOM index of every locked card. These slots are the
+            // anchors for attempt 2 — locked cards must always end up at exactly
+            // these positions after any drag.
+            lockedPositions.clear();
+            [...document.getElementById("timeline").children].forEach((card, idx) => {
+                if (card.classList.contains("locked")) {
+                    lockedPositions.set(parseInt(card.dataset.id), idx);
+                }
+            });
+
             btn.disabled = false;
             btn.innerText = "Submit Final Timeline";
         }, 1400);
@@ -333,6 +382,14 @@ function checkAttempt() {
 
 function finalize(results, perfectFirstTry) {
     document.getElementById("submit-btn").style.display = "none";
+
+    // Clear locked-position anchoring and tear down Sortable so the chronological
+    // reorder animation can freely move cards into their final positions.
+    lockedPositions.clear();
+    if (sortableInstance) {
+        sortableInstance.destroy();
+        sortableInstance = null;
+    }
 
     // A card is "still wrong" only if the user never got it right —
     // i.e. it's incorrect in the final results. Cards fixed on attempt 2 are NOT in this set.
