@@ -39,6 +39,8 @@
     --correct-text: #ffffff;
     --incorrect-bg: #e35252;
     --incorrect-text: #ffffff;
+    --locked-bg: #b8d4b3;
+    --locked-text: #1a3a17;
     --font-serif: "Imperial", Georgia, serif;
     --font-sans: "Franklin Standard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -53,6 +55,9 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 .subtitle { font-family: var(--font-sans); color: var(--text-muted); font-size: 14px; letter-spacing: 0.2px; }
 .date-line { font-family: var(--font-sans); color: var(--text-muted); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-top: 8px; }
 
+.attempt-banner { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+.attempt-banner .pill { display: inline-block; padding: 4px 10px; border-radius: 12px; background-color: var(--card-bg); border: 1px solid var(--nyt-line); }
+
 .board-wrapper { display: flex; flex-direction: row; gap: 16px; margin-bottom: 24px; }
 .axis-column { display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: 60px; flex-shrink: 0; padding-top: 20px; padding-bottom: 20px; }
 .axis-label-text { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); text-align: center; }
@@ -61,6 +66,16 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 .timeline { flex-grow: 1; display: flex; flex-direction: column; gap: 10px; }
 .item { background-color: #ffffff; border: 1px solid var(--nyt-line); border-radius: 6px; padding: 16px; display: flex; justify-content: space-between; align-items: center; cursor: grab; user-select: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease, border-color 0.3s ease, filter 0.2s ease; }
 .item.dragging { opacity: 0.4; transform: scale(0.98); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+/* Locked-in (correct on first try) — keep visible but not draggable */
+.item.locked {
+    background-color: var(--locked-bg);
+    border-color: var(--locked-bg);
+    color: var(--locked-text);
+    cursor: not-allowed;
+}
+.item.locked .drag-handle span { background-color: var(--locked-text); opacity: 0.5; }
+.lock-badge { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.8; margin-top: 2px; }
 
 /* Mobile-only: fill the screen, cards stretch to fill space between header and button */
 @media (max-width: 600px) {
@@ -105,21 +120,75 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 
 .action-btn { width: 100%; background-color: transparent; color: var(--text-main); border: 1px solid var(--text-main); border-radius: 24px; padding: 14px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
 .action-btn:hover:not(:disabled) { background-color: var(--nyt-dark); color: #ffffff; }
+.action-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .result-panel { display: none; margin-top: 28px; padding: 24px; background-color: var(--card-bg); border-radius: 8px; text-align: center; border: 1px solid var(--nyt-line); }
 .result-heading { font-family: var(--font-serif); font-size: 22px; font-weight: 700; margin-bottom: 8px; }
 .score-display { font-size: 15px; color: var(--text-muted); margin-bottom: 16px; }
 
-.visual-grid { display: flex; justify-content: center; gap: 6px; margin-bottom: 24px; }
-.grid-block { width: 24px; height: 24px; border-radius: 4px; }
+/* Single chronological grid — squares match the order of the final board (oldest → newest).
+   Green = you got it right (either attempt), red = you missed it. */
+.result-grid { display: flex; justify-content: center; gap: 6px; margin-bottom: 14px; }
+.grid-block { width: 26px; height: 26px; border-radius: 4px; }
 .grid-block.correct { background-color: var(--correct-bg); }
 .grid-block.incorrect { background-color: var(--incorrect-bg); }
+
+.summary-line { font-size: 13px; color: var(--text-muted); margin-bottom: 22px; line-height: 1.5; }
+.summary-line strong { color: var(--text-main); font-weight: 600; }
 
 .helper-callout { display: flex; align-items: center; gap: 12px; background-color: #f1f8ff; border: 1px solid #cce5ff; color: #004085; padding: 14px 16px; border-radius: 8px; font-size: 14px; margin-bottom: 24px; text-align: left; line-height: 1.4; }
 .helper-emoji { font-size: 20px; flex-shrink: 0; }
 
 .item.eval-correct { background-color: var(--correct-bg) !important; color: var(--correct-text) !important; border-color: var(--correct-bg) !important; }
 .item.eval-incorrect { background-color: var(--incorrect-bg) !important; color: var(--incorrect-text) !important; border-color: var(--incorrect-bg) !important; }
+
+/* Streak pill in the header — quietly persistent reminder */
+.streak-pill {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    margin-top: 10px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--nyt-line);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: 0.3px;
+}
+.streak-pill.visible { display: inline-flex; }
+.streak-pill .flame { font-size: 13px; line-height: 1; }
+
+/* Streak announcement inside the result panel — the celebration moment */
+.streak-announce {
+    display: none;
+    margin: 0 auto 16px;
+    padding: 10px 16px;
+    border-radius: 24px;
+    background-color: #fff4e6;
+    border: 1px solid #ffd9a8;
+    color: #8a4a00;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    width: fit-content;
+    max-width: 100%;
+}
+.streak-announce.visible { display: block; }
+.streak-announce.milestone {
+    background-color: #fff;
+    border: 2px solid #ff9500;
+    color: #b85c00;
+    font-family: var(--font-serif);
+    font-size: 18px;
+    padding: 12px 22px;
+}
+
+/* Animation when cards get reordered into correct sequence */
+.item.reordering { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
 </style>
 </head>
 
@@ -129,7 +198,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
         <h1>Chronl</h1>
         <div class="subtitle">Organize history from past to present</div>
         <div class="date-line" id="date-line"></div>
+        <div class="streak-pill" id="streak-pill"><span class="flame">🔥</span><span id="streak-pill-count"></span></div>
     </header>
+
+    <div class="attempt-banner" id="attempt-banner">
+        <span class="pill">Attempt 1 of 2</span>
+    </div>
 
     <div class="board-wrapper">
         <div class="axis-column">
@@ -140,12 +214,15 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
         <div id="timeline" class="timeline"></div>
     </div>
 
-    <button id="submit-btn" class="action-btn" onclick="lockIn()">Submit Timeline</button>
+    <button id="submit-btn" class="action-btn" onclick="checkAttempt()">Submit Timeline</button>
 
     <div class="result-panel" id="result-panel">
         <div class="result-heading" id="result-title"></div>
         <div class="score-display" id="score-text"></div>
-        <div id="visual-grid" class="visual-grid"></div>
+
+        <div class="result-grid" id="result-grid"></div>
+        <div class="summary-line" id="summary-line"></div>
+        <div class="streak-announce" id="streak-announce"></div>
 
         <div class="helper-callout">
             <div class="helper-emoji">💡</div>
@@ -180,6 +257,118 @@ function formatYear(y) {
     return y + " AD";
 }
 
+// ===== STREAK SYSTEM =====
+// Counts consecutive days the user finished a puzzle.
+// Stored in localStorage, scoped to this browser on this device.
+// Recorded once per game, in finalize() — so a perfect first try and a
+// two-attempt finish both count exactly once.
+const STREAK_KEY = "chronl_streak_v1";
+
+// Get the user's local date as "YYYY-MM-DD" so timezones behave.
+function localDateStr(d) {
+    d = d || new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+}
+
+function yesterdayStr() {
+    const d = new Date();
+    d.setDate(d.getDate() - 1);
+    return localDateStr(d);
+}
+
+function readStreak() {
+    try {
+        const raw = localStorage.getItem(STREAK_KEY);
+        if (!raw) return { lastPlayDate: null, currentStreak: 0 };
+        const parsed = JSON.parse(raw);
+        return {
+            lastPlayDate: parsed.lastPlayDate || null,
+            currentStreak: Number(parsed.currentStreak) || 0
+        };
+    } catch (e) {
+        return { lastPlayDate: null, currentStreak: 0 };
+    }
+}
+
+function writeStreak(s) {
+    try {
+        localStorage.setItem(STREAK_KEY, JSON.stringify(s));
+    } catch (e) { /* private mode etc — fail silently */ }
+}
+
+// Called once when finalize() runs. Returns updated streak state plus a
+// `change` flag: "same" | "continued" | "started" | "reset"
+function recordPlay() {
+    const today = localDateStr();
+    const yesterday = yesterdayStr();
+    const s = readStreak();
+
+    let change;
+    if (s.lastPlayDate === today) {
+        change = "same"; // already counted today (refresh / replay safety)
+    } else if (s.lastPlayDate === yesterday) {
+        s.currentStreak += 1;
+        s.lastPlayDate = today;
+        change = "continued";
+    } else if (s.lastPlayDate === null) {
+        s.currentStreak = 1;
+        s.lastPlayDate = today;
+        change = "started";
+    } else {
+        s.currentStreak = 1;
+        s.lastPlayDate = today;
+        change = "reset";
+    }
+
+    writeStreak(s);
+    return { streak: s.currentStreak, change };
+}
+
+// Render the small streak pill in the header. Shows only if the streak
+// is "alive" — played today or yesterday. Stale streaks stay hidden.
+function renderHeaderStreak() {
+    const s = readStreak();
+    const today = localDateStr();
+    const yesterday = yesterdayStr();
+    const isAlive = s.currentStreak >= 1 && (s.lastPlayDate === today || s.lastPlayDate === yesterday);
+    const pill = document.getElementById("streak-pill");
+    if (isAlive) {
+        document.getElementById("streak-pill-count").innerText = s.currentStreak;
+        pill.classList.add("visible");
+    } else {
+        pill.classList.remove("visible");
+    }
+}
+
+// Show the streak announcement inside the result panel.
+function showStreakAnnounce(streak, change) {
+    const el = document.getElementById("streak-announce");
+    const milestones = [7, 30, 50, 100, 365];
+    let text = "";
+    let isMilestone = false;
+
+    if (milestones.includes(streak) && change === "continued") {
+        // Milestones get the bigger serif treatment, but only on the day they're hit
+        isMilestone = true;
+        if (streak === 7) text = `🔥 ${streak} DAYS — One week!`;
+        else if (streak === 30) text = `🔥 ${streak} DAYS — One month!`;
+        else if (streak === 365) text = `🔥 ${streak} DAYS — One year!`;
+        else text = `🔥 ${streak} DAYS`;
+    } else {
+        // Everything else: same pattern, always. Day 1 = "1-day streak", day 5 = "5-day streak", etc.
+        text = `🔥 ${streak}-day streak`;
+    }
+
+    el.innerText = text;
+    el.classList.toggle("milestone", isMilestone);
+    el.classList.add("visible");
+}
+// =========================
+
+
 // Shuffle, but make sure it's not already in the correct order
 function shuffleData() {
     const correctIds = [...data].sort((a, b) => a.year - b.year).map(d => d.id);
@@ -191,7 +380,14 @@ function shuffleData() {
 }
 
 let state = shuffleData();
+let attemptNumber = 1;
+let lockedIds = new Set();              // ids correct on attempt 1, frozen in place
+let firstAttemptResults = [];           // array of {id, correct} in attempt-1 visual order
+let secondAttemptResults = [];          // array of {id, correct} in attempt-2 visual order
 let shareString = "";
+let sortableInstance = null;
+
+const correctOrder = [...data].sort((a, b) => a.year - b.year);
 
 function render() {
     const el = document.getElementById("timeline");
@@ -202,11 +398,16 @@ function render() {
         d.className = "item";
         d.dataset.id = item.id;
 
+        if (lockedIds.has(item.id)) {
+            d.classList.add("locked");
+        }
+
         d.innerHTML = `
             <div class="card-content">
                 <span class="emoji">${item.emoji}</span>
                 <div class="text-block">
                     <span class="text">${item.event}</span>
+                    ${lockedIds.has(item.id) ? '<span class="lock-badge">✓ Locked in</span>' : ''}
                 </div>
             </div>
             <div class="drag-handle">
@@ -217,58 +418,334 @@ function render() {
         el.appendChild(d);
     });
 
-    new Sortable(el, {
+    if (sortableInstance) sortableInstance.destroy();
+    sortableInstance = new Sortable(el, {
         animation: 150,
-        ghostClass: "dragging"
+        ghostClass: "dragging",
+        // Only unlocked cards are draggable — locked cards can't be picked up.
+        draggable: ".item:not(.locked)",
+        // After every drag, force locked cards back to their captured DOM indices.
+        // SortableJS can still displace locked cards as neighbors during a swap,
+        // so we restore them as a backstop.
+        onEnd: function () {
+            restoreLockedPositions();
+        }
     });
 }
 
-function lockIn() {
-    document.getElementById("submit-btn").disabled = true;
-    const correctOrder = [...data].sort((a, b) => a.year - b.year);
+// Captured at the start of attempt 2 — maps locked id → its DOM index in the timeline.
+// Locked cards must always sit at exactly these indices.
+let lockedPositions = new Map();
+
+// If any locked card has drifted from its captured slot, snap it back. Unlocked
+// cards keep their current relative order and fill the remaining slots.
+function restoreLockedPositions() {
+    if (lockedPositions.size === 0) return;
+    const timelineEl = document.getElementById("timeline");
+    const current = [...timelineEl.children];
+    const unlockedInOrder = current.filter(c => !c.classList.contains("locked"));
+    const finalOrder = new Array(current.length);
+
+    // Pin locked cards at their captured indices
+    lockedPositions.forEach((idx, id) => {
+        const card = current.find(c => parseInt(c.dataset.id) === id);
+        if (card) finalOrder[idx] = card;
+    });
+
+    // Fill the remaining slots with unlocked cards in their current relative order
+    let u = 0;
+    for (let i = 0; i < finalOrder.length; i++) {
+        if (!finalOrder[i]) finalOrder[i] = unlockedInOrder[u++];
+    }
+
+    // Only touch the DOM if something needs to change
+    const needsRestore = finalOrder.some((c, i) => c !== current[i]);
+    if (needsRestore) {
+        finalOrder.forEach(c => timelineEl.appendChild(c));
+    }
+}
+
+// First or second submit attempt
+function checkAttempt() {
+    const cards = [...document.querySelectorAll(".item")];
+    const currentOrderIds = cards.map(c => parseInt(c.dataset.id));
+
+    // Evaluate each card against the correct position
+    const results = currentOrderIds.map((id, index) => ({
+        id,
+        correct: id === correctOrder[index].id
+    }));
+
+    if (attemptNumber === 1) {
+        firstAttemptResults = results;
+        const allCorrect = results.every(r => r.correct);
+
+        if (allCorrect) {
+            // Perfect first attempt — go straight to final result
+            finalize(results, true);
+            return;
+        }
+
+        // Lock in the correct ones, briefly flash incorrect ones red, then reset for attempt 2
+        cards.forEach((card, i) => {
+            if (results[i].correct) {
+                card.classList.add("eval-correct");
+                lockedIds.add(results[i].id);
+            } else {
+                card.classList.add("eval-incorrect");
+            }
+        });
+
+        // Update banner
+        const correctCount = results.filter(r => r.correct).length;
+        document.getElementById("attempt-banner").innerHTML =
+            `<span class="pill">Attempt 2 of 2 · ${correctCount}/${data.length} locked in</span>`;
+
+        const btn = document.getElementById("submit-btn");
+        btn.disabled = true;
+        btn.innerText = "Try the rest...";
+
+        // After a moment, clear the red flashes and re-enable dragging for unlocked cards
+        setTimeout(() => {
+            attemptNumber = 2;
+            // state stays in current visual order; locked items keep their position
+            state = currentOrderIds.map(id => data.find(d => d.id === id));
+            render();
+
+            // Snapshot the DOM index of every locked card. These slots are the
+            // anchors for attempt 2 — locked cards must always end up at exactly
+            // these positions after any drag.
+            lockedPositions.clear();
+            [...document.getElementById("timeline").children].forEach((card, idx) => {
+                if (card.classList.contains("locked")) {
+                    lockedPositions.set(parseInt(card.dataset.id), idx);
+                }
+            });
+
+            btn.disabled = false;
+            btn.innerText = "Submit Final Timeline";
+        }, 1400);
+
+    } else {
+        // Second attempt — final.
+        // Locked-in cards from attempt 1 are always correct (they couldn't move),
+        // so preserve their green status regardless of where they ended up in the
+        // visual order after other cards shifted around them.
+        const finalResults = results.map(r =>
+            lockedIds.has(r.id) ? { id: r.id, correct: true } : r
+        );
+        secondAttemptResults = finalResults;
+        finalize(finalResults, false);
+    }
+}
+
+function finalize(results, perfectFirstTry) {
+    document.getElementById("submit-btn").style.display = "none";
+
+    // Clear locked-position anchoring and tear down Sortable so the chronological
+    // reorder animation can freely move cards into their final positions.
+    lockedPositions.clear();
+    if (sortableInstance) {
+        sortableInstance.destroy();
+        sortableInstance = null;
+    }
+
+    // A card is "still wrong" only if the user never got it right —
+    // i.e. it's incorrect in the final results. Cards fixed on attempt 2 are NOT in this set.
+    const stillWrongIds = new Set(results.filter(r => !r.correct).map(r => r.id));
+
     const cards = [...document.querySelectorAll(".item")];
 
-    let correctCount = 0;
-    let gridHTML = "";
-   shareString = "Today's Chronl History Puzzle - Tetris to Tesla Edition:\n";
-
-    cards.forEach((card, index) => {
-        const item = data.find(d => d.id == card.dataset.id);
-        const isCorrect = (item.id === correctOrder[index].id);
-
-        card.classList.add(isCorrect ? "eval-correct" : "eval-incorrect");
-        card.style.cursor = "pointer";
-        card.onclick = () => window.open(item.wiki, '_blank');
-
-        // Reveal the year on each card
-        const textBlock = card.querySelector('.text-block');
-        const yearEl = document.createElement('span');
-        yearEl.className = 'year-reveal';
-        yearEl.innerText = formatYear(item.year);
-        textBlock.appendChild(yearEl);
-
-        // Swap drag handle for an external-link icon
-        const handle = card.querySelector('.drag-handle');
-        handle.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
-
-        gridHTML += `<div class="grid-block ${isCorrect ? 'correct' : 'incorrect'}"></div>`;
-        shareString += isCorrect ? "🟩" : "🟥";
-        if(isCorrect) correctCount++;
+    // First, color cards based on whether they ended up wrong
+    cards.forEach(card => {
+        const id = parseInt(card.dataset.id);
+        card.classList.remove("eval-correct", "eval-incorrect", "locked");
+        if (stillWrongIds.has(id)) {
+            card.classList.add("eval-incorrect");
+        } else {
+            card.classList.add("eval-correct");
+        }
     });
+
+    // === Build the chronological result grid + summary ===
+    // The grid reads in chronological order (oldest → newest), matching the final board.
+    // Each square: green if the user ever placed it correctly, red if they never did.
+    // This is the same color as the card above, so the squares and the board agree.
+    const lockedCount = lockedIds.size;                             // got right on attempt 1
+    const fixedCount = perfectFirstTry
+        ? 0
+        : results.filter(r => r.correct).length - lockedCount;      // got right on attempt 2
+    const missedCount = data.length - lockedCount - fixedCount;
+    const correctCount = lockedCount + fixedCount;
+
+    // Build the on-screen grid in chronological order
+    const gridEl = document.getElementById("result-grid");
+    gridEl.innerHTML = "";
+    correctOrder.forEach(item => {
+        const block = document.createElement("div");
+        const isCorrect = !stillWrongIds.has(item.id);
+        block.className = `grid-block ${isCorrect ? 'correct' : 'incorrect'}`;
+        gridEl.appendChild(block);
+    });
+
+    // Summary line
+    const summaryEl = document.getElementById("summary-line");
+    if (perfectFirstTry) {
+        summaryEl.innerHTML = `<strong>All ${data.length} correct on your first try.</strong> ✨`;
+    } else {
+        const parts = [];
+        if (lockedCount > 0) parts.push(`<strong>${lockedCount}</strong> on first try`);
+        if (fixedCount > 0) parts.push(`<strong>${fixedCount}</strong> fixed on second`);
+        if (missedCount > 0) parts.push(`<strong>${missedCount}</strong> missed`);
+        summaryEl.innerHTML = parts.join(" · ");
+    }
+
+    // Build the shareable text — chronological grid matching the on-screen result
+    shareString = "Today's Chronl History Puzzle - Tetris to Tesla Edition:\n";
+    correctOrder.forEach(item => {
+        shareString += stillWrongIds.has(item.id) ? "🟥" : "🟩";
+    });
+
+    // Record this play toward the streak and update the UI
+    const streakResult = recordPlay();
+    showStreakAnnounce(streakResult.streak, streakResult.change);
+    renderHeaderStreak();
+
+    // Bake the streak into the share string (subtle flex, no explanation needed)
+    if (streakResult.streak >= 1) {
+        shareString += ` 🔥${streakResult.streak}`;
+    }
 
     shareString += "\n\nSee if you can beat me here: " + window.location.href;
 
-    let performanceTitle = "Keep Studying!";
-    if (correctCount === data.length) performanceTitle = "Perfect Chronology!";
-    else if (correctCount >= data.length / 2) performanceTitle = "Splendid Record!";
+    // Result title
+    let performanceTitle;
+    if (perfectFirstTry) {
+        performanceTitle = "Perfect Chronology!";
+    } else if (correctCount === data.length) {
+        performanceTitle = "Got there in the end!";
+    } else if (correctCount >= data.length / 2) {
+        performanceTitle = "Splendid Record!";
+    } else {
+        performanceTitle = "Keep Studying!";
+    }
 
     document.getElementById("result-title").innerText = performanceTitle;
-    document.getElementById("score-text").innerText =
-        `You correctly placed ${correctCount} out of ${data.length} historical landmarks.`;
-    document.getElementById("visual-grid").innerHTML = gridHTML;
+    document.getElementById("score-text").innerText = perfectFirstTry
+        ? `You correctly placed all ${data.length} landmarks on your first try!`
+        : `Final score: ${correctCount} out of ${data.length} correctly placed.`;
+
     document.querySelector(".game-container").classList.add("results-shown");
     document.getElementById("result-panel").style.display = "block";
-    document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth' });
+
+    // Hide the attempt banner now that the game is over
+    document.getElementById("attempt-banner").style.display = "none";
+
+    // Animate cards into the correct chronological order so the user can see it clearly
+    if (!perfectFirstTry) {
+        setTimeout(() => animateToCorrectOrder(stillWrongIds), 600);
+    } else {
+        // Perfect first try — already in correct order
+        attachWikiLinks();
+        revealYears();
+        document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Use FLIP animation to slide cards into the correct chronological order
+function animateToCorrectOrder(stillWrongIds) {
+    const timelineEl = document.getElementById("timeline");
+    const cards = [...timelineEl.querySelectorAll(".item")];
+
+    // 1. Record starting positions
+    const firstRects = new Map();
+    cards.forEach(c => firstRects.set(c.dataset.id, c.getBoundingClientRect()));
+
+    // 2. Reorder DOM into correct chronological order
+    correctOrder.forEach(item => {
+        const card = cards.find(c => parseInt(c.dataset.id) === item.id);
+        timelineEl.appendChild(card);
+    });
+
+    // 3. After reorder, recolor cards based on whether the user ever got them right.
+    //    Cards still wrong at the end stay red — so the user can see what they missed
+    //    even though the board is now in correct chronological order. Cards fixed on
+    //    attempt 2 are green.
+    const reorderedCards = [...timelineEl.querySelectorAll(".item")];
+    reorderedCards.forEach(card => {
+        const id = parseInt(card.dataset.id);
+        card.classList.remove("eval-correct", "eval-incorrect");
+        if (stillWrongIds.has(id)) {
+            card.classList.add("eval-incorrect");
+        } else {
+            card.classList.add("eval-correct");
+        }
+    });
+
+    // 4. Compute new positions and apply inverse transform
+    reorderedCards.forEach(card => {
+        const lastRect = card.getBoundingClientRect();
+        const firstRect = firstRects.get(card.dataset.id);
+        const deltaY = firstRect.top - lastRect.top;
+
+        if (deltaY !== 0) {
+            card.style.transform = `translateY(${deltaY}px)`;
+            card.style.transition = "none";
+        }
+    });
+
+    // 5. Force reflow, then animate to identity
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            reorderedCards.forEach(card => {
+                card.classList.add("reordering");
+                card.style.transition = "";
+                card.style.transform = "";
+            });
+        });
+    });
+
+    // 6. After the animation, reveal years + wiki links and scroll the result panel into view
+    setTimeout(() => {
+        reorderedCards.forEach(card => {
+            card.classList.remove("reordering");
+            card.style.transform = "";
+        });
+        revealYears();
+        attachWikiLinks();
+        document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth' });
+    }, 800);
+}
+
+function revealYears() {
+    [...document.querySelectorAll(".item")].forEach(card => {
+        const item = data.find(d => d.id == card.dataset.id);
+        const textBlock = card.querySelector('.text-block');
+        // Remove any lingering lock badge
+        const badge = textBlock.querySelector('.lock-badge');
+        if (badge) badge.remove();
+        // Only add the year if it isn't already there
+        if (!textBlock.querySelector('.year-reveal')) {
+            const yearEl = document.createElement('span');
+            yearEl.className = 'year-reveal';
+            yearEl.innerText = formatYear(item.year);
+            textBlock.appendChild(yearEl);
+        }
+    });
+}
+
+function attachWikiLinks() {
+    [...document.querySelectorAll(".item")].forEach(card => {
+        const item = data.find(d => d.id == card.dataset.id);
+        card.style.cursor = "pointer";
+        card.onclick = () => window.open(item.wiki, '_blank');
+
+        // Swap drag handle for an external-link icon
+        const handle = card.querySelector('.drag-handle');
+        if (handle && !handle.querySelector('svg')) {
+            handle.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
+        }
+    });
 }
 
 function copyResults() {
@@ -281,6 +758,7 @@ function copyResults() {
 }
 
 render();
+renderHeaderStreak();
 </script>
 </body>
 </html>
