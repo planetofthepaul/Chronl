@@ -160,12 +160,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🐑", event:"Dolly the sheep cloned", year:1996, wiki:"https://en.wikipedia.org/wiki/Dolly_(sheep)"},
-    {id:2, emoji:"💿", event:"Napster launches", year:1999, wiki:"https://en.wikipedia.org/wiki/Napster"},
-    {id:3, emoji:"📺", event:"Survivor premieres on CBS", year:2000, wiki:"https://en.wikipedia.org/wiki/Survivor_(American_TV_series)"},
-    {id:4, emoji:"📱", event:"BlackBerry phone released", year:2002, wiki:"https://en.wikipedia.org/wiki/BlackBerry"},
-    {id:5, emoji:"🎵", event:"iTunes Store opens", year:2003, wiki:"https://en.wikipedia.org/wiki/ITunes_Store"},
-    {id:6, emoji:"📘", event:"Facebook launches at Harvard", year:2004, wiki:"https://en.wikipedia.org/wiki/History_of_Facebook"}
+    {id:1, emoji:"🎮", event:"Tetris released in North America", year:1989, wiki:"https://en.wikipedia.org/wiki/Tetris"},
+    {id:2, emoji:"🏛️", event:"Nelson Mandela released from prison", year:1990, wiki:"https://en.wikipedia.org/wiki/Nelson_Mandela"},
+    {id:3, emoji:"🎭", event:"The Lion King premieres in theaters", year:1994, wiki:"https://en.wikipedia.org/wiki/The_Lion_King"},
+    {id:4, emoji:"🌐", event:"Google founded by Page and Brin", year:1998, wiki:"https://en.wikipedia.org/wiki/History_of_Google"},
+    {id:5, emoji:"🎬", event:"Fellowship of the Ring film released", year:2001, wiki:"https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Fellowship_of_the_Ring"},
+    {id:6, emoji:"🚗", event:"Tesla Roadster released", year:2008, wiki:"https://en.wikipedia.org/wiki/Tesla_Roadster_(first_generation)"}
 ];
 // ==========================
 
@@ -230,7 +230,7 @@ function lockIn() {
 
     let correctCount = 0;
     let gridHTML = "";
-   shareString = "Today's Chronl History Puzzle - Turn of the Millennium Edition:\n";
+   shareString = "Today's Chronl History Puzzle - Tetris to Tesla Edition:\n";
 
     cards.forEach((card, index) => {
         const item = data.find(d => d.id == card.dataset.id);
