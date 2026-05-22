@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ 
+  <!-- Favicons & home screen icons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#121212">
+<meta name="apple-mobile-web-app-title" content="Chronl">
+<meta name="application-name" content="Chronl">
+  
+<title>Chronl — A Daily History Puzzle</title>
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-t_vbjTf4hFMPaLpLuH51O.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+
+<!-- Mobile-friendly drag reorder -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+<style>
+:root {
+    --bg: #ffffff;
+    --card-bg: #f8f9fa;
+    --text-main: #121212;
+    --text-muted: #5a5a5a;
+    --nyt-line: #e2e2e2;
+    --nyt-dark: #121212;
+    --correct-bg: #6aaa64;
+    --correct-text: #ffffff;
+    --incorrect-bg: #e35252;
+    --incorrect-text: #ffffff;
+    --locked-bg: #b8d4b3;
+    --locked-text: #1a3a17;
+    --font-serif: "Imperial", Georgia, serif;
+    --font-sans: "Franklin Standard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); background-color: var(--bg); color: var(--text-main); display: flex; justify-content: center; padding: 0 16px; -webkit-font-smoothing: antialiased; }
+
+.game-container { width: 100%; max-width: 500px; margin-top: 24px; margin-bottom: 40px; display: flex; flex-direction: column; }
+
+header { text-align: center; border-bottom: 1px solid var(--nyt-line); padding-bottom: 16px; margin-bottom: 24px; }
+h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-spacing: -0.5px; color: var(--text-main); margin-bottom: 4px; }
+.subtitle { font-family: var(--font-sans); color: var(--text-muted); font-size: 14px; letter-spacing: 0.2px; }
+.date-line { font-family: var(--font-sans); color: var(--text-muted); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-top: 8px; }
+
+.attempt-banner { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+.attempt-banner .pill { display: inline-block; padding: 4px 10px; border-radius: 12px; background-color: var(--card-bg); border: 1px solid var(--nyt-line); }
+
+.board-wrapper { display: flex; flex-direction: row; gap: 16px; margin-bottom: 24px; }
+.axis-column { display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: 60px; flex-shrink: 0; padding-top: 20px; padding-bottom: 20px; }
+.axis-label-text { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); text-align: center; }
+.axis-line { flex-grow: 1; width: 1px; background-color: #bcbcbc; margin: 12px 0; }
+
+.timeline { flex-grow: 1; display: flex; flex-direction: column; gap: 10px; }
+.item { background-color: #ffffff; border: 1px solid var(--nyt-line); border-radius: 6px; padding: 16px; display: flex; justify-content: space-between; align-items: center; cursor: grab; user-select: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease, border-color 0.3s ease, filter 0.2s ease; }
+.item.dragging { opacity: 0.4; transform: scale(0.98); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+/* Locked-in (correct on first try) — keep visible but not draggable */
+.item.locked {
+    background-color: var(--locked-bg);
+    border-color: var(--locked-bg);
+    color: var(--locked-text);
+    cursor: not-allowed;
+}
+.item.locked .drag-handle span { background-color: var(--locked-text); opacity: 0.5; }
+.lock-badge { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.8; margin-top: 2px; }
+
+/* Mobile-only: fill the screen, cards stretch to fill space between header and button */
+@media (max-width: 600px) {
+    html, body { height: 100%; }
+    body { padding: 0 16px; }
+    .game-container {
+        min-height: 100dvh;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    /* Before results appear, lock the container to viewport height so cards fill the screen */
+    .game-container:not(.results-shown) { height: 100dvh; }
+
+    header { padding-bottom: 12px; margin-bottom: 14px; flex-shrink: 0; }
+    h1 { font-size: 30px; }
+    .board-wrapper {
+        flex: 1 1 auto;
+        min-height: 0;
+        margin-bottom: 14px;
+    }
+    .axis-column { padding-top: 10px; padding-bottom: 10px; }
+    .timeline { gap: 8px; min-height: 0; }
+    .item { flex: 1 1 0; min-height: 0; padding: 10px 14px; }
+    #submit-btn { flex-shrink: 0; }
+
+    /* After results show, let the page expand and become scrollable so the result panel has room */
+    .game-container.results-shown { height: auto; }
+    .game-container.results-shown .board-wrapper { flex: 0 0 auto; }
+    .game-container.results-shown .item { flex: 0 0 auto; }
+}
+
+.card-content { display: flex; align-items: center; gap: 12px; flex-grow: 1; }
+.emoji { font-size: 20px; flex-shrink: 0; }
+.text-block { display: flex; flex-direction: column; gap: 2px; }
+.text { font-size: 16px; font-weight: 500; letter-spacing: -0.2px; }
+.year-reveal { font-size: 12px; font-weight: 600; opacity: 0.9; letter-spacing: 0.3px; }
+
+.drag-handle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; width: 20px; height: 20px; }
+.drag-handle span { height: 2px; background-color: #bcbcbc; width: 12px; border-radius: 1px; }
+
+.action-btn { width: 100%; background-color: transparent; color: var(--text-main); border: 1px solid var(--text-main); border-radius: 24px; padding: 14px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
+.action-btn:hover:not(:disabled) { background-color: var(--nyt-dark); color: #ffffff; }
+.action-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.result-panel { display: none; margin-top: 28px; padding: 24px; background-color: var(--card-bg); border-radius: 8px; text-align: center; border: 1px solid var(--nyt-line); }
+.result-heading { font-family: var(--font-serif); font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.score-display { font-size: 15px; color: var(--text-muted); margin-bottom: 16px; }
+
+.visual-grid { display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; }
+.grid-row { display: flex; gap: 6px; }
+.grid-row-label { font-size: 11px; color: var(--text-muted); margin-right: 8px; align-self: center; min-width: 60px; text-align: right; font-weight: 600; letter-spacing: 0.5px; }
+.grid-block { width: 24px; height: 24px; border-radius: 4px; }
+.grid-block.correct { background-color: var(--correct-bg); }
+.grid-block.incorrect { background-color: var(--incorrect-bg); }
+
+.attempts-grid { display: flex; flex-direction: column; gap: 6px; align-items: center; margin-bottom: 24px; }
+.attempt-row { display: flex; align-items: center; gap: 6px; }
+
+.helper-callout { display: flex; align-items: center; gap: 12px; background-color: #f1f8ff; border: 1px solid #cce5ff; color: #004085; padding: 14px 16px; border-radius: 8px; font-size: 14px; margin-bottom: 24px; text-align: left; line-height: 1.4; }
+.helper-emoji { font-size: 20px; flex-shrink: 0; }
+
+.item.eval-correct { background-color: var(--correct-bg) !important; color: var(--correct-text) !important; border-color: var(--correct-bg) !important; }
+.item.eval-incorrect { background-color: var(--incorrect-bg) !important; color: var(--incorrect-text) !important; border-color: var(--incorrect-bg) !important; }
+
+/* Animation when cards get reordered into correct sequence */
+.item.reordering { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+</style>
+</head>
+
+<body>
+<div class="game-container">
+    <header>
+        <h1>Chronl</h1>
+        <div class="subtitle">Organize history from past to present</div>
+        <div class="date-line" id="date-line"></div>
+    </header>
+
+    <div class="attempt-banner" id="attempt-banner">
+        <span class="pill">Attempt 1 of 2</span>
+    </div>
+
+    <div class="board-wrapper">
+        <div class="axis-column">
+            <div class="axis-label-text">Oldest</div>
+            <div class="axis-line"></div>
+            <div class="axis-label-text">Newest</div>
+        </div>
+        <div id="timeline" class="timeline"></div>
+    </div>
+
+    <button id="submit-btn" class="action-btn" onclick="checkAttempt()">Submit Timeline</button>
+
+    <div class="result-panel" id="result-panel">
+        <div class="result-heading" id="result-title"></div>
+        <div class="score-display" id="score-text"></div>
+
+        <div class="attempts-grid" id="attempts-grid"></div>
+
+        <div class="helper-callout">
+            <div class="helper-emoji">💡</div>
+            <div><strong>Keep exploring:</strong> Tap any historical event on the board above to read its full Wikipedia article.</div>
+        </div>
+
+        <button class="action-btn" id="copy-btn" onclick="copyResults()">Copy Results</button>
+    </div>
+</div>
+
+<script>
+// ===== TODAY'S PUZZLE =====
+// To change the puzzle, replace this `data` array with one of your saved batches.
+const data = [
+    {id:1, emoji:"🎮", event:"Tetris released in North America", year:1989, wiki:"https://en.wikipedia.org/wiki/Tetris"},
+    {id:2, emoji:"🏛️", event:"Nelson Mandela released from prison", year:1990, wiki:"https://en.wikipedia.org/wiki/Nelson_Mandela"},
+    {id:3, emoji:"🎭", event:"The Lion King premieres in theaters", year:1994, wiki:"https://en.wikipedia.org/wiki/The_Lion_King"},
+    {id:4, emoji:"🌐", event:"Google founded by Page and Brin", year:1998, wiki:"https://en.wikipedia.org/wiki/History_of_Google"},
+    {id:5, emoji:"🎬", event:"Fellowship of the Ring film released", year:2001, wiki:"https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Fellowship_of_the_Ring"},
+    {id:6, emoji:"🚗", event:"Tesla Roadster released", year:2008, wiki:"https://en.wikipedia.org/wiki/Tesla_Roadster_(first_generation)"}
+];
+// ==========================
+
+// Show today's date in the header
+document.getElementById("date-line").innerText = new Date().toLocaleDateString(undefined, {
+    weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+});
+
+// Format a year as "3000 BC" or "1969 AD"
+function formatYear(y) {
+    if (y < 0) return Math.abs(y) + " BC";
+    return y + " AD";
+}
+
+// Shuffle, but make sure it's not already in the correct order
+function shuffleData() {
+    const correctIds = [...data].sort((a, b) => a.year - b.year).map(d => d.id);
+    let shuffled;
+    do {
+        shuffled = [...data].sort(() => Math.random() - 0.5);
+    } while (shuffled.every((item, i) => item.id === correctIds[i]));
+    return shuffled;
+}
+
+let state = shuffleData();
+let attemptNumber = 1;
+let lockedIds = new Set();              // ids correct on attempt 1, frozen in place
+let firstAttemptResults = [];           // array of {id, correct} in attempt-1 visual order
+let secondAttemptResults = [];          // array of {id, correct} in attempt-2 visual order
+let shareString = "";
+let sortableInstance = null;
+
+const correctOrder = [...data].sort((a, b) => a.year - b.year);
+
+function render() {
+    const el = document.getElementById("timeline");
+    el.innerHTML = "";
+
+    state.forEach(item => {
+        const d = document.createElement("div");
+        d.className = "item";
+        d.dataset.id = item.id;
+
+        if (lockedIds.has(item.id)) {
+            d.classList.add("locked");
+        }
+
+        d.innerHTML = `
+            <div class="card-content">
+                <span class="emoji">${item.emoji}</span>
+                <div class="text-block">
+                    <span class="text">${item.event}</span>
+                    ${lockedIds.has(item.id) ? '<span class="lock-badge">✓ Locked in</span>' : ''}
+                </div>
+            </div>
+            <div class="drag-handle">
+                <span></span><span></span><span></span>
+            </div>
+        `;
+
+        el.appendChild(d);
+    });
+
+    if (sortableInstance) sortableInstance.destroy();
+    sortableInstance = new Sortable(el, {
+        animation: 150,
+        ghostClass: "dragging",
+        filter: ".locked",      // locked items can't be picked up
+        preventOnFilter: false
+    });
+}
+
+// First or second submit attempt
+function checkAttempt() {
+    const cards = [...document.querySelectorAll(".item")];
+    const currentOrderIds = cards.map(c => parseInt(c.dataset.id));
+
+    // Evaluate each card against the correct position
+    const results = currentOrderIds.map((id, index) => ({
+        id,
+        correct: id === correctOrder[index].id
+    }));
+
+    if (attemptNumber === 1) {
+        firstAttemptResults = results;
+        const allCorrect = results.every(r => r.correct);
+
+        if (allCorrect) {
+            // Perfect first attempt — go straight to final result
+            finalize(results, true);
+            return;
+        }
+
+        // Lock in the correct ones, briefly flash incorrect ones red, then reset for attempt 2
+        cards.forEach((card, i) => {
+            if (results[i].correct) {
+                card.classList.add("eval-correct");
+                lockedIds.add(results[i].id);
+            } else {
+                card.classList.add("eval-incorrect");
+            }
+        });
+
+        // Update banner
+        const correctCount = results.filter(r => r.correct).length;
+        document.getElementById("attempt-banner").innerHTML =
+            `<span class="pill">Attempt 2 of 2 · ${correctCount}/${data.length} locked in</span>`;
+
+        const btn = document.getElementById("submit-btn");
+        btn.disabled = true;
+        btn.innerText = "Try the rest...";
+
+        // After a moment, clear the red flashes and re-enable dragging for unlocked cards
+        setTimeout(() => {
+            attemptNumber = 2;
+            // state stays in current visual order; locked items keep their position
+            state = currentOrderIds.map(id => data.find(d => d.id === id));
+            render();
+            btn.disabled = false;
+            btn.innerText = "Submit Final Timeline";
+        }, 1400);
+
+    } else {
+        // Second attempt — final.
+        // Locked-in cards from attempt 1 are always correct (they couldn't move),
+        // so preserve their green status regardless of where they ended up in the
+        // visual order after other cards shifted around them.
+        const finalResults = results.map(r =>
+            lockedIds.has(r.id) ? { id: r.id, correct: true } : r
+        );
+        secondAttemptResults = finalResults;
+        finalize(finalResults, false);
+    }
+}
+
+function finalize(results, perfectFirstTry) {
+    document.getElementById("submit-btn").style.display = "none";
+
+    // A card is "still wrong" only if the user never got it right —
+    // i.e. it's incorrect in the final results. Cards fixed on attempt 2 are NOT in this set.
+    const stillWrongIds = new Set(results.filter(r => !r.correct).map(r => r.id));
+
+    const cards = [...document.querySelectorAll(".item")];
+
+    // First, color cards based on whether they were ever placed wrong
+    cards.forEach(card => {
+        const id = parseInt(card.dataset.id);
+        card.classList.remove("eval-correct", "eval-incorrect", "locked");
+        if (stillWrongIds.has(id)) {
+            card.classList.add("eval-incorrect");
+        } else {
+            card.classList.add("eval-correct");
+        }
+    });
+
+    // Build share string + grid data
+    const correctCount = results.filter(r => r.correct).length;
+    shareString = "Today's Chronl History Puzzle - Tetris to Tesla Edition:\n";
+
+    if (perfectFirstTry) {
+        shareString += "Attempt 1: ";
+        results.forEach(r => shareString += r.correct ? "🟩" : "🟥");
+        shareString += " ✨ Perfect first try!";
+    } else {
+        shareString += "Attempt 1: ";
+        firstAttemptResults.forEach(r => shareString += r.correct ? "🟩" : "🟥");
+        shareString += "\nAttempt 2: ";
+        secondAttemptResults.forEach(r => shareString += r.correct ? "🟩" : "🟥");
+    }
+    shareString += "\n\nSee if you can beat me here: " + window.location.href;
+
+    // Build the attempts grid display
+    const attemptsGridEl = document.getElementById("attempts-grid");
+    attemptsGridEl.innerHTML = "";
+
+    function buildRow(label, res) {
+        const row = document.createElement("div");
+        row.className = "attempt-row";
+        let html = `<span class="grid-row-label">${label}</span>`;
+        res.forEach(r => {
+            html += `<div class="grid-block ${r.correct ? 'correct' : 'incorrect'}"></div>`;
+        });
+        row.innerHTML = html;
+        return row;
+    }
+
+    if (perfectFirstTry) {
+        attemptsGridEl.appendChild(buildRow("Attempt 1", results));
+    } else {
+        attemptsGridEl.appendChild(buildRow("Attempt 1", firstAttemptResults));
+        attemptsGridEl.appendChild(buildRow("Attempt 2", secondAttemptResults));
+    }
+
+    // Result text
+    let performanceTitle;
+    if (perfectFirstTry) {
+        performanceTitle = "Perfect Chronology!";
+    } else if (correctCount === data.length) {
+        performanceTitle = "Got there in the end!";
+    } else if (correctCount >= data.length / 2) {
+        performanceTitle = "Splendid Record!";
+    } else {
+        performanceTitle = "Keep Studying!";
+    }
+
+    document.getElementById("result-title").innerText = performanceTitle;
+    document.getElementById("score-text").innerText = perfectFirstTry
+        ? `You correctly placed all ${data.length} landmarks on your first try!`
+        : `Final score: ${correctCount} out of ${data.length} correctly placed.`;
+
+    document.querySelector(".game-container").classList.add("results-shown");
+    document.getElementById("result-panel").style.display = "block";
+
+    // Hide the attempt banner now that the game is over
+    document.getElementById("attempt-banner").style.display = "none";
+
+    // Animate cards into the correct chronological order so the user can see it clearly
+    if (!perfectFirstTry && stillWrongIds.size > 0) {
+        setTimeout(() => animateToCorrectOrder(stillWrongIds), 600);
+    } else if (!perfectFirstTry) {
+        // Final attempt got everything right — reorder to chronological too (locked + fixed cards may not be in order)
+        setTimeout(() => animateToCorrectOrder(stillWrongIds), 600);
+    } else {
+        // Perfect first try — already in correct order, just attach wiki links
+        attachWikiLinks();
+        revealYears();
+        document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Use FLIP animation to slide cards into the correct chronological order
+function animateToCorrectOrder(stillWrongIds) {
+    const timelineEl = document.getElementById("timeline");
+    const cards = [...timelineEl.querySelectorAll(".item")];
+
+    // 1. Record starting positions
+    const firstRects = new Map();
+    cards.forEach(c => firstRects.set(c.dataset.id, c.getBoundingClientRect()));
+
+    // 2. Reorder DOM into correct chronological order
+    correctOrder.forEach(item => {
+        const card = cards.find(c => parseInt(c.dataset.id) === item.id);
+        timelineEl.appendChild(card);
+    });
+
+    // 3. After reorder, recolor cards based on whether the user ever got them right.
+    //    Cards still wrong at the end stay red — so the user can see what they missed
+    //    even though the board is now in correct chronological order. Cards fixed on
+    //    attempt 2 are green.
+    const reorderedCards = [...timelineEl.querySelectorAll(".item")];
+    reorderedCards.forEach(card => {
+        const id = parseInt(card.dataset.id);
+        card.classList.remove("eval-correct", "eval-incorrect");
+        if (stillWrongIds.has(id)) {
+            card.classList.add("eval-incorrect");
+        } else {
+            card.classList.add("eval-correct");
+        }
+    });
+
+    // 4. Compute new positions and apply inverse transform
+    reorderedCards.forEach(card => {
+        const lastRect = card.getBoundingClientRect();
+        const firstRect = firstRects.get(card.dataset.id);
+        const deltaY = firstRect.top - lastRect.top;
+
+        if (deltaY !== 0) {
+            card.style.transform = `translateY(${deltaY}px)`;
+            card.style.transition = "none";
+        }
+    });
+
+    // 5. Force reflow, then animate to identity
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            reorderedCards.forEach(card => {
+                card.classList.add("reordering");
+                card.style.transition = "";
+                card.style.transform = "";
+            });
+        });
+    });
+
+    // 6. After the animation, reveal years + wiki links and scroll the result panel into view
+    setTimeout(() => {
+        reorderedCards.forEach(card => {
+            card.classList.remove("reordering");
+            card.style.transform = "";
+        });
+        revealYears();
+        attachWikiLinks();
+        document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth' });
+    }, 800);
+}
+
+function revealYears() {
+    [...document.querySelectorAll(".item")].forEach(card => {
+        const item = data.find(d => d.id == card.dataset.id);
+        const textBlock = card.querySelector('.text-block');
+        // Remove any lingering lock badge
+        const badge = textBlock.querySelector('.lock-badge');
+        if (badge) badge.remove();
+        // Only add the year if it isn't already there
+        if (!textBlock.querySelector('.year-reveal')) {
+            const yearEl = document.createElement('span');
+            yearEl.className = 'year-reveal';
+            yearEl.innerText = formatYear(item.year);
+            textBlock.appendChild(yearEl);
+        }
+    });
+}
+
+function attachWikiLinks() {
+    [...document.querySelectorAll(".item")].forEach(card => {
+        const item = data.find(d => d.id == card.dataset.id);
+        card.style.cursor = "pointer";
+        card.onclick = () => window.open(item.wiki, '_blank');
+
+        // Swap drag handle for an external-link icon
+        const handle = card.querySelector('.drag-handle');
+        if (handle && !handle.querySelector('svg')) {
+            handle.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
+        }
+    });
+}
+
+function copyResults() {
+    navigator.clipboard.writeText(shareString).then(() => {
+        const btn = document.getElementById("copy-btn");
+        const originalText = btn.innerText;
+        btn.innerText = "Copied to Clipboard!";
+        setTimeout(() => btn.innerText = originalText, 2000);
+    });
+}
+
+render();
+</script>
+</body>
+</html>
