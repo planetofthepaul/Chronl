@@ -350,22 +350,15 @@ function showStreakAnnounce(streak, change) {
     let text = "";
     let isMilestone = false;
 
-    if (change === "started") {
-        text = "🔥 Streak started";
-    } else if (change === "continued") {
-        if (milestones.includes(streak)) {
-            isMilestone = true;
-            if (streak === 7) text = `🔥 ${streak} DAYS — One week!`;
-            else if (streak === 30) text = `🔥 ${streak} DAYS — One month!`;
-            else if (streak === 365) text = `🔥 ${streak} DAYS — One year!`;
-            else text = `🔥 ${streak} DAYS`;
-        } else {
-            text = `🔥 ${streak}-day streak`;
-        }
-    } else if (change === "reset") {
-        text = "🔥 Streak: 1";
+    if (milestones.includes(streak) && change === "continued") {
+        // Milestones get the bigger serif treatment, but only on the day they're hit
+        isMilestone = true;
+        if (streak === 7) text = `🔥 ${streak} DAYS — One week!`;
+        else if (streak === 30) text = `🔥 ${streak} DAYS — One month!`;
+        else if (streak === 365) text = `🔥 ${streak} DAYS — One year!`;
+        else text = `🔥 ${streak} DAYS`;
     } else {
-        // "same" — already played today, just reaffirm the number
+        // Everything else: same pattern, always. Day 1 = "1-day streak", day 5 = "5-day streak", etc.
         text = `🔥 ${streak}-day streak`;
     }
 
