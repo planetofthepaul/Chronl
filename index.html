@@ -237,12 +237,13 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🎮", event:"Tetris released in North America", year:1989, wiki:"https://en.wikipedia.org/wiki/Tetris"},
-    {id:2, emoji:"🏛️", event:"Nelson Mandela released from prison", year:1990, wiki:"https://en.wikipedia.org/wiki/Nelson_Mandela"},
-    {id:3, emoji:"🎭", event:"The Lion King premieres in theaters", year:1994, wiki:"https://en.wikipedia.org/wiki/The_Lion_King"},
-    {id:4, emoji:"🌐", event:"Google founded by Page and Brin", year:1998, wiki:"https://en.wikipedia.org/wiki/History_of_Google"},
-    {id:5, emoji:"🎬", event:"Fellowship of the Ring film released", year:2001, wiki:"https://en.wikipedia.org/wiki/The_Lord_of_the_Rings:_The_Fellowship_of_the_Ring"},
-    {id:6, emoji:"🚗", event:"Tesla Roadster released", year:2008, wiki:"https://en.wikipedia.org/wiki/Tesla_Roadster_(first_generation)"}
+    {id:1, emoji:"⚽", event:"First FIFA World Cup held in Uruguay", year:1930, wiki:"https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"},
+    {id:2, emoji:"🎨", event:"Picasso paints Guernica", year:1937, wiki:"https://en.wikipedia.org/wiki/Guernica_(Picasso)"},
+    {id:3, emoji:"💊", event:"Penicillin mass-produced for WWII soldiers", year:1944, wiki:"https://en.wikipedia.org/wiki/History_of_penicillin"},
+    {id:4, emoji:"🧗", event:"Hillary and Tenzing Norgay summit Everest", year:1953, wiki:"https://en.wikipedia.org/wiki/1953_British_Mount_Everest_expedition"},
+    {id:5, emoji:"🐕", event:"Laika becomes first animal to orbit Earth", year:1957, wiki:"https://en.wikipedia.org/wiki/Laika"},
+    {id:6, emoji:"🎸", event:"Beatles release Sgt. Pepper's Lonely Hearts Club Band", year:1967, wiki:"https://en.wikipedia.org/wiki/Sgt._Pepper%27s_Lonely_Hearts_Club_Band"},
+    {id:7, emoji:"🎮", event:"Atari releases Pong", year:1972, wiki:"https://en.wikipedia.org/wiki/Pong"}
 ];
 // ==========================
 
@@ -601,7 +602,7 @@ function finalize(results, perfectFirstTry) {
     }
 
     // Build the shareable text — chronological grid matching the on-screen result
-    shareString = "Today's Chronl History Puzzle - Tetris to Tesla Edition:\n";
+    shareString = "Today's Chronl History Puzzle - Mid-Century Mix Edition:\n";
     correctOrder.forEach(item => {
         shareString += stillWrongIds.has(item.id) ? "🟥" : "🟩";
     });
