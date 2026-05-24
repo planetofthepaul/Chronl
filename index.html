@@ -237,12 +237,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"⚽", event:"First FIFA World Cup held in Uruguay", year:1930, wiki:"https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"},
-    {id:2, emoji:"🎨", event:"Picasso paints Guernica", year:1937, wiki:"https://en.wikipedia.org/wiki/Guernica_(Picasso)"},
-    {id:3, emoji:"💊", event:"Penicillin mass-produced for WWII soldiers", year:1944, wiki:"https://en.wikipedia.org/wiki/History_of_penicillin"},
-    {id:4, emoji:"🧗", event:"Hillary and Tenzing Norgay summit Everest", year:1953, wiki:"https://en.wikipedia.org/wiki/1953_British_Mount_Everest_expedition"},
-    {id:5, emoji:"🐕", event:"Laika becomes first animal to orbit Earth", year:1957, wiki:"https://en.wikipedia.org/wiki/Laika"},
-    {id:6, emoji:"🎸", event:"Beatles release Sgt. Pepper's Lonely Hearts Club Band", year:1967, wiki:"https://en.wikipedia.org/wiki/Sgt._Pepper%27s_Lonely_Hearts_Club_Band"},
+    {id:1, emoji:"🗽", event:"Statue of Liberty dedicated", year:1886, wiki:"https://en.wikipedia.org/wiki/Statue_of_Liberty"},
+    {id:2, emoji:"🚢", event:"Titanic sinks", year:1912, wiki:"https://en.wikipedia.org/wiki/Titanic"},
+    {id:3, emoji:"🗳️", event:"19th Amendment ratified, women gain the vote", year:1920, wiki:"https://en.wikipedia.org/wiki/Nineteenth_Amendment_to_the_United_States_Constitution"},
+    {id:4, emoji:"🐭", event:"Mickey Mouse debuts in Steamboat Willie", year:1928, wiki:"https://en.wikipedia.org/wiki/Steamboat_Willie"},
+    {id:5, emoji:"🏢", event:"Empire State Building completed", year:1931, wiki:"https://en.wikipedia.org/wiki/Empire_State_Building"},
+    {id:6, emoji:"⚛️", event:"Atomic bombs dropped on Hiroshima and Nagasaki", year:1945, wiki:"https://en.wikipedia.org/wiki/Atomic_bombings_of_Hiroshima_and_Nagasaki"}
 ];
 // ==========================
 
@@ -601,7 +601,7 @@ function finalize(results, perfectFirstTry) {
     }
 
     // Build the shareable text — chronological grid matching the on-screen result
-    shareString = "Today's Chronl History Puzzle - Mid-Century Mix Edition:\n";
+    shareString = "Today's Chronl History Puzzle - Liberty to Victory Edition:\n";
     correctOrder.forEach(item => {
         shareString += stillWrongIds.has(item.id) ? "🟥" : "🟩";
     });
