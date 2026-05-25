@@ -237,12 +237,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🗽", event:"Statue of Liberty dedicated", year:1886, wiki:"https://en.wikipedia.org/wiki/Statue_of_Liberty"},
-    {id:2, emoji:"🚢", event:"Titanic sinks", year:1912, wiki:"https://en.wikipedia.org/wiki/Titanic"},
-    {id:3, emoji:"🗳️", event:"19th Amendment ratified, women gain the vote", year:1920, wiki:"https://en.wikipedia.org/wiki/Nineteenth_Amendment_to_the_United_States_Constitution"},
-    {id:4, emoji:"🐭", event:"Mickey Mouse debuts in Steamboat Willie", year:1928, wiki:"https://en.wikipedia.org/wiki/Steamboat_Willie"},
-    {id:5, emoji:"🏢", event:"Empire State Building completed", year:1931, wiki:"https://en.wikipedia.org/wiki/Empire_State_Building"},
-    {id:6, emoji:"⚛️", event:"Atomic bombs dropped on Hiroshima and Nagasaki", year:1945, wiki:"https://en.wikipedia.org/wiki/Atomic_bombings_of_Hiroshima_and_Nagasaki"}
+    {id:1, emoji:"🔪", event:"Manson Family murders Sharon Tate and others", year:1969, wiki:"https://en.wikipedia.org/wiki/Tate_murders"},
+    {id:2, emoji:"🥤", event:"Jonestown mass suicide in Guyana", year:1978, wiki:"https://en.wikipedia.org/wiki/Jonestown"},
+    {id:3, emoji:"🚜", event:"Ruby Ridge standoff", year:1992, wiki:"https://en.wikipedia.org/wiki/Ruby_Ridge"},
+    {id:4, emoji:"🔥", event:"Waco siege ends in fire", year:1993, wiki:"https://en.wikipedia.org/wiki/Waco_siege"},
+    {id:5, emoji:"👟", event:"Heaven's Gate cult mass suicide", year:1997, wiki:"https://en.wikipedia.org/wiki/Heaven%27s_Gate_(religious_group)"},
+    {id:6, emoji:"🧘", event:"NXIVM founder Keith Raniere arrested", year:2018, wiki:"https://en.wikipedia.org/wiki/NXIVM"}
 ];
 // ==========================
 
@@ -601,7 +601,7 @@ function finalize(results, perfectFirstTry) {
     }
 
     // Build the shareable text — chronological grid matching the on-screen result
-    shareString = "Today's Chronl History Puzzle - Liberty to Victory Edition:\n";
+    shareString = "Today's Chronl History Puzzle - Don't Drink the Kool-Aid Edition:\n";
     correctOrder.forEach(item => {
         shareString += stillWrongIds.has(item.id) ? "🟥" : "🟩";
     });
