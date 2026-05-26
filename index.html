@@ -299,17 +299,16 @@ function formatYear(y) {
 }
 
 // ===== EMBEDDED BROWSER DETECTION =====
-// localStorage in third-party iframes (Substack web embeds) and in-app webviews
-// (Substack iOS/Android app, Twitter, Facebook, Instagram, LinkedIn) is either
-// partitioned or sandboxed away from the user's main browser. The streak they
-// built up in Safari/Chrome won't be visible here, so we nudge them to open
-// Chronl in their real browser instead of silently showing a broken streak.
+// localStorage in third-party iframes and in-app webviews (Substack, Reddit,
+// Twitter, Facebook, Instagram, etc.) is isolated from the user's main browser.
+// The streak they built up in Safari/Chrome won't be visible here, so we nudge
+// them to open Chronl in their real browser instead of silently showing a
+// broken streak.
 
 function isInIframe() {
     try {
         return window.self !== window.top;
     } catch (e) {
-        // Cross-origin frame access throws — that itself means we're in an iframe
         return true;
     }
 }
@@ -317,20 +316,33 @@ function isInIframe() {
 function isInAppBrowser() {
     const ua = navigator.userAgent || "";
 
+    // ---- Referrer-based detection ----
+    // If we got here from a known social/email/reader domain, we're almost
+    // certainly in their in-app browser. Real browser visits from bookmarks,
+    // typed URLs, or our own internal navigation have no referrer or a
+    // chronl.com referrer.
+    const ref = document.referrer || "";
+    const embedHosts = [
+        "substack.com",
+        "reddit.com", "redd.it",
+        "t.co", "twitter.com", "x.com",
+        "facebook.com", "fb.com", "l.facebook.com",
+        "instagram.com",
+        "linkedin.com", "lnkd.in",
+        "threads.net",
+        "mail.google.com",
+        "news.ycombinator.com"
+    ];
+    if (ref && embedHosts.some(h => ref.indexOf(h) !== -1)) return true;
+
     // ---- Android WebView ----
-    // Google's documented fingerprint: Android WebView UAs contain "; wv)" in
-    // the parens block. Real Chrome on Android never has this. This catches
-    // every Android in-app browser (Substack, Reddit, Threads, Twitter, etc.)
-    // in one check.
+    // Android WebView UAs contain "; wv)". Real Chrome on Android never does.
     if (/;\s*wv\)/i.test(ua)) return true;
 
     // ---- iOS in-app browser (WKWebView and SFSafariViewController) ----
-    // Real mobile Safari UAs always contain BOTH "Version/X" and "Safari/".
-    // WKWebView (used by every iOS in-app browser including Substack and
-    // Reddit) and SFSafariViewController (iOS 11+, also isolated storage)
-    // both strip the "Safari/" suffix. So: iOS + "Mobile/" + no "Safari/" =
-    // in-app browser. We also exclude alternative iOS browsers (Chrome,
-    // Firefox, Edge), which run on top of WebKit and add their own tags.
+    // Real mobile Safari UAs always contain "Safari/". WKWebView and
+    // SFSafariViewController (both isolated from Safari's storage since iOS 11)
+    // strip it. Exclude alternative iOS browsers like Chrome and Firefox.
     const isIOS = /iPhone|iPad|iPod/.test(ua);
     if (isIOS) {
         const looksLikeWebKit = /AppleWebKit/.test(ua);
@@ -339,11 +351,7 @@ function isInAppBrowser() {
         if (looksLikeWebKit && !hasSafariTag && !isAltIOSBrowser) return true;
     }
 
-    // ---- Belt-and-suspenders: explicit app tags ----
-    // Some apps (Facebook, Instagram, LinkedIn, etc.) DO append their own
-    // identifier. Catching these is redundant with the platform checks above,
-    // but cheap and useful if a future WebView quirk ever lets one slip
-    // through.
+    // ---- Explicit app tags ----
     const explicit = [
         "FBAN", "FBAV", "Instagram", "Line/", "LinkedInApp",
         "Snapchat", "WhatsApp", "Twitter", "MicroMessenger",
