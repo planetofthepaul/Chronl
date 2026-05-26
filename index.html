@@ -237,12 +237,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🔪", event:"Manson Family murders Sharon Tate and others", year:1969, wiki:"https://en.wikipedia.org/wiki/Tate_murders"},
-    {id:2, emoji:"🥤", event:"Jonestown mass suicide in Guyana", year:1978, wiki:"https://en.wikipedia.org/wiki/Jonestown"},
-    {id:3, emoji:"🚜", event:"Ruby Ridge standoff", year:1992, wiki:"https://en.wikipedia.org/wiki/Ruby_Ridge"},
-    {id:4, emoji:"🔥", event:"Waco siege ends in fire", year:1993, wiki:"https://en.wikipedia.org/wiki/Waco_siege"},
-    {id:5, emoji:"👟", event:"Heaven's Gate cult mass suicide", year:1997, wiki:"https://en.wikipedia.org/wiki/Heaven%27s_Gate_(religious_group)"},
-    {id:6, emoji:"🧘", event:"NXIVM founder Keith Raniere arrested", year:2018, wiki:"https://en.wikipedia.org/wiki/NXIVM"}
+    {id:1, emoji:"🛕", event:"Angkor Wat completed", year:1150, wiki:"https://en.wikipedia.org/wiki/Angkor_Wat"},
+    {id:2, emoji:"🦠", event:"Black Death reaches Europe", year:1347, wiki:"https://en.wikipedia.org/wiki/Black_Death"},
+    {id:3, emoji:"🎺", event:"Louis Armstrong dies", year:1971, wiki:"https://en.wikipedia.org/wiki/Louis_Armstrong"},
+    {id:4, emoji:"🎙️", event:"Dr. Dre's The Chronic released", year:1992, wiki:"https://en.wikipedia.org/wiki/The_Chronic"},
+    {id:5, emoji:"🎵", event:"Tupac Shakur shot and killed", year:1996, wiki:"https://en.wikipedia.org/wiki/Murder_of_Tupac_Shakur"},
+    {id:6, emoji:"📀", event:"DVD players launch in US", year:1997, wiki:"https://en.wikipedia.org/wiki/DVD"}
 ];
 // ==========================
 
@@ -601,7 +601,7 @@ function finalize(results, perfectFirstTry) {
     }
 
     // Build the shareable text — chronological grid matching the on-screen result
-    shareString = "Today's Chronl History Puzzle - Don't Drink the Kool-Aid Edition:\n";
+    shareString = "Today's Chronl History Puzzle - Temples to Tupac Edition:\n";
     correctOrder.forEach(item => {
         shareString += stillWrongIds.has(item.id) ? "🟥" : "🟩";
     });
