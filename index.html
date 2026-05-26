@@ -316,18 +316,42 @@ function isInIframe() {
 
 function isInAppBrowser() {
     const ua = navigator.userAgent || "";
-    // Common in-app browser signatures
-    const patterns = [
-        "FBAN", "FBAV",          // Facebook
-        "Instagram",
-        "Twitter", "TwitterAndroid",
-        "Line/",
-        "LinkedInApp",
-        "Snapchat",
-        "WhatsApp",
-        "Substack"               // Substack app, if/when they identify
+
+    // ---- Android WebView ----
+    // Google's documented fingerprint: Android WebView UAs contain "; wv)" in
+    // the parens block. Real Chrome on Android never has this. This catches
+    // every Android in-app browser (Substack, Reddit, Threads, Twitter, etc.)
+    // in one check.
+    if (/;\s*wv\)/i.test(ua)) return true;
+
+    // ---- iOS in-app browser (WKWebView and SFSafariViewController) ----
+    // Real mobile Safari UAs always contain BOTH "Version/X" and "Safari/".
+    // WKWebView (used by every iOS in-app browser including Substack and
+    // Reddit) and SFSafariViewController (iOS 11+, also isolated storage)
+    // both strip the "Safari/" suffix. So: iOS + "Mobile/" + no "Safari/" =
+    // in-app browser. We also exclude alternative iOS browsers (Chrome,
+    // Firefox, Edge), which run on top of WebKit and add their own tags.
+    const isIOS = /iPhone|iPad|iPod/.test(ua);
+    if (isIOS) {
+        const looksLikeWebKit = /AppleWebKit/.test(ua);
+        const hasSafariTag = /Safari\//.test(ua);
+        const isAltIOSBrowser = /(CriOS|FxiOS|EdgiOS|OPiOS|YaBrowser|DuckDuckGo)/.test(ua);
+        if (looksLikeWebKit && !hasSafariTag && !isAltIOSBrowser) return true;
+    }
+
+    // ---- Belt-and-suspenders: explicit app tags ----
+    // Some apps (Facebook, Instagram, LinkedIn, etc.) DO append their own
+    // identifier. Catching these is redundant with the platform checks above,
+    // but cheap and useful if a future WebView quirk ever lets one slip
+    // through.
+    const explicit = [
+        "FBAN", "FBAV", "Instagram", "Line/", "LinkedInApp",
+        "Snapchat", "WhatsApp", "Twitter", "MicroMessenger",
+        "Pinterest", "Threads"
     ];
-    return patterns.some(p => ua.indexOf(p) !== -1);
+    if (explicit.some(p => ua.indexOf(p) !== -1)) return true;
+
+    return false;
 }
 
 function isEmbeddedContext() {
