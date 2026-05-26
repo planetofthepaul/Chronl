@@ -189,6 +189,39 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 
 /* Animation when cards get reordered into correct sequence */
 .item.reordering { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* Embed browser callout — shown when streak storage is unreliable */
+.embed-callout {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: #fff4e6;
+    border: 1px solid #ffd9a8;
+    color: #8a4a00;
+    text-align: left;
+    font-family: var(--font-sans);
+}
+.embed-callout.visible { display: flex; }
+.embed-callout .ec-icon { font-size: 18px; flex-shrink: 0; }
+.embed-callout .ec-text { flex: 1; font-size: 13px; line-height: 1.35; }
+.embed-callout .ec-text strong { display: block; font-weight: 600; margin-bottom: 2px; }
+.embed-callout .ec-text span { opacity: 0.85; font-size: 12px; }
+.embed-callout .ec-btn {
+    font-family: inherit;
+    background: #8a4a00;
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.embed-callout .ec-btn:hover { background: #6a3800; }
 </style>
 </head>
 
@@ -199,6 +232,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
         <div class="subtitle">Organize history from past to present</div>
         <div class="date-line" id="date-line"></div>
         <div class="streak-pill" id="streak-pill"><span class="flame">🔥</span><span id="streak-pill-count"></span></div>
+        <div class="embed-callout" id="embed-callout">
+            <div class="ec-icon">🔥</div>
+            <div class="ec-text">
+                <strong>Your streak lives in your main browser</strong>
+                <span>Open Chronl there to keep it going.</span>
+            </div>
+            <button class="ec-btn" onclick="openInRealBrowser()">Open ↗</button>
+        </div>
     </header>
 
     <div class="attempt-banner" id="attempt-banner">
@@ -256,6 +297,59 @@ function formatYear(y) {
     if (y < 0) return Math.abs(y) + " BC";
     return y + " AD";
 }
+
+// ===== EMBEDDED BROWSER DETECTION =====
+// localStorage in third-party iframes (Substack web embeds) and in-app webviews
+// (Substack iOS/Android app, Twitter, Facebook, Instagram, LinkedIn) is either
+// partitioned or sandboxed away from the user's main browser. The streak they
+// built up in Safari/Chrome won't be visible here, so we nudge them to open
+// Chronl in their real browser instead of silently showing a broken streak.
+
+function isInIframe() {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        // Cross-origin frame access throws — that itself means we're in an iframe
+        return true;
+    }
+}
+
+function isInAppBrowser() {
+    const ua = navigator.userAgent || "";
+    // Common in-app browser signatures
+    const patterns = [
+        "FBAN", "FBAV",          // Facebook
+        "Instagram",
+        "Twitter", "TwitterAndroid",
+        "Line/",
+        "LinkedInApp",
+        "Snapchat",
+        "WhatsApp",
+        "Substack"               // Substack app, if/when they identify
+    ];
+    return patterns.some(p => ua.indexOf(p) !== -1);
+}
+
+function isEmbeddedContext() {
+    return isInIframe() || isInAppBrowser();
+}
+
+// Open the current URL in a new top-level tab. On most platforms this kicks
+// the user out to their real browser (Safari/Chrome), where their localStorage
+// streak actually lives.
+function openInRealBrowser() {
+    window.open(window.location.href, "_blank", "noopener");
+}
+
+function maybeShowEmbedCallout() {
+    if (!isEmbeddedContext()) return;
+    // Hide the streak pill (it would show 0 here anyway and look broken)
+    // and show the callout in its place.
+    const pill = document.getElementById("streak-pill");
+    if (pill) pill.classList.remove("visible");
+    document.getElementById("embed-callout").classList.add("visible");
+}
+// ======================================
 
 // ===== STREAK SYSTEM =====
 // Counts consecutive days the user finished a puzzle.
@@ -330,6 +424,7 @@ function recordPlay() {
 // Render the small streak pill in the header. Shows only if the streak
 // is "alive" — played today or yesterday. Stale streaks stay hidden.
 function renderHeaderStreak() {
+    if (isEmbeddedContext()) return;
     const s = readStreak();
     const today = localDateStr();
     const yesterday = yesterdayStr();
@@ -758,6 +853,7 @@ function copyResults() {
 }
 
 render();
+maybeShowEmbedCallout();
 renderHeaderStreak();
 </script>
 </body>
