@@ -237,12 +237,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🛕", event:"Angkor Wat completed", year:1150, wiki:"https://en.wikipedia.org/wiki/Angkor_Wat"},
-    {id:2, emoji:"🦠", event:"Black Death reaches Europe", year:1347, wiki:"https://en.wikipedia.org/wiki/Black_Death"},
-    {id:3, emoji:"🎺", event:"Louis Armstrong dies", year:1971, wiki:"https://en.wikipedia.org/wiki/Louis_Armstrong"},
-    {id:4, emoji:"🎙️", event:"Dr. Dre's The Chronic released", year:1992, wiki:"https://en.wikipedia.org/wiki/The_Chronic"},
-    {id:5, emoji:"🎵", event:"Tupac Shakur shot and killed", year:1996, wiki:"https://en.wikipedia.org/wiki/Murder_of_Tupac_Shakur"},
-    {id:6, emoji:"📀", event:"DVD players launch in US", year:1997, wiki:"https://en.wikipedia.org/wiki/DVD"}
+    {id:1, emoji:"🖨️", event:"Gutenberg Bible printed", year:1455, wiki:"https://en.wikipedia.org/wiki/Gutenberg_Bible"},
+    {id:2, emoji:"🍎", event:"Newton publishes Principia", year:1687, wiki:"https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica"},
+    {id:3, emoji:"🎂", event:"Marie Antoinette guillotined", year:1793, wiki:"https://en.wikipedia.org/wiki/Marie_Antoinette"},
+    {id:4, emoji:"💎", event:"Gucci Mane born", year:1980, wiki:"https://en.wikipedia.org/wiki/Gucci_Mane"},
+    {id:5, emoji:"💀", event:"Pol Pot dies under house arrest", year:1998, wiki:"https://en.wikipedia.org/wiki/Pol_Pot"},
+    {id:6, emoji:"🎮", event:"PlayStation 2 released", year:2000, wiki:"https://en.wikipedia.org/wiki/PlayStation_2"}
 ];
 // ==========================
 
@@ -601,7 +601,7 @@ function finalize(results, perfectFirstTry) {
     }
 
     // Build the shareable text — chronological grid matching the on-screen result
-    shareString = "Today's Chronl History Puzzle - Temples to Tupac Edition:\n";
+    shareString = "Today's Chronl History Puzzle - Culture Shock Edition:\n";
     correctOrder.forEach(item => {
         shareString += stillWrongIds.has(item.id) ? "🟥" : "🟩";
     });
