@@ -655,10 +655,12 @@ function finalize(results, perfectFirstTry) {
         gridEl.appendChild(row2);
     }
 
-    // Kick off the block animations on the next frame
-    requestAnimationFrame(() => {
+    // Kick off the block animations after a brief delay so the panel is on screen
+    // by the time they play. Without this, the two-attempt path triggers them while
+    // the panel is still below the fold.
+    setTimeout(() => {
         gridEl.querySelectorAll(".grid-block").forEach(b => b.classList.add("animate"));
-    });
+    }, 200);
 
     // Summary line
     const summaryEl = document.getElementById("summary-line");
@@ -729,15 +731,18 @@ function finalize(results, perfectFirstTry) {
     // Hide the attempt banner now that the game is over
     document.getElementById("attempt-banner").style.display = "none";
 
-    // Animate cards into the correct chronological order so the user can see it clearly
+    // Scroll to the result panel right away in both paths so the block animations
+    // and streak pop are visible. The card reorder (for the two-attempt path) still
+    // plays in the background — the user can see it above as they read results.
+    document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth' });
+
     if (!perfectFirstTry) {
+        // Card reorder still happens, just doesn't gate the scroll/results
         setTimeout(() => animateToCorrectOrder(stillWrongIds), 600);
     } else {
-        // Perfect first try — already in correct order. Fire confetti once the
-        // panel is laid out (canvas needs its real measured size).
+        // Perfect first try — already in correct order
         attachWikiLinks();
         revealYears();
-        document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth' });
         setTimeout(fireConfetti, 400);
     }
 }
@@ -795,7 +800,8 @@ function animateToCorrectOrder(stillWrongIds) {
         });
     });
 
-    // 6. After the animation, reveal years + wiki links and scroll the result panel into view
+    // 6. After the animation, reveal years + wiki links. (No scroll here — finalize()
+    //    already scrolled the result panel into view at the start.)
     setTimeout(() => {
         reorderedCards.forEach(card => {
             card.classList.remove("reordering");
@@ -803,7 +809,6 @@ function animateToCorrectOrder(stillWrongIds) {
         });
         revealYears();
         attachWikiLinks();
-        document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth' });
     }, 800);
 }
 
