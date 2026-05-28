@@ -739,19 +739,28 @@ function finalize(results, perfectFirstTry) {
     // Hide the attempt banner now that the game is over
     document.getElementById("attempt-banner").style.display = "none";
 
-    // Scroll to the copy button (bottom of result panel) so everything in the
-    // panel is in view. The panel is taller than the viewport on mobile, so
-    // scrolling to the panel top would leave the button cut off.
-    document.getElementById("copy-btn").scrollIntoView({ behavior: 'smooth' });
+    // Scrolling is handled per-branch below, after each branch has its layout settled.
+    // We don't scroll here at the top of finalize because the cards still need to
+    // either get years/wiki added (perfect path) or reorder + get years/wiki added
+    // (two-attempt path), and any premature scroll would land in the wrong spot.
 
     if (!perfectFirstTry) {
-        // Card reorder still happens, just doesn't gate the scroll/results
+        // Card reorder happens first (cards shift to chronological order),
+        // then years + wiki links get added inside that flow. Once everything
+        // is in its final layout, we scroll.
         setTimeout(() => animateToCorrectOrder(stillWrongIds), 600);
     } else {
-        // Perfect first try — already in correct order
+        // Perfect first try — already in correct order. Add years and wiki links
+        // BEFORE scrolling so the cards reach their final height first. Otherwise
+        // the page grows after the scroll and bounces back up.
         attachWikiLinks();
         revealYears();
-        setTimeout(fireConfetti, 400);
+        // Use scrollTo bottom rather than scrollIntoView — guarantees we land at
+        // the absolute bottom regardless of how tall the page ends up.
+        requestAnimationFrame(() => {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
+        setTimeout(fireConfetti, 600);
     }
 }
 
@@ -808,8 +817,10 @@ function animateToCorrectOrder(stillWrongIds) {
         });
     });
 
-    // 6. After the animation, reveal years + wiki links. (No scroll here — finalize()
-    //    already scrolled the result panel into view at the start.)
+    // 6. After the animation, reveal years + wiki links, THEN scroll to the bottom.
+    //    Order matters: revealYears and attachWikiLinks change card heights/content,
+    //    so doing them before the scroll guarantees the page is at its final height
+    //    when we scroll. Otherwise the page grows after scrolling and bounces back up.
     setTimeout(() => {
         reorderedCards.forEach(card => {
             card.classList.remove("reordering");
@@ -817,6 +828,12 @@ function animateToCorrectOrder(stillWrongIds) {
         });
         revealYears();
         attachWikiLinks();
+        // Wait one frame for the layout to settle with the new years + icons,
+        // then scroll to absolute bottom of page (more reliable than scrollIntoView
+        // when content height is changing).
+        requestAnimationFrame(() => {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
     }, 800);
 }
 
