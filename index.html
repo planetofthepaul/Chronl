@@ -639,6 +639,11 @@ function finalize(results, perfectFirstTry) {
     document.querySelector(".game-container").classList.add("results-shown");
     document.getElementById("result-panel").style.display = "block";
 
+    // Plausible: fires once when the final grid is revealed
+    if (window.plausible) {
+        plausible("Game_Complete");
+    }
+
     // Hide the attempt banner now that the game is over
     document.getElementById("attempt-banner").style.display = "none";
 
@@ -750,6 +755,11 @@ function attachWikiLinks() {
 }
 
 function copyResults() {
+    // Plausible: fires the moment the share/copy button is clicked
+    if (window.plausible) {
+        plausible("Share_Clicked");
+    }
+
     navigator.clipboard.writeText(shareString).then(() => {
         const btn = document.getElementById("copy-btn");
         const originalText = btn.innerText;
