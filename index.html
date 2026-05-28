@@ -663,12 +663,11 @@ function finalize(results, perfectFirstTry) {
         gridEl.appendChild(row2);
     }
 
-    // Kick off the block animations after a brief delay so the panel is on screen
-    // by the time they play. Without this, the two-attempt path triggers them while
-    // the panel is still below the fold.
-    setTimeout(() => {
+    // Block animations are triggered by each path below (after scrolling), so the
+    // user actually sees them play instead of them firing while the panel is offscreen.
+    function triggerBlockAnimations() {
         gridEl.querySelectorAll(".grid-block").forEach(b => b.classList.add("animate"));
-    }, 200);
+    }
 
     // Summary line
     const summaryEl = document.getElementById("summary-line");
@@ -747,8 +746,8 @@ function finalize(results, perfectFirstTry) {
     if (!perfectFirstTry) {
         // Card reorder happens first (cards shift to chronological order),
         // then years + wiki links get added inside that flow. Once everything
-        // is in its final layout, we scroll.
-        setTimeout(() => animateToCorrectOrder(stillWrongIds), 600);
+        // is in its final layout, we scroll AND trigger block animations.
+        setTimeout(() => animateToCorrectOrder(stillWrongIds, triggerBlockAnimations), 600);
     } else {
         // Perfect first try — already in correct order. Add years and wiki links
         // BEFORE scrolling so the cards reach their final height first. Otherwise
@@ -760,12 +759,14 @@ function finalize(results, perfectFirstTry) {
         requestAnimationFrame(() => {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         });
+        // Play block animations + confetti after a short beat so they're on screen
+        setTimeout(triggerBlockAnimations, 300);
         setTimeout(fireConfetti, 600);
     }
 }
 
 // Use FLIP animation to slide cards into the correct chronological order
-function animateToCorrectOrder(stillWrongIds) {
+function animateToCorrectOrder(stillWrongIds, triggerBlockAnimations) {
     const timelineEl = document.getElementById("timeline");
     const cards = [...timelineEl.querySelectorAll(".item")];
 
@@ -830,10 +831,14 @@ function animateToCorrectOrder(stillWrongIds) {
         attachWikiLinks();
         // Wait one frame for the layout to settle with the new years + icons,
         // then scroll to absolute bottom of page (more reliable than scrollIntoView
-        // when content height is changing).
+        // when content height is changing). Block animations fire shortly after
+        // so the user actually sees them play.
         requestAnimationFrame(() => {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         });
+        if (triggerBlockAnimations) {
+            setTimeout(triggerBlockAnimations, 300);
+        }
     }, 800);
 }
 
