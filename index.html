@@ -237,13 +237,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🖨️", event:"Gutenberg Bible printed", year:1455, wiki:"https://en.wikipedia.org/wiki/Gutenberg_Bible"},
-    {id:2, emoji:"🍎", event:"Newton publishes Principia", year:1687, wiki:"https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica"},
-    {id:3, emoji:"🎂", event:"Marie Antoinette guillotined", year:1793, wiki:"https://en.wikipedia.org/wiki/Marie_Antoinette"},
-    {id:4, emoji:"💎", event:"Gucci Mane born", year:1980, wiki:"https://en.wikipedia.org/wiki/Gucci_Mane"},
-    {id:5, emoji:"💀", event:"Pol Pot dies under house arrest", year:1998, wiki:"https://en.wikipedia.org/wiki/Pol_Pot"},
-    {id:6, emoji:"🎮", event:"PlayStation 2 released", year:2000, wiki:"https://en.wikipedia.org/wiki/PlayStation_2"}
+    {id:1, emoji:"🛬", event:"Concorde begins commercial supersonic flights", year:1976, wiki:"https://en.wikipedia.org/wiki/Concorde"},
+    {id:2, emoji:"☢️", event:"Three Mile Island accident", year:1979, wiki:"https://en.wikipedia.org/wiki/Three_Mile_Island_accident"},
+    {id:3, emoji:"🇭🇰", event:"Hong Kong returned to China", year:1997, wiki:"https://en.wikipedia.org/wiki/Handover_of_Hong_Kong"},
+    {id:4, emoji:"💶", event:"Euro banknotes and coins enter circulation", year:2002, wiki:"https://en.wikipedia.org/wiki/Euro"},
+    {id:5, emoji:"🏈", event:"Janet Jackson Super Bowl halftime incident", year:2004, wiki:"https://en.wikipedia.org/wiki/Super_Bowl_XXXVIII_halftime_show_controversy"},
+    {id:6, emoji:"🌪️", event:"Hurricane Katrina hits New Orleans", year:2005, wiki:"https://en.wikipedia.org/wiki/Hurricane_Katrina"}
 ];
+
 // ==========================
 
 // Show today's date in the header
@@ -601,7 +602,7 @@ function finalize(results, perfectFirstTry) {
     }
 
     // Build the shareable text — chronological grid matching the on-screen result
-    shareString = "Today's Chronl History Puzzle - Culture Shock Edition:\n";
+    shareString = "Today's Chronl History Puzzle - Wardrobe Malfunction Edition:\n";
     correctOrder.forEach(item => {
         shareString += stillWrongIds.has(item.id) ? "🟥" : "🟩";
     });
