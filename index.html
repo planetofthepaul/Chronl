@@ -698,9 +698,9 @@ function finalize(results, perfectFirstTry) {
         });
     }
 
-    // Record this play toward the streak and update the UI
+    // Record this play toward the streak. The visible announce is deferred to each
+    // branch below — it plays after the scroll completes so the user sees the pop.
     const streakResult = recordPlay();
-    showStreakAnnounce(streakResult.streak, streakResult.change);
     renderHeaderStreak();
 
     // Bake the streak into the share string (subtle flex, no explanation needed)
@@ -746,8 +746,8 @@ function finalize(results, perfectFirstTry) {
     if (!perfectFirstTry) {
         // Card reorder happens first (cards shift to chronological order),
         // then years + wiki links get added inside that flow. Once everything
-        // is in its final layout, we scroll AND trigger block animations.
-        setTimeout(() => animateToCorrectOrder(stillWrongIds, triggerBlockAnimations), 600);
+        // is in its final layout, we scroll AND trigger block + streak animations.
+        setTimeout(() => animateToCorrectOrder(stillWrongIds, triggerBlockAnimations, streakResult), 600);
     } else {
         // Perfect first try — already in correct order. Add years and wiki links
         // BEFORE scrolling so the cards reach their final height first. Otherwise
@@ -759,14 +759,15 @@ function finalize(results, perfectFirstTry) {
         requestAnimationFrame(() => {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         });
-        // Play block animations + confetti after a short beat so they're on screen
+        // Play block animations, streak pop, and confetti after a short beat so they're on screen
         setTimeout(triggerBlockAnimations, 300);
+        setTimeout(() => showStreakAnnounce(streakResult.streak, streakResult.change), 300);
         setTimeout(fireConfetti, 600);
     }
 }
 
 // Use FLIP animation to slide cards into the correct chronological order
-function animateToCorrectOrder(stillWrongIds, triggerBlockAnimations) {
+function animateToCorrectOrder(stillWrongIds, triggerBlockAnimations, streakResult) {
     const timelineEl = document.getElementById("timeline");
     const cards = [...timelineEl.querySelectorAll(".item")];
 
@@ -827,18 +828,13 @@ function animateToCorrectOrder(stillWrongIds, triggerBlockAnimations) {
             card.classList.remove("reordering");
             card.style.transform = "";
         });
-        revealYears();
         attachWikiLinks();
-        // Wait one frame for the layout to settle with the new years + icons,
-        // then scroll to absolute bottom of page (more reliable than scrollIntoView
-        // when content height is changing). Block animations fire shortly after
-        // so the user actually sees them play.
+        revealYears();
         requestAnimationFrame(() => {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         });
-        if (triggerBlockAnimations) {
-            setTimeout(triggerBlockAnimations, 300);
-        }
+        setTimeout(triggerBlockAnimations, 300);
+        setTimeout(() => showStreakAnnounce(streakResult.streak, streakResult.change), 300);
     }, 800);
 }
 
