@@ -88,8 +88,11 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
         padding-top: 16px;
         padding-bottom: 16px;
     }
-    /* Before results appear, lock the container to viewport height so cards fill the screen */
-    .game-container:not(.results-shown) { height: 100dvh; }
+    /* Before any submit, lock the container to viewport height so cards fill the screen.
+       After the user has submitted at least once, switch to natural sizing so:
+       (1) the "Locked in" badge doesn't crush card padding, and
+       (2) the result panel below has room and doesn't cause scroll jumps. */
+    .game-container:not(.attempted) { height: 100dvh; }
 
     header { padding-bottom: 12px; margin-bottom: 14px; flex-shrink: 0; }
     h1 { font-size: 30px; }
@@ -103,10 +106,10 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     .item { flex: 1 1 0; min-height: 0; padding: 10px 14px; }
     #submit-btn { flex-shrink: 0; }
 
-    /* After results show, let the page expand and become scrollable so the result panel has room */
-    .game-container.results-shown { height: auto; }
-    .game-container.results-shown .board-wrapper { flex: 0 0 auto; }
-    .game-container.results-shown .item { flex: 0 0 auto; }
+    /* Once attempted, cards size to content. Page becomes scrollable for results. */
+    .game-container.attempted { height: auto; }
+    .game-container.attempted .board-wrapper { flex: 0 0 auto; }
+    .game-container.attempted .item { flex: 0 0 auto; }
 }
 
 .card-content { display: flex; align-items: center; gap: 12px; flex-grow: 1; }
@@ -516,6 +519,11 @@ function restoreLockedPositions() {
 
 // First or second submit attempt
 function checkAttempt() {
+    // Switch out of mobile "fill viewport" mode now that the user has submitted.
+    // This stops the locked-in badge from crushing card padding, and prevents
+    // scroll jumps when years/wiki content get added later.
+    document.querySelector(".game-container").classList.add("attempted");
+
     const cards = [...document.querySelectorAll(".item")];
     const currentOrderIds = cards.map(c => parseInt(c.dataset.id));
 
