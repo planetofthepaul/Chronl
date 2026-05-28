@@ -731,11 +731,10 @@ function finalize(results, perfectFirstTry) {
     // Hide the attempt banner now that the game is over
     document.getElementById("attempt-banner").style.display = "none";
 
-    // Scroll to the result panel right away in both paths so the block animations
-    // and streak pop are visible. We align the BOTTOM of the panel to the viewport
-    // so the Copy Results button is in view — the panel is often taller than the
-    // viewport on mobile, and aligning the top would push the button off-screen.
-    document.getElementById("result-panel").scrollIntoView({ behavior: 'smooth', block: 'end' });
+    // Scroll to the copy button (bottom of result panel) so everything in the
+    // panel is in view. The panel is taller than the viewport on mobile, so
+    // scrolling to the panel top would leave the button cut off.
+    document.getElementById("copy-btn").scrollIntoView({ behavior: 'smooth' });
 
     if (!perfectFirstTry) {
         // Card reorder still happens, just doesn't gate the scroll/results
