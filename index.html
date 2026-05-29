@@ -397,10 +397,8 @@ function renderHeaderStreak() {
     }
 }
 
-// Set up the streak announcement (text and milestone class) so it occupies its
-// final layout space, but keep it invisible. Triggered separately so scroll
-// measurements happen with the streak's full height already accounted for.
-function prepareStreakAnnounce(streak, change) {
+// Show the streak announcement inside the result panel (sets text + triggers animation).
+function showStreakAnnounce(streak, change) {
     const el = document.getElementById("streak-announce");
     const milestones = [7, 30, 50, 100, 365];
     let text = "";
@@ -418,11 +416,7 @@ function prepareStreakAnnounce(streak, change) {
 
     el.innerText = text;
     el.classList.toggle("milestone", isMilestone);
-}
-
-// Show the streak announcement inside the result panel (triggers the pop animation).
-function showStreakAnnounce() {
-    document.getElementById("streak-announce").classList.add("visible");
+    el.classList.add("visible");
 }
 // =========================
 
