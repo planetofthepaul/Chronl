@@ -290,12 +290,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🛬", event:"Concorde begins commercial supersonic flights", year:1976, wiki:"https://en.wikipedia.org/wiki/Concorde"},
-    {id:2, emoji:"☢️", event:"Three Mile Island accident", year:1979, wiki:"https://en.wikipedia.org/wiki/Three_Mile_Island_accident"},
-    {id:3, emoji:"🇭🇰", event:"Hong Kong returned to China", year:1997, wiki:"https://en.wikipedia.org/wiki/Handover_of_Hong_Kong"},
-    {id:4, emoji:"💶", event:"Euro banknotes and coins enter circulation", year:2002, wiki:"https://en.wikipedia.org/wiki/Euro"},
-    {id:5, emoji:"🏈", event:"Janet Jackson Super Bowl halftime incident", year:2004, wiki:"https://en.wikipedia.org/wiki/Super_Bowl_XXXVIII_halftime_show_controversy"},
-    {id:6, emoji:"🌪️", event:"Hurricane Katrina hits New Orleans", year:2005, wiki:"https://en.wikipedia.org/wiki/Hurricane_Katrina"}
+{id:1, emoji:"🎀", event:"Hello Kitty debuts in Japan", year:1974, wiki:"https://en.wikipedia.org/wiki/Hello_Kitty"},
+{id:2, emoji:"🦈", event:"Jaws is released and becomes the first summer blockbuster", year:1975, wiki:"https://en.wikipedia.org/wiki/Jaws_(film)"},
+{id:3, emoji:"🕊️", event:"The Camp David Accords are signed between Egypt and Israel", year:1978, wiki:"https://en.wikipedia.org/wiki/Camp_David_Accords"},
+{id:4, emoji:"🔫", event:"John Lennon is shot and killed outside the Dakota in NYC", year:1980, wiki:"https://en.wikipedia.org/wiki/Murder_of_John_Lennon"},
+{id:5, emoji:"🎤", event:"Michael Jackson releases Thriller", year:1982, wiki:"https://en.wikipedia.org/wiki/Thriller_(album)"},
+{id:6, emoji:"🏀", event:"Michael Jordan is drafted by the Chicago Bulls", year:1984, wiki:"https://en.wikipedia.org/wiki/Michael_Jordan"}
 ];
 
 // ==========================
@@ -683,7 +683,7 @@ function finalize(results, perfectFirstTry) {
 
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
-    shareString = "Today's Chronl History Puzzle - Wardrobe Malfunction Edition:\n";
+    shareString = "Today's Chronl History Puzzle - Cultural Touchstones Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
