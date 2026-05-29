@@ -209,7 +209,7 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 }
 .streak-announce.visible {
     display: block;
-    animation: streak-pop 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation: streak-pop 1.2s ease-in-out both;
 }
 .streak-announce.milestone {
     background-color: #fff;
@@ -220,21 +220,23 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     padding: 12px 22px;
 }
 .streak-announce.milestone.visible {
-    animation: streak-pop-big 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation: streak-pop-big 1.4s ease-in-out both;
 }
 @keyframes streak-pop {
-    0%   { opacity: 0; transform: scale(0.3); }
-    50%  { opacity: 1; transform: scale(1.25) rotate(-3deg); }
-    65%  { transform: scale(1.2) rotate(3deg); }
-    80%  { transform: scale(1.15) rotate(-1deg); }
-    100% { opacity: 1; transform: scale(1) rotate(0); }
+    0%   { opacity: 0; transform: rotate(0); }
+    20%  { opacity: 1; transform: rotate(-6deg); }
+    40%  { transform: rotate(5deg); }
+    60%  { transform: rotate(-3deg); }
+    80%  { transform: rotate(2deg); }
+    100% { opacity: 1; transform: rotate(0); }
 }
 @keyframes streak-pop-big {
-    0%   { opacity: 0; transform: scale(0.3); }
-    50%  { opacity: 1; transform: scale(1.4) rotate(-5deg); }
-    65%  { transform: scale(1.3) rotate(5deg); }
-    80%  { transform: scale(1.2) rotate(-2deg); }
-    100% { opacity: 1; transform: scale(1) rotate(0); }
+    0%   { opacity: 0; transform: rotate(0); }
+    20%  { opacity: 1; transform: rotate(-8deg); }
+    40%  { transform: rotate(7deg); }
+    60%  { transform: rotate(-4deg); }
+    80%  { transform: rotate(3deg); }
+    100% { opacity: 1; transform: rotate(0); }
 }
 
 /* Animation when cards get reordered into correct sequence */
@@ -395,28 +397,32 @@ function renderHeaderStreak() {
     }
 }
 
-// Show the streak announcement inside the result panel.
-function showStreakAnnounce(streak, change) {
+// Set up the streak announcement (text and milestone class) so it occupies its
+// final layout space, but keep it invisible. Triggered separately so scroll
+// measurements happen with the streak's full height already accounted for.
+function prepareStreakAnnounce(streak, change) {
     const el = document.getElementById("streak-announce");
     const milestones = [7, 30, 50, 100, 365];
     let text = "";
     let isMilestone = false;
 
     if (milestones.includes(streak) && change === "continued") {
-        // Milestones get the bigger serif treatment, but only on the day they're hit
         isMilestone = true;
         if (streak === 7) text = `🔥 ${streak} DAYS — One week!`;
         else if (streak === 30) text = `🔥 ${streak} DAYS — One month!`;
         else if (streak === 365) text = `🔥 ${streak} DAYS — One year!`;
         else text = `🔥 ${streak} DAYS`;
     } else {
-        // Everything else: same pattern, always. Day 1 = "1-day streak", day 5 = "5-day streak", etc.
         text = `🔥 ${streak}-day streak`;
     }
 
     el.innerText = text;
     el.classList.toggle("milestone", isMilestone);
-    el.classList.add("visible");
+}
+
+// Show the streak announcement inside the result panel (triggers the pop animation).
+function showStreakAnnounce() {
+    document.getElementById("streak-announce").classList.add("visible");
 }
 // =========================
 
@@ -749,19 +755,16 @@ function finalize(results, perfectFirstTry) {
         // is in its final layout, we scroll AND trigger block + streak animations.
         setTimeout(() => animateToCorrectOrder(stillWrongIds, triggerBlockAnimations, streakResult), 600);
     } else {
-        // Perfect first try — already in correct order. Add years and wiki links
-        // BEFORE scrolling so the cards reach their final height first. Otherwise
-        // the page grows after the scroll and bounces back up.
+        // Perfect first try — already in correct order. Add years, wiki links,
+        // AND show the streak BEFORE scrolling so the page is at final height
+        // when we measure. Wiggle-only animation doesn't change layout.
         attachWikiLinks();
         revealYears();
-        // Use scrollTo bottom rather than scrollIntoView — guarantees we land at
-        // the absolute bottom regardless of how tall the page ends up.
+        showStreakAnnounce(streakResult.streak, streakResult.change);
         requestAnimationFrame(() => {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         });
-        // Play block animations, streak pop, and confetti after a short beat so they're on screen
         setTimeout(triggerBlockAnimations, 300);
-        setTimeout(() => showStreakAnnounce(streakResult.streak, streakResult.change), 300);
         setTimeout(fireConfetti, 600);
     }
 }
@@ -830,11 +833,11 @@ function animateToCorrectOrder(stillWrongIds, triggerBlockAnimations, streakResu
         });
         attachWikiLinks();
         revealYears();
+        showStreakAnnounce(streakResult.streak, streakResult.change);
         requestAnimationFrame(() => {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         });
         setTimeout(triggerBlockAnimations, 300);
-        setTimeout(() => showStreakAnnounce(streakResult.streak, streakResult.change), 300);
     }, 800);
 }
 
