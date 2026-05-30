@@ -290,12 +290,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-{id:1, emoji:"🎀", event:"Hello Kitty debuts in Japan", year:1974, wiki:"https://en.wikipedia.org/wiki/Hello_Kitty"},
-{id:2, emoji:"🦈", event:"Jaws is released and becomes the first summer blockbuster", year:1975, wiki:"https://en.wikipedia.org/wiki/Jaws_(film)"},
-{id:3, emoji:"🕊️", event:"The Camp David Accords are signed between Egypt and Israel", year:1978, wiki:"https://en.wikipedia.org/wiki/Camp_David_Accords"},
-{id:4, emoji:"🔫", event:"John Lennon is shot and killed outside the Dakota in NYC", year:1980, wiki:"https://en.wikipedia.org/wiki/Murder_of_John_Lennon"},
-{id:5, emoji:"🎤", event:"Michael Jackson releases Thriller", year:1982, wiki:"https://en.wikipedia.org/wiki/Thriller_(album)"},
-{id:6, emoji:"🏀", event:"Michael Jordan is drafted by the Chicago Bulls", year:1984, wiki:"https://en.wikipedia.org/wiki/Michael_Jordan"}
+{id:1, emoji:"🐘", event:"Hannibal crosses the Alps with war elephants", year:-218, wiki:"https://en.wikipedia.org/wiki/Hannibal%27s_crossing_of_the_Alps"},
+{id:2, emoji:"🗡️", event:"Julius Caesar is assassinated on the Ides of March", year:-44, wiki:"https://en.wikipedia.org/wiki/Assassination_of_Julius_Caesar"},
+{id:3, emoji:"🐍", event:"Cleopatra dies in Alexandria", year:-30, wiki:"https://en.wikipedia.org/wiki/Cleopatra"},
+{id:4, emoji:"🌋", event:"Mount Vesuvius erupts and buries Pompeii", year:79, wiki:"https://en.wikipedia.org/wiki/Eruption_of_Mount_Vesuvius_in_79_AD"},
+{id:5, emoji:"🏛️", event:"The Colosseum is completed in Rome", year:80, wiki:"https://en.wikipedia.org/wiki/Colosseum"},
+{id:6, emoji:"🕌", event:"The Hagia Sophia is completed in Constantinople", year:537, wiki:"https://en.wikipedia.org/wiki/Hagia_Sophia"}
 ];
 
 // ==========================
@@ -683,7 +683,7 @@ function finalize(results, perfectFirstTry) {
 
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
-    shareString = "Today's Chronl History Puzzle - Cultural Touchstones Edition:\n";
+    shareString = "Today's Chronl History Puzzle - Ancient Empires Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
