@@ -290,12 +290,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"⚔️", event:"D-Day: Allied invasion of Normandy", year:1944, wiki:"https://en.wikipedia.org/wiki/Normandy_landings"},
-    {id:2, emoji:"🇮🇳", event:"India gains independence from Britain", year:1947, wiki:"https://en.wikipedia.org/wiki/Indian_independence_movement"},
-    {id:3, emoji:"🥅", event:"North Korea invades South Korea, starting the Korean War", year:1950, wiki:"https://en.wikipedia.org/wiki/Korean_War"},
-    {id:4, emoji:"🧬", event:"Watson and Crick describe the structure of DNA", year:1953, wiki:"https://en.wikipedia.org/wiki/Molecular_Structure_of_Nucleic_Acids:_A_Structure_for_Deoxyribose_Nucleic_Acid"},
-    {id:5, emoji:"🌹", event:"Rosa Parks refuses to give up her bus seat", year:1955, wiki:"https://en.wikipedia.org/wiki/Rosa_Parks"},
-    {id:6, emoji:"🛰️", event:"Soviet Union launches Sputnik 1", year:1957, wiki:"https://en.wikipedia.org/wiki/Sputnik_1"}
+    {id:1, emoji:"🚗", event:"Ford Edsel introduced and flops", year:1957, wiki:"https://en.wikipedia.org/wiki/Edsel"},
+    {id:2, emoji:"💎", event:"Crystal Pepsi launched", year:1992, wiki:"https://en.wikipedia.org/wiki/Crystal_Pepsi"},
+    {id:3, emoji:"🔥", event:"Samsung Galaxy Note 7 recalled for exploding", year:2016, wiki:"https://en.wikipedia.org/wiki/Samsung_Galaxy_Note_7"},
+    {id:4, emoji:"🏝️", event:"Fyre Festival collapses on the Bahamas", year:2017, wiki:"https://en.wikipedia.org/wiki/Fyre_Festival"},
+    {id:5, emoji:"🏢", event:"WeWork's failed IPO and Adam Neumann ousted", year:2019, wiki:"https://en.wikipedia.org/wiki/WeWork"},
+    {id:6, emoji:"📺", event:"Quibi launches and dies", year:2020, wiki:"https://en.wikipedia.org/wiki/Quibi"}
 ];
 
 
@@ -684,7 +684,7 @@ function finalize(results, perfectFirstTry) {
 
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
-    shareString = "Today's Chronl History Puzzle - Turning Points Edition:\n";
+    shareString = "Today's Chronl History Puzzle - Corporate Disasters Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
