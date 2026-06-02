@@ -290,12 +290,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🚗", event:"Ford Edsel introduced and flops", year:1957, wiki:"https://en.wikipedia.org/wiki/Edsel"},
-    {id:2, emoji:"💎", event:"Crystal Pepsi launched", year:1992, wiki:"https://en.wikipedia.org/wiki/Crystal_Pepsi"},
-    {id:3, emoji:"🔥", event:"Samsung Galaxy Note 7 recalled for exploding", year:2016, wiki:"https://en.wikipedia.org/wiki/Samsung_Galaxy_Note_7"},
-    {id:4, emoji:"🏝️", event:"Fyre Festival collapses on the Bahamas", year:2017, wiki:"https://en.wikipedia.org/wiki/Fyre_Festival"},
-    {id:5, emoji:"🏢", event:"WeWork's failed IPO and Adam Neumann ousted", year:2019, wiki:"https://en.wikipedia.org/wiki/WeWork"},
-    {id:6, emoji:"📺", event:"Quibi launches and dies", year:2020, wiki:"https://en.wikipedia.org/wiki/Quibi"}
+    {id:1, emoji:"🏠", event:"The Real World premieres on MTV", year:1992, wiki:"https://en.wikipedia.org/wiki/The_Real_World_(TV_series)"},
+    {id:2, emoji:"🌹", event:"The Bachelor premieres", year:2002, wiki:"https://en.wikipedia.org/wiki/The_Bachelor_(American_TV_series)"},
+    {id:3, emoji:"🍊", event:"Real Housewives of Orange County premieres", year:2006, wiki:"https://en.wikipedia.org/wiki/The_Real_Housewives_of_Orange_County"},
+    {id:4, emoji:"👯", event:"Keeping Up with the Kardashians premieres", year:2007, wiki:"https://en.wikipedia.org/wiki/Keeping_Up_with_the_Kardashians"},
+    {id:5, emoji:"🧡", event:"Jersey Shore premieres", year:2009, wiki:"https://en.wikipedia.org/wiki/Jersey_Shore_(TV_series)"},
+    {id:6, emoji:"🐊", event:"Duck Dynasty premieres", year:2012, wiki:"https://en.wikipedia.org/wiki/Duck_Dynasty"}
 ];
 
 
@@ -684,7 +684,7 @@ function finalize(results, perfectFirstTry) {
 
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
-    shareString = "Today's Chronl History Puzzle - Corporate Disasters Edition:\n";
+   shareString = "Today's Chronl History Puzzle - Reality TV Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
