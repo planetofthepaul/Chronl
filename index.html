@@ -290,12 +290,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🏠", event:"The Real World premieres on MTV", year:1992, wiki:"https://en.wikipedia.org/wiki/The_Real_World_(TV_series)"},
-    {id:2, emoji:"🌹", event:"The Bachelor premieres", year:2002, wiki:"https://en.wikipedia.org/wiki/The_Bachelor_(American_TV_series)"},
-    {id:3, emoji:"🍊", event:"Real Housewives of Orange County premieres", year:2006, wiki:"https://en.wikipedia.org/wiki/The_Real_Housewives_of_Orange_County"},
-    {id:4, emoji:"👯", event:"Keeping Up with the Kardashians premieres", year:2007, wiki:"https://en.wikipedia.org/wiki/Keeping_Up_with_the_Kardashians"},
-    {id:5, emoji:"🧡", event:"Jersey Shore premieres", year:2009, wiki:"https://en.wikipedia.org/wiki/Jersey_Shore_(TV_series)"},
-    {id:6, emoji:"🐊", event:"Duck Dynasty premieres", year:2012, wiki:"https://en.wikipedia.org/wiki/Duck_Dynasty"}
+    {id:1, emoji:"🧟", event:"Mary Shelley publishes Frankenstein anonymously", year:1818, wiki:"https://en.wikipedia.org/wiki/Frankenstein"},
+    {id:2, emoji:"✈️", event:"The Wright brothers make their first successful airplane flight", year:1903, wiki:"https://en.wikipedia.org/wiki/Wright_flyer"}, // Tweaked to an airplane emoji
+    {id:3, emoji:"🏰", event:"Disneyland opens in Anaheim, California", year:1955, wiki:"https://en.wikipedia.org/wiki/Disneyland"},
+    {id:4, emoji:"🖌️", event:"Adobe releases the first version of Photoshop", year:1990, wiki:"https://en.wikipedia.org/wiki/Adobe_Photoshop"},
+    {id:5, emoji:"😷", event:"The first successful partial face transplant is performed", year:2005, wiki:"https://en.wikipedia.org/wiki/Face_transplant"}, // Fixed emoji & specified "partial"
+    {id:6, emoji:"🎒", event:"The Kickstarter crowdfunding platform launches", year:2009, wiki:"https://en.wikipedia.org/wiki/Kickstarter"}
 ];
 
 
@@ -684,7 +684,7 @@ function finalize(results, perfectFirstTry) {
 
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
-   shareString = "Today's Chronl History Puzzle - Reality TV Edition:\n";
+  shareString = "Today's Chronl History Puzzle - Creators & Milestones Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
