@@ -290,14 +290,13 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"👱‍♀️", event:"Barbie doll debuts at the New York Toy Fair", year:1959, wiki:"https://en.wikipedia.org/wiki/Barbie"},
-    {id:2, emoji:"🖖", event:"Star Trek premieres on NBC", year:1966, wiki:"https://en.wikipedia.org/wiki/Star_Trek:_The_Original_Series"},
-    {id:3, emoji:"🌌", event:"Star Wars released in theaters", year:1977, wiki:"https://en.wikipedia.org/wiki/Star_Wars_(film)"},
-    {id:4, emoji:"🖥️", event:"Apple introduces the Macintosh", year:1984, wiki:"https://en.wikipedia.org/wiki/Macintosh_128K"},
-    {id:5, emoji:"🦔", event:"Sega Genesis launches in North America", year:1989, wiki:"https://en.wikipedia.org/wiki/Sega_Genesis"},
-    {id:6, emoji:"🕸️", event:"World Wide Web made available to the public", year:1991, wiki:"https://en.wikipedia.org/wiki/World_Wide_Web"}
+    {id:1, emoji:"🦠", event:"The Black Death plague arrives in Europe", year:1347, wiki:"https://en.wikipedia.org/wiki/Black_Death"},
+    {id:2, emoji:"🦖", event:"Jurassic Park hits theaters and breaks box office records", year:1993, wiki:"https://en.wikipedia.org/wiki/Jurassic_Park_(film)"},
+    {id:3, emoji:"☕", event:"The Java programming language is officially released", year:1995, wiki:"https://en.wikipedia.org/wiki/Java_(programming_language)"},
+    {id:4, emoji:"☄️", event:"The Hale-Bopp comet makes its closest approach to Earth", year:1997, wiki:"https://en.wikipedia.org/wiki/Comet_Hale%E2%80%93Bopp"},
+    {id:5, emoji:"🍿", event:"The first video is uploaded to YouTube ('Me at the zoo')", year:2005, wiki:"https://en.wikipedia.org/wiki/Me_at_the_zoo"},
+    {id:6, emoji:"🎒", event:"The crowdfunding platform Kickstarter launches", year:2009, wiki:"https://en.wikipedia.org/wiki/Kickstarter"}
 ];
-
 
 
 // ==========================
@@ -685,7 +684,7 @@ function finalize(results, perfectFirstTry) {
 
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
-  shareString = "Today's Chronl History Puzzle - Pop Culture Launch Pad Edition:\n";
+  shareString = "Today's Chronl History Puzzle - Code, Comets, and Creatures Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
