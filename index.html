@@ -290,12 +290,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🧤", event:"The O.J. Simpson murder trial ends in acquittal", year:1995, wiki:"https://en.wikipedia.org/wiki/O._J._Simpson_murder_trial"},
-    {id:2, emoji:"💥", event:"Timothy McVeigh is convicted in the Oklahoma City bombing trial", year:1997, wiki:"https://en.wikipedia.org/wiki/Timothy_McVeigh"},
-    {id:3, emoji:"🛹", event:"Tony Hawk lands the first 900-degree spin at the X Games", year:1999, wiki:"https://en.wikipedia.org/wiki/Tony_Hawk"},
-    {id:4, emoji:"💼", event:"Martha Stewart is convicted of obstruction and conspiracy", year:2004, wiki:"https://en.wikipedia.org/wiki/Martha_Stewart"},
-    {id:5, emoji:"⚖️", event:"Saddam Hussein is convicted of crimes against humanity by an Iraqi tribunal", year:2006, wiki:"https://en.wikipedia.org/wiki/Trial_of_Saddam_Hussein"},
-    {id:6, emoji:"😢", event:"Casey Anthony is acquitted of her daughter's murder", year:2011, wiki:"https://en.wikipedia.org/wiki/Trial_of_Casey_Anthony"}
+    {id:1, emoji:"🏈", event:"The New Jersey Generals football team, owned by Donald Trump, plays its final USFL game", year:1985, wiki:"https://en.wikipedia.org/wiki/New_Jersey_Generals"},
+    {id:2, emoji:"✈️", event:"Trump Shuttle airline launches luxury commuter flights between New York, Boston, and DC", year:1989, wiki:"https://en.wikipedia.org/wiki/Trump_Shuttle"},
+    {id:3, emoji:"🎓", event:"Trump University is established, offering unaccredited real estate seminars", year:2005, wiki:"https://en.wikipedia.org/wiki/Trump_University"},
+    {id:4, emoji:"🥩", event:"Trump Steaks are formally launched as a premium product line sold at The Sharper Image", year:2007, wiki:"https://en.wikipedia.org/wiki/Trump_Steaks"},
+    {id:5, emoji:"🥛", event:"Trump Vodka ceases operations and halts US distribution after its original five-year run", year:2011, wiki:"https://en.wikipedia.org/wiki/Trump_Vodka"},
+    {id:6, emoji:"🏢", event:"The Trump Taj Mahal casino in Atlantic City officially closes its doors permanently", year:2016, wiki:"https://en.wikipedia.org/wiki/Trump_Taj_Mahal"}
 ];
 
 
@@ -685,7 +685,7 @@ function finalize(results, perfectFirstTry) {
 
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
-  shareString = "Today's Chronl History Puzzle - Trials and Tony Hawk Edition:\n";
+  shareString = "Today's Chronl History Puzzle - Trump Defunct Ventures Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
