@@ -290,13 +290,15 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🏈", event:"The New Jersey Generals football team, owned by Donald Trump, plays its final USFL game", year:1985, wiki:"https://en.wikipedia.org/wiki/New_Jersey_Generals"},
-    {id:2, emoji:"✈️", event:"Trump Shuttle airline launches luxury commuter flights between New York, Boston, and DC", year:1989, wiki:"https://en.wikipedia.org/wiki/Trump_Shuttle"},
-    {id:3, emoji:"🎓", event:"Trump University is established, offering unaccredited real estate seminars", year:2005, wiki:"https://en.wikipedia.org/wiki/Trump_University"},
-    {id:4, emoji:"🥩", event:"Trump Steaks are formally launched as a premium product line sold at The Sharper Image", year:2007, wiki:"https://en.wikipedia.org/wiki/Trump_Steaks"},
-    {id:5, emoji:"🥛", event:"Trump Vodka ceases operations and halts US distribution after its original five-year run", year:2011, wiki:"https://en.wikipedia.org/wiki/Trump_Vodka"},
-    {id:6, emoji:"🏢", event:"The Trump Taj Mahal casino in Atlantic City officially closes its doors permanently", year:2016, wiki:"https://en.wikipedia.org/wiki/Trump_Taj_Mahal"}
+    {id:1, emoji:"🔥", event:"The Salem witch trials begin in colonial Massachusetts, resulting in the hangings of 14 women and 5 men", year:1692, wiki:"https://en.wikipedia.org/wiki/Salem_witch_trials"},
+    {id:2, emoji:"📜", event:"The Seneca Falls Convention produces the Declaration of Sentiments, the founding document of American feminism", year:1848, wiki:"https://en.wikipedia.org/wiki/Seneca_Falls_Convention"},
+    {id:3, emoji:"🗳️", event:"The 19th Amendment is ratified, granting American women the constitutional right to vote", year:1920, wiki:"https://en.wikipedia.org/wiki/Nineteenth_Amendment_to_the_United_States_Constitution"},
+    {id:4, emoji:"💊", event:"The FDA approves the first oral contraceptive pill, giving women unprecedented control over reproductive choices", year:1960, wiki:"https://en.wikipedia.org/wiki/Combined_oral_contraceptive_pill"},
+    {id:5, emoji:"⚖️", event:"The Supreme Court rules in Roe v. Wade that the Constitution protects a woman's right to abortion", year:1973, wiki:"https://en.wikipedia.org/wiki/Roe_v._Wade"},
+    {id:6, emoji:"🏛️", event:"Sandra Day O'Connor is confirmed as the first female Justice of the United States Supreme Court", year:1981, wiki:"https://en.wikipedia.org/wiki/Sandra_Day_O%27Connor"},
+    {id:7, emoji:"📣", event:"The #MeToo movement goes viral globally following reporting on Harvey Weinstein, reshaping conversations about workplace harassment", year:2017, wiki:"https://en.wikipedia.org/wiki/Me_Too_movement"}
 ];
+
 
 
 
@@ -685,7 +687,7 @@ function finalize(results, perfectFirstTry) {
 
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
-  shareString = "Today's Chronl History Puzzle - Trump Defunct Ventures Edition:\n";
+  shareString = "Today's Chronl History Puzzle - Women's Rights Milestones Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
