@@ -290,13 +290,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"✈️", event:"Wright brothers make the first powered flight at Kitty Hawk", year:1903, wiki:"https://en.wikipedia.org/wiki/Wright_Flyer"},
-    {id:2, emoji:"🌊", event:"Lindbergh flies solo nonstop across the Atlantic", year:1927, wiki:"https://en.wikipedia.org/wiki/Charles_Lindbergh"},
-    {id:3, emoji:"💥", event:"Chuck Yeager breaks the sound barrier in the Bell X-1", year:1947, wiki:"https://en.wikipedia.org/wiki/Chuck_Yeager"},
-    {id:4, emoji:"🛩️", event:"The de Havilland Comet becomes the first jet airliner", year:1952, wiki:"https://en.wikipedia.org/wiki/De_Havilland_Comet"},
-    {id:5, emoji:"⚡", event:"Concorde makes its maiden test flight", year:1969, wiki:"https://en.wikipedia.org/wiki/Concorde"},
-    {id:6, emoji:"🛫", event:"The Boeing 747 'Jumbo Jet' enters service with Pan Am", year:1970, wiki:"https://en.wikipedia.org/wiki/Boeing_747"}
+    {id:1, emoji:"🎭", event:"The Globe Theatre in London burns down during a performance", year:1613, wiki:"https://en.wikipedia.org/wiki/Globe_Theatre"},
+    {id:2, emoji:"🪂", event:"The first high-altitude parachute jump is made from a hot air balloon", year:1797, wiki:"https://en.wikipedia.org/wiki/Andr%C3%A9-Jacques_Garnerin"},
+    {id:3, emoji:"🎨", event:"Vincent van Gogh cuts off a portion of his own left ear", year:1888, wiki:"https://en.wikipedia.org/wiki/Vincent_van_Gogh"},
+    {id:4, emoji:"💥", event:"The Oklahoma City bombing destroys the Murrah Federal Building", year:1995, wiki:"https://en.wikipedia.org/wiki/Oklahoma_City_bombing"},
+    {id:5, emoji:"♟️", event:"IBM's Deep Blue computer defeats chess champion Garry Kasparov", year:1997, wiki:"https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov"},
+    {id:6, emoji:"🎧", event:"Apple introduces the first-generation pocket-sized iPod", year:2001, wiki:"https://en.wikipedia.org/wiki/IPod"}
 ];
+
 
 
 
@@ -686,7 +687,8 @@ function finalize(results, perfectFirstTry) {
 
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
-  shareString = "Today's Chronl History Puzzle - Aviation History Edition:\n";
+  
+shareString = "Today's Chronl History Puzzle - Shakespeare to Skydiving Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
