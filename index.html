@@ -290,12 +290,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🎭", event:"The Globe Theatre in London burns down during a performance", year:1613, wiki:"https://en.wikipedia.org/wiki/Globe_Theatre"},
-    {id:2, emoji:"🪂", event:"The first high-altitude parachute jump is made from a hot air balloon", year:1797, wiki:"https://en.wikipedia.org/wiki/Andr%C3%A9-Jacques_Garnerin"},
-    {id:3, emoji:"🎨", event:"Vincent van Gogh cuts off a portion of his own left ear", year:1888, wiki:"https://en.wikipedia.org/wiki/Vincent_van_Gogh"},
-    {id:4, emoji:"💥", event:"The Oklahoma City bombing destroys the Murrah Federal Building", year:1995, wiki:"https://en.wikipedia.org/wiki/Oklahoma_City_bombing"},
-    {id:5, emoji:"♟️", event:"IBM's Deep Blue computer defeats chess champion Garry Kasparov", year:1997, wiki:"https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov"},
-    {id:6, emoji:"🎧", event:"Apple introduces the first-generation pocket-sized iPod", year:2001, wiki:"https://en.wikipedia.org/wiki/IPod"}
+    {id:1, emoji:"🧩", event:"Rubik's Cube goes on sale internationally", year:1980, wiki:"https://en.wikipedia.org/wiki/Rubik%27s_Cube"},
+    {id:2, emoji:"💾", event:"IBM releases its first personal computer", year:1981, wiki:"https://en.wikipedia.org/wiki/IBM_Personal_Computer"},
+    {id:3, emoji:"🎸", event:"Live Aid concert raises millions for Ethiopian famine relief", year:1985, wiki:"https://en.wikipedia.org/wiki/Live_Aid"},
+    {id:4, emoji:"💥", event:"Space Shuttle Challenger breaks apart shortly after launch", year:1986, wiki:"https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster"},
+    {id:5, emoji:"🕯️", event:"Kurt Cobain is found dead at his Seattle home", year:1994, wiki:"https://en.wikipedia.org/wiki/Death_of_Kurt_Cobain"},
+    {id:6, emoji:"🎒", event:"Two students open fire at Columbine High School", year:1999, wiki:"https://en.wikipedia.org/wiki/Columbine_High_School_massacre"}
 ];
 
 
@@ -688,7 +688,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Shakespeare to Skydiving Edition:\n";
+shareString = "Today's Chronl History Puzzle - Moving Parts Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
