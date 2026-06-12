@@ -74,10 +74,7 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     color: var(--locked-text);
     cursor: not-allowed;
 }
-.item.locked .drag-handle span { background-color: var(--locked-text); opacity: 0.5; }
-/* Compact badge: small type, tight line-height, no extra top margin —
-   so locked cards stay almost the same height as unlocked ones. */
-.lock-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; opacity: 0.75; line-height: 1.2; }
+.item.locked .drag-handle { color: var(--locked-text); }
 
 /* Mobile-only: fill the screen, cards stretch to fill space between header and button */
 @media (max-width: 600px) {
@@ -105,14 +102,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     }
     .axis-column { padding-top: 10px; padding-bottom: 10px; }
     .timeline { gap: 8px; min-height: 0; }
-    .item { flex: 1 1 0; min-height: 0; padding: 10px 14px; overflow: hidden; }
+    .item { flex: 1 1 0; min-height: 0; padding: 10px 14px; }
     .text { font-size: 13.5px; }
     #submit-btn { flex-shrink: 0; }
 
     /* Once the game is over, cards size to content. Page becomes scrollable for results. */
     .game-container.attempted { height: auto; }
     .game-container.attempted .board-wrapper { flex: 0 0 auto; }
-    .game-container.attempted .item { flex: 0 0 auto; overflow: visible; }
+    .game-container.attempted .item { flex: 0 0 auto; }
 }
 
 .card-content { display: flex; align-items: center; gap: 12px; flex-grow: 1; min-width: 0; }
@@ -462,16 +459,22 @@ function render() {
             d.classList.add("locked");
         }
 
+        // Locked cards swap the drag bars for a check icon — they can't be
+        // dragged, and the icon marks them as correct without adding text
+        // that would change the card's height.
+        const handleContent = lockedIds.has(item.id)
+            ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>'
+            : '<span></span><span></span><span></span>';
+
         d.innerHTML = `
             <div class="card-content">
                 <span class="emoji">${item.emoji}</span>
                 <div class="text-block">
                     <span class="text">${item.event}</span>
-                    ${lockedIds.has(item.id) ? '<span class="lock-badge">✓ Locked in</span>' : ''}
                 </div>
             </div>
             <div class="drag-handle">
-                <span></span><span></span><span></span>
+                ${handleContent}
             </div>
         `;
 
@@ -854,9 +857,6 @@ function revealYears() {
     [...document.querySelectorAll(".item")].forEach(card => {
         const item = data.find(d => d.id == card.dataset.id);
         const textBlock = card.querySelector('.text-block');
-        // Remove any lingering lock badge
-        const badge = textBlock.querySelector('.lock-badge');
-        if (badge) badge.remove();
         // Only add the year if it isn't already there
         if (!textBlock.querySelector('.year-reveal')) {
             const yearEl = document.createElement('span');
@@ -873,9 +873,10 @@ function attachWikiLinks() {
         card.style.cursor = "pointer";
         card.onclick = () => window.open(item.wiki, '_blank');
 
-        // Swap drag handle for an external-link icon
+        // Swap drag handle (or the locked check icon) for an external-link icon.
+        // Setting innerHTML unconditionally is safe to run more than once.
         const handle = card.querySelector('.drag-handle');
-        if (handle && !handle.querySelector('svg')) {
+        if (handle) {
             handle.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
         }
     });
