@@ -733,7 +733,8 @@ shareString = "Today's Chronl History Puzzle - Exhibit A Edition:\n";
         shareString += ` 🔥${streakResult.streak}`;
     }
 
-    shareString += "\n\nSee if you can beat me here: " + window.location.href;
+    const shareUrl = window.location.origin + window.location.pathname + "?ref=share";
+shareString += "\n\nSee if you can beat me here: " + shareUrl;
 
     // Result title
     let performanceTitle;
