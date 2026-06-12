@@ -241,6 +241,52 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 
 /* Animation when cards get reordered into correct sequence */
 .item.reordering { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* ===== EMAIL CAPTURE =====
+   Sits at the bottom of the result panel, below Copy Results, separated by a
+   divider — deliberately NOT above the copy button, so it never competes with
+   the share action (the game's main growth loop). Hidden until SIGNUP_ENDPOINT
+   is configured in the script, and hidden for users who already subscribed. */
+.email-capture {
+    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--nyt-line);
+    text-align: center;
+}
+.email-capture.visible { display: block; }
+.email-capture-title { font-family: var(--font-serif); font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+.email-capture-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+.email-form { display: flex; gap: 8px; }
+.email-input {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 10px 14px;
+    border: 1px solid var(--nyt-line);
+    border-radius: 24px;
+    font-size: 14px;
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: var(--text-main);
+}
+.email-input:focus { outline: none; border-color: var(--text-main); }
+.email-submit {
+    flex-shrink: 0;
+    padding: 10px 18px;
+    border-radius: 24px;
+    border: 1px solid var(--text-main);
+    background-color: var(--nyt-dark);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+.email-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.email-status { font-size: 12.5px; margin-top: 8px; min-height: 16px; }
+.email-status.error { color: var(--incorrect-bg); }
+.email-status.success { color: var(--correct-bg); font-weight: 600; }
 </style>
 </head>
 
@@ -283,6 +329,18 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
         </div>
 
         <button class="action-btn" id="copy-btn" onclick="copyResults()">Copy Results</button>
+
+        <!-- Email signup — only becomes visible once SIGNUP_ENDPOINT is set
+             in the script below, and stays hidden for already-subscribed users. -->
+        <div class="email-capture" id="email-capture">
+            <div class="email-capture-title">📬 Never miss a puzzle</div>
+            <div class="email-capture-sub">Get a heads-up when a new Chronl is live.</div>
+            <form id="signup-form" class="email-form" novalidate>
+                <input type="email" id="signup-email" class="email-input" placeholder="you@example.com" autocomplete="email" inputmode="email" required>
+                <button type="submit" id="signup-btn" class="email-submit">Sign up</button>
+            </form>
+            <div class="email-status" id="email-status"></div>
+        </div>
     </div>
 </div>
 
@@ -938,6 +996,88 @@ function copyResults() {
     });
 }
 
+// ===== EMAIL SIGNUP =====
+// Self-contained: nothing else in the game references this section, and it
+// touches no game state. The signup block in the result panel stays hidden
+// until SIGNUP_ENDPOINT is set, so deploying this code with the endpoint
+// blank changes nothing visible.
+//
+// SIGNUP_ENDPOINT should accept a form-encoded POST with an `email` field.
+// Works as-is with e.g.:
+//   - Buttondown:  "https://buttondown.com/api/emails/embed-subscribe/YOUR_USERNAME"
+//   - Your own Cloudflare Worker / serverless function (which can then call
+//     Resend, MailerLite, etc. server-side with your secret API key).
+// NEVER put a secret API key (Resend or otherwise) in this file — it's
+// readable by anyone via view-source.
+const SIGNUP_ENDPOINT = "https://buttondown.com/api/emails/embed-subscribe/chronl";
+const SUBSCRIBED_KEY = "chronl_subscribed_v1";
+
+function alreadySubscribed() {
+    try { return !!localStorage.getItem(SUBSCRIBED_KEY); } catch (e) { return false; }
+}
+
+function rememberSubscribed() {
+    try { localStorage.setItem(SUBSCRIBED_KEY, "1"); } catch (e) { /* fail silently */ }
+}
+
+function initEmailCapture() {
+    // Stay hidden if not configured, or if this browser already signed up.
+    if (!SIGNUP_ENDPOINT || alreadySubscribed()) return;
+    document.getElementById("email-capture").classList.add("visible");
+    document.getElementById("signup-form").addEventListener("submit", handleSignup);
+}
+
+async function handleSignup(e) {
+    e.preventDefault(); // never navigate away from the results screen
+
+    const input = document.getElementById("signup-email");
+    const btn = document.getElementById("signup-btn");
+    const status = document.getElementById("email-status");
+    const email = input.value.trim();
+
+    // Light validation — the service does the real verification
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        status.className = "email-status error";
+        status.innerText = "Please enter a valid email address.";
+        return;
+    }
+
+    btn.disabled = true;
+    btn.innerText = "Signing up...";
+    status.className = "email-status";
+    status.innerText = "";
+
+    try {
+        // mode: "no-cors" — Buttondown's embed endpoint is built for native
+        // form posts and doesn't send CORS headers, so a normal fetch would
+        // throw even when the signup succeeds. With no-cors the request goes
+        // through and we optimistically treat it as success; the user's real
+        // confirmation is the double opt-in email Buttondown sends them.
+        await fetch(SIGNUP_ENDPOINT, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams({ email })
+        });
+
+        // Plausible: count signups in the same dashboard as your other goals
+        if (window.plausible) {
+            plausible("Signup_Submitted");
+        }
+
+        rememberSubscribed();
+        document.getElementById("email-capture").innerHTML =
+            '<div class="email-capture-title">✓ Almost there</div>' +
+            '<div class="email-capture-sub">Check your inbox for a confirmation email to finish signing up.</div>';
+    } catch (err) {
+        btn.disabled = false;
+        btn.innerText = "Sign up";
+        status.className = "email-status error";
+        status.innerText = "Something went wrong — please try again.";
+    }
+}
+// =========================
+
 // ===== CONFETTI =====
 // Lightweight canvas confetti for the perfect-first-try moment.
 function fireConfetti() {
@@ -992,6 +1132,7 @@ function fireConfetti() {
 
 render();
 renderHeaderStreak();
+initEmailCapture();
 </script>
 </body>
 </html>
