@@ -64,7 +64,7 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 .axis-line { flex-grow: 1; width: 1px; background-color: #bcbcbc; margin: 12px 0; }
 
 .timeline { flex-grow: 1; display: flex; flex-direction: column; gap: 10px; }
-.item { background-color: #ffffff; border: 1px solid var(--nyt-line); border-radius: 6px; padding: 16px; display: flex; justify-content: space-between; align-items: center; cursor: grab; user-select: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease, border-color 0.3s ease, filter 0.2s ease; }
+.item { background-color: #ffffff; border: 1px solid var(--nyt-line); border-radius: 6px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; cursor: grab; user-select: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.3s ease, border-color 0.3s ease, filter 0.2s ease; }
 .item.dragging { opacity: 0.4; transform: scale(0.98); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
 /* Locked-in (correct on first try) — keep visible but not draggable */
@@ -75,7 +75,9 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     cursor: not-allowed;
 }
 .item.locked .drag-handle span { background-color: var(--locked-text); opacity: 0.5; }
-.lock-badge { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.8; margin-top: 2px; }
+/* Compact badge: small type, tight line-height, no extra top margin —
+   so locked cards stay almost the same height as unlocked ones. */
+.lock-badge { font-size: 10px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; opacity: 0.75; line-height: 1.2; }
 
 /* Mobile-only: fill the screen, cards stretch to fill space between header and button */
 @media (max-width: 600px) {
@@ -88,10 +90,10 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
         padding-top: 16px;
         padding-bottom: 16px;
     }
-    /* Before any submit, lock the container to viewport height so cards fill the screen.
-       After the user has submitted at least once, switch to natural sizing so:
-       (1) the "Locked in" badge doesn't crush card padding, and
-       (2) the result panel below has room and doesn't cause scroll jumps. */
+    /* While the game is in progress (both attempts), lock the container to the
+       viewport height so the cards + submit button always fit on screen.
+       Only after finalize() — when the result panel needs room below — do we
+       switch to natural sizing via the .attempted class. */
     .game-container:not(.attempted) { height: 100dvh; }
 
     header { padding-bottom: 12px; margin-bottom: 14px; flex-shrink: 0; }
@@ -103,22 +105,23 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     }
     .axis-column { padding-top: 10px; padding-bottom: 10px; }
     .timeline { gap: 8px; min-height: 0; }
-    .item { flex: 1 1 0; min-height: 0; padding: 10px 14px; }
+    .item { flex: 1 1 0; min-height: 0; padding: 10px 14px; overflow: hidden; }
+    .text { font-size: 13.5px; }
     #submit-btn { flex-shrink: 0; }
 
-    /* Once attempted, cards size to content. Page becomes scrollable for results. */
+    /* Once the game is over, cards size to content. Page becomes scrollable for results. */
     .game-container.attempted { height: auto; }
     .game-container.attempted .board-wrapper { flex: 0 0 auto; }
-    .game-container.attempted .item { flex: 0 0 auto; }
+    .game-container.attempted .item { flex: 0 0 auto; overflow: visible; }
 }
 
-.card-content { display: flex; align-items: center; gap: 12px; flex-grow: 1; }
-.emoji { font-size: 20px; flex-shrink: 0; }
-.text-block { display: flex; flex-direction: column; gap: 2px; }
-.text { font-size: 16px; font-weight: 500; letter-spacing: -0.2px; }
+.card-content { display: flex; align-items: center; gap: 12px; flex-grow: 1; min-width: 0; }
+.emoji { font-size: 18px; flex-shrink: 0; }
+.text-block { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.text { font-size: 14px; font-weight: 500; letter-spacing: -0.1px; line-height: 1.4; }
 .year-reveal { font-size: 12px; font-weight: 600; opacity: 0.9; letter-spacing: 0.3px; }
 
-.drag-handle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; width: 20px; height: 20px; }
+.drag-handle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; width: 20px; height: 20px; flex-shrink: 0; margin-left: 10px; }
 .drag-handle span { height: 2px; background-color: #bcbcbc; width: 12px; border-radius: 1px; }
 
 .action-btn { width: 100%; background-color: transparent; color: var(--text-main); border: 1px solid var(--text-main); border-radius: 24px; padding: 14px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; }
@@ -524,10 +527,11 @@ function restoreLockedPositions() {
 
 // First or second submit attempt
 function checkAttempt() {
-    // Switch out of mobile "fill viewport" mode now that the user has submitted.
-    // This stops the locked-in badge from crushing card padding, and prevents
-    // scroll jumps when years/wiki content get added later.
-    document.querySelector(".game-container").classList.add("attempted");
+    // NOTE: we deliberately do NOT switch out of the mobile "fill viewport"
+    // layout here. The game stays locked to the screen through attempt 2 so
+    // the submit button never gets pushed below the fold. The switch to
+    // natural sizing (.attempted) happens in finalize(), when the result
+    // panel actually needs room below the board.
 
     const cards = [...document.querySelectorAll(".item")];
     const currentOrderIds = cards.map(c => parseInt(c.dataset.id));
@@ -602,6 +606,11 @@ function checkAttempt() {
 }
 
 function finalize(results, perfectFirstTry) {
+    // The game is over — now switch the mobile layout from "fill viewport"
+    // to natural sizing so the result panel below has room and cards can
+    // grow to fit years/wiki links.
+    document.querySelector(".game-container").classList.add("attempted");
+
     document.getElementById("submit-btn").style.display = "none";
 
     // Clear locked-position anchoring and tear down Sortable so the chronological
