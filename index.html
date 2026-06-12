@@ -609,6 +609,13 @@ function checkAttempt() {
 }
 
 function finalize(results, perfectFirstTry) {
+    // Pin every card at its current rendered height BEFORE switching layouts.
+    // This prevents the sudden shrink on mobile when .attempted swaps cards
+    // from "stretch to fill viewport" to "size to content". The cards stay
+    // visually identical, then growCardsToFinalSize() animates them to their
+    // natural height once the years have been added.
+    freezeCardHeights();
+
     // The game is over — now switch the mobile layout from "fill viewport"
     // to natural sizing so the result panel below has room and cards can
     // grow to fit years/wiki links.
@@ -767,17 +774,19 @@ shareString = "Today's Chronl History Puzzle - Exhibit A Edition:\n";
         // is in its final layout, we scroll AND trigger block + streak animations.
         setTimeout(() => animateToCorrectOrder(stillWrongIds, triggerBlockAnimations, streakResult), 600);
     } else {
-        // Perfect first try — already in correct order. Add years, wiki links,
-        // AND show the streak BEFORE scrolling so the page is at final height
-        // when we measure. Wiggle-only animation doesn't change layout.
+        // Perfect first try — already in correct order. Add years + wiki links
+        // while heights are frozen, then animate the cards growing to fit.
+        // Scroll only after the growth animation finishes so the page is at
+        // its final height when we measure.
         attachWikiLinks();
         revealYears();
+        growCardsToFinalSize();
         showStreakAnnounce(streakResult.streak, streakResult.change);
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        });
-        setTimeout(triggerBlockAnimations, 300);
-        setTimeout(fireConfetti, 600);
+        }, 500);
+        setTimeout(triggerBlockAnimations, 700);
+        setTimeout(fireConfetti, 1000);
     }
 }
 
@@ -834,10 +843,10 @@ function animateToCorrectOrder(stillWrongIds, triggerBlockAnimations, streakResu
         });
     });
 
-    // 6. After the animation, reveal years + wiki links, THEN scroll to the bottom.
-    //    Order matters: revealYears and attachWikiLinks change card heights/content,
-    //    so doing them before the scroll guarantees the page is at its final height
-    //    when we scroll. Otherwise the page grows after scrolling and bounces back up.
+    // 6. After the reorder animation: add years + wiki links while heights are
+    //    still frozen, animate the cards growing to their final size, THEN
+    //    scroll. Scrolling waits for the growth to finish so the page is at
+    //    its final height when we measure — otherwise it bounces.
     setTimeout(() => {
         reorderedCards.forEach(card => {
             card.classList.remove("reordering");
@@ -845,12 +854,44 @@ function animateToCorrectOrder(stillWrongIds, triggerBlockAnimations, streakResu
         });
         attachWikiLinks();
         revealYears();
+        growCardsToFinalSize();
         showStreakAnnounce(streakResult.streak, streakResult.change);
-        requestAnimationFrame(() => {
+        setTimeout(() => {
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        });
-        setTimeout(triggerBlockAnimations, 300);
+        }, 500);
+        setTimeout(triggerBlockAnimations, 700);
     }, 800);
+}
+
+// ===== CARD HEIGHT TRANSITION =====
+// freezeCardHeights pins every card at its current pixel height so layout
+// changes (like the .attempted switch) cause no visible jump. Content added
+// while frozen (the year line) is clipped until growCardsToFinalSize animates
+// each card from its frozen height to its new natural height, then cleans up.
+function freezeCardHeights() {
+    [...document.querySelectorAll(".item")].forEach(card => {
+        card.style.height = card.getBoundingClientRect().height + "px";
+        card.style.overflow = "hidden";
+    });
+}
+
+function growCardsToFinalSize() {
+    [...document.querySelectorAll(".item")].forEach(card => {
+        const frozen = card.style.height;
+        // Measure the natural height with the new content
+        card.style.height = "auto";
+        const target = card.getBoundingClientRect().height;
+        // Snap back to frozen height, then animate to target
+        card.style.height = frozen;
+        void card.offsetHeight; // force reflow so the transition runs
+        card.style.transition = "height 0.45s cubic-bezier(0.4, 0, 0.2, 1)";
+        card.style.height = target + "px";
+        setTimeout(() => {
+            card.style.height = "";
+            card.style.overflow = "";
+            card.style.transition = "";
+        }, 500);
+    });
 }
 
 function revealYears() {
