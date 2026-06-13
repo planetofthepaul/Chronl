@@ -348,12 +348,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"💉", event:"John Hinckley Jr. shoots President Reagan outside a Washington hotel", year:1981, wiki:"https://en.wikipedia.org/wiki/Attempted_assassination_of_Ronald_Reagan"},
-    {id:2, emoji:"💊", event:"Seven people die after someone laces Chicago Tylenol capsules with cyanide", year:1982, wiki:"https://en.wikipedia.org/wiki/Chicago_Tylenol_murders"},
-    {id:3, emoji:"🖼️", event:"Thieves pull off the largest art heist in history at the Isabella Stewart Gardner Museum", year:1990, wiki:"https://en.wikipedia.org/wiki/Isabella_Stewart_Gardner_Museum_theft"},
-    {id:4, emoji:"🔥", event:"LA Riots erupt after officers who beat Rodney King are acquitted", year:1992, wiki:"https://en.wikipedia.org/wiki/1992_Los_Angeles_riots"},
-    {id:5, emoji:"🚗", event:"O.J. Simpson leads police on a low-speed chase in a white Ford Bronco", year:1994, wiki:"https://en.wikipedia.org/wiki/O._J._Simpson_murder_case"},
-    {id:6, emoji:"🌲", event:"The Unabomber Ted Kaczynski is arrested at his isolated Montana cabin", year:1996, wiki:"https://en.wikipedia.org/wiki/Ted_Kaczynski"}
+    {id:1, emoji:"🍕", event:"The world's first documented online pizza order is placed via PizzaNet", year:1994, wiki:"https://en.wikipedia.org/wiki/PizzaNet"},
+    {id:2, emoji:"🌐", event:"The domain Google.com is officially registered", year:1997, wiki:"https://en.wikipedia.org/wiki/Google#History"},
+    {id:3, emoji:"📝", event:"The very first edit is made to the newly launched Wikipedia", year:2001, wiki:"https://en.wikipedia.org/wiki/First_Wikipedia_edit"},
+    {id:4, emoji:"👥", event:"Myspace launches and 'Tom' becomes everyone's automatic first friend", year:2003, wiki:"https://en.wikipedia.org/wiki/Myspace#History"},
+    {id:5, emoji:"🖼️", event:"The Million Dollar Homepage sells out its final pixels on eBay", year:2006, wiki:"https://en.wikipedia.org/wiki/The_Million_Dollar_Homepage"},
+    {id:6, emoji:"📱", event:"Apple releases the original iPhone, changing the smartphone landscape", year:2007, wiki:"https://en.wikipedia.org/wiki/IPhone_(1st_generation)"}
 ];
 
 
@@ -766,7 +766,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Exhibit A Edition:\n";
+shareString = "Today's Chronl History Puzzle - Dotcom Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
