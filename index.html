@@ -348,13 +348,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"⚾", event:"Joe DiMaggio ends his record 56-game hitting streak, a mark still unbroken today", year:1941, wiki:"https://en.wikipedia.org/wiki/Joe_DiMaggio%27s_56-game_hitting_streak"},
-    {id:2, emoji:"🏃", event:"Roger Bannister becomes the first human to run a mile in under four minutes", year:1954, wiki:"https://en.wikipedia.org/wiki/Roger_Bannister"},
-    {id:3, emoji:"🏀", event:"Wilt Chamberlain scores 100 points in a single NBA game, a record that still stands", year:1962, wiki:"https://en.wikipedia.org/wiki/Wilt_Chamberlain%27s_100-point_game"},
-    {id:4, emoji:"🥊", event:"Muhammad Ali defeats George Foreman in the 'Rumble in the Jungle' in Zaire", year:1974, wiki:"https://en.wikipedia.org/wiki/The_Rumble_in_the_Jungle"},
-    {id:5, emoji:"🎾", event:"Martina Navratilova wins her record ninth Wimbledon singles title", year:1990, wiki:"https://en.wikipedia.org/wiki/Martina_Navratilova"},
-    {id:6, emoji:"⏱️", event:"Usain Bolt sets the 100m world record of 9.58 seconds in Berlin", year:2009, wiki:"https://en.wikipedia.org/wiki/Usain_Bolt#World_records"}
+{id:1, emoji:"🐘", event:"Jumbo the elephant, the world's most famous animal attraction, is struck and killed by a freight train in Ontario", year:1885, wiki:"https://en.wikipedia.org/wiki/Jumbo"},
+{id:2, emoji:"🦛", event:"Huberta the hippo completes a solo three-year, 1,000-mile journey along the South African coastline, captivating the nation", year:1931, wiki:"https://en.wikipedia.org/wiki/Huberta"},
+{id:3, emoji:"🐻", event:"Wojtek the Syrian brown bear is officially enlisted as a private in the Polish Army and serves in World War II", year:1944, wiki:"https://en.wikipedia.org/wiki/Wojtek_(bear)"},
+{id:4, emoji:"🐕", event:"Laika becomes the first living creature to orbit Earth aboard Soviet spacecraft Sputnik 2", year:1957, wiki:"https://en.wikipedia.org/wiki/Laika"},
+{id:5, emoji:"🦍", event:"Koko the gorilla demonstrates she has learned over 1,000 signs of American Sign Language", year:1972, wiki:"https://en.wikipedia.org/wiki/Koko_(gorilla)"},
+{id:6, emoji:"🐋", event:"Keiko the orca, star of Free Willy, is successfully transported from Mexico to a rehabilitation facility in Oregon", year:1996, wiki:"https://en.wikipedia.org/wiki/Keiko_(orca)"}
 ];
+
 
 
 
@@ -767,7 +768,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Sports Records Edition:\n";
+shareString = "Today's Chronl History Puzzle - Famous Animals Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
