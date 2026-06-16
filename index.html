@@ -287,25 +287,6 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 .email-status { font-size: 12.5px; margin-top: 8px; min-height: 16px; }
 .email-status.error { color: var(--incorrect-bg); }
 .email-status.success { color: var(--correct-bg); font-weight: 600; }
-
-/* ===== RESULT-PANEL CREDIT =====
-   Sibling of .email-capture (NOT nested inside it), so it stays visible
-   regardless of subscription state and after a successful signup. */
-.result-credit {
-    margin-top: 20px;
-    padding-top: 16px;
-    border-top: 1px solid var(--nyt-line);
-    font-size: 13px;
-    color: var(--text-muted);
-    text-align: center;
-}
-.result-credit a {
-    color: var(--text-main);
-    font-weight: 600;
-    text-decoration: none;
-    border-bottom: 1px solid var(--nyt-line);
-}
-.result-credit a:hover { border-bottom-color: var(--text-main); }
 </style>
 </head>
 
@@ -359,10 +340,6 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
                 <button type="submit" id="signup-btn" class="email-submit">Sign up</button>
             </form>
             <div class="email-status" id="email-status"></div>
-        </div>
-
-        <div class="result-credit">
-            A daily puzzle by <a href="https://paulwstaples.com/" target="_blank" rel="noopener">Paul Staples</a>
         </div>
     </div>
 </div>
