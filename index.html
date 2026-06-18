@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🎤", event:"Marilyn Monroe sings a famously breathy 'Happy Birthday' to JFK", year:1962, wiki:"https://en.wikipedia.org/wiki/Happy_Birthday,_Mr._President"},
-  {id:2, emoji:"👔", event:"Clinton tells the nation 'I did not have sexual relations with that woman'", year:1998, wiki:"https://en.wikipedia.org/wiki/Clinton%E2%80%93Lewinsky_scandal"},
-  {id:3, emoji:"💻", event:"Ashley Madison launches, a dating site marketed to people seeking affairs", year:2002, wiki:"https://en.wikipedia.org/wiki/Ashley_Madison"},
-  {id:4, emoji:"💍", event:"Brad Pitt and Jennifer Aniston announce separation amid speculation re: Angelina Jolie", year:2005, wiki:"https://en.wikipedia.org/wiki/Brad_Pitt"},
-  {id:5, emoji:"⛳", event:"Tiger Woods' affairs exposed, triggering scandal that ends his marriage", year:2009, wiki:"https://en.wikipedia.org/wiki/Tiger_Woods#Personal_life"},
-  {id:6, emoji:"📱", event:"A. Weiner resigns from Congress over explicit photo scandal", year:2011, wiki:"https://en.wikipedia.org/wiki/Anthony_Weiner_sexting_scandals"}
+  {id:1, emoji:"🧬", event:"Rosalind Franklin's 'Photo 51' helps reveal the structure of DNA", year:1953, wiki:"https://en.wikipedia.org/wiki/Rosalind_Franklin"},
+  {id:2, emoji:"🚌", event:"Rosa Parks refuses to give up her bus seat", year:1955, wiki:"https://en.wikipedia.org/wiki/Rosa_Parks"},
+  {id:3, emoji:"🚀", event:"Valentina Tereshkova becomes the first woman in space", year:1963, wiki:"https://en.wikipedia.org/wiki/Valentina_Tereshkova"},
+  {id:4, emoji:"🎾", event:"Billie Jean King beats Bobby Riggs in 'Battle of the Sexes' tennis match", year:1973, wiki:"https://en.wikipedia.org/wiki/Battle_of_the_Sexes_(tennis)"},
+  {id:5, emoji:"🇬🇧", event:"Margaret Thatcher becomes Britain's first female prime minister", year:1979, wiki:"https://en.wikipedia.org/wiki/Margaret_Thatcher"},
+  {id:6, emoji:"👸", event:"Princess Diana marries Prince Charles in a globally televised wedding", year:1981, wiki:"https://en.wikipedia.org/wiki/Wedding_of_Charles_and_Diana"}
 ];
+
 
 
 
@@ -792,7 +793,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Infamous Infidelity Edition:\n";
+shareString = "Today's Chronl History Puzzle - Women Who Changed the World Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
