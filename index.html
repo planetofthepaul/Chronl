@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🧬", event:"Rosalind Franklin's 'Photo 51' helps reveal the structure of DNA", year:1953, wiki:"https://en.wikipedia.org/wiki/Rosalind_Franklin"},
-  {id:2, emoji:"🚌", event:"Rosa Parks refuses to give up her bus seat", year:1955, wiki:"https://en.wikipedia.org/wiki/Rosa_Parks"},
-  {id:3, emoji:"🚀", event:"Valentina Tereshkova becomes the first woman in space", year:1963, wiki:"https://en.wikipedia.org/wiki/Valentina_Tereshkova"},
-  {id:4, emoji:"🎾", event:"Billie Jean King beats Bobby Riggs in 'Battle of the Sexes' tennis match", year:1973, wiki:"https://en.wikipedia.org/wiki/Battle_of_the_Sexes_(tennis)"},
-  {id:5, emoji:"🇬🇧", event:"Margaret Thatcher becomes Britain's first female prime minister", year:1979, wiki:"https://en.wikipedia.org/wiki/Margaret_Thatcher"},
-  {id:6, emoji:"👸", event:"Princess Diana marries Prince Charles in a globally televised wedding", year:1981, wiki:"https://en.wikipedia.org/wiki/Wedding_of_Charles_and_Diana"}
+  {id:1, emoji:"🇺🇸", event:"Nixon becomes the first US president to resign after Watergate", year:1974, wiki:"https://en.wikipedia.org/wiki/Richard_Nixon"},
+  {id:2, emoji:"🍿", event:"Sony launches Betamax, which ultimately loses the videotape format war", year:1975, wiki:"https://en.wikipedia.org/wiki/Betamax"},
+  {id:3, emoji:"🥤", event:"Coca-Cola introduces New Coke, sparking massive consumer backlash", year:1985, wiki:"https://en.wikipedia.org/wiki/New_Coke"},
+  {id:4, emoji:"📟", event:"Apple launches the Newton, a famous and expensive PDA flop", year:1993, wiki:"https://en.wikipedia.org/wiki/Apple_Newton"},
+  {id:5, emoji:"🍔", event:"McDonald's rolls out the Arch Deluxe, an epic fast-food misfire", year:1996, wiki:"https://en.wikipedia.org/wiki/Arch_Deluxe"},
+  {id:6, emoji:"📀", event:"Blockbuster declines to buy a rising Netflix for $50 million", year:2000, wiki:"https://en.wikipedia.org/wiki/Blockbuster_LLC"}
 ];
+
 
 
 
@@ -793,7 +794,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Women Who Changed the World Edition:\n";
+shareString = "Today's Chronl History Puzzle - History's Biggest Losers Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
