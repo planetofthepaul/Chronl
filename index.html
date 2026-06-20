@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🇺🇸", event:"Nixon becomes the first US president to resign after Watergate", year:1974, wiki:"https://en.wikipedia.org/wiki/Richard_Nixon"},
-  {id:2, emoji:"🍿", event:"Sony launches Betamax, which ultimately loses the videotape format war", year:1975, wiki:"https://en.wikipedia.org/wiki/Betamax"},
-  {id:3, emoji:"🥤", event:"Coca-Cola introduces New Coke, sparking massive consumer backlash", year:1985, wiki:"https://en.wikipedia.org/wiki/New_Coke"},
-  {id:4, emoji:"📟", event:"Apple launches the Newton, a famous and expensive PDA flop", year:1993, wiki:"https://en.wikipedia.org/wiki/Apple_Newton"},
-  {id:5, emoji:"🍔", event:"McDonald's rolls out the Arch Deluxe, an epic fast-food misfire", year:1996, wiki:"https://en.wikipedia.org/wiki/Arch_Deluxe"},
-  {id:6, emoji:"📀", event:"Blockbuster declines to buy a rising Netflix for $50 million", year:2000, wiki:"https://en.wikipedia.org/wiki/Blockbuster_LLC"}
+  {id:1, emoji:"🍄", event:"Alexander Fleming accidentally discovers penicillin in a messy lab", year:1928, wiki:"https://en.wikipedia.org/wiki/Penicillin"},
+  {id:2, emoji:"🌱", event:"George de Mestral invents Velcro after studying burrs on his dog", year:1941, wiki:"https://en.wikipedia.org/wiki/Hook_and_loop_fastener"},
+  {id:3, emoji:"🌀", event:"Richard James invents the Slinky after dropping a tension spring", year:1943, wiki:"https://en.wikipedia.org/wiki/Slinky"},
+  {id:4, emoji:"🍿", event:"Percy Spencer discovers the microwave after a candy bar melts", year:1945, wiki:"https://en.wikipedia.org/wiki/Microwave_oven"},
+  {id:5, emoji:"🧸", event:"Play-Doh is reinvented as a toy after failing as a wallpaper cleaner", year:1956, wiki:"https://en.wikipedia.org/wiki/Play-Doh"},
+  {id:6, emoji:"📄", event:"3M scientists accidentally invent Post-it Notes using weak adhesive", year:1968, wiki:"https://en.wikipedia.org/wiki/Post-it_Note"}
 ];
 
 
@@ -794,7 +794,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - History's Biggest Losers Edition:\n";
+shareString = "Today's Chronl History Puzzle - Accidental Genius Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
