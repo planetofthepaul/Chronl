@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🗽", event:"The Statue of Liberty is dedicated in New York Harbor", year:1886, wiki:"https://en.wikipedia.org/wiki/Statue_of_Liberty"},
-  {id:2, emoji:"🗼", event:"The Eiffel Tower is completed for the World's Fair", year:1889, wiki:"https://en.wikipedia.org/wiki/Eiffel_Tower"},
-  {id:3, emoji:"🍫", event:"Milton Hershey sells his first chocolate bar", year:1900, wiki:"https://en.wikipedia.org/wiki/The_Hershey_Company"},
-  {id:4, emoji:"⚽", event:"The first FIFA World Cup is held in Uruguay", year:1930, wiki:"https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"},
-  {id:5, emoji:"📺", event:"The first coast-to-coast color television broadcast airs in the U.S.", year:1954, wiki:"https://en.wikipedia.org/wiki/Color_television"},
-  {id:6, emoji:"👱‍♀️", event:"Mattel launches the first Barbie doll", year:1959, wiki:"https://en.wikipedia.org/wiki/Barbie"}
+  {id:1, emoji:"💃", event:"The Dancing Plague strikes Strasbourg, causing hundreds to dance uncontrollably", year:1518, wiki:"https://en.wikipedia.org/wiki/Dancing_plague_of_1518"},
+  {id:2, emoji:"🌷", event:"Tulip mania peaks as single bulbs sell for fortunes", year:1637, wiki:"https://en.wikipedia.org/wiki/Tulip_mania"},
+  {id:3, emoji:"🧙‍♀️", event:"The Salem witch trials begin, fueled by extreme societal paranoia", year:1692, wiki:"https://en.wikipedia.org/wiki/Salem_witch_trials"},
+  {id:4, emoji:"🌕", event:"The 'Great Moon Hoax' convinces newspaper readers that bat-men live on the moon", year:1835, wiki:"https://en.wikipedia.org/wiki/Great_Moon_Hoax"},
+  {id:5, emoji:"💻", event:"Global panic peaks over the looming Y2K computer bug", year:1999, wiki:"https://en.wikipedia.org/wiki/Year_2000_problem"},
+  {id:6, emoji:"🖼️", event:"Beeple's 'Everydays' NFT sells for a record $69.3 million, sparking massive digital asset craze", year:2021, wiki:"https://en.wikipedia.org/wiki/Everydays:_the_First_5000_Days"}
 ];
 
 
@@ -795,7 +795,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Wildcard Edition:\n";
+shareString = "Today's Chronl History Puzzle - Mass Delusion Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
