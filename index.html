@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"💃", event:"The Dancing Plague strikes Strasbourg, causing hundreds to dance uncontrollably", year:1518, wiki:"https://en.wikipedia.org/wiki/Dancing_plague_of_1518"},
-  {id:2, emoji:"🌷", event:"Tulip mania peaks as single bulbs sell for fortunes", year:1637, wiki:"https://en.wikipedia.org/wiki/Tulip_mania"},
-  {id:3, emoji:"🧙‍♀️", event:"The Salem witch trials begin, fueled by extreme societal paranoia", year:1692, wiki:"https://en.wikipedia.org/wiki/Salem_witch_trials"},
-  {id:4, emoji:"🌕", event:"The 'Great Moon Hoax' convinces newspaper readers that bat-men live on the moon", year:1835, wiki:"https://en.wikipedia.org/wiki/Great_Moon_Hoax"},
-  {id:5, emoji:"💻", event:"Global panic peaks over the looming Y2K computer bug", year:1999, wiki:"https://en.wikipedia.org/wiki/Year_2000_problem"},
-  {id:6, emoji:"🖼️", event:"Beeple's 'Everydays' NFT sells for a record $69.3 million", year:2021, wiki:"https://en.wikipedia.org/wiki/Everydays:_the_First_5000_Days"}
+  {id:1, emoji:"🪣", event:"The War of the Bucket ends with Modena taking a well bucket as a trophy", year:1325, wiki:"https://en.wikipedia.org/wiki/War_of_the_Bucket"},
+  {id:2, emoji:"🍲", event:"Tensions explode into the 'Kettle War' after a single shot hits a soup kettle", year:1784, wiki:"https://en.wikipedia.org/wiki/Kettle_War"},
+  {id:3, emoji:"🍰", event:"The Pastry War begins as France invades Mexico, sparked by a looted bakery", year:1838, wiki:"https://en.wikipedia.org/wiki/Pastry_War"},
+  {id:4, emoji:"🐖", event:"The Pig War escalates confrontation between the US and UK over a shot farm animal", year:1859, wiki:"https://en.wikipedia.org/wiki/Pig_War_(1859)"},
+  {id:5, emoji:"🐦", event:"The Australian military fights the Great Emu War—and loses to the birds", year:1932, wiki:"https://en.wikipedia.org/wiki/Emu_War"},
+  {id:6, emoji:"🐟", event:"The Cod Wars ignite tense maritime standoffs between Iceland and the UK", year:1958, wiki:"https://en.wikipedia.org/wiki/Cod_Wars"}
 ];
+
 
 
 
@@ -795,7 +796,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Mass Delusion Edition:\n";
+shareString = "Today's Chronl History Puzzle - Bizarre Conflicts Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
