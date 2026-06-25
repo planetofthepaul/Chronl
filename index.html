@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🥀", event:"The First Opium War starts as Britain forces China to keep trading opium", year:1839, wiki:"https://en.wikipedia.org/wiki/First_Opium_War"},
-  {id:2, emoji:"🥃", event:"The US begins Prohibition, fueling the rise of organized crime syndicates", year:1920, wiki:"https://en.wikipedia.org/wiki/Prohibition_in_the_United_States"},
-  {id:3, emoji:"🎤", event:"President Nixon officially declares the global 'War on Drugs' campaign", year:1971, wiki:"https://en.wikipedia.org/wiki/War_on_Drugs"},
-  {id:4, emoji:"🌴", event:"A deadly Miami mall shootout sparks violent wars over cocaine routes", year:1979, wiki:"https://en.wikipedia.org/wiki/Miami_drug_war"},
-  {id:5, emoji:"💰", event:"The Medellín Cartel falls after the rooftop death of kingpin Pablo Escobar", year:1993, wiki:"https://en.wikipedia.org/wiki/Pablo_Escobar"},
-  {id:6, emoji:"🚁", event:"Mexico launches Operation Michoacán, igniting the brutal Mexican Drug War", year:2006, wiki:"https://en.wikipedia.org/wiki/Mexican_drug_war"}
+  {id:1, emoji:"🐺", event:"Rome is founded, per legend, by Romulus after he kills Remus", year:-753, wiki:"https://en.wikipedia.org/wiki/Founding_of_Rome"},
+  {id:2, emoji:"🏃", event:"Outnumbered Athenians defeat Persia's army on the plain of Marathon", year:-490, wiki:"https://en.wikipedia.org/wiki/Battle_of_Marathon"},
+  {id:3, emoji:"⚔️", event:"Alexander the Great dies in Babylon, leaving his vast empire to split", year:-323, wiki:"https://en.wikipedia.org/wiki/Death_of_Alexander_the_Great"},
+  {id:4, emoji:"🐘", event:"Hannibal marches war elephants over the Alps to strike at Rome", year:-218, wiki:"https://en.wikipedia.org/wiki/Hannibal%27s_crossing_of_the_Alps"},
+  {id:5, emoji:"🗡️", event:"Julius Caesar is stabbed to death by senators on the Ides of March", year:-44, wiki:"https://en.wikipedia.org/wiki/Assassination_of_Julius_Caesar"},
+  {id:6, emoji:"🌋", event:"Mount Vesuvius erupts, burying the Roman city of Pompeii in ash", year:79, wiki:"https://en.wikipedia.org/wiki/Eruption_of_Mount_Vesuvius_in_79_AD"}
 ];
+
 
 
 
@@ -796,7 +797,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Narcos Edition:\n";
+shareString = "Today's Chronl History Puzzle - Ancient Empires Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
