@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🛢️", event:"Edwin Drake strikes oil in Titusville, drilling the world's first commercial well", year:1859, wiki:"https://en.wikipedia.org/wiki/Edwin_Drake"},
-    {id:2, emoji:"⚖️", event:"The Supreme Court breaks up Standard Oil, ending Rockefeller's monopoly", year:1911, wiki:"https://en.wikipedia.org/wiki/Standard_Oil#Dissolution"},
-    {id:3, emoji:"⛽", event:"OPEC's embargo leads to mile-long lines at gas stations across USA", year:1973, wiki:"https://en.wikipedia.org/wiki/1973_oil_crisis"},
-    {id:4, emoji:"🌊", event:"The Exxon Valdez runs aground, spilling 11 million gallons", year:1989, wiki:"https://en.wikipedia.org/wiki/Exxon_Valdez_oil_spill"},
-    {id:5, emoji:"🔥", event:"The Deepwater Horizon rig explodes, the largest marine oil spill in history", year:2010, wiki:"https://en.wikipedia.org/wiki/Deepwater_Horizon_oil_spill"},
-    {id:6, emoji:"📉", event:"Oil prices crash below zero for the first time as pandemic lockdowns kill global demand", year:2020, wiki:"https://en.wikipedia.org/wiki/2020_oil_price_war"}
+    {id:1, emoji:"🐉", event:"Wu Zetian becomes China's only female emperor", year:690, wiki:"https://en.wikipedia.org/wiki/Wu_Zetian"},
+    {id:2, emoji:"🕊️", event:"Olga of Kiev avenges her husband by massacring the Drevlians", year:945, wiki:"https://en.wikipedia.org/wiki/Olga_of_Kiev"},
+    {id:3, emoji:"🔥", event:"'Bloody Mary' Tudor begins burning Protestants at the stake", year:1555, wiki:"https://en.wikipedia.org/wiki/Mary_I_of_England"},
+    {id:4, emoji:"⚜️", event:"Catherine de' Medici helps plan the St. Bartholomew's Day Massacre", year:1572, wiki:"https://en.wikipedia.org/wiki/St._Bartholomew%27s_Day_massacre"},
+    {id:5, emoji:"🩸", event:"'Blood Countess' Elizabeth Báthory is arrested for killing servant girls", year:1610, wiki:"https://en.wikipedia.org/wiki/Elizabeth_B%C3%A1thory"},
+    {id:6, emoji:"🐂", event:"Ranavalona I seizes Madagascar's throne, becoming the 'Mad Queen'", year:1828, wiki:"https://en.wikipedia.org/wiki/Ranavalona_I"}
 ];
+
 
 
 
@@ -798,7 +799,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Black Gold Edition:\n";
+shareString = "Today's Chronl History Puzzle - Mean Girl Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
