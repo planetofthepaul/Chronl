@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-    {id:1, emoji:"🐉", event:"Wu Zetian becomes China's only female emperor", year:690, wiki:"https://en.wikipedia.org/wiki/Wu_Zetian"},
-    {id:2, emoji:"🕊️", event:"Olga of Kiev avenges her husband by massacring the Drevlians", year:945, wiki:"https://en.wikipedia.org/wiki/Olga_of_Kiev"},
-    {id:3, emoji:"🔥", event:"'Bloody Mary' Tudor begins burning Protestants at the stake", year:1555, wiki:"https://en.wikipedia.org/wiki/Mary_I_of_England"},
-    {id:4, emoji:"⚜️", event:"Catherine de' Medici helps plan the St. Bartholomew's Day Massacre", year:1572, wiki:"https://en.wikipedia.org/wiki/St._Bartholomew%27s_Day_massacre"},
-    {id:5, emoji:"🩸", event:"'Blood Countess' Elizabeth Báthory is arrested for killing servant girls", year:1610, wiki:"https://en.wikipedia.org/wiki/Elizabeth_B%C3%A1thory"},
-    {id:6, emoji:"🐂", event:"Ranavalona I seizes Madagascar's throne, becoming the 'Mad Queen'", year:1828, wiki:"https://en.wikipedia.org/wiki/Ranavalona_I"}
+  {id:1, emoji:"🔬", event:"Wilhelm Wundt founds the first psychology lab in Leipzig, Germany", year:1879, wiki:"https://en.wikipedia.org/wiki/Wilhelm_Wundt"},
+  {id:2, emoji:"💭", event:"Freud publishes 'The Interpretation of Dreams,' founding psychoanalysis", year:1899, wiki:"https://en.wikipedia.org/wiki/The_Interpretation_of_Dreams"}, // Post-dated to 1900 by the publisher, but released in 1899
+  {id:3, emoji:"🐕", event:"Pavlov's dog experiments reveal the laws of classical conditioning", year:1903, wiki:"https://en.wikipedia.org/wiki/Ivan_Pavlov"},
+  {id:4, emoji:"🔺", event:"Maslow proposes his 'hierarchy of needs' theory of human motivation", year:1943, wiki:"https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs"},
+  {id:5, emoji:"👥", event:"Asch's line experiments reveal the power of group conformity", year:1951, wiki:"https://en.wikipedia.org/wiki/Asch_conformity_experiments"},
+  {id:6, emoji:"🔒", event:"Zimbardo's Stanford Prison Experiment spirals out of control", year:1971, wiki:"https://en.wikipedia.org/wiki/Stanford_prison_experiment"}
 ];
 
 
@@ -799,7 +799,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Mean Girl Edition:\n";
+shareString = "Today's Chronl History Puzzle - Psychology Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
