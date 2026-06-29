@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🔬", event:"Wilhelm Wundt founds the first psychology lab in Leipzig, Germany", year:1879, wiki:"https://en.wikipedia.org/wiki/Wilhelm_Wundt"},
-  {id:2, emoji:"💭", event:"Freud publishes 'The Interpretation of Dreams,' founding psychoanalysis", year:1899, wiki:"https://en.wikipedia.org/wiki/The_Interpretation_of_Dreams"}, // Post-dated to 1900 by the publisher, but released in 1899
-  {id:3, emoji:"🐕", event:"Pavlov's dog experiments reveal the laws of classical conditioning", year:1903, wiki:"https://en.wikipedia.org/wiki/Ivan_Pavlov"},
-  {id:4, emoji:"🔺", event:"Maslow proposes his 'hierarchy of needs' theory of human motivation", year:1943, wiki:"https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs"},
-  {id:5, emoji:"👥", event:"Asch's line experiments reveal the power of group conformity", year:1951, wiki:"https://en.wikipedia.org/wiki/Asch_conformity_experiments"},
-  {id:6, emoji:"🔒", event:"Zimbardo's Stanford Prison Experiment spirals out of control", year:1971, wiki:"https://en.wikipedia.org/wiki/Stanford_prison_experiment"}
+  {id:1, emoji:"🛷", event:"Balto leads the final dash of the serum run to diphtheria-hit Nome", year:1925, wiki:"https://en.wikipedia.org/wiki/Balto"},
+  {id:2, emoji:"🦮", event:"Buddy becomes America's first guide dog, leading Morris Frank", year:1928, wiki:"https://en.wikipedia.org/wiki/The_Seeing_Eye"},
+  {id:3, emoji:"🚉", event:"Hachikō dies after waiting nearly a decade for his late owner", year:1935, wiki:"https://en.wikipedia.org/wiki/Hachik%C5%8D"},
+  {id:4, emoji:"🎬", event:"Pal stars as Lassie in 'Lassie Come Home,' creating a legend", year:1943, wiki:"https://en.wikipedia.org/wiki/Lassie_Come_Home"},
+  {id:5, emoji:"🚀", event:"Laika becomes the first animal to orbit Earth aboard Sputnik 2", year:1957, wiki:"https://en.wikipedia.org/wiki/Laika"},
+  {id:6, emoji:"🏆", event:"Pickles the dog sniffs out the stolen World Cup trophy in London", year:1966, wiki:"https://en.wikipedia.org/wiki/Pickles_(dog)"}
 ];
 
 
@@ -799,7 +799,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Psychology Edition:\n";
+shareString = "Today's Chronl History Puzzle - Famous Dogs Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
