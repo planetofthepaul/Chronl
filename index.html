@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"💀", event:"The Black Death reaches Europe, killing up to half its population", year:1347, wiki:"https://en.wikipedia.org/wiki/Black_Death"},
-  {id:2, emoji:"🌺", event:"Smallpox ravages the Aztec Empire as Spanish forces lay siege", year:1520, wiki:"https://en.wikipedia.org/wiki/1520_Mexico_smallpox_epidemic"},
-  {id:3, emoji:"🚰", event:"Cholera sweeps London as the disease spreads worldwide by sea", year:1832, wiki:"https://en.wikipedia.org/wiki/Cholera_outbreaks_and_pandemics"},
-  {id:4, emoji:"🤧", event:"The Spanish flu erupts, killing tens of millions across the globe", year:1918, wiki:"https://en.wikipedia.org/wiki/Spanish_flu"},
-  {id:5, emoji:"🎗️", event:"AIDS is first reported as a mysterious illness striking the young", year:1981, wiki:"https://en.wikipedia.org/wiki/HIV/AIDS"},
-  {id:6, emoji:"🦠", event:"COVID-19 emerges in Wuhan, igniting a global pandemic", year:2019, wiki:"https://en.wikipedia.org/wiki/COVID-19_pandemic"}
+  {id:1, emoji:"📻", event:"The first paid radio ad airs on New York's WEAF station", year:1922, wiki:"https://en.wikipedia.org/wiki/WEAF"},
+  {id:2, emoji:"💎", event:"De Beers debuts 'A Diamond Is Forever,' one of history's top slogans", year:1947, wiki:"https://en.wikipedia.org/wiki/A_Diamond_Is_Forever"},
+  {id:3, emoji:"🚗", event:"VW's 'Think Small' ad sparks advertising's creative revolution", year:1959, wiki:"https://en.wikipedia.org/wiki/Think_Small"},
+  {id:4, emoji:"🖥️", event:"Apple's '1984' Super Bowl ad launches the Macintosh", year:1984, wiki:"https://en.wikipedia.org/wiki/1984_(advertisement)"},
+  {id:5, emoji:"👟", event:"Nike unveils its 'Just Do It' slogan, now globally iconic", year:1988, wiki:"https://en.wikipedia.org/wiki/Just_Do_It"},
+  {id:6, emoji:"🔍", event:"Google launches AdWords, reshaping ads for the internet era", year:2000, wiki:"https://en.wikipedia.org/wiki/Google_Ads"}
 ];
+
 
 
 
@@ -800,7 +801,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Infectious Disease Edition:\n";
+shareString = "Today's Chronl History Puzzle - Marketing Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
