@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"📻", event:"The first paid radio ad airs on New York's WEAF station", year:1922, wiki:"https://en.wikipedia.org/wiki/WEAF"},
-  {id:2, emoji:"💎", event:"De Beers debuts 'A Diamond Is Forever,' one of history's top slogans", year:1947, wiki:"https://en.wikipedia.org/wiki/A_Diamond_Is_Forever"},
-  {id:3, emoji:"🚗", event:"VW's 'Think Small' ad sparks advertising's creative revolution", year:1959, wiki:"https://en.wikipedia.org/wiki/Think_Small"},
-  {id:4, emoji:"🖥️", event:"Apple's '1984' Super Bowl ad launches the Macintosh", year:1984, wiki:"https://en.wikipedia.org/wiki/1984_(advertisement)"},
-  {id:5, emoji:"👟", event:"Nike unveils its 'Just Do It' slogan, now globally iconic", year:1988, wiki:"https://en.wikipedia.org/wiki/Just_Do_It"},
-  {id:6, emoji:"🔍", event:"Google launches AdWords, reshaping ads for the internet era", year:2000, wiki:"https://en.wikipedia.org/wiki/Google_Ads"}
+  {id:1, emoji:"🏛️", event:"The Western Roman Empire falls as Odoacer deposes the last emperor", year:476, wiki:"https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire"},
+  {id:2, emoji:"👑", event:"Charlemagne is crowned Holy Roman Emperor by the Pope in Rome", year:800, wiki:"https://en.wikipedia.org/wiki/Charlemagne"},
+  {id:3, emoji:"⚔️", event:"William the Conqueror wins the Battle of Hastings, taking England", year:1066, wiki:"https://en.wikipedia.org/wiki/Battle_of_Hastings"},
+  {id:4, emoji:"🕌", event:"Constantinople falls to the Ottomans, ending the Byzantine Empire", year:1453, wiki:"https://en.wikipedia.org/wiki/Fall_of_Constantinople"},
+  {id:5, emoji:"⚜️", event:"A Paris mob storms the Bastille, igniting the French Revolution", year:1789, wiki:"https://en.wikipedia.org/wiki/Storming_of_the_Bastille"},
+  {id:6, emoji:"🧱", event:"The Berlin Wall falls, hastening the collapse of the Eastern Bloc", year:1989, wiki:"https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall"}
 ];
 
 
@@ -801,7 +801,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Marketing Edition:\n";
+shareString = "Today's Chronl History Puzzle - European History Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
