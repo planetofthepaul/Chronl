@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🏛️", event:"The Western Roman Empire falls as Odoacer deposes the last emperor", year:476, wiki:"https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire"},
-  {id:2, emoji:"👑", event:"Charlemagne is crowned Holy Roman Emperor by the Pope in Rome", year:800, wiki:"https://en.wikipedia.org/wiki/Charlemagne"},
-  {id:3, emoji:"⚔️", event:"William the Conqueror wins the Battle of Hastings, taking England", year:1066, wiki:"https://en.wikipedia.org/wiki/Battle_of_Hastings"},
-  {id:4, emoji:"🕌", event:"Constantinople falls to the Ottomans, ending the Byzantine Empire", year:1453, wiki:"https://en.wikipedia.org/wiki/Fall_of_Constantinople"},
-  {id:5, emoji:"⚜️", event:"A Paris mob storms the Bastille, igniting the French Revolution", year:1789, wiki:"https://en.wikipedia.org/wiki/Storming_of_the_Bastille"},
-  {id:6, emoji:"🧱", event:"The Berlin Wall falls, hastening the collapse of the Eastern Bloc", year:1989, wiki:"https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall"}
+  {id:1, emoji:"🎩", event:"Chaplin and partners found United Artists to control their films", year:1919, wiki:"https://en.wikipedia.org/wiki/United_Artists"},
+  {id:2, emoji:"🪧", event:"The 'Hollywoodland' sign goes up in the hills above Los Angeles", year:1923, wiki:"https://en.wikipedia.org/wiki/Hollywood_Sign"},
+  {id:3, emoji:"🦁", event:"A three-way studio merger creates Metro-Goldwyn-Mayer (MGM)", year:1924, wiki:"https://en.wikipedia.org/wiki/Metro-Goldwyn-Mayer"},
+  {id:4, emoji:"🎤", event:"'The Jazz Singer' ushers in the era of talking pictures", year:1927, wiki:"https://en.wikipedia.org/wiki/The_Jazz_Singer"},
+  {id:5, emoji:"🐭", event:"Mickey Mouse debuts in the sound cartoon 'Steamboat Willie'", year:1928, wiki:"https://en.wikipedia.org/wiki/Steamboat_Willie"},
+  {id:6, emoji:"✂️", event:"Hollywood adopts the strict 'Hays Code' to self-censor its films", year:1930, wiki:"https://en.wikipedia.org/wiki/Hays_Code"}
 ];
 
 
@@ -801,7 +801,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - European History Edition:\n";
+shareString = "Today's Chronl History Puzzle - Hollywood Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
