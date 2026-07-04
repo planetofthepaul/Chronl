@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🎩", event:"Chaplin and partners found United Artists to control their films", year:1919, wiki:"https://en.wikipedia.org/wiki/United_Artists"},
-  {id:2, emoji:"🪧", event:"The 'Hollywoodland' sign goes up in the hills above Los Angeles", year:1923, wiki:"https://en.wikipedia.org/wiki/Hollywood_Sign"},
-  {id:3, emoji:"🦁", event:"A three-way studio merger creates Metro-Goldwyn-Mayer (MGM)", year:1924, wiki:"https://en.wikipedia.org/wiki/Metro-Goldwyn-Mayer"},
-  {id:4, emoji:"🎤", event:"'The Jazz Singer' ushers in the era of talking pictures", year:1927, wiki:"https://en.wikipedia.org/wiki/The_Jazz_Singer"},
-  {id:5, emoji:"🐭", event:"Mickey Mouse debuts in the sound cartoon 'Steamboat Willie'", year:1928, wiki:"https://en.wikipedia.org/wiki/Steamboat_Willie"},
-  {id:6, emoji:"✂️", event:"Hollywood adopts the strict 'Hays Code' to self-censor its films", year:1930, wiki:"https://en.wikipedia.org/wiki/Hays_Code"}
+  {id:1, emoji:"🚂", event:"Trevithick runs the first steam locomotive on rails, in Wales", year:1804, wiki:"https://en.wikipedia.org/wiki/Richard_Trevithick"},
+  {id:2, emoji:"🚗", event:"Karl Benz patents the Motorwagen, the first modern automobile", year:1886, wiki:"https://en.wikipedia.org/wiki/Benz_Patent-Motorwagen"},
+  {id:3, emoji:"✈️", event:"The Wright brothers make the first powered airplane flight", year:1903, wiki:"https://en.wikipedia.org/wiki/Wright_Flyer"},
+  {id:4, emoji:"🚙", event:"Ford's Model T puts America, and the world, on wheels", year:1908, wiki:"https://en.wikipedia.org/wiki/Ford_Model_T"},
+  {id:5, emoji:"💨", event:"Chuck Yeager breaks the sound barrier in the Bell X-1", year:1947, wiki:"https://en.wikipedia.org/wiki/Bell_X-1"},
+  {id:6, emoji:"🚀", event:"Yuri Gagarin becomes the first human to fly into space", year:1961, wiki:"https://en.wikipedia.org/wiki/Vostok_1"}
 ];
 
 
@@ -801,7 +801,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Hollywood Edition:\n";
+shareString = "Today's Chronl History Puzzle - Vehicles Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
