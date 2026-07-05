@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🚂", event:"Trevithick runs the first steam locomotive on rails, in Wales", year:1804, wiki:"https://en.wikipedia.org/wiki/Richard_Trevithick"},
-  {id:2, emoji:"🚗", event:"Karl Benz patents the Motorwagen, the first modern automobile", year:1886, wiki:"https://en.wikipedia.org/wiki/Benz_Patent-Motorwagen"},
-  {id:3, emoji:"✈️", event:"The Wright brothers make the first powered airplane flight", year:1903, wiki:"https://en.wikipedia.org/wiki/Wright_Flyer"},
-  {id:4, emoji:"🚙", event:"Ford's Model T puts America, and the world, on wheels", year:1908, wiki:"https://en.wikipedia.org/wiki/Ford_Model_T"},
-  {id:5, emoji:"💨", event:"Chuck Yeager breaks the sound barrier in the Bell X-1", year:1947, wiki:"https://en.wikipedia.org/wiki/Bell_X-1"},
-  {id:6, emoji:"🚀", event:"Yuri Gagarin becomes the first human to fly into space", year:1961, wiki:"https://en.wikipedia.org/wiki/Vostok_1"}
+  {id:1, emoji:"🥫", event:"Nicolas Appert pioneers canning to preserve food in sealed jars", year:1810, wiki:"https://en.wikipedia.org/wiki/Nicolas_Appert"},
+  {id:2, emoji:"🥤", event:"John Pemberton mixes the first Coca-Cola in an Atlanta pharmacy", year:1886, wiki:"https://en.wikipedia.org/wiki/Coca-Cola"},
+  {id:3, emoji:"😋", event:"Kikunae Ikeda identifies umami, the fifth basic taste", year:1908, wiki:"https://en.wikipedia.org/wiki/Umami"},
+  {id:4, emoji:"❄️", event:"Clarence Birdseye puts the first frozen foods on store shelves", year:1930, wiki:"https://en.wikipedia.org/wiki/Clarence_Birdseye"},
+  {id:5, emoji:"🍔", event:"The McDonald brothers' Speedee system pioneers fast food", year:1948, wiki:"https://en.wikipedia.org/wiki/McDonald's"},
+  {id:6, emoji:"🍜", event:"Momofuku Ando invents instant ramen in postwar Japan", year:1958, wiki:"https://en.wikipedia.org/wiki/Momofuku_Ando"}
 ];
+
 
 
 
@@ -801,7 +802,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Vehicles Edition:\n";
+shareString = "Today's Chronl History Puzzle - Food Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
