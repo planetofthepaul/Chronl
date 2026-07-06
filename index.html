@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🥫", event:"Nicolas Appert pioneers canning to preserve food in sealed jars", year:1810, wiki:"https://en.wikipedia.org/wiki/Nicolas_Appert"},
-  {id:2, emoji:"🥤", event:"John Pemberton mixes the first Coca-Cola in an Atlanta pharmacy", year:1886, wiki:"https://en.wikipedia.org/wiki/Coca-Cola"},
-  {id:3, emoji:"😋", event:"Kikunae Ikeda identifies umami, the fifth basic taste", year:1908, wiki:"https://en.wikipedia.org/wiki/Umami"},
-  {id:4, emoji:"❄️", event:"Clarence Birdseye puts the first frozen foods on store shelves", year:1930, wiki:"https://en.wikipedia.org/wiki/Clarence_Birdseye"},
-  {id:5, emoji:"🍔", event:"The McDonald brothers' Speedee system pioneers fast food", year:1948, wiki:"https://en.wikipedia.org/wiki/McDonald's"},
-  {id:6, emoji:"🍜", event:"Momofuku Ando invents instant ramen in postwar Japan", year:1958, wiki:"https://en.wikipedia.org/wiki/Momofuku_Ando"}
+  {id:1, emoji:"⚽", event:"The Football Association is founded, codifying the game's rules", year:1863, wiki:"https://en.wikipedia.org/wiki/The_Football_Association"},
+  {id:2, emoji:"🏆", event:"Uruguay hosts and wins the very first FIFA World Cup", year:1930, wiki:"https://en.wikipedia.org/wiki/1930_FIFA_World_Cup"},
+  {id:3, emoji:"👑", event:"A 17-year-old Pelé wins the World Cup with Brazil", year:1958, wiki:"https://en.wikipedia.org/wiki/1958_FIFA_World_Cup"},
+  {id:4, emoji:"✋", event:"Maradona's 'Hand of God' knocks England out of the World Cup", year:1986, wiki:"https://en.wikipedia.org/wiki/The_hand_of_God"},
+  {id:5, emoji:"🥅", event:"The first FIFA Women's World Cup is held, won by the USA", year:1991, wiki:"https://en.wikipedia.org/wiki/1991_FIFA_Women's_World_Cup"},
+  {id:6, emoji:"🐐", event:"Lionel Messi finally wins the World Cup with Argentina", year:2022, wiki:"https://en.wikipedia.org/wiki/2022_FIFA_World_Cup"}
 ];
+
 
 
 
@@ -802,7 +803,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Food Edition:\n";
+shareString = "Today's Chronl History Puzzle - Soccer Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
