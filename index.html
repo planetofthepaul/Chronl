@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🛞", event:"The Michelin Man debuts on a poster, made entirely of tires", year:1898, wiki:"https://en.wikipedia.org/wiki/Michelin_Man"},
-  {id:2, emoji:"🥜", event:"Mr. Peanut is born from a schoolboy's contest drawing for Planters", year:1916, wiki:"https://en.wikipedia.org/wiki/Mr._Peanut"},
-  {id:3, emoji:"🥦", event:"The Jolly Green Giant debuts with his leafy suit and big smile", year:1935, wiki:"https://en.wikipedia.org/wiki/Green_Giant"},
-  {id:4, emoji:"🐯", event:"Tony the Tiger roars onto Kellogg's Frosted Flakes boxes", year:1952, wiki:"https://en.wikipedia.org/wiki/Tony_the_Tiger"},
-  {id:5, emoji:"👨‍🍳", event:"The Pillsbury Doughboy giggles his way into ads", year:1965, wiki:"https://en.wikipedia.org/wiki/Pillsbury_Doughboy"},
-  {id:6, emoji:"🔋", event:"The Energizer Bunny starts drumming and keeps on going", year:1989, wiki:"https://en.wikipedia.org/wiki/Energizer_Bunny"}
+  {id:1, emoji:"⛪", event:"Hagia Sophia is completed in Constantinople under Justinian", year:537, wiki:"https://en.wikipedia.org/wiki/Hagia_Sophia"},
+  {id:2, emoji:"🔔", event:"Construction of Notre-Dame de Paris begins on the Île de la Cité", year:1163, wiki:"https://en.wikipedia.org/wiki/Notre-Dame_de_Paris"},
+  {id:3, emoji:"🧅", event:"St. Basil's Cathedral rises on Moscow's Red Square", year:1561, wiki:"https://en.wikipedia.org/wiki/Saint_Basil's_Cathedral"},
+  {id:4, emoji:"✝️", event:"St. Peter's Basilica is consecrated in the Vatican", year:1626, wiki:"https://en.wikipedia.org/wiki/St._Peter's_Basilica"},
+  {id:5, emoji:"🏛️", event:"Wren's St. Paul's Cathedral is completed in London", year:1711, wiki:"https://en.wikipedia.org/wiki/St_Paul's_Cathedral"},
+  {id:6, emoji:"🏗️", event:"Construction begins on the Sagrada Família in Barcelona", year:1882, wiki:"https://en.wikipedia.org/wiki/Sagrada_Família"}
 ];
 
 
@@ -803,7 +803,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Brand Mascots Edition:\n";
+shareString = "Today's Chronl History Puzzle - Famous Churches Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
