@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"⛪", event:"Hagia Sophia is completed in Constantinople under Justinian", year:537, wiki:"https://en.wikipedia.org/wiki/Hagia_Sophia"},
-  {id:2, emoji:"🔔", event:"Construction of Notre-Dame de Paris begins on the Île de la Cité", year:1163, wiki:"https://en.wikipedia.org/wiki/Notre-Dame_de_Paris"},
-  {id:3, emoji:"🧅", event:"St. Basil's Cathedral rises on Moscow's Red Square", year:1561, wiki:"https://en.wikipedia.org/wiki/Saint_Basil's_Cathedral"},
-  {id:4, emoji:"✝️", event:"St. Peter's Basilica is consecrated in the Vatican", year:1626, wiki:"https://en.wikipedia.org/wiki/St._Peter's_Basilica"},
-  {id:5, emoji:"🏛️", event:"Wren's St. Paul's Cathedral is completed in London", year:1711, wiki:"https://en.wikipedia.org/wiki/St_Paul's_Cathedral"},
-  {id:6, emoji:"🏗️", event:"Construction begins on the Sagrada Família in Barcelona", year:1882, wiki:"https://en.wikipedia.org/wiki/Sagrada_Família"}
+  {id:1, emoji:"👑", event:"Martha Washington becomes the nation's first First Lady", year:1789, wiki:"https://en.wikipedia.org/wiki/Martha_Washington"},
+  {id:2, emoji:"🖼️", event:"Dolley Madison saves Washington's portrait as the British invade", year:1814, wiki:"https://en.wikipedia.org/wiki/Dolley_Madison"},
+  {id:3, emoji:"📰", event:"Eleanor Roosevelt launches her daily 'My Day' newspaper column", year:1935, wiki:"https://en.wikipedia.org/wiki/Eleanor_Roosevelt"},
+  {id:4, emoji:"📺", event:"Jackie Kennedy leads a televised tour of the restored White House", year:1962, wiki:"https://en.wikipedia.org/wiki/Jacqueline_Kennedy_Onassis"},
+  {id:5, emoji:"🎗️", event:"Betty Ford speaks openly about her breast cancer diagnosis", year:1974, wiki:"https://en.wikipedia.org/wiki/Betty_Ford"},
+  {id:6, emoji:"🏃", event:"Michelle Obama launches the 'Let's Move!' health campaign", year:2010, wiki:"https://en.wikipedia.org/wiki/Michelle_Obama"}
 ];
+
 
 
 
@@ -803,7 +804,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Famous Churches Edition:\n";
+shareString = "Today's Chronl History Puzzle - First Ladies Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
