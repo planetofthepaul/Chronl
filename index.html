@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"✈️", event:"Lindbergh makes the first solo nonstop flight across the Atlantic", year:1927, wiki:"https://en.wikipedia.org/wiki/Charles_Lindbergh"},
-  {id:2, emoji:"🏔️", event:"Hillary and Tenzing become the first to summit Mount Everest", year:1953, wiki:"https://en.wikipedia.org/wiki/1953_British_Mount_Everest_expedition"},
-  {id:3, emoji:"🏃", event:"Roger Bannister runs the first sub-four-minute mile", year:1954, wiki:"https://en.wikipedia.org/wiki/Four-minute_mile"},
-  {id:4, emoji:"🌊", event:"The Trieste dives to the deepest point in the ocean", year:1960, wiki:"https://en.wikipedia.org/wiki/Trieste_(bathyscaphe)"},
-  {id:5, emoji:"⚡", event:"Usain Bolt sets the 100m world record at 9.58 seconds", year:2009, wiki:"https://en.wikipedia.org/wiki/Usain_Bolt"},
-  {id:6, emoji:"🏢", event:"The Burj Khalifa opens as the world's tallest building", year:2010, wiki:"https://en.wikipedia.org/wiki/Burj_Khalifa"}
+  {id:1, emoji:"🧪", event:"Parkesine, the first man-made plastic, is unveiled in London", year:1862, wiki:"https://en.wikipedia.org/wiki/Alexander_Parkes"},
+  {id:2, emoji:"🎱", event:"Hyatt's celluloid offers a cheap substitute for ivory", year:1869, wiki:"https://en.wikipedia.org/wiki/Celluloid"},
+  {id:3, emoji:"☎️", event:"Baekeland invents Bakelite, the first fully synthetic plastic", year:1907, wiki:"https://en.wikipedia.org/wiki/Bakelite"},
+  {id:4, emoji:"🧦", event:"DuPont's chemists invent nylon, a revolutionary new fiber", year:1935, wiki:"https://en.wikipedia.org/wiki/Nylon"},
+  {id:5, emoji:"🛍️", event:"Sten Thulin patents the modern plastic shopping bag", year:1965, wiki:"https://en.wikipedia.org/wiki/Plastic_shopping_bag"},
+  {id:6, emoji:"🌊", event:"Charles Moore discovers the Great Pacific Garbage Patch", year:1997, wiki:"https://en.wikipedia.org/wiki/Great_Pacific_garbage_patch"}
 ];
 
 
@@ -804,7 +804,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - World Records Edition:\n";
+shareString = "Today's Chronl History Puzzle - Plastic Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
