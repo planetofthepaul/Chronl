@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🧪", event:"Parkesine, the first man-made plastic, is unveiled in London", year:1862, wiki:"https://en.wikipedia.org/wiki/Alexander_Parkes"},
-  {id:2, emoji:"🎱", event:"Hyatt's celluloid offers a cheap substitute for ivory", year:1869, wiki:"https://en.wikipedia.org/wiki/Celluloid"},
-  {id:3, emoji:"☎️", event:"Baekeland invents Bakelite, the first fully synthetic plastic", year:1907, wiki:"https://en.wikipedia.org/wiki/Bakelite"},
-  {id:4, emoji:"🧦", event:"DuPont's chemists invent nylon, a revolutionary new fiber", year:1935, wiki:"https://en.wikipedia.org/wiki/Nylon"},
-  {id:5, emoji:"🛍️", event:"Sten Thulin patents the modern plastic shopping bag", year:1965, wiki:"https://en.wikipedia.org/wiki/Plastic_shopping_bag"},
-  {id:6, emoji:"🌊", event:"Charles Moore discovers the Great Pacific Garbage Patch", year:1997, wiki:"https://en.wikipedia.org/wiki/Great_Pacific_garbage_patch"}
+  {id:1, emoji:"🏀", event:"Converse launches the canvas high-top that becomes the All Star", year:1917, wiki:"https://en.wikipedia.org/wiki/Chuck_Taylor_All-Stars"},
+  {id:2, emoji:"3️⃣", event:"Adi Dassler founds Adidas after splitting with his brother", year:1949, wiki:"https://en.wikipedia.org/wiki/Adidas"},
+  {id:3, emoji:"🥾", event:"Dr. Martens' 1460 boot debuts, named for its launch date: 1.4.60", year:1960, wiki:"https://en.wikipedia.org/wiki/Dr._Martens"},
+  {id:4, emoji:"🐐", event:"Nike releases the Air Jordan 1, and the NBA tries to ban it", year:1985, wiki:"https://en.wikipedia.org/wiki/Air_Jordan"},
+  {id:5, emoji:"❤️", event:"Louboutin paints a sole with red nail polish, creating an icon", year:1992, wiki:"https://en.wikipedia.org/wiki/Christian_Louboutin"},
+  {id:6, emoji:"🐊", event:"Crocs debut at a Florida boat show, dividing the world forever", year:2002, wiki:"https://en.wikipedia.org/wiki/Crocs"}
 ];
 
 
@@ -804,7 +804,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Plastic Edition:\n";
+shareString = "Today's Chronl History Puzzle - Shoes Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
