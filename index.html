@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🏀", event:"Converse launches the canvas high-top that becomes the All Star", year:1917, wiki:"https://en.wikipedia.org/wiki/Chuck_Taylor_All-Stars"},
-  {id:2, emoji:"3️⃣", event:"Adi Dassler founds Adidas after splitting with his brother", year:1949, wiki:"https://en.wikipedia.org/wiki/Adidas"},
-  {id:3, emoji:"🥾", event:"Dr. Martens' 1460 boot debuts, named for its launch date: 1.4.60", year:1960, wiki:"https://en.wikipedia.org/wiki/Dr._Martens"},
-  {id:4, emoji:"🐐", event:"Nike releases the Air Jordan 1, and the NBA tries to ban it", year:1985, wiki:"https://en.wikipedia.org/wiki/Air_Jordan"},
-  {id:5, emoji:"❤️", event:"Louboutin paints a sole with red nail polish, creating an icon", year:1992, wiki:"https://en.wikipedia.org/wiki/Christian_Louboutin"},
-  {id:6, emoji:"🐊", event:"Crocs debut at a Florida boat show, dividing the world forever", year:2002, wiki:"https://en.wikipedia.org/wiki/Crocs"}
+  {id:1, emoji:"🎩", event:"Robert-Houdin opens his Paris theatre, inventing modern magic", year:1845, wiki:"https://en.wikipedia.org/wiki/Jean-Eugène_Robert-Houdin"},
+  {id:2, emoji:"🔒", event:"Houdini debuts the Chinese Water Torture Cell in Berlin", year:1912, wiki:"https://en.wikipedia.org/wiki/Chinese_Water_Torture_Cell"},
+  {id:3, emoji:"🔫", event:"Chung Ling Soo dies on stage when the bullet catch goes wrong", year:1918, wiki:"https://en.wikipedia.org/wiki/Chung_Ling_Soo"},
+  {id:4, emoji:"🪚", event:"P.T. Selbit saws a woman in half for the first time, in London", year:1921, wiki:"https://en.wikipedia.org/wiki/Sawing_a_woman_in_half"},
+  {id:5, emoji:"🗽", event:"David Copperfield makes the Statue of Liberty vanish on live TV", year:1983, wiki:"https://en.wikipedia.org/wiki/David_Copperfield_(illusionist)"},
+  {id:6, emoji:"⚰️", event:"David Blaine spends a week buried alive in a New York coffin", year:1999, wiki:"https://en.wikipedia.org/wiki/David_Blaine"}
 ];
 
 
@@ -804,7 +804,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Shoes Edition:\n";
+shareString = "Today's Chronl History Puzzle - Magic Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
