@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"⛵", event:"Columbus's crew encounters tobacco, carrying it back to Europe", year:1492, wiki:"https://en.wikipedia.org/wiki/History_of_tobacco"},
-  {id:2, emoji:"👑", event:"King James I condemns smoking in his 'Counterblaste to Tobacco'", year:1604, wiki:"https://en.wikipedia.org/wiki/A_Counterblaste_to_Tobacco"},
-  {id:3, emoji:"🌱", event:"John Rolfe's Virginia tobacco crop saves the Jamestown colony", year:1612, wiki:"https://en.wikipedia.org/wiki/John_Rolfe"},
-  {id:4, emoji:"⚙️", event:"Bonsack patents the machine that mass-produces cigarettes", year:1881, wiki:"https://en.wikipedia.org/wiki/James_Albert_Bonsack"},
-  {id:5, emoji:"🤠", event:"The Marlboro Man rides into advertising history", year:1954, wiki:"https://en.wikipedia.org/wiki/Marlboro_Man"},
-  {id:6, emoji:"⚕️", event:"The US Surgeon General's report links smoking to cancer", year:1964, wiki:"https://en.wikipedia.org/wiki/Smoking_in_the_United_States"}
+  {id:1, emoji:"📜", event:"Confucius dies; his disciples preserve his words as the Analects", year:-479, wiki:"https://en.wikipedia.org/wiki/Confucius"},
+  {id:2, emoji:"🏺", event:"Socrates is tried and executed by hemlock in Athens", year:-399, wiki:"https://en.wikipedia.org/wiki/Trial_of_Socrates"},
+  {id:3, emoji:"🧘", event:"Dōgen returns from China, bringing Sōtō Zen to Japan", year:1227, wiki:"https://en.wikipedia.org/wiki/D%C5%8Dgen"},
+  {id:4, emoji:"💭", event:"Descartes declares 'I think, therefore I am'", year:1637, wiki:"https://en.wikipedia.org/wiki/Discourse_on_the_Method"},
+  {id:5, emoji:"🧠", event:"Kant's 'Critique of Pure Reason' remaps the limits of knowledge", year:1781, wiki:"https://en.wikipedia.org/wiki/Critique_of_Pure_Reason"},
+  {id:6, emoji:"♀️", event:"Simone de Beauvoir publishes 'The Second Sex'", year:1949, wiki:"https://en.wikipedia.org/wiki/The_Second_Sex"}
 ];
 
 
@@ -805,7 +805,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Tobacco Edition:\n";
+shareString = "Today's Chronl History Puzzle - Philosophers Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
