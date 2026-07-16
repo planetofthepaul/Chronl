@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"📜", event:"Confucius dies; his disciples preserve his words as the Analects", year:-479, wiki:"https://en.wikipedia.org/wiki/Confucius"},
-  {id:2, emoji:"🏺", event:"Socrates is tried and executed by hemlock in Athens", year:-399, wiki:"https://en.wikipedia.org/wiki/Trial_of_Socrates"},
-  {id:3, emoji:"🧘", event:"Dōgen returns from China, bringing Sōtō Zen to Japan", year:1227, wiki:"https://en.wikipedia.org/wiki/D%C5%8Dgen"},
-  {id:4, emoji:"💭", event:"Descartes declares 'I think, therefore I am'", year:1637, wiki:"https://en.wikipedia.org/wiki/Discourse_on_the_Method"},
-  {id:5, emoji:"🧠", event:"Kant's 'Critique of Pure Reason' remaps the limits of knowledge", year:1781, wiki:"https://en.wikipedia.org/wiki/Critique_of_Pure_Reason"},
-  {id:6, emoji:"♀️", event:"Simone de Beauvoir publishes 'The Second Sex'", year:1949, wiki:"https://en.wikipedia.org/wiki/The_Second_Sex"}
+  {id:1, emoji:"🌙", event:"The Great Moon Hoax convinces readers of bat-men on the Moon", year:1835, wiki:"https://en.wikipedia.org/wiki/Great_Moon_Hoax"},
+  {id:2, emoji:"🗿", event:"Crowds pay to see the Cardiff Giant, a 'petrified' stone man", year:1869, wiki:"https://en.wikipedia.org/wiki/Cardiff_Giant"},
+  {id:3, emoji:"🦴", event:"Piltdown Man is unveiled, fooling scientists for 40 years", year:1912, wiki:"https://en.wikipedia.org/wiki/Piltdown_Man"},
+  {id:4, emoji:"🧚", event:"Two girls' fairy photos fool the world, and Arthur Conan Doyle", year:1917, wiki:"https://en.wikipedia.org/wiki/Cottingley_Fairies"},
+  {id:5, emoji:"🗼", event:"Con man Victor Lustig 'sells' the Eiffel Tower for scrap", year:1925, wiki:"https://en.wikipedia.org/wiki/Victor_Lustig"},
+  {id:6, emoji:"📔", event:"Stern publishes the 'Hitler Diaries,' a total forgery", year:1983, wiki:"https://en.wikipedia.org/wiki/Hitler_Diaries"}
 ];
+
 
 
 
@@ -805,7 +806,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Philosophers Edition:\n";
+shareString = "Today's Chronl History Puzzle - Gullibility Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
