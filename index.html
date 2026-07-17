@@ -371,13 +371,15 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🌙", event:"The Great Moon Hoax convinces readers of bat-men on the Moon", year:1835, wiki:"https://en.wikipedia.org/wiki/Great_Moon_Hoax"},
-  {id:2, emoji:"🗿", event:"Crowds pay to see the Cardiff Giant, a 'petrified' stone man", year:1869, wiki:"https://en.wikipedia.org/wiki/Cardiff_Giant"},
-  {id:3, emoji:"🦴", event:"Piltdown Man is unveiled, fooling scientists for 40 years", year:1912, wiki:"https://en.wikipedia.org/wiki/Piltdown_Man"},
-  {id:4, emoji:"🧚", event:"Two girls' fairy photos fool the world, and Arthur Conan Doyle", year:1917, wiki:"https://en.wikipedia.org/wiki/Cottingley_Fairies"},
-  {id:5, emoji:"🗼", event:"Con man Victor Lustig 'sells' the Eiffel Tower for scrap", year:1925, wiki:"https://en.wikipedia.org/wiki/Victor_Lustig"},
-  {id:6, emoji:"📔", event:"Stern publishes the 'Hitler Diaries,' a total forgery", year:1983, wiki:"https://en.wikipedia.org/wiki/Hitler_Diaries"}
+  {id:1, emoji:"💨", event:"Ether is publicly demonstrated, making painless surgery possible", year:1846, wiki:"https://en.wikipedia.org/wiki/History_of_general_anesthesia"},
+  {id:2, emoji:"🧼", event:"Lister performs the first antiseptic surgery with carbolic acid", year:1865, wiki:"https://en.wikipedia.org/wiki/Joseph_Lister"},
+  {id:3, emoji:"❤️", event:"Daniel Hale Williams performs the first successful heart surgery", year:1893, wiki:"https://en.wikipedia.org/wiki/Daniel_Hale_Williams"},
+  {id:4, emoji:"🫘", event:"The first successful organ transplant gives a twin a new kidney", year:1954, wiki:"https://en.wikipedia.org/wiki/Kidney_transplantation"},
+  {id:5, emoji:"🫀", event:"Christiaan Barnard performs the first human heart transplant", year:1967, wiki:"https://en.wikipedia.org/wiki/Christiaan_Barnard"},
+  {id:6, emoji:"🤖", event:"The da Vinci robot brings robotic surgery to operating rooms", year:2000, wiki:"https://en.wikipedia.org/wiki/Da_Vinci_Surgical_System"}
 ];
+
+
 
 
 
@@ -806,7 +808,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Gullibility Edition:\n";
+shareString = "Today's Chronl History Puzzle - Surgery Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
