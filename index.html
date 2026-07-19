@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"⛓️", event:"The Fugitive Slave Act forces the return of escapees to bondage", year:1850, wiki:"https://en.wikipedia.org/wiki/Fugitive_Slave_Act_of_1850"},
-  {id:2, emoji:"🛂", event:"The Chinese Exclusion Act bans immigration by nationality", year:1882, wiki:"https://en.wikipedia.org/wiki/Chinese_Exclusion_Act"},
-  {id:3, emoji:"🍺", event:"The 18th Amendment is ratified, outlawing alcohol nationwide", year:1919, wiki:"https://en.wikipedia.org/wiki/Eighteenth_Amendment_to_the_United_States_Constitution"},
-  {id:4, emoji:"🚗", event:"The oil crisis brings a national 55 mph speed limit", year:1974, wiki:"https://en.wikipedia.org/wiki/National_Maximum_Speed_Law"},
-  {id:5, emoji:"🎖️", event:"'Don't Ask, Don't Tell' bars openly gay troops from serving", year:1993, wiki:"https://en.wikipedia.org/wiki/Don%27t_ask,_don%27t_tell"},
-  {id:6, emoji:"💍", event:"The Defense of Marriage Act blocks federal same-sex marriage", year:1996, wiki:"https://en.wikipedia.org/wiki/Defense_of_Marriage_Act"}
+  {id:1, emoji:"🪽", event:"Leonardo da Vinci sketches a human-powered flying machine", year:1485, wiki:"https://en.wikipedia.org/wiki/Leonardo_da_Vinci"},
+  {id:2, emoji:"💻", event:"Ada Lovelace publishes the first computer algorithm", year:1843, wiki:"https://en.wikipedia.org/wiki/Ada_Lovelace"},
+  {id:3, emoji:"🧼", event:"Semmelweis orders handwashing, and doctors ridicule him for it", year:1847, wiki:"https://en.wikipedia.org/wiki/Ignaz_Semmelweis"},
+  {id:4, emoji:"🌱", event:"Mendel publishes the laws of heredity, and no one notices", year:1866, wiki:"https://en.wikipedia.org/wiki/Gregor_Mendel"},
+  {id:5, emoji:"🌍", event:"Wegener proposes continental drift, and geologists scoff", year:1912, wiki:"https://en.wikipedia.org/wiki/Alfred_Wegener"},
+  {id:6, emoji:"📡", event:"Hedy Lamarr patents the tech that will underpin WiFi", year:1942, wiki:"https://en.wikipedia.org/wiki/Hedy_Lamarr"}
 ];
+
 
 
 
@@ -809,7 +810,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Repealed Laws Edition:\n";
+shareString = "Today's Chronl History Puzzle - Ahead of Their Time Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
