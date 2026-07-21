@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"📖", event:"The first known fried chicken recipe appears in an English cookbook", year:1747, wiki:"https://en.wikipedia.org/wiki/The_Art_of_Cookery_Made_Plain_and_Easy"},
-  {id:2, emoji:"⛽", event:"Harland Sanders starts selling chicken at a Kentucky gas station", year:1930, wiki:"https://en.wikipedia.org/wiki/Colonel_Sanders"},
-  {id:3, emoji:"🦬", event:"Buffalo wings are invented at a family bar in Buffalo, New York", year:1964, wiki:"https://en.wikipedia.org/wiki/Buffalo_wing"},
-  {id:4, emoji:"🐮", event:"The first Chick-fil-A opens in Atlanta, selling chicken sandwiches", year:1967, wiki:"https://en.wikipedia.org/wiki/Chick-fil-A"},
-  {id:5, emoji:"🍺", event:"Korea's first fried chicken chain opens, born of American influence", year:1977, wiki:"https://en.wikipedia.org/wiki/Korean_fried_chicken"},
-  {id:6, emoji:"🥪", event:"Popeyes debuts its first chicken sandwich; it sells out in weeks", year:2019, wiki:"https://en.wikipedia.org/wiki/Popeyes_chicken_sandwich"}
+  {id:1, emoji:"⚔️", event:"Bar Kokhba leads a revolt against Rome, hailed as the messiah", year:132, wiki:"https://en.wikipedia.org/wiki/Simon_bar_Kokhba"},
+  {id:2, emoji:"😞", event:"Believers await the Second Coming in the 'Great Disappointment'", year:1844, wiki:"https://en.wikipedia.org/wiki/Great_Disappointment"},
+  {id:3, emoji:"🌏", event:"A man claiming to be Jesus's brother starts China's Taiping revolt", year:1851, wiki:"https://en.wikipedia.org/wiki/Hong_Xiuquan"},
+  {id:4, emoji:"👑", event:"Ethiopia crowns the emperor whom Rastafari hail as the messiah", year:1930, wiki:"https://en.wikipedia.org/wiki/Haile_Selassie"},
+  {id:5, emoji:"💒", event:"Sun Myung Moon founds the church whose 'Moonies' call him messiah", year:1954, wiki:"https://en.wikipedia.org/wiki/Sun_Myung_Moon"},
+  {id:6, emoji:"🔥", event:"David Koresh's messianic claims end in the Waco siege", year:1993, wiki:"https://en.wikipedia.org/wiki/Waco_siege"}
 ];
+
 
 
 
@@ -811,7 +812,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Fried Chicken Edition:\n";
+shareString = "Today's Chronl History Puzzle - Messiah Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
