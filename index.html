@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🦎", event:"Iggy Pop and the Stooges record the blueprint for punk rock", year:1969, wiki:"https://en.wikipedia.org/wiki/The_Stooges_(album)"},
-  {id:2, emoji:"👑", event:"The Sex Pistols' 'God Save the Queen' scandalizes the UK Jubilee", year:1977, wiki:"https://en.wikipedia.org/wiki/God_Save_the_Queen_(Sex_Pistols_song)"},
-  {id:3, emoji:"💚", event:"Green Day's 'Dookie' takes punk to the top of the mainstream", year:1994, wiki:"https://en.wikipedia.org/wiki/Dookie"},
-  {id:4, emoji:"🚪", event:"CBGB, the New York club where US punk was born, closes for good", year:2006, wiki:"https://en.wikipedia.org/wiki/CBGB"},
-  {id:5, emoji:"⛪", event:"Punk band Pussy Riot is jailed for a Moscow cathedral protest", year:2012, wiki:"https://en.wikipedia.org/wiki/Pussy_Riot"},
-  {id:6, emoji:"🕊️", event:"Vivienne Westwood, punk's fashion pioneer, dies a Dame at 81", year:2022, wiki:"https://en.wikipedia.org/wiki/Vivienne_Westwood"}
+  {id:1, emoji:"🔫", event:"Archduke Franz Ferdinand is assassinated, igniting World War I", year:1914, wiki:"https://en.wikipedia.org/wiki/Assassination_of_Archduke_Franz_Ferdinand"},
+  {id:2, emoji:"🚩", event:"The Bolsheviks seize power in Russia's October Revolution", year:1917, wiki:"https://en.wikipedia.org/wiki/October_Revolution"},
+  {id:3, emoji:"🕊️", event:"Japan surrenders, bringing World War II to an end", year:1945, wiki:"https://en.wikipedia.org/wiki/Surrender_of_Japan"},
+  {id:4, emoji:"✊", event:"Martin Luther King Jr. delivers his 'I Have a Dream' speech", year:1963, wiki:"https://en.wikipedia.org/wiki/I_Have_a_Dream"},
+  {id:5, emoji:"🇮🇷", event:"Iran's revolution topples the Shah and founds an Islamic republic", year:1979, wiki:"https://en.wikipedia.org/wiki/Iranian_Revolution"},
+  {id:6, emoji:"🗳️", event:"Nelson Mandela is elected in South Africa's first free vote", year:1994, wiki:"https://en.wikipedia.org/wiki/Nelson_Mandela"}
 ];
+
 
 
 
@@ -812,7 +813,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Punk Rock Edition:\n";
+shareString = "Today's Chronl History Puzzle - 20th Century Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
