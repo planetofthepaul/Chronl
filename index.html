@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🔫", event:"Archduke Franz Ferdinand is assassinated, igniting World War I", year:1914, wiki:"https://en.wikipedia.org/wiki/Assassination_of_Archduke_Franz_Ferdinand"},
-  {id:2, emoji:"🚩", event:"The Bolsheviks seize power in Russia's October Revolution", year:1917, wiki:"https://en.wikipedia.org/wiki/October_Revolution"},
-  {id:3, emoji:"🕊️", event:"Japan surrenders, bringing World War II to an end", year:1945, wiki:"https://en.wikipedia.org/wiki/Surrender_of_Japan"},
-  {id:4, emoji:"✊", event:"Martin Luther King Jr. delivers his 'I Have a Dream' speech", year:1963, wiki:"https://en.wikipedia.org/wiki/I_Have_a_Dream"},
-  {id:5, emoji:"🇮🇷", event:"Iran's revolution topples the Shah and founds an Islamic republic", year:1979, wiki:"https://en.wikipedia.org/wiki/Iranian_Revolution"},
-  {id:6, emoji:"🗳️", event:"Nelson Mandela is elected in South Africa's first free vote", year:1994, wiki:"https://en.wikipedia.org/wiki/Nelson_Mandela"}
+  {id:1, emoji:"🫧", event:"Carbonated water is invented over a vat of fermenting beer", year:1767, wiki:"https://en.wikipedia.org/wiki/Joseph_Priestley"},
+  {id:2, emoji:"🥤", event:"Dr Pepper debuts at a Texas drugstore, one year before Coke", year:1885, wiki:"https://en.wikipedia.org/wiki/Dr_Pepper"},
+  {id:3, emoji:"🔵", event:"Pepsi begins life as 'Brad's Drink' at a North Carolina pharmacy", year:1893, wiki:"https://en.wikipedia.org/wiki/Pepsi"},
+  {id:4, emoji:"🍋", event:"7Up launches — with mood-stabilizing lithium in the recipe", year:1929, wiki:"https://en.wikipedia.org/wiki/7_Up"},
+  {id:5, emoji:"🥈", event:"Diet Coke arrives, the first new Coke brand in 96 years", year:1982, wiki:"https://en.wikipedia.org/wiki/Diet_Coke"},
+  {id:6, emoji:"🗑️", event:"'New Coke' flops so hard the old formula returns in 79 days", year:1985, wiki:"https://en.wikipedia.org/wiki/New_Coke"}
 ];
+
 
 
 
@@ -813,7 +814,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - 20th Century Edition:\n";
+shareString = "Today's Chronl History Puzzle - Soda Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
