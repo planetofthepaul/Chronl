@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🏆", event:"The first Westminster dog show is held in New York City", year:1877, wiki:"https://en.wikipedia.org/wiki/Westminster_Kennel_Club_Dog_Show"},
-  {id:2, emoji:"🥫", event:"Canned dog food arrives in the US, made from horse meat", year:1922, wiki:"https://en.wikipedia.org/wiki/Ken-L_Ration"},
-  {id:3, emoji:"✏️", event:"Snoopy the beagle first appears in the Peanuts comic strip", year:1950, wiki:"https://en.wikipedia.org/wiki/Snoopy"},
-  {id:4, emoji:"🛷", event:"The first Iditarod sled dog race runs across Alaska", year:1973, wiki:"https://en.wikipedia.org/wiki/Iditarod_Trail_Sled_Dog_Race"},
-  {id:5, emoji:"🌳", event:"The world's first dog park opens in Berkeley, California", year:1979, wiki:"https://en.wikipedia.org/wiki/Dog_park"},
-  {id:6, emoji:"🧬", event:"Snuppy the Afghan hound becomes the world's first cloned dog", year:2005, wiki:"https://en.wikipedia.org/wiki/Snuppy"}
+  {id:1, emoji:"📚", event:"William James publishes the first great psychology textbook", year:1890, wiki:"https://en.wikipedia.org/wiki/The_Principles_of_Psychology"},
+  {id:2, emoji:"🧮", event:"The first modern intelligence test is created in France", year:1905, wiki:"https://en.wikipedia.org/wiki/Alfred_Binet"},
+  {id:3, emoji:"🥊", event:"The Bobo doll study shows children imitate adult violence", year:1961, wiki:"https://en.wikipedia.org/wiki/Bobo_doll_experiment"},
+  {id:4, emoji:"🏥", event:"Sane volunteers fool psychiatric hospitals into admitting them", year:1973, wiki:"https://en.wikipedia.org/wiki/Rosenhan_experiment"},
+  {id:5, emoji:"🏅", event:"A psychologist wins the Nobel for research on flawed thinking", year:2002, wiki:"https://en.wikipedia.org/wiki/Daniel_Kahneman"},
+  {id:6, emoji:"🔁", event:"A landmark study finds most psychology results don't replicate", year:2015, wiki:"https://en.wikipedia.org/wiki/Replication_crisis"}
 ];
+
 
 
 
@@ -818,7 +819,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Doggy Edition:\n";
+shareString = "Today's Chronl History Puzzle - Psychology 2 Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
