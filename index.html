@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"⚔️", event:"Poland and Lithuania crush the Teutonic Knights in battle", year:1410, wiki:"https://en.wikipedia.org/wiki/Battle_of_Grunwald"},
-  {id:2, emoji:"✂️", event:"Poland is carved up by its neighbors and vanishes from the map", year:1795, wiki:"https://en.wikipedia.org/wiki/Partitions_of_Poland"},
-  {id:3, emoji:"🇵🇱", event:"Poland returns to the map after 123 years of being erased", year:1918, wiki:"https://en.wikipedia.org/wiki/Second_Polish_Republic"},
-  {id:4, emoji:"🌸", event:"Soviet tanks roll into Prague to crush a reform movement", year:1968, wiki:"https://en.wikipedia.org/wiki/Prague_Spring"},
-  {id:5, emoji:"⚓", event:"Shipyard strikes in Poland create the Solidarity trade union", year:1980, wiki:"https://en.wikipedia.org/wiki/Solidarity_(Polish_trade_union)"},
-  {id:6, emoji:"🇪🇺", event:"Eight former communist nations join the European Union", year:2004, wiki:"https://en.wikipedia.org/wiki/2004_enlargement_of_the_European_Union"}
+  {id:1, emoji:"🚂", event:"The world's first passenger railway opens in England", year:1825, wiki:"https://en.wikipedia.org/wiki/Stockton_and_Darlington_Railway"},
+  {id:2, emoji:"🔨", event:"A golden spike completes the railroad across the United States", year:1869, wiki:"https://en.wikipedia.org/wiki/Golden_spike"},
+  {id:3, emoji:"🚇", event:"New York City's subway opens beneath the streets", year:1904, wiki:"https://en.wikipedia.org/wiki/New_York_City_Subway"},
+  {id:4, emoji:"📖", event:"Thomas the Tank Engine chuffs into a British children's book", year:1946, wiki:"https://en.wikipedia.org/wiki/Thomas_the_Tank_Engine"},
+  {id:5, emoji:"🚄", event:"Japan's bullet train opens, the world's first high-speed line", year:1964, wiki:"https://en.wikipedia.org/wiki/Shinkansen"},
+  {id:6, emoji:"💨", event:"A French train hits 357 mph, setting the world rail record", year:2007, wiki:"https://en.wikipedia.org/wiki/Project_V150"}
 ];
+
 
 
 
@@ -820,7 +821,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Eastern Europe Edition:\n";
+shareString = "Today's Chronl History Puzzle - Trains Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
