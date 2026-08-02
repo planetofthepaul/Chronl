@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"👋", event:"The theremin is invented, played without ever touching it", year:1920, wiki:"https://en.wikipedia.org/wiki/Theremin"},
-  {id:2, emoji:"🎛️", event:"Robert Moog builds the first commercial music synthesizer", year:1964, wiki:"https://en.wikipedia.org/wiki/Moog_synthesizer"},
-  {id:3, emoji:"💗", event:"Donna Summer's 'I Feel Love' puts a synthesizer at the disco", year:1977, wiki:"https://en.wikipedia.org/wiki/I_Feel_Love"},
-  {id:4, emoji:"🥁", event:"Roland's 808 drum machine flops, then reshapes pop forever", year:1980, wiki:"https://en.wikipedia.org/wiki/Roland_TR-808"},
-  {id:5, emoji:"🎪", event:"Germany's Love Parade grows into a massive techno street rave", year:1989, wiki:"https://en.wikipedia.org/wiki/Love_Parade"},
-  {id:6, emoji:"🤖", event:"Daft Punk's helmeted robots take dance music mainstream", year:2001, wiki:"https://en.wikipedia.org/wiki/Daft_Punk"}
+  {id:1, emoji:"📗", event:"Dickens' 'Oliver Twist' brings London's slums to the world", year:1838, wiki:"https://en.wikipedia.org/wiki/Oliver_Twist"},
+  {id:2, emoji:"📷", event:"Photographs of New York tenements shock the American public", year:1890, wiki:"https://en.wikipedia.org/wiki/How_the_Other_Half_Lives"},
+  {id:3, emoji:"🏘️", event:"A US housing law funds the bulldozing of city slums", year:1949, wiki:"https://en.wikipedia.org/wiki/Housing_Act_of_1949"},
+  {id:4, emoji:"🏚️", event:"Hong Kong demolishes Kowloon Walled City, once the densest place", year:1993, wiki:"https://en.wikipedia.org/wiki/Kowloon_Walled_City"},
+  {id:5, emoji:"⛰️", event:"'City of God' shows the world inside Rio's violent favelas", year:2002, wiki:"https://en.wikipedia.org/wiki/City_of_God_(2002_film)"},
+  {id:6, emoji:"🎬", event:"'Slumdog Millionaire' wins Best Picture, filmed in Mumbai's slums", year:2008, wiki:"https://en.wikipedia.org/wiki/Slumdog_Millionaire"}
 ];
+
 
 
 
@@ -822,7 +823,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Electronic Music Edition:\n";
+shareString = "Today's Chronl History Puzzle - Slums Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
