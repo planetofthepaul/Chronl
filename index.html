@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"📗", event:"Dickens' 'Oliver Twist' brings London's slums to the world", year:1838, wiki:"https://en.wikipedia.org/wiki/Oliver_Twist"},
-  {id:2, emoji:"📷", event:"Photographs of New York tenements shock the American public", year:1890, wiki:"https://en.wikipedia.org/wiki/How_the_Other_Half_Lives"},
-  {id:3, emoji:"🏘️", event:"A US housing law funds the bulldozing of city slums", year:1949, wiki:"https://en.wikipedia.org/wiki/Housing_Act_of_1949"},
-  {id:4, emoji:"🏚️", event:"Hong Kong demolishes Kowloon Walled City, once the densest place", year:1993, wiki:"https://en.wikipedia.org/wiki/Kowloon_Walled_City"},
-  {id:5, emoji:"⛰️", event:"'City of God' shows the world inside Rio's violent favelas", year:2002, wiki:"https://en.wikipedia.org/wiki/City_of_God_(2002_film)"},
-  {id:6, emoji:"🎬", event:"'Slumdog Millionaire' wins Best Picture, filmed in Mumbai's slums", year:2008, wiki:"https://en.wikipedia.org/wiki/Slumdog_Millionaire"}
+  {id:1, emoji:"🌈", event:"Judy Garland, star of 'The Wizard of Oz,' dies at 47 in London", year:1969, wiki:"https://en.wikipedia.org/wiki/Judy_Garland"},
+  {id:2, emoji:"🎭", event:"Comedian John Belushi dies at a Hollywood hotel, aged 33", year:1982, wiki:"https://en.wikipedia.org/wiki/John_Belushi"},
+  {id:3, emoji:"🎬", event:"Rising star River Phoenix dies at 23 outside an LA club", year:1993, wiki:"https://en.wikipedia.org/wiki/River_Phoenix"},
+  {id:4, emoji:"🃏", event:"Heath Ledger dies at 28, months before his Joker film opens", year:2008, wiki:"https://en.wikipedia.org/wiki/Heath_Ledger"},
+  {id:5, emoji:"💜", event:"Musician Prince is found dead at his Minnesota estate at 57", year:2016, wiki:"https://en.wikipedia.org/wiki/Prince_(musician)"},
+  {id:6, emoji:"☕", event:"'Friends' star Matthew Perry dies at 54 in California", year:2023, wiki:"https://en.wikipedia.org/wiki/Matthew_Perry"}
 ];
+
 
 
 
@@ -823,7 +824,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Slums Edition:\n";
+shareString = "Today's Chronl History Puzzle - Celebrity Overdoses Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
