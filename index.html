@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🌈", event:"Judy Garland, star of 'The Wizard of Oz,' dies at 47 in London", year:1969, wiki:"https://en.wikipedia.org/wiki/Judy_Garland"},
-  {id:2, emoji:"🎭", event:"Comedian John Belushi dies at a Hollywood hotel, aged 33", year:1982, wiki:"https://en.wikipedia.org/wiki/John_Belushi"},
-  {id:3, emoji:"🎬", event:"Rising star River Phoenix dies at 23 outside an LA club", year:1993, wiki:"https://en.wikipedia.org/wiki/River_Phoenix"},
-  {id:4, emoji:"🃏", event:"Heath Ledger dies at 28, months before his Joker film opens", year:2008, wiki:"https://en.wikipedia.org/wiki/Heath_Ledger"},
-  {id:5, emoji:"💜", event:"Musician Prince is found dead at his Minnesota estate at 57", year:2016, wiki:"https://en.wikipedia.org/wiki/Prince_(musician)"},
-  {id:6, emoji:"☕", event:"'Friends' star Matthew Perry dies at 54 in California", year:2023, wiki:"https://en.wikipedia.org/wiki/Matthew_Perry"}
+  {id:1, emoji:"🎸", event:"A small plane crash kills Buddy Holly and two other rockers", year:1959, wiki:"https://en.wikipedia.org/wiki/The_Day_the_Music_Died"},
+  {id:2, emoji:"🏔️", event:"A crashed team survives 72 days in the Andes mountains", year:1972, wiki:"https://en.wikipedia.org/wiki/Uruguayan_Air_Force_Flight_571"},
+  {id:3, emoji:"🌫️", event:"Two jumbo jets collide in fog, killing 583 in the Canary Islands", year:1977, wiki:"https://en.wikipedia.org/wiki/Tenerife_airport_disaster"},
+  {id:4, emoji:"💣", event:"A bomb destroys a jet over Lockerbie, Scotland, killing 270", year:1988, wiki:"https://en.wikipedia.org/wiki/Pan_Am_Flight_103"},
+  {id:5, emoji:"🦆", event:"A pilot lands a crippled jet safely on New York's Hudson River", year:2009, wiki:"https://en.wikipedia.org/wiki/US_Airways_Flight_1549"},
+  {id:6, emoji:"❓", event:"A Malaysia Airlines jet vanishes with 239 people aboard", year:2014, wiki:"https://en.wikipedia.org/wiki/Malaysia_Airlines_Flight_370"}
 ];
+
 
 
 
@@ -824,7 +825,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Celebrity Overdoses Edition:\n";
+shareString = "Today's Chronl History Puzzle - Aviation Disasters Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
