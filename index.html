@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🗳️", event:"New Zealand becomes the first country to let women vote", year:1893, wiki:"https://en.wikipedia.org/wiki/Women's_suffrage_in_New_Zealand"},
-  {id:2, emoji:"🚢", event:"The Titanic strikes an iceberg and sinks on its first voyage", year:1912, wiki:"https://en.wikipedia.org/wiki/Titanic"},
-  {id:3, emoji:"📈", event:"The Wall Street Crash wipes out fortunes and starts a depression", year:1929, wiki:"https://en.wikipedia.org/wiki/Wall_Street_Crash_of_1929"},
-  {id:4, emoji:"🎈", event:"The Hindenburg airship bursts into flames in New Jersey", year:1937, wiki:"https://en.wikipedia.org/wiki/Hindenburg_disaster"},
-  {id:5, emoji:"📜", event:"A shepherd boy finds the Dead Sea Scrolls in a desert cave", year:1947, wiki:"https://en.wikipedia.org/wiki/Dead_Sea_Scrolls"},
-  {id:6, emoji:"👑", event:"Elizabeth II is crowned queen in the first televised coronation", year:1953, wiki:"https://en.wikipedia.org/wiki/Coronation_of_Elizabeth_II"}
+  {id:1, emoji:"🦁", event:"Namibia wins independence after decades of South African rule", year:1990, wiki:"https://en.wikipedia.org/wiki/Namibia"},
+  {id:2, emoji:"🤝", event:"Czechoslovakia peacefully splits into two separate countries", year:1993, wiki:"https://en.wikipedia.org/wiki/Dissolution_of_Czechoslovakia"},
+  {id:3, emoji:"🌏", event:"East Timor becomes a nation after Indonesian occupation ends", year:2002, wiki:"https://en.wikipedia.org/wiki/East_Timor"},
+  {id:4, emoji:"🏔️", event:"Montenegro votes narrowly to break away from Serbia", year:2006, wiki:"https://en.wikipedia.org/wiki/Montenegro"},
+  {id:5, emoji:"🕊️", event:"Kosovo declares independence, still unrecognized by many", year:2008, wiki:"https://en.wikipedia.org/wiki/Kosovo"},
+  {id:6, emoji:"🛢️", event:"South Sudan splits off to become the world's newest country", year:2011, wiki:"https://en.wikipedia.org/wiki/South_Sudan"}
 ];
+
 
 
 
@@ -826,7 +827,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Mixed Edition:\n";
+shareString = "Today's Chronl History Puzzle - Newest Countries Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
