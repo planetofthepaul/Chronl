@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🦁", event:"Namibia wins independence after decades of South African rule", year:1990, wiki:"https://en.wikipedia.org/wiki/Namibia"},
-  {id:2, emoji:"🤝", event:"Czechoslovakia peacefully splits into two separate countries", year:1993, wiki:"https://en.wikipedia.org/wiki/Dissolution_of_Czechoslovakia"},
-  {id:3, emoji:"🌏", event:"East Timor becomes a nation after Indonesian occupation ends", year:2002, wiki:"https://en.wikipedia.org/wiki/East_Timor"},
-  {id:4, emoji:"🏔️", event:"Montenegro votes narrowly to break away from Serbia", year:2006, wiki:"https://en.wikipedia.org/wiki/Montenegro"},
-  {id:5, emoji:"🕊️", event:"Kosovo declares independence, still unrecognized by many", year:2008, wiki:"https://en.wikipedia.org/wiki/Kosovo"},
-  {id:6, emoji:"🛢️", event:"South Sudan splits off to become the world's newest country", year:2011, wiki:"https://en.wikipedia.org/wiki/South_Sudan"}
+  {id:1, emoji:"🛹", event:"The first mass-produced skateboards go on sale in the US", year:1959, wiki:"https://en.wikipedia.org/wiki/Skateboard"},
+  {id:2, emoji:"⚙️", event:"Soft urethane wheels replace clay, transforming skateboarding", year:1973, wiki:"https://en.wikipedia.org/wiki/Frank_Nasworthy"},
+  {id:3, emoji:"🏊", event:"The first purpose-built concrete skatepark opens in Florida", year:1976, wiki:"https://en.wikipedia.org/wiki/Skatepark"},
+  {id:4, emoji:"📺", event:"Skateboarding debuts at the first X Games, broadcast on TV", year:1995, wiki:"https://en.wikipedia.org/wiki/X_Games"},
+  {id:5, emoji:"🌀", event:"Tony Hawk lands the first 900 spin in competition", year:1999, wiki:"https://en.wikipedia.org/wiki/900_(skateboarding_trick)"},
+  {id:6, emoji:"🥇", event:"Skateboarding makes its Olympic debut in Tokyo", year:2021, wiki:"https://en.wikipedia.org/wiki/Skateboarding_at_the_2020_Summer_Olympics"}
 ];
+
 
 
 
@@ -827,7 +828,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Newest Countries Edition:\n";
+shareString = "Today's Chronl History Puzzle - Skateboarding Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
