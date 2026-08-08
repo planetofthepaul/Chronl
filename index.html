@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🛹", event:"The first mass-produced skateboards go on sale in the US", year:1959, wiki:"https://en.wikipedia.org/wiki/Skateboard"},
-  {id:2, emoji:"⚙️", event:"Soft urethane wheels replace clay, transforming skateboarding", year:1973, wiki:"https://en.wikipedia.org/wiki/Frank_Nasworthy"},
-  {id:3, emoji:"🏊", event:"The first purpose-built concrete skatepark opens in Florida", year:1976, wiki:"https://en.wikipedia.org/wiki/Skatepark"},
-  {id:4, emoji:"📺", event:"Skateboarding debuts at the first X Games, broadcast on TV", year:1995, wiki:"https://en.wikipedia.org/wiki/X_Games"},
-  {id:5, emoji:"🌀", event:"Tony Hawk lands the first 900 spin in competition", year:1999, wiki:"https://en.wikipedia.org/wiki/900_(skateboarding_trick)"},
-  {id:6, emoji:"🥇", event:"Skateboarding makes its Olympic debut in Tokyo", year:2021, wiki:"https://en.wikipedia.org/wiki/Skateboarding_at_the_2020_Summer_Olympics"}
+  {id:1, emoji:"🇩🇪", event:"Porsche builds and sells its first sports car", year:1948, wiki:"https://en.wikipedia.org/wiki/Porsche_356"},
+  {id:2, emoji:"🇺🇸", event:"Chevrolet begins building the Corvette", year:1953, wiki:"https://en.wikipedia.org/wiki/Chevrolet_Corvette"},
+  {id:3, emoji:"🏁", event:"Ford beats Ferrari to win the Le Mans 24-hour race", year:1966, wiki:"https://en.wikipedia.org/wiki/Ford_GT40"},
+  {id:4, emoji:"🚪", event:"Lamborghini starts building the Countach", year:1974, wiki:"https://en.wikipedia.org/wiki/Lamborghini_Countach"},
+  {id:5, emoji:"🇯🇵", event:"Mazda launches the Miata, a small two-seat convertible", year:1989, wiki:"https://en.wikipedia.org/wiki/Mazda_MX-5"},
+  {id:6, emoji:"⚡", event:"Tesla delivers its first electric sports car", year:2008, wiki:"https://en.wikipedia.org/wiki/Tesla_Roadster_(first_generation)"}
 ];
+
 
 
 
@@ -828,7 +829,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Skateboarding Edition:\n";
+shareString = "Today's Chronl History Puzzle - Sports Cars Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
