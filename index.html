@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🇩🇪", event:"Porsche builds and sells its first sports car", year:1948, wiki:"https://en.wikipedia.org/wiki/Porsche_356"},
-  {id:2, emoji:"🇺🇸", event:"Chevrolet begins building the Corvette", year:1953, wiki:"https://en.wikipedia.org/wiki/Chevrolet_Corvette"},
-  {id:3, emoji:"🏁", event:"Ford beats Ferrari to win the Le Mans 24-hour race", year:1966, wiki:"https://en.wikipedia.org/wiki/Ford_GT40"},
-  {id:4, emoji:"🚪", event:"Lamborghini starts building the Countach", year:1974, wiki:"https://en.wikipedia.org/wiki/Lamborghini_Countach"},
-  {id:5, emoji:"🇯🇵", event:"Mazda launches the Miata, a small two-seat convertible", year:1989, wiki:"https://en.wikipedia.org/wiki/Mazda_MX-5"},
-  {id:6, emoji:"⚡", event:"Tesla delivers its first electric sports car", year:2008, wiki:"https://en.wikipedia.org/wiki/Tesla_Roadster_(first_generation)"}
+  {id:1, emoji:"⛪", event:"The Catholic Church coins the word 'propaganda' in Rome", year:1622, wiki:"https://en.wikipedia.org/wiki/Propaganda"},
+  {id:2, emoji:"🎩", event:"The 'Uncle Sam Wants You' recruiting poster appears in the US", year:1917, wiki:"https://en.wikipedia.org/wiki/Uncle_Sam"},
+  {id:3, emoji:"👁️", event:"Orwell's '1984' imagines a state that rewrites the truth", year:1949, wiki:"https://en.wikipedia.org/wiki/Nineteen_Eighty-Four"},
+  {id:4, emoji:"📻", event:"Radio Free Europe starts broadcasting into the Soviet bloc", year:1950, wiki:"https://en.wikipedia.org/wiki/Radio_Free_Europe/Radio_Liberty"},
+  {id:5, emoji:"📄", event:"The Pentagon Papers reveal US lies about the Vietnam War", year:1971, wiki:"https://en.wikipedia.org/wiki/Pentagon_Papers"},
+  {id:6, emoji:"📱", event:"Cambridge Analytica is caught using Facebook data on voters", year:2018, wiki:"https://en.wikipedia.org/wiki/Facebook–Cambridge_Analytica_data_scandal"}
 ];
 
 
@@ -829,7 +829,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Sports Cars Edition:\n";
+shareString = "Today's Chronl History Puzzle - Propaganda Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
