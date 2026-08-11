@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🏛️", event:"Fire destroys much of Rome under the emperor Nero", year:64, wiki:"https://en.wikipedia.org/wiki/Great_Fire_of_Rome"},
-  {id:2, emoji:"🔥", event:"The Great Fire of London burns for four days", year:1666, wiki:"https://en.wikipedia.org/wiki/Great_Fire_of_London"},
-  {id:3, emoji:"🐄", event:"The Great Chicago Fire levels the heart of the city", year:1871, wiki:"https://en.wikipedia.org/wiki/Great_Chicago_Fire"},
-  {id:4, emoji:"🌉", event:"Fires after an earthquake destroy most of San Francisco", year:1906, wiki:"https://en.wikipedia.org/wiki/1906_San_Francisco_earthquake"},
-  {id:5, emoji:"🌲", event:"Wildfires burn a third of Yellowstone National Park", year:1988, wiki:"https://en.wikipedia.org/wiki/Yellowstone_fires_of_1988"},
-  {id:6, emoji:"⛪", event:"Fire destroys the roof and spire of Notre-Dame in Paris", year:2019, wiki:"https://en.wikipedia.org/wiki/Notre-Dame_fire"}
+  {id:1, emoji:"🦅", event:"The Aztecs found Tenochtitlan, today's Mexico City", year:1325, wiki:"https://en.wikipedia.org/wiki/Tenochtitlan"},
+  {id:2, emoji:"⚔️", event:"Cortés and his allies conquer the Aztec capital for Spain", year:1521, wiki:"https://en.wikipedia.org/wiki/Fall_of_Tenochtitlan"},
+  {id:3, emoji:"🔔", event:"A village priest calls for revolt, starting Mexico's independence", year:1810, wiki:"https://en.wikipedia.org/wiki/Cry_of_Dolores"},
+  {id:4, emoji:"🌮", event:"Mexico defeats a French army at Puebla, remembered as Cinco de Mayo", year:1862, wiki:"https://en.wikipedia.org/wiki/Battle_of_Puebla"},
+  {id:5, emoji:"🐴", event:"Pancho Villa and Zapata lead the Mexican Revolution", year:1910, wiki:"https://en.wikipedia.org/wiki/Mexican_Revolution"},
+  {id:6, emoji:"🏅", event:"Mexico City hosts the Olympic Games", year:1968, wiki:"https://en.wikipedia.org/wiki/1968_Summer_Olympics"}
 ];
+
 
 
 
@@ -829,7 +830,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Famous Fires Edition:\n";
+shareString = "Today's Chronl History Puzzle - Mexico Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
