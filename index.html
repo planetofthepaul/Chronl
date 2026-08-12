@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🦅", event:"The Aztecs found Tenochtitlan, today's Mexico City", year:1325, wiki:"https://en.wikipedia.org/wiki/Tenochtitlan"},
-  {id:2, emoji:"⚔️", event:"Cortés and his allies conquer the Aztec capital for Spain", year:1521, wiki:"https://en.wikipedia.org/wiki/Fall_of_Tenochtitlan"},
-  {id:3, emoji:"🔔", event:"A village priest calls for revolt, starting Mexico's independence", year:1810, wiki:"https://en.wikipedia.org/wiki/Cry_of_Dolores"},
-  {id:4, emoji:"🌮", event:"Mexico defeats a French army at Puebla, remembered as Cinco de Mayo", year:1862, wiki:"https://en.wikipedia.org/wiki/Battle_of_Puebla"},
-  {id:5, emoji:"🐴", event:"Pancho Villa and Zapata lead the Mexican Revolution", year:1910, wiki:"https://en.wikipedia.org/wiki/Mexican_Revolution"},
-  {id:6, emoji:"🏅", event:"Mexico City hosts the Olympic Games", year:1968, wiki:"https://en.wikipedia.org/wiki/1968_Summer_Olympics"}
+  {id:1, emoji:"📜", event:"Ovid writes a guide to courtship and is later exiled for it", year:2, wiki:"https://en.wikipedia.org/wiki/Ars_Amatoria"},
+  {id:2, emoji:"🎭", event:"Casanova is born in Venice, later famous for his memoirs", year:1725, wiki:"https://en.wikipedia.org/wiki/Giacomo_Casanova"},
+  {id:3, emoji:"🖤", event:"Mozart's opera 'Don Giovanni' premieres in Prague", year:1787, wiki:"https://en.wikipedia.org/wiki/Don_Giovanni"},
+  {id:4, emoji:"🌹", event:"Rudolph Valentino stars as a silent film 'Latin lover'", year:1921, wiki:"https://en.wikipedia.org/wiki/Rudolph_Valentino"},
+  {id:5, emoji:"🍸", event:"Sean Connery first plays James Bond in 'Dr. No'", year:1962, wiki:"https://en.wikipedia.org/wiki/Dr._No_(film)"},
+  {id:6, emoji:"💌", event:"Tinder launches and popularizes swiping to find dates", year:2012, wiki:"https://en.wikipedia.org/wiki/Tinder_(app)"}
 ];
+
 
 
 
@@ -830,7 +831,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Mexico Edition:\n";
+shareString = "Today's Chronl History Puzzle - Seduction Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
