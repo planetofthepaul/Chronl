@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"📜", event:"Ovid writes a guide to courtship and is later exiled for it", year:2, wiki:"https://en.wikipedia.org/wiki/Ars_Amatoria"},
-  {id:2, emoji:"🎭", event:"Casanova is born in Venice, later famous for his memoirs", year:1725, wiki:"https://en.wikipedia.org/wiki/Giacomo_Casanova"},
-  {id:3, emoji:"🖤", event:"Mozart's opera 'Don Giovanni' premieres in Prague", year:1787, wiki:"https://en.wikipedia.org/wiki/Don_Giovanni"},
-  {id:4, emoji:"🌹", event:"Rudolph Valentino stars as a silent film 'Latin lover'", year:1921, wiki:"https://en.wikipedia.org/wiki/Rudolph_Valentino"},
-  {id:5, emoji:"🍸", event:"Sean Connery first plays James Bond in 'Dr. No'", year:1962, wiki:"https://en.wikipedia.org/wiki/Dr._No_(film)"},
-  {id:6, emoji:"💌", event:"Tinder launches and popularizes swiping to find dates", year:2012, wiki:"https://en.wikipedia.org/wiki/Tinder_(app)"}
+  {id:1, emoji:"📗", event:"A Venetian friar publishes the first book on double-entry bookkeeping", year:1494, wiki:"https://en.wikipedia.org/wiki/Luca_Pacioli"},
+  {id:2, emoji:"🏛️", event:"Scotland charters the world's first professional accountants", year:1854, wiki:"https://en.wikipedia.org/wiki/Institute_of_Chartered_Accountants_of_Scotland"},
+  {id:3, emoji:"🧾", event:"The first US certified public accountant licenses are issued", year:1896, wiki:"https://en.wikipedia.org/wiki/Certified_Public_Accountant"},
+  {id:4, emoji:"⚖️", event:"The US creates the SEC to police company financial reports", year:1934, wiki:"https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission"},
+  {id:5, emoji:"💻", event:"VisiCalc launches as the first computer spreadsheet program", year:1979, wiki:"https://en.wikipedia.org/wiki/VisiCalc"},
+  {id:6, emoji:"📉", event:"Enron's accounting fraud collapses the company and its auditor", year:2001, wiki:"https://en.wikipedia.org/wiki/Enron_scandal"}
 ];
+
 
 
 
@@ -831,7 +832,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Seduction Edition:\n";
+shareString = "Today's Chronl History Puzzle - Accounting Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
