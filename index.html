@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"📗", event:"A Venetian friar publishes the first book on double-entry bookkeeping", year:1494, wiki:"https://en.wikipedia.org/wiki/Luca_Pacioli"},
-  {id:2, emoji:"🏛️", event:"Scotland charters the world's first professional accountants", year:1854, wiki:"https://en.wikipedia.org/wiki/Institute_of_Chartered_Accountants_of_Scotland"},
-  {id:3, emoji:"🧾", event:"The first US certified public accountant licenses are issued", year:1896, wiki:"https://en.wikipedia.org/wiki/Certified_Public_Accountant"},
-  {id:4, emoji:"⚖️", event:"The US creates the SEC to police company financial reports", year:1934, wiki:"https://en.wikipedia.org/wiki/U.S._Securities_and_Exchange_Commission"},
-  {id:5, emoji:"💻", event:"VisiCalc launches as the first computer spreadsheet program", year:1979, wiki:"https://en.wikipedia.org/wiki/VisiCalc"},
-  {id:6, emoji:"📉", event:"Enron's accounting fraud collapses the company and its auditor", year:2001, wiki:"https://en.wikipedia.org/wiki/Enron_scandal"}
+  {id:1, emoji:"🕊️", event:"The UN adopts the Universal Declaration of Human Rights", year:1948, wiki:"https://en.wikipedia.org/wiki/Universal_Declaration_of_Human_Rights"},
+  {id:2, emoji:"🌾", event:"A Nobel goes to the scientist whose wheat fed a billion people", year:1970, wiki:"https://en.wikipedia.org/wiki/Norman_Borlaug"},
+  {id:3, emoji:"🌍", event:"Nations sign a treaty to repair the damaged ozone layer", year:1987, wiki:"https://en.wikipedia.org/wiki/Montreal_Protocol"},
+  {id:4, emoji:"🧬", event:"Scientists finish mapping the entire human genome", year:2003, wiki:"https://en.wikipedia.org/wiki/Human_Genome_Project"},
+  {id:5, emoji:"✂️", event:"CRISPR is unveiled, letting scientists edit DNA precisely", year:2012, wiki:"https://en.wikipedia.org/wiki/CRISPR_gene_editing"},
+  {id:6, emoji:"🦟", event:"The world's first malaria vaccine is approved for children", year:2021, wiki:"https://en.wikipedia.org/wiki/Malaria_vaccine"}
 ];
 
 
@@ -832,7 +832,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Accounting Edition:\n";
+shareString = "Today's Chronl History Puzzle - Breakthroughs Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
