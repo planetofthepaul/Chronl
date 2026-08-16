@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🌫️", event:"Jack the Ripper murders terrorize London and go unsolved", year:1888, wiki:"https://en.wikipedia.org/wiki/Jack_the_Ripper"},
-  {id:2, emoji:"✉️", event:"The Zodiac killer starts sending coded letters to newspapers", year:1969, wiki:"https://en.wikipedia.org/wiki/Zodiac_Killer"},
-  {id:3, emoji:"🚔", event:"Ted Bundy is captured in Florida after two prison escapes", year:1978, wiki:"https://en.wikipedia.org/wiki/Ted_Bundy"},
-  {id:4, emoji:"🔦", event:"Jeffrey Dahmer is arrested in Milwaukee after a victim escapes", year:1991, wiki:"https://en.wikipedia.org/wiki/Jeffrey_Dahmer"},
-  {id:5, emoji:"💾", event:"The BTK killer is caught in Kansas after decades at large", year:2005, wiki:"https://en.wikipedia.org/wiki/Dennis_Rader"},
-  {id:6, emoji:"🧬", event:"DNA genealogy identifies the Golden State Killer", year:2018, wiki:"https://en.wikipedia.org/wiki/Golden_State_Killer"}
+  {id:1, emoji:"☕", event:"An Ottoman sultan bans coffee, on pain of death", year:1633, wiki:"https://en.wikipedia.org/wiki/Murad_IV"},
+  {id:2, emoji:"🧔", event:"Peter the Great taxes Russian men for wearing beards", year:1698, wiki:"https://en.wikipedia.org/wiki/Beard_tax"},
+  {id:3, emoji:"🔮", event:"Britain makes it a crime to claim you have magic powers", year:1735, wiki:"https://en.wikipedia.org/wiki/Witchcraft_Act_1735"},
+  {id:4, emoji:"🐟", event:"Britain bans handling a salmon in suspicious circumstances", year:1986, wiki:"https://en.wikipedia.org/wiki/Salmon_Act_1986"},
+  {id:5, emoji:"🍬", event:"Singapore bans the sale of chewing gum", year:1992, wiki:"https://en.wikipedia.org/wiki/Chewing_gum_ban_in_Singapore"},
+  {id:6, emoji:"🪜", event:"Rome bans sitting on the famous Spanish Steps", year:2019, wiki:"https://en.wikipedia.org/wiki/Spanish_Steps"}
 ];
+
 
 
 
@@ -832,7 +833,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Serial Killers Edition:\n";
+shareString = "Today's Chronl History Puzzle - Weird Laws Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
