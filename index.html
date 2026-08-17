@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"☕", event:"An Ottoman sultan bans coffee, on pain of death", year:1633, wiki:"https://en.wikipedia.org/wiki/Murad_IV"},
-  {id:2, emoji:"🧔", event:"Peter the Great taxes Russian men for wearing beards", year:1698, wiki:"https://en.wikipedia.org/wiki/Beard_tax"},
-  {id:3, emoji:"🔮", event:"Britain makes it a crime to claim you have magic powers", year:1735, wiki:"https://en.wikipedia.org/wiki/Witchcraft_Act_1735"},
-  {id:4, emoji:"🐟", event:"Britain bans handling a salmon in suspicious circumstances", year:1986, wiki:"https://en.wikipedia.org/wiki/Salmon_Act_1986"},
-  {id:5, emoji:"🍬", event:"Singapore bans the sale of chewing gum", year:1992, wiki:"https://en.wikipedia.org/wiki/Chewing_gum_ban_in_Singapore"},
-  {id:6, emoji:"🪜", event:"Rome bans sitting on the famous Spanish Steps", year:2019, wiki:"https://en.wikipedia.org/wiki/Spanish_Steps"}
+  {id:1, emoji:"🇮🇳", event:"India and Pakistan become independent as British rule ends", year:1947, wiki:"https://en.wikipedia.org/wiki/Partition_of_India"},
+  {id:2, emoji:"🌍", event:"Seventeen African nations gain independence in a single year", year:1960, wiki:"https://en.wikipedia.org/wiki/Year_of_Africa"},
+  {id:3, emoji:"🇧🇩", event:"Bangladesh breaks away from Pakistan after a war", year:1971, wiki:"https://en.wikipedia.org/wiki/Bangladesh_Liberation_War"},
+  {id:4, emoji:"🇺🇦", event:"Ukraine declares independence as the Soviet Union breaks up", year:1991, wiki:"https://en.wikipedia.org/wiki/Declaration_of_Independence_of_Ukraine"},
+  {id:5, emoji:"🇪🇷", event:"Eritrea votes to split from Ethiopia and becomes a nation", year:1993, wiki:"https://en.wikipedia.org/wiki/Eritrea"},
+  {id:6, emoji:"🇸🇸", event:"South Sudan splits off to become the world's newest country", year:2011, wiki:"https://en.wikipedia.org/wiki/South_Sudan"}
 ];
+
 
 
 
@@ -833,7 +834,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Weird Laws Edition:\n";
+shareString = "Today's Chronl History Puzzle - New Nations Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
