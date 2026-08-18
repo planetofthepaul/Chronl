@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🇮🇳", event:"India and Pakistan become independent as British rule ends", year:1947, wiki:"https://en.wikipedia.org/wiki/Partition_of_India"},
-  {id:2, emoji:"🌍", event:"Seventeen African nations gain independence in a single year", year:1960, wiki:"https://en.wikipedia.org/wiki/Year_of_Africa"},
-  {id:3, emoji:"🇧🇩", event:"Bangladesh breaks away from Pakistan after a war", year:1971, wiki:"https://en.wikipedia.org/wiki/Bangladesh_Liberation_War"},
-  {id:4, emoji:"🇺🇦", event:"Ukraine declares independence as the Soviet Union breaks up", year:1991, wiki:"https://en.wikipedia.org/wiki/Declaration_of_Independence_of_Ukraine"},
-  {id:5, emoji:"🇪🇷", event:"Eritrea votes to split from Ethiopia and becomes a nation", year:1993, wiki:"https://en.wikipedia.org/wiki/Eritrea"},
-  {id:6, emoji:"🇸🇸", event:"South Sudan splits off to become the world's newest country", year:2011, wiki:"https://en.wikipedia.org/wiki/South_Sudan"}
+  {id:1, emoji:"🏀", event:"Basketball is invented for a Massachusetts gym class", year:1891, wiki:"https://en.wikipedia.org/wiki/History_of_basketball"},
+  {id:2, emoji:"🥒", event:"Pickleball is invented by bored dads in a Washington backyard", year:1965, wiki:"https://en.wikipedia.org/wiki/Pickleball"},
+  {id:3, emoji:"🏂", event:"Burton starts selling snowboards, launching a new sport", year:1977, wiki:"https://en.wikipedia.org/wiki/Burton_Snowboards"},
+  {id:4, emoji:"🥊", event:"The first UFC event introduces mixed martial arts", year:1993, wiki:"https://en.wikipedia.org/wiki/UFC_1"},
+  {id:5, emoji:"🧹", event:"College students turn Harry Potter's quidditch into a real sport", year:2005, wiki:"https://en.wikipedia.org/wiki/Quadball"},
+  {id:6, emoji:"🚁", event:"Drone racing launches as a professional televised sport", year:2016, wiki:"https://en.wikipedia.org/wiki/Drone_racing"}
 ];
+
 
 
 
@@ -834,7 +835,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - New Nations Edition:\n";
+shareString = "Today's Chronl History Puzzle - New Sports Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
