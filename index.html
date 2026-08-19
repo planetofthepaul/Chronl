@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🏀", event:"Basketball is invented for a Massachusetts gym class", year:1891, wiki:"https://en.wikipedia.org/wiki/History_of_basketball"},
-  {id:2, emoji:"🥒", event:"Pickleball is invented by bored dads in a Washington backyard", year:1965, wiki:"https://en.wikipedia.org/wiki/Pickleball"},
-  {id:3, emoji:"🏂", event:"Burton starts selling snowboards, launching a new sport", year:1977, wiki:"https://en.wikipedia.org/wiki/Burton_Snowboards"},
-  {id:4, emoji:"🥊", event:"The first UFC event introduces mixed martial arts", year:1993, wiki:"https://en.wikipedia.org/wiki/UFC_1"},
-  {id:5, emoji:"🧹", event:"College students turn Harry Potter's quidditch into a real sport", year:2005, wiki:"https://en.wikipedia.org/wiki/Quadball"},
-  {id:6, emoji:"🚁", event:"Drone racing launches as a professional televised sport", year:2016, wiki:"https://en.wikipedia.org/wiki/Drone_racing"}
+  {id:1, emoji:"🪓", event:"England executes King Charles I and abolishes the monarchy", year:1649, wiki:"https://en.wikipedia.org/wiki/Execution_of_Charles_I"},
+  {id:2, emoji:"👑", event:"Napoleon crowns himself Emperor of France in Notre-Dame", year:1804, wiki:"https://en.wikipedia.org/wiki/Coronation_of_Napoleon_I"},
+  {id:3, emoji:"🏯", event:"Japan's shoguns fall and power returns to the emperor", year:1868, wiki:"https://en.wikipedia.org/wiki/Meiji_Restoration"},
+  {id:4, emoji:"🇨🇺", event:"Fidel Castro's rebels seize power in Cuba", year:1959, wiki:"https://en.wikipedia.org/wiki/Cuban_Revolution"},
+  {id:5, emoji:"🏙️", event:"Britain hands Hong Kong back to Chinese rule", year:1997, wiki:"https://en.wikipedia.org/wiki/Handover_of_Hong_Kong"},
+  {id:6, emoji:"✊", event:"Egypt's president resigns after mass protests in Cairo", year:2011, wiki:"https://en.wikipedia.org/wiki/Egyptian_revolution_of_2011"}
 ];
 
 
@@ -835,7 +835,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - New Sports Edition:\n";
+shareString = "Today's Chronl History Puzzle - Power Changes Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
