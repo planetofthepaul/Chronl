@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🪓", event:"England executes King Charles I and abolishes the monarchy", year:1649, wiki:"https://en.wikipedia.org/wiki/Execution_of_Charles_I"},
-  {id:2, emoji:"👑", event:"Napoleon crowns himself Emperor of France in Notre-Dame", year:1804, wiki:"https://en.wikipedia.org/wiki/Coronation_of_Napoleon_I"},
-  {id:3, emoji:"🏯", event:"Japan's shoguns fall and power returns to the emperor", year:1868, wiki:"https://en.wikipedia.org/wiki/Meiji_Restoration"},
-  {id:4, emoji:"🇨🇺", event:"Fidel Castro's rebels seize power in Cuba", year:1959, wiki:"https://en.wikipedia.org/wiki/Cuban_Revolution"},
-  {id:5, emoji:"🏙️", event:"Britain hands Hong Kong back to Chinese rule", year:1997, wiki:"https://en.wikipedia.org/wiki/Handover_of_Hong_Kong"},
-  {id:6, emoji:"✊", event:"Egypt's president resigns after mass protests in Cairo", year:2011, wiki:"https://en.wikipedia.org/wiki/Egyptian_revolution_of_2011"}
+  {id:1, emoji:"🧙", event:"Salem, Massachusetts executes villagers accused of witchcraft", year:1692, wiki:"https://en.wikipedia.org/wiki/Salem_witch_trials"},
+  {id:2, emoji:"🎖️", event:"A French officer is convicted of treason he did not commit", year:1894, wiki:"https://en.wikipedia.org/wiki/Dreyfus_affair"},
+  {id:3, emoji:"🚂", event:"Nine Black teenagers are falsely accused of rape in Alabama", year:1931, wiki:"https://en.wikipedia.org/wiki/Scottsboro_Boys"},
+  {id:4, emoji:"🕊️", event:"Emmett Till is murdered after a white woman's false claim", year:1955, wiki:"https://en.wikipedia.org/wiki/Murder_of_Emmett_Till"},
+  {id:5, emoji:"💣", event:"Four people are wrongly jailed for an IRA pub bombing in England", year:1975, wiki:"https://en.wikipedia.org/wiki/Guildford_Four_and_Maguire_Seven"},
+  {id:6, emoji:"🌳", event:"Five teenagers are wrongly convicted of a Central Park attack", year:1989, wiki:"https://en.wikipedia.org/wiki/Central_Park_jogger_case"}
 ];
+
 
 
 
@@ -835,7 +836,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Power Changes Edition:\n";
+shareString = "Today's Chronl History Puzzle - False Accusations Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
