@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🧙", event:"Salem, Massachusetts executes villagers accused of witchcraft", year:1692, wiki:"https://en.wikipedia.org/wiki/Salem_witch_trials"},
-  {id:2, emoji:"🎖️", event:"A French officer is convicted of treason he did not commit", year:1894, wiki:"https://en.wikipedia.org/wiki/Dreyfus_affair"},
-  {id:3, emoji:"🚂", event:"Nine Black teenagers are falsely accused of rape in Alabama", year:1931, wiki:"https://en.wikipedia.org/wiki/Scottsboro_Boys"},
-  {id:4, emoji:"🕊️", event:"Emmett Till is murdered after a white woman's false claim", year:1955, wiki:"https://en.wikipedia.org/wiki/Murder_of_Emmett_Till"},
-  {id:5, emoji:"💣", event:"Four people are wrongly jailed for an IRA pub bombing in England", year:1975, wiki:"https://en.wikipedia.org/wiki/Guildford_Four_and_Maguire_Seven"},
-  {id:6, emoji:"🌳", event:"Five teenagers are wrongly convicted of a Central Park attack", year:1989, wiki:"https://en.wikipedia.org/wiki/Central_Park_jogger_case"}
+  {id:1, emoji:"🖤", event:"Mussolini marches on Rome and seizes power in Italy", year:1922, wiki:"https://en.wikipedia.org/wiki/March_on_Rome"},
+  {id:2, emoji:"📜", event:"Germany's parliament votes Hitler dictatorial powers", year:1933, wiki:"https://en.wikipedia.org/wiki/Enabling_Act_of_1933"},
+  {id:3, emoji:"🎖️", event:"Army colonels seize power in Greece and rule for years", year:1967, wiki:"https://en.wikipedia.org/wiki/Greek_junta"},
+  {id:4, emoji:"🚨", event:"India's leader suspends democracy and jails her opponents", year:1975, wiki:"https://en.wikipedia.org/wiki/The_Emergency_(India)"},
+  {id:5, emoji:"✈️", event:"A general takes power in Pakistan in a bloodless coup", year:1999, wiki:"https://en.wikipedia.org/wiki/1999_Pakistani_coup_d'état"},
+  {id:6, emoji:"🪖", event:"Myanmar's army detains Aung San Suu Kyi and seizes power", year:2021, wiki:"https://en.wikipedia.org/wiki/2021_Myanmar_coup_d'état"}
 ];
 
 
@@ -836,7 +836,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - False Accusations Edition:\n";
+shareString = "Today's Chronl History Puzzle - Democratic Backsliding Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
