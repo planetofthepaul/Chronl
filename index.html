@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🖤", event:"Mussolini marches on Rome and seizes power in Italy", year:1922, wiki:"https://en.wikipedia.org/wiki/March_on_Rome"},
-  {id:2, emoji:"📜", event:"Germany's parliament votes Hitler dictatorial powers", year:1933, wiki:"https://en.wikipedia.org/wiki/Enabling_Act_of_1933"},
-  {id:3, emoji:"🎖️", event:"Army colonels seize power in Greece and rule for years", year:1967, wiki:"https://en.wikipedia.org/wiki/Greek_junta"},
-  {id:4, emoji:"🚨", event:"India's leader suspends democracy and jails her opponents", year:1975, wiki:"https://en.wikipedia.org/wiki/The_Emergency_(India)"},
-  {id:5, emoji:"✈️", event:"A general takes power in Pakistan in a bloodless coup", year:1999, wiki:"https://en.wikipedia.org/wiki/1999_Pakistani_coup_d'état"},
-  {id:6, emoji:"🪖", event:"Myanmar's army detains Aung San Suu Kyi and seizes power", year:2021, wiki:"https://en.wikipedia.org/wiki/2021_Myanmar_coup_d'état"}
+  {id:1, emoji:"⚓", event:"The Dutch East India Company sells the first public shares", year:1602, wiki:"https://en.wikipedia.org/wiki/Dutch_East_India_Company"},
+  {id:2, emoji:"🫧", event:"The South Sea Bubble bursts, ruining British investors", year:1720, wiki:"https://en.wikipedia.org/wiki/South_Sea_Company"},
+  {id:3, emoji:"📊", event:"The Dow Jones average launches with twelve companies", year:1896, wiki:"https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average"},
+  {id:4, emoji:"🧺", event:"The first index fund lets ordinary people buy the market", year:1976, wiki:"https://en.wikipedia.org/wiki/Index_fund"},
+  {id:5, emoji:"📉", event:"Black Monday wipes out a fifth of US stock value in a day", year:1987, wiki:"https://en.wikipedia.org/wiki/Black_Monday_(1987)"},
+  {id:6, emoji:"🎮", event:"Small traders squeeze hedge funds in the GameStop frenzy", year:2021, wiki:"https://en.wikipedia.org/wiki/GameStop_short_squeeze"}
 ];
 
 
@@ -836,7 +836,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Democratic Backsliding Edition:\n";
+shareString = "Today's Chronl History Puzzle - Investing Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
