@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🍋", event:"An Italian perfumer creates Eau de Cologne in Germany", year:1709, wiki:"https://en.wikipedia.org/wiki/Eau_de_Cologne"},
-  {id:2, emoji:"🧪", event:"The first perfume made with a lab-made scent goes on sale", year:1882, wiki:"https://en.wikipedia.org/wiki/Houbigant"},
-  {id:3, emoji:"5️⃣", event:"Coco Chanel launches her perfume, Chanel No. 5", year:1921, wiki:"https://en.wikipedia.org/wiki/Chanel_No._5"},
-  {id:4, emoji:"👗", event:"Dior launches Miss Dior alongside his New Look fashion", year:1947, wiki:"https://en.wikipedia.org/wiki/Miss_Dior"},
-  {id:5, emoji:"🧴", event:"CK One launches, marketed to men and women alike", year:1994, wiki:"https://en.wikipedia.org/wiki/CK_One"},
-  {id:6, emoji:"🎤", event:"Britney Spears launches a perfume, fueling a celebrity boom", year:2004, wiki:"https://en.wikipedia.org/wiki/Britney_Spears"}
+  {id:1, emoji:"❄️", event:"An emperor waits barefoot in the snow to beg a pope's pardon", year:1077, wiki:"https://en.wikipedia.org/wiki/Road_to_Canossa"},
+  {id:2, emoji:"🔭", event:"Galileo is forced to publicly deny that Earth orbits the Sun", year:1633, wiki:"https://en.wikipedia.org/wiki/Galileo_affair"},
+  {id:3, emoji:"⚖️", event:"Oscar Wilde is convicted and ruined in a London courtroom", year:1895, wiki:"https://en.wikipedia.org/wiki/Trials_of_Oscar_Wilde"},
+  {id:4, emoji:"📰", event:"A newspaper's front page wrongly declares 'Dewey Defeats Truman'", year:1948, wiki:"https://en.wikipedia.org/wiki/Dewey_Defeats_Truman"},
+  {id:5, emoji:"🎤", event:"Milli Vanilli lose their Grammy after admitting they didn't sing", year:1990, wiki:"https://en.wikipedia.org/wiki/Milli_Vanilli"},
+  {id:6, emoji:"🏆", event:"The wrong film is announced as Best Picture at the Oscars", year:2017, wiki:"https://en.wikipedia.org/wiki/89th_Academy_Awards"}
 ];
+
 
 
 
@@ -836,7 +837,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Perfume Edition:\n";
+shareString = "Today's Chronl History Puzzle - Public Humiliation Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
