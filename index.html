@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"❄️", event:"An emperor waits barefoot in the snow to beg a pope's pardon", year:1077, wiki:"https://en.wikipedia.org/wiki/Road_to_Canossa"},
-  {id:2, emoji:"🔭", event:"Galileo is forced to publicly deny that Earth orbits the Sun", year:1633, wiki:"https://en.wikipedia.org/wiki/Galileo_affair"},
-  {id:3, emoji:"⚖️", event:"Oscar Wilde is convicted and ruined in a London courtroom", year:1895, wiki:"https://en.wikipedia.org/wiki/Trials_of_Oscar_Wilde"},
-  {id:4, emoji:"📰", event:"A newspaper's front page wrongly declares 'Dewey Defeats Truman'", year:1948, wiki:"https://en.wikipedia.org/wiki/Dewey_Defeats_Truman"},
-  {id:5, emoji:"🎤", event:"Milli Vanilli lose their Grammy after admitting they didn't sing", year:1990, wiki:"https://en.wikipedia.org/wiki/Milli_Vanilli"},
-  {id:6, emoji:"🏆", event:"The wrong film is announced as Best Picture at the Oscars", year:2017, wiki:"https://en.wikipedia.org/wiki/89th_Academy_Awards"}
+  {id:1, emoji:"🎈", event:"Two men rise over Paris in the first hot air balloon flight", year:1783, wiki:"https://en.wikipedia.org/wiki/Montgolfier_brothers"},
+  {id:2, emoji:"🌋", event:"Krakatoa erupts, heard thousands of miles away", year:1883, wiki:"https://en.wikipedia.org/wiki/1883_eruption_of_Krakatoa"},
+  {id:3, emoji:"🖼️", event:"The Mona Lisa is stolen from the Louvre in Paris", year:1911, wiki:"https://en.wikipedia.org/wiki/Mona_Lisa"},
+  {id:4, emoji:"🏃", event:"Jesse Owens wins four gold medals at the Berlin Olympics", year:1936, wiki:"https://en.wikipedia.org/wiki/Jesse_Owens"},
+  {id:5, emoji:"🕵️", event:"Burglars are caught breaking into the Watergate offices", year:1972, wiki:"https://en.wikipedia.org/wiki/Watergate_scandal"},
+  {id:6, emoji:"🚢", event:"The Titanic wreck is found on the ocean floor", year:1985, wiki:"https://en.wikipedia.org/wiki/RMS_Titanic"}
 ];
 
 
@@ -837,7 +837,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Public Humiliation Edition:\n";
+shareString = "Today's Chronl History Puzzle - Mixed Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
