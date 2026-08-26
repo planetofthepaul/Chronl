@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🎈", event:"Two men rise over Paris in the first hot air balloon flight", year:1783, wiki:"https://en.wikipedia.org/wiki/Montgolfier_brothers"},
-  {id:2, emoji:"🌋", event:"Krakatoa erupts, heard thousands of miles away", year:1883, wiki:"https://en.wikipedia.org/wiki/1883_eruption_of_Krakatoa"},
-  {id:3, emoji:"🖼️", event:"The Mona Lisa is stolen from the Louvre in Paris", year:1911, wiki:"https://en.wikipedia.org/wiki/Mona_Lisa"},
-  {id:4, emoji:"🏃", event:"Jesse Owens wins four gold medals at the Berlin Olympics", year:1936, wiki:"https://en.wikipedia.org/wiki/Jesse_Owens"},
-  {id:5, emoji:"🕵️", event:"Burglars are caught breaking into the Watergate offices", year:1972, wiki:"https://en.wikipedia.org/wiki/Watergate_scandal"},
-  {id:6, emoji:"🚢", event:"The Titanic wreck is found on the ocean floor", year:1985, wiki:"https://en.wikipedia.org/wiki/RMS_Titanic"}
+  {id:1, emoji:"🥬", event:"A Roman emperor gives up power to grow vegetables", year:305, wiki:"https://en.wikipedia.org/wiki/Diocletian"},
+  {id:2, emoji:"🏝️", event:"Napoleon gives up the French throne and is exiled to Elba", year:1814, wiki:"https://en.wikipedia.org/wiki/Napoleon"},
+  {id:3, emoji:"💍", event:"A British king abdicates to marry an American divorcee", year:1936, wiki:"https://en.wikipedia.org/wiki/Edward_VIII"},
+  {id:4, emoji:"✌️", event:"Nixon resigns as US president over the Watergate scandal", year:1974, wiki:"https://en.wikipedia.org/wiki/Richard_Nixon"},
+  {id:5, emoji:"🏀", event:"Michael Jordan quits basketball at the top of his game", year:1993, wiki:"https://en.wikipedia.org/wiki/Michael_Jordan"},
+  {id:6, emoji:"⛪", event:"Pope Benedict XVI resigns, the first pope to do so since 1415", year:2013, wiki:"https://en.wikipedia.org/wiki/Pope_Benedict_XVI"}
 ];
 
 
@@ -837,7 +837,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Mixed Edition:\n";
+shareString = "Today's Chronl History Puzzle - Quitters Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
