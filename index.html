@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🥬", event:"A Roman emperor gives up power to grow vegetables", year:305, wiki:"https://en.wikipedia.org/wiki/Diocletian"},
-  {id:2, emoji:"🏝️", event:"Napoleon gives up the French throne and is exiled to Elba", year:1814, wiki:"https://en.wikipedia.org/wiki/Napoleon"},
-  {id:3, emoji:"💍", event:"A British king abdicates to marry an American divorcee", year:1936, wiki:"https://en.wikipedia.org/wiki/Edward_VIII"},
-  {id:4, emoji:"✌️", event:"Nixon resigns as US president over the Watergate scandal", year:1974, wiki:"https://en.wikipedia.org/wiki/Richard_Nixon"},
-  {id:5, emoji:"🏀", event:"Michael Jordan quits basketball at the top of his game", year:1993, wiki:"https://en.wikipedia.org/wiki/Michael_Jordan"},
-  {id:6, emoji:"⛪", event:"Pope Benedict XVI resigns, the first pope to do so since 1415", year:2013, wiki:"https://en.wikipedia.org/wiki/Pope_Benedict_XVI"}
+  {id:1, emoji:"🤠", event:"The first World Series of Poker is held in Las Vegas", year:1970, wiki:"https://en.wikipedia.org/wiki/World_Series_of_Poker"},
+  {id:2, emoji:"🎰", event:"A US law lets Native tribes open casinos across the country", year:1988, wiki:"https://en.wikipedia.org/wiki/Indian_Gaming_Regulatory_Act"},
+  {id:3, emoji:"🎬", event:"'Rounders' with Matt Damon makes underground poker famous", year:1998, wiki:"https://en.wikipedia.org/wiki/Rounders_(film)"},
+  {id:4, emoji:"📺", event:"A TV show first reveals players' hidden cards on air", year:1999, wiki:"https://en.wikipedia.org/wiki/Late_Night_Poker"},
+  {id:5, emoji:"🕴️", event:"James Bond plays Texas hold'em in 'Casino Royale'", year:2006, wiki:"https://en.wikipedia.org/wiki/Casino_Royale_(2006_film)"},
+  {id:6, emoji:"🏆", event:"Phil Hellmuth wins a record 16th World Series title", year:2021, wiki:"https://en.wikipedia.org/wiki/Phil_Hellmuth"}
 ];
 
 
@@ -837,7 +837,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Quitters Edition:\n";
+shareString = "Today's Chronl History Puzzle - Poker Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
