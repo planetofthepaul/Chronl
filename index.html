@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🤠", event:"The first World Series of Poker is held in Las Vegas", year:1970, wiki:"https://en.wikipedia.org/wiki/World_Series_of_Poker"},
-  {id:2, emoji:"🎰", event:"A US law lets Native tribes open casinos across the country", year:1988, wiki:"https://en.wikipedia.org/wiki/Indian_Gaming_Regulatory_Act"},
-  {id:3, emoji:"🎬", event:"'Rounders' with Matt Damon makes underground poker famous", year:1998, wiki:"https://en.wikipedia.org/wiki/Rounders_(film)"},
-  {id:4, emoji:"📺", event:"A TV show first reveals players' hidden cards on air", year:1999, wiki:"https://en.wikipedia.org/wiki/Late_Night_Poker"},
-  {id:5, emoji:"🕴️", event:"James Bond plays Texas hold'em in 'Casino Royale'", year:2006, wiki:"https://en.wikipedia.org/wiki/Casino_Royale_(2006_film)"},
-  {id:6, emoji:"🏆", event:"Phil Hellmuth wins a record 16th World Series title", year:2021, wiki:"https://en.wikipedia.org/wiki/Phil_Hellmuth"}
+  {id:1, emoji:"🕹️", event:"Atari's Pong launches the arcade video game craze", year:1972, wiki:"https://en.wikipedia.org/wiki/Pong"},
+  {id:2, emoji:"👻", event:"Pac-Man arrives in arcades and becomes a global hit", year:1980, wiki:"https://en.wikipedia.org/wiki/Pac-Man"},
+  {id:3, emoji:"🍄", event:"Super Mario Bros launches on Nintendo's home console", year:1985, wiki:"https://en.wikipedia.org/wiki/Super_Mario_Bros."},
+  {id:4, emoji:"⚡", event:"The first Pokémon games are released in Japan", year:1996, wiki:"https://en.wikipedia.org/wiki/Pok%C3%A9mon_Red_and_Blue"},
+  {id:5, emoji:"⚔️", event:"World of Warcraft launches and dominates online gaming", year:2004, wiki:"https://en.wikipedia.org/wiki/World_of_Warcraft"},
+  {id:6, emoji:"🪂", event:"Fortnite's Battle Royale mode becomes a worldwide craze", year:2017, wiki:"https://en.wikipedia.org/wiki/Fortnite_Battle_Royale"}
 ];
+
 
 
 
@@ -837,7 +838,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Poker Edition:\n";
+shareString = "Today's Chronl History Puzzle - Video Games Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
