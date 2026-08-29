@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🕹️", event:"Atari's Pong launches the arcade video game craze", year:1972, wiki:"https://en.wikipedia.org/wiki/Pong"},
-  {id:2, emoji:"👻", event:"Pac-Man arrives in arcades and becomes a global hit", year:1980, wiki:"https://en.wikipedia.org/wiki/Pac-Man"},
-  {id:3, emoji:"🍄", event:"Super Mario Bros launches on Nintendo's home console", year:1985, wiki:"https://en.wikipedia.org/wiki/Super_Mario_Bros."},
-  {id:4, emoji:"⚡", event:"The first Pokémon games are released in Japan", year:1996, wiki:"https://en.wikipedia.org/wiki/Pok%C3%A9mon_Red_and_Blue"},
-  {id:5, emoji:"⚔️", event:"World of Warcraft launches and dominates online gaming", year:2004, wiki:"https://en.wikipedia.org/wiki/World_of_Warcraft"},
-  {id:6, emoji:"🪂", event:"Fortnite's Battle Royale mode becomes a worldwide craze", year:2017, wiki:"https://en.wikipedia.org/wiki/Fortnite_Battle_Royale"}
+  {id:1, emoji:"⚓", event:"Julius Caesar is kidnapped by pirates and demands a bigger ransom", year:-75, wiki:"https://en.wikipedia.org/wiki/Julius_Caesar"},
+  {id:2, emoji:"☠️", event:"Captain Kidd is hanged in London for piracy", year:1701, wiki:"https://en.wikipedia.org/wiki/William_Kidd"},
+  {id:3, emoji:"🏴‍☠️", event:"Blackbeard is killed in battle off the American coast", year:1718, wiki:"https://en.wikipedia.org/wiki/Blackbeard"},
+  {id:4, emoji:"📖", event:"'Treasure Island' invents the pirate of popular imagination", year:1883, wiki:"https://en.wikipedia.org/wiki/Treasure_Island"},
+  {id:5, emoji:"🎬", event:"'Pirates of the Caribbean' becomes a blockbuster film", year:2003, wiki:"https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl"},
+  {id:6, emoji:"🚢", event:"Somali pirates seize a US cargo ship in the Indian Ocean", year:2009, wiki:"https://en.wikipedia.org/wiki/Maersk_Alabama_hijacking"}
 ];
+
 
 
 
@@ -838,7 +839,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Video Games Edition:\n";
+shareString = "Today's Chronl History Puzzle - Pirates Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
