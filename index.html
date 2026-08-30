@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"⚓", event:"Julius Caesar is kidnapped by pirates and demands a bigger ransom", year:-75, wiki:"https://en.wikipedia.org/wiki/Julius_Caesar"},
-  {id:2, emoji:"☠️", event:"Captain Kidd is hanged in London for piracy", year:1701, wiki:"https://en.wikipedia.org/wiki/William_Kidd"},
-  {id:3, emoji:"🏴‍☠️", event:"Blackbeard is killed in battle off the American coast", year:1718, wiki:"https://en.wikipedia.org/wiki/Blackbeard"},
-  {id:4, emoji:"📖", event:"'Treasure Island' invents the pirate of popular imagination", year:1883, wiki:"https://en.wikipedia.org/wiki/Treasure_Island"},
-  {id:5, emoji:"🎬", event:"'Pirates of the Caribbean' becomes a blockbuster film", year:2003, wiki:"https://en.wikipedia.org/wiki/Pirates_of_the_Caribbean:_The_Curse_of_the_Black_Pearl"},
-  {id:6, emoji:"🚢", event:"Somali pirates seize a US cargo ship in the Indian Ocean", year:2009, wiki:"https://en.wikipedia.org/wiki/Maersk_Alabama_hijacking"}
+  {id:1, emoji:"🤖", event:"A fake chess-playing machine begins fooling audiences in Europe", year:1770, wiki:"https://en.wikipedia.org/wiki/Mechanical_Turk"},
+  {id:2, emoji:"🏆", event:"London hosts the first international chess tournament", year:1851, wiki:"https://en.wikipedia.org/wiki/London_1851_chess_tournament"},
+  {id:3, emoji:"👑", event:"The first official world chess championship is played", year:1886, wiki:"https://en.wikipedia.org/wiki/World_Chess_Championship_1886"},
+  {id:4, emoji:"♟️", event:"Bobby Fischer beats a Soviet champion at the height of the Cold War", year:1972, wiki:"https://en.wikipedia.org/wiki/World_Chess_Championship_1972"},
+  {id:5, emoji:"💻", event:"IBM's Deep Blue defeats world champion Garry Kasparov", year:1997, wiki:"https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov"},
+  {id:6, emoji:"📺", event:"Netflix's 'The Queen's Gambit' sets off a chess boom", year:2020, wiki:"https://en.wikipedia.org/wiki/The_Queen%27s_Gambit_(miniseries)"}
 ];
 
 
@@ -839,7 +839,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Pirates Edition:\n";
+shareString = "Today's Chronl History Puzzle - Quitters Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
