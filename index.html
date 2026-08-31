@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🤖", event:"A fake chess-playing machine begins fooling audiences in Europe", year:1770, wiki:"https://en.wikipedia.org/wiki/Mechanical_Turk"},
-  {id:2, emoji:"🏆", event:"London hosts the first international chess tournament", year:1851, wiki:"https://en.wikipedia.org/wiki/London_1851_chess_tournament"},
-  {id:3, emoji:"👑", event:"The first official world chess championship is played", year:1886, wiki:"https://en.wikipedia.org/wiki/World_Chess_Championship_1886"},
-  {id:4, emoji:"♟️", event:"Bobby Fischer beats a Soviet champion at the height of the Cold War", year:1972, wiki:"https://en.wikipedia.org/wiki/World_Chess_Championship_1972"},
-  {id:5, emoji:"💻", event:"IBM's Deep Blue defeats world champion Garry Kasparov", year:1997, wiki:"https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov"},
-  {id:6, emoji:"📺", event:"Netflix's 'The Queen's Gambit' sets off a chess boom", year:2020, wiki:"https://en.wikipedia.org/wiki/The_Queen%27s_Gambit_(miniseries)"}
+  {id:1, emoji:"🏗️", event:"Chicago builds the first steel-framed skyscraper", year:1885, wiki:"https://en.wikipedia.org/wiki/Home_Insurance_Building"},
+  {id:2, emoji:"🏬", event:"New York's Woolworth Building opens as the world's tallest", year:1913, wiki:"https://en.wikipedia.org/wiki/Woolworth_Building"},
+  {id:3, emoji:"🌃", event:"The Empire State Building opens after 14 months of work", year:1931, wiki:"https://en.wikipedia.org/wiki/Empire_State_Building"},
+  {id:4, emoji:"🏙️", event:"The twin towers of the World Trade Center open to tenants", year:1973, wiki:"https://en.wikipedia.org/wiki/World_Trade_Center_(1973%E2%80%932001)"},
+  {id:5, emoji:"🇹🇼", event:"Taipei 101 opens as the world's tallest building", year:2004, wiki:"https://en.wikipedia.org/wiki/Taipei_101"},
+  {id:6, emoji:"🕊️", event:"One World Trade Center opens on the old towers' site", year:2014, wiki:"https://en.wikipedia.org/wiki/One_World_Trade_Center"}
 ];
 
 
@@ -839,7 +839,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Quitters Edition:\n";
+shareString = "Today's Chronl History Puzzle - Skyscrapers Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
