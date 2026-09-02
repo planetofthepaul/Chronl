@@ -371,12 +371,12 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🐸", event:"A scientist makes a dead frog's legs twitch with electricity", year:1780, wiki:"https://en.wikipedia.org/wiki/Luigi_Galvani"},
-  {id:2, emoji:"🔋", event:"Volta stacks metal discs to build the first true battery", year:1800, wiki:"https://en.wikipedia.org/wiki/Voltaic_pile"},
-  {id:3, emoji:"🚗", event:"The lead-acid battery is invented, later starting every car", year:1859, wiki:"https://en.wikipedia.org/wiki/Lead%E2%80%93acid_battery"},
-  {id:4, emoji:"🔦", event:"The first dry cell batteries make portable power practical", year:1886, wiki:"https://en.wikipedia.org/wiki/Dry_cell"},
-  {id:5, emoji:"📼", event:"Sony sells the first lithium-ion battery, freeing gadgets from cords", year:1991, wiki:"https://en.wikipedia.org/wiki/Lithium-ion_battery"},
-  {id:6, emoji:"🏅", event:"Three chemists win the Nobel for lithium-ion batteries", year:2019, wiki:"https://en.wikipedia.org/wiki/Akira_Yoshino"}
+  {id:1, emoji:"🎞️", event:"The first fully animated film is shown in Paris", year:1908, wiki:"https://en.wikipedia.org/wiki/Fantasmagorie_(film)"},
+  {id:2, emoji:"🍎", event:"Snow White is America's first feature-length animated film", year:1937, wiki:"https://en.wikipedia.org/wiki/Snow_White_and_the_Seven_Dwarfs_(1937_film)"},
+  {id:3, emoji:"🦴", event:"The Flintstones becomes the first primetime cartoon series", year:1960, wiki:"https://en.wikipedia.org/wiki/The_Flintstones"},
+  {id:4, emoji:"🍩", event:"The Simpsons begins as its own weekly TV series", year:1989, wiki:"https://en.wikipedia.org/wiki/The_Simpsons"},
+  {id:5, emoji:"🤠", event:"Toy Story becomes the first fully computer-animated film", year:1995, wiki:"https://en.wikipedia.org/wiki/Toy_Story"},
+  {id:6, emoji:"🏮", event:"'Spirited Away' becomes the biggest film in Japanese history", year:2001, wiki:"https://en.wikipedia.org/wiki/Spirited_Away"}
 ];
 
 
@@ -839,7 +839,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Batteries Edition:\n";
+shareString = "Today's Chronl History Puzzle - Animation Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
