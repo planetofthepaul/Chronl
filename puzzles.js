@@ -36,25 +36,25 @@ const CHRONL_PUZZLES = {
 
 
 "2026-09-04": {
-  title: "Ancient Rome Edition",
+  title: "Hippie Edition",
   events: [
-    { emoji: "🐺", year: -753, event: "Rome is founded, according to tradition",
-      wiki: "https://en.wikipedia.org/wiki/Founding_of_Rome" },
+    { emoji: "📗", year: 1957, event: "Kerouac's 'On the Road' inspires a generation to wander",
+      wiki: "https://en.wikipedia.org/wiki/On_the_Road" },
 
-    { emoji: "🏛️", year: -509, event: "The Roman Republic replaces the monarchy",
-      wiki: "https://en.wikipedia.org/wiki/Roman_Republic" },
+    { emoji: "🚌", year: 1964, event: "Ken Kesey's painted bus tours America handing out LSD",
+      wiki: "https://en.wikipedia.org/wiki/Merry_Pranksters" },
 
-    { emoji: "🗡️", year: -44, event: "Julius Caesar is assassinated in the Senate",
-      wiki: "https://en.wikipedia.org/wiki/Assassination_of_Julius_Caesar" },
+    { emoji: "🌸", year: 1967, event: "Thousands flock to San Francisco for the Summer of Love",
+      wiki: "https://en.wikipedia.org/wiki/Summer_of_Love" },
 
-    { emoji: "🌋", year: 79, event: "Vesuvius erupts and buries Pompeii",
-      wiki: "https://en.wikipedia.org/wiki/Eruption_of_Mount_Vesuvius_in_79_AD" },
+    { emoji: "🎸", year: 1969, event: "Woodstock draws half a million to a New York dairy farm",
+      wiki: "https://en.wikipedia.org/wiki/Woodstock" },
 
-    { emoji: "✝️", year: 313, event: "The Edict of Milan legalises Christianity",
-      wiki: "https://en.wikipedia.org/wiki/Edict_of_Milan" },
+    { emoji: "💀", year: 1995, event: "Jerry Garcia dies and the Grateful Dead break up",
+      wiki: "https://en.wikipedia.org/wiki/Jerry_Garcia" },
 
-    { emoji: "👑", year: 476, event: "The last Western Roman emperor is deposed",
-      wiki: "https://en.wikipedia.org/wiki/Romulus_Augustulus" }
+    { emoji: "🔥", year: 1999, event: "Woodstock '99 ends in fires, riots and arrests",
+      wiki: "https://en.wikipedia.org/wiki/Woodstock_%2799" }
   ]
 },
 
