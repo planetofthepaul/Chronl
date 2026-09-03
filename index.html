@@ -367,80 +367,145 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     </div>
 </div>
 
+<script src="puzzles.js?v=1"></script>
 <script>
 // ===== TODAY'S PUZZLE =====
-// To change the puzzle, replace this `data` array with one of your saved batches.
-const data = [
-  {id:1, emoji:"👑", event:"Egypt is unified under its first pharaoh", year:-3100, wiki:"https://en.wikipedia.org/wiki/Narmer"},
-  {id:2, emoji:"🔺", event:"The Great Pyramid is completed at Giza", year:-2560, wiki:"https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"},
-  {id:3, emoji:"👸", event:"Hatshepsut takes the throne as a rare female pharaoh", year:-1479, wiki:"https://en.wikipedia.org/wiki/Hatshepsut"},
-  {id:4, emoji:"🧒", event:"Tutankhamun becomes pharaoh while still a young boy", year:-1332, wiki:"https://en.wikipedia.org/wiki/Tutankhamun"},
-  {id:5, emoji:"🗿", event:"Ramesses II begins a reign that lasts 66 years", year:-1279, wiki:"https://en.wikipedia.org/wiki/Ramesses_II"},
-  {id:6, emoji:"🐍", event:"Cleopatra dies and Egypt falls under Roman rule", year:-30, wiki:"https://en.wikipedia.org/wiki/Cleopatra"}
-];
+// Puzzles now live in puzzles.js. This block just picks the right one for
+// today's date. You should not need to edit anything below this line.
 
+const CHRONL = (function () {
+    const all = (typeof CHRONL_PUZZLES !== "undefined") ? CHRONL_PUZZLES : {};
+    const params = new URLSearchParams(window.location.search);
 
+    // Today as "YYYY-MM-DD" in the visitor's own timezone.
+    function dateStr(d) {
+        return d.getFullYear() + "-" +
+               String(d.getMonth() + 1).padStart(2, "0") + "-" +
+               String(d.getDate()).padStart(2, "0");
+    }
 
+    // ?date=2026-10-14 previews a future puzzle. Ignored by normal visitors.
+    const requested = params.get("date");
+    const preview = !!(requested && /^\d{4}-\d{2}-\d{2}$/.test(requested));
+    const today = preview ? requested : dateStr(new Date());
 
+    let puzzle = all[today];
+    let servedDate = today;
 
+    // No puzzle written for today? Fall back to the most recent past one so
+    // the site never shows an empty board and nobody's streak dies.
+    if (!puzzle) {
+        const earlier = Object.keys(all).filter(function (d) { return d <= today; }).sort();
+        if (earlier.length) {
+            servedDate = earlier[earlier.length - 1];
+            puzzle = all[servedDate];
+            console.warn("[Chronl] Nothing scheduled for " + today +
+                         " — repeating " + servedDate + ". Add more puzzles to puzzles.js.");
+        } else {
+            const upcoming = Object.keys(all).sort();
+            servedDate = upcoming[0];
+            puzzle = all[servedDate];
+        }
+    }
 
+    if (!puzzle || !Array.isArray(puzzle.events) || puzzle.events.length === 0) {
+        // puzzles.js failed to load, or has a typo in it. Show this rather than
+        // an empty board — an empty `data` array would hang the shuffle loop.
+        console.error("[Chronl] puzzles.js is missing, empty, or has a syntax error. " +
+                      "Serving the emergency puzzle. Check the Console tab for the error.");
+        puzzle = {
+            title: "History Edition",
+            events: [
+                { emoji: "👑", year: -3100, event: "Egypt is unified under its first pharaoh",
+                  wiki: "https://en.wikipedia.org/wiki/Narmer" },
+                { emoji: "🗡️", year: -44, event: "Julius Caesar is assassinated in the Senate",
+                  wiki: "https://en.wikipedia.org/wiki/Assassination_of_Julius_Caesar" },
+                { emoji: "⛵", year: 1492, event: "Columbus reaches the Americas",
+                  wiki: "https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus" },
+                { emoji: "💡", year: 1879, event: "Edison demonstrates a practical electric light bulb",
+                  wiki: "https://en.wikipedia.org/wiki/Incandescent_light_bulb" },
+                { emoji: "✈️", year: 1903, event: "The Wright brothers make the first powered flight",
+                  wiki: "https://en.wikipedia.org/wiki/Wright_Flyer" },
+                { emoji: "🌙", year: 1969, event: "Apollo 11 lands the first people on the Moon",
+                  wiki: "https://en.wikipedia.org/wiki/Apollo_11" }
+            ]
+        };
+    }
 
+    // Catch the mistakes that are easy to make by hand, before players hit them.
+    (function validate(p) {
+        const n = p.events.length;
+        if (n !== 6) console.warn("[Chronl] " + servedDate + " has " + n + " events, expected 6.");
+        const years = p.events.map(function (e) { return e.year; });
+        if (new Set(years).size !== years.length)
+            console.warn("[Chronl] " + servedDate + " has two events with the same year — " +
+                         "there's no single correct order.");
+        p.events.forEach(function (e, i) {
+            if (!e.event || typeof e.year !== "number" || !e.emoji)
+                console.warn("[Chronl] " + servedDate + " event " + (i + 1) + " is missing a field.");
+        });
+    })(puzzle);
 
+    // ids are assigned automatically so you never write them by hand.
+    const events = (puzzle.events || []).map(function (e, i) {
+        return Object.assign({}, e, { id: i + 1 });
+    });
 
+    const shown = today.split("-").map(Number);
 
+    return {
+        title: puzzle.title || "History Edition",
+        events: events,
+        preview: preview,
+        servedDate: servedDate,
+        displayDate: new Date(shown[0], shown[1] - 1, shown[2])
+    };
+})();
 
+const data = CHRONL.events;
 
+// Type chronlQueueStatus() into the browser console any time to see how many
+// days you have left and whether you've left a gap in the calendar.
+function chronlQueueStatus() {
+    if (typeof CHRONL_PUZZLES === "undefined") return "puzzles.js not loaded";
+    const n = new Date();
+    const today = n.getFullYear() + "-" +
+                  String(n.getMonth() + 1).padStart(2, "0") + "-" +
+                  String(n.getDate()).padStart(2, "0");
+    const dates = Object.keys(CHRONL_PUZZLES).sort();
+    const future = dates.filter(function (d) { return d >= today; });
 
+    // Look for missing days between today and the last scheduled puzzle.
+    const gaps = [];
+    if (future.length) {
+        const have = new Set(future);
+        const cur = new Date(today);
+        const last = new Date(future[future.length - 1]);
+        while (cur <= last) {
+            const s = cur.getFullYear() + "-" +
+                      String(cur.getMonth() + 1).padStart(2, "0") + "-" +
+                      String(cur.getDate()).padStart(2, "0");
+            if (!have.has(s)) gaps.push(s);
+            cur.setDate(cur.getDate() + 1);
+        }
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return {
+        playingToday: CHRONL.title,
+        daysCoveredFromToday: future.length,
+        lastScheduledDate: future.length ? future[future.length - 1] : "none",
+        missingDates: gaps.length ? gaps : "none — calendar is solid",
+        totalPuzzles: dates.length
+    };
+}
 
 // ==========================
 
 // Show today's date in the header
-document.getElementById("date-line").innerText = new Date().toLocaleDateString(undefined, {
-    weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
-});
+document.getElementById("date-line").innerText =
+    CHRONL.displayDate.toLocaleDateString(undefined, {
+        weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+    }) + (CHRONL.preview ? "  ·  PREVIEW" : "");
 
 // Format a year as "3000 BC" or "1969 AD"
 function formatYear(y) {
@@ -493,6 +558,10 @@ function writeStreak(s) {
 // Called once when finalize() runs. Returns updated streak state plus a
 // `change` flag: "same" | "continued" | "started" | "reset"
 function recordPlay() {
+    // Previewing a future puzzle shouldn't touch the visitor's real streak.
+    if (CHRONL.preview) {
+        return { streak: readStreak().currentStreak, change: "same" };
+    }
     const today = localDateStr();
     const yesterday = yesterdayStr();
     const s = readStreak();
@@ -840,7 +909,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Ancient Egypt Edition:\n";
+shareString = "Today's Chronl History Puzzle - " + CHRONL.title + ":\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
