@@ -371,13 +371,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 // ===== TODAY'S PUZZLE =====
 // To change the puzzle, replace this `data` array with one of your saved batches.
 const data = [
-  {id:1, emoji:"🎞️", event:"The first fully animated film is shown in Paris", year:1908, wiki:"https://en.wikipedia.org/wiki/Fantasmagorie_(film)"},
-  {id:2, emoji:"🍎", event:"Snow White is America's first feature-length animated film", year:1937, wiki:"https://en.wikipedia.org/wiki/Snow_White_and_the_Seven_Dwarfs_(1937_film)"},
-  {id:3, emoji:"🦴", event:"The Flintstones becomes the first primetime cartoon series", year:1960, wiki:"https://en.wikipedia.org/wiki/The_Flintstones"},
-  {id:4, emoji:"🍩", event:"The Simpsons begins as its own weekly TV series", year:1989, wiki:"https://en.wikipedia.org/wiki/The_Simpsons"},
-  {id:5, emoji:"🤠", event:"Toy Story becomes the first fully computer-animated film", year:1995, wiki:"https://en.wikipedia.org/wiki/Toy_Story"},
-  {id:6, emoji:"🏮", event:"'Spirited Away' becomes the biggest film in Japanese history", year:2001, wiki:"https://en.wikipedia.org/wiki/Spirited_Away"}
+  {id:1, emoji:"👑", event:"Egypt is unified under its first pharaoh", year:-3100, wiki:"https://en.wikipedia.org/wiki/Narmer"},
+  {id:2, emoji:"🔺", event:"The Great Pyramid is completed at Giza", year:-2560, wiki:"https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"},
+  {id:3, emoji:"👸", event:"Hatshepsut takes the throne as a rare female pharaoh", year:-1479, wiki:"https://en.wikipedia.org/wiki/Hatshepsut"},
+  {id:4, emoji:"🧒", event:"Tutankhamun becomes pharaoh while still a young boy", year:-1332, wiki:"https://en.wikipedia.org/wiki/Tutankhamun"},
+  {id:5, emoji:"🗿", event:"Ramesses II begins a reign that lasts 66 years", year:-1279, wiki:"https://en.wikipedia.org/wiki/Ramesses_II"},
+  {id:6, emoji:"🐍", event:"Cleopatra dies and Egypt falls under Roman rule", year:-30, wiki:"https://en.wikipedia.org/wiki/Cleopatra"}
 ];
+
 
 
 
@@ -839,7 +840,7 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - Animation Edition:\n";
+shareString = "Today's Chronl History Puzzle - Ancient Egypt Edition:\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
