@@ -60,25 +60,25 @@ const CHRONL_PUZZLES = {
 
 
 "2026-09-05": {
-  title: "Age of Exploration Edition",
+  title: "Kidnappings Edition",
   events: [
-    { emoji: "⛵", year: 1492, event: "Columbus reaches the Americas",
-      wiki: "https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus" },
+    { emoji: "👶", year: 1932, event: "The Lindbergh baby is taken from a New Jersey nursery",
+      wiki: "https://en.wikipedia.org/wiki/Lindbergh_kidnapping" },
 
-    { emoji: "🌶️", year: 1498, event: "Vasco da Gama reaches India by sea",
-      wiki: "https://en.wikipedia.org/wiki/Vasco_da_Gama" },
+    { emoji: "🎤", year: 1963, event: "Frank Sinatra's son is kidnapped and ransomed in Nevada",
+      wiki: "https://en.wikipedia.org/wiki/Frank_Sinatra_Jr." },
 
-    { emoji: "🌍", year: 1519, event: "Magellan's expedition sets out to circle the globe",
-      wiki: "https://en.wikipedia.org/wiki/Magellan_expedition" },
+    { emoji: "🏦", year: 1974, event: "Heiress Patty Hearst is abducted, then joins her captors",
+      wiki: "https://en.wikipedia.org/wiki/Patty_Hearst" },
 
-    { emoji: "🏘️", year: 1607, event: "Jamestown is founded in Virginia",
-      wiki: "https://en.wikipedia.org/wiki/Jamestown,_Virginia" },
+    { emoji: "🇮🇹", year: 1978, event: "Italy's former prime minister is kidnapped by terrorists",
+      wiki: "https://en.wikipedia.org/wiki/Aldo_Moro" },
 
-    { emoji: "🚢", year: 1620, event: "The Mayflower carries the Pilgrims to Plymouth",
-      wiki: "https://en.wikipedia.org/wiki/Mayflower" },
+    { emoji: "🏠", year: 2002, event: "Elizabeth Smart is taken from her Utah bedroom at 14",
+      wiki: "https://en.wikipedia.org/wiki/Kidnapping_of_Elizabeth_Smart" },
 
-    { emoji: "🦘", year: 1770, event: "James Cook charts the east coast of Australia",
-      wiki: "https://en.wikipedia.org/wiki/James_Cook" }
+    { emoji: "📚", year: 2014, event: "Boko Haram abducts hundreds of schoolgirls in Nigeria",
+      wiki: "https://en.wikipedia.org/wiki/Chibok_schoolgirls_kidnapping" }
   ]
 },
 
