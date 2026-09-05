@@ -84,25 +84,25 @@ const CHRONL_PUZZLES = {
 
 
 "2026-09-06": {
-  title: "Great Inventions Edition",
+  title: "Tropics Edition",
   events: [
-    { emoji: "📖", year: 1440, event: "Gutenberg's printing press begins mass-producing books",
-      wiki: "https://en.wikipedia.org/wiki/Printing_press" },
+    { emoji: "⛓️", year: 1791, event: "Enslaved people in Haiti rise up against French rule",
+      wiki: "https://en.wikipedia.org/wiki/Haitian_Revolution" },
 
-    { emoji: "☎️", year: 1876, event: "Alexander Graham Bell patents the telephone",
-      wiki: "https://en.wikipedia.org/wiki/Invention_of_the_telephone" },
+    { emoji: "🌳", year: 1876, event: "Rubber seeds are smuggled out of Brazil to British gardens",
+      wiki: "https://en.wikipedia.org/wiki/Henry_Wickham_(explorer)" },
 
-    { emoji: "💡", year: 1879, event: "Edison demonstrates a practical electric light bulb",
-      wiki: "https://en.wikipedia.org/wiki/Incandescent_light_bulb" },
+    { emoji: "🍌", year: 1899, event: "United Fruit is founded and comes to dominate Latin America",
+      wiki: "https://en.wikipedia.org/wiki/United_Fruit_Company" },
 
-    { emoji: "✈️", year: 1903, event: "The Wright brothers make the first powered flight",
-      wiki: "https://en.wikipedia.org/wiki/Wright_Flyer" },
+    { emoji: "🚢", year: 1914, event: "The Panama Canal opens, cut through tropical jungle",
+      wiki: "https://en.wikipedia.org/wiki/Panama_Canal" },
 
-    { emoji: "🖧", year: 1969, event: "The first message is sent over ARPANET",
-      wiki: "https://en.wikipedia.org/wiki/ARPANET" },
+    { emoji: "🇯🇲", year: 1962, event: "Jamaica wins its independence from Britain",
+      wiki: "https://en.wikipedia.org/wiki/Jamaica" },
 
-    { emoji: "🌐", year: 1991, event: "The World Wide Web opens to the public",
-      wiki: "https://en.wikipedia.org/wiki/World_Wide_Web" }
+    { emoji: "🌴", year: 1988, event: "Chico Mendes is killed for defending the Amazon rainforest",
+      wiki: "https://en.wikipedia.org/wiki/Chico_Mendes" }
   ]
 },
 
