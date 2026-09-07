@@ -129,6 +129,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Expedition_1" }
   ]
 },
+   
+"2026-09-08": {
+  title: "Art Edition",
+  events: [
+    { emoji: "🗿", year: 1504, event: "Michelangelo's David is unveiled in a Florence square",
+      wiki: "https://en.wikipedia.org/wiki/David_(Michelangelo)" },
+
+    { emoji: "🎨", year: 1874, event: "Critics mock the first Impressionist exhibition in Paris",
+      wiki: "https://en.wikipedia.org/wiki/Impressionism" },
+
+    { emoji: "🚽", year: 1917, event: "An artist submits a urinal to an exhibition as art",
+      wiki: "https://en.wikipedia.org/wiki/Fountain_(Duchamp)" },
+
+    { emoji: "🐂", year: 1940, event: "Teenagers stumble on prehistoric cave paintings in France",
+      wiki: "https://en.wikipedia.org/wiki/Lascaux" },
+
+    { emoji: "🥫", year: 1962, event: "Andy Warhol exhibits paintings of soup cans",
+      wiki: "https://en.wikipedia.org/wiki/Campbell%27s_Soup_Cans" },
+
+    { emoji: "✂️", year: 2018, event: "A Banksy painting shreds itself moments after being sold",
+      wiki: "https://en.wikipedia.org/wiki/Love_is_in_the_Bin" }
+  ]
+},
 
 
 /* ============================================================
