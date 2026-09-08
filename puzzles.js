@@ -153,6 +153,29 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+   "2026-09-09": {
+  title: "Great Escapes Edition",
+  events: [
+    { emoji: "🏰", year: 1568, event: "Mary, Queen of Scots escapes from an island castle prison",
+      wiki: "https://en.wikipedia.org/wiki/Mary,_Queen_of_Scots" },
+
+    { emoji: "🔫", year: 1934, event: "John Dillinger breaks out of jail using a carved wooden gun",
+      wiki: "https://en.wikipedia.org/wiki/John_Dillinger" },
+
+    { emoji: "🕳️", year: 1944, event: "Allied prisoners tunnel out of a German prison camp",
+      wiki: "https://en.wikipedia.org/wiki/Stalag_Luft_III" },
+
+    { emoji: "🚣", year: 1962, event: "Three men escape Alcatraz and are never seen again",
+      wiki: "https://en.wikipedia.org/wiki/June_1962_Alcatraz_escape" },
+
+    { emoji: "🎈", year: 1979, event: "Two families flee East Germany in a homemade hot air balloon",
+      wiki: "https://en.wikipedia.org/wiki/East_Germany_balloon_escape" },
+
+    { emoji: "🚇", year: 2015, event: "A drug lord escapes prison through a mile-long tunnel",
+      wiki: "https://en.wikipedia.org/wiki/Joaqu%C3%ADn_%22El_Chapo%22_Guzm%C3%A1n" }
+  ]
+},
+
 
 /* ============================================================
    TEMPLATE
