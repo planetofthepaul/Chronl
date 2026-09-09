@@ -176,6 +176,29 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+   "2026-09-10": {
+  title: "90s Movies Edition",
+  events: [
+    { emoji: "🏠", year: 1990, event: "'Home Alone' makes a child star of Macaulay Culkin",
+      wiki: "https://en.wikipedia.org/wiki/Home_Alone" },
+
+    { emoji: "🤖", year: 1991, event: "'Terminator 2' stuns audiences with liquid-metal effects",
+      wiki: "https://en.wikipedia.org/wiki/Terminator_2:_Judgment_Day" },
+
+    { emoji: "🦖", year: 1993, event: "'Jurassic Park' brings dinosaurs to life on screen",
+      wiki: "https://en.wikipedia.org/wiki/Jurassic_Park_(film)" },
+
+    { emoji: "🍔", year: 1994, event: "'Pulp Fiction' scrambles the order of its own story",
+      wiki: "https://en.wikipedia.org/wiki/Pulp_Fiction" },
+
+    { emoji: "💎", year: 1997, event: "'Titanic' becomes the highest-grossing film ever made",
+      wiki: "https://en.wikipedia.org/wiki/Titanic_(1997_film)" },
+
+    { emoji: "💊", year: 1999, event: "'The Matrix' introduces slow-motion 'bullet time'",
+      wiki: "https://en.wikipedia.org/wiki/The_Matrix" }
+  ]
+},
+
 
 /* ============================================================
    TEMPLATE
