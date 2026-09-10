@@ -199,6 +199,28 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+   "2026-09-11": {
+  title: "Great Minds Edition",
+  events: [
+    { emoji: "📐", year: -212, event: "Archimedes is killed by a Roman soldier while doing geometry",
+      wiki: "https://en.wikipedia.org/wiki/Archimedes" },
+
+    { emoji: "🍎", year: 1687, event: "Isaac Newton publishes his laws of motion and gravity",
+      wiki: "https://en.wikipedia.org/wiki/Isaac_Newton" },
+
+    { emoji: "☢️", year: 1903, event: "Marie Curie becomes the first woman to win a Nobel Prize",
+      wiki: "https://en.wikipedia.org/wiki/Marie_Curie" },
+
+    { emoji: "🌌", year: 1915, event: "Einstein publishes his theory of general relativity",
+      wiki: "https://en.wikipedia.org/wiki/General_relativity" },
+
+    { emoji: "💻", year: 1936, event: "Alan Turing describes a machine that could compute anything",
+      wiki: "https://en.wikipedia.org/wiki/Alan_Turing" },
+
+    { emoji: "🚀", year: 1962, event: "A NASA mathematician checks John Glenn's orbit by hand",
+      wiki: "https://en.wikipedia.org/wiki/Katherine_Johnson" }
+  ]
+},
 
 /* ============================================================
    TEMPLATE
