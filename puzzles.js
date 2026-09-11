@@ -222,6 +222,29 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+   "2026-09-12": {
+  title: "Natural Disasters Edition",
+  events: [
+    { emoji: "⛪", year: 1755, event: "An earthquake and tsunami destroy Lisbon on All Saints' Day",
+      wiki: "https://en.wikipedia.org/wiki/1755_Lisbon_earthquake" },
+
+    { emoji: "🌋", year: 1815, event: "A volcano erupts in Indonesia, causing a year without summer",
+      wiki: "https://en.wikipedia.org/wiki/1815_eruption_of_Mount_Tambora" },
+
+    { emoji: "🌀", year: 1900, event: "A hurricane destroys Galveston, Texas, killing thousands",
+      wiki: "https://en.wikipedia.org/wiki/1900_Galveston_hurricane" },
+
+    { emoji: "🏔️", year: 1980, event: "Mount St. Helens erupts and blows off its own summit",
+      wiki: "https://en.wikipedia.org/wiki/1980_eruption_of_Mount_St._Helens" },
+
+    { emoji: "🌊", year: 2004, event: "An Indian Ocean tsunami kills over 200,000 people",
+      wiki: "https://en.wikipedia.org/wiki/2004_Indian_Ocean_earthquake_and_tsunami" },
+
+    { emoji: "☢️", year: 2011, event: "A tsunami hits Japan and floods a nuclear power plant",
+      wiki: "https://en.wikipedia.org/wiki/2011_T%C5%8Dhoku_earthquake_and_tsunami" }
+  ]
+},
+
 /* ============================================================
    TEMPLATE
 
