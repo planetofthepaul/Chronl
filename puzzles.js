@@ -245,6 +245,29 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+   "2026-09-13": {
+  title: "Refrigeration Edition",
+  events: [
+    { emoji: "🧊", year: 1755, event: "A Scottish professor makes ice artificially in a laboratory",
+      wiki: "https://en.wikipedia.org/wiki/William_Cullen" },
+
+    { emoji: "⚙️", year: 1834, event: "The first practical refrigeration machine is patented",
+      wiki: "https://en.wikipedia.org/wiki/Jacob_Perkins" },
+
+    { emoji: "🚢", year: 1876, event: "A ship carries frozen meat across the ocean for the first time",
+      wiki: "https://en.wikipedia.org/wiki/Charles_Tellier" },
+
+    { emoji: "🏠", year: 1913, event: "The first electric refrigerator for the home goes on sale",
+      wiki: "https://en.wikipedia.org/wiki/DOMELRE" },
+
+    { emoji: "🧪", year: 1930, event: "Freon replaces the toxic gases inside home refrigerators",
+      wiki: "https://en.wikipedia.org/wiki/Freon" },
+
+    { emoji: "🕳️", year: 1974, event: "Scientists warn fridge gases are destroying the ozone layer",
+      wiki: "https://en.wikipedia.org/wiki/Ozone_depletion" }
+  ]
+},
+
 /* ============================================================
    TEMPLATE
 
