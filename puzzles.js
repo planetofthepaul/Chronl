@@ -268,6 +268,29 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+   "2026-09-14": {
+  title: "Clothing Edition",
+  events: [
+    { emoji: "👖", year: 1873, event: "Levi Strauss patents blue jeans held together with rivets",
+      wiki: "https://en.wikipedia.org/wiki/Levi_Strauss_%26_Co." },
+
+    { emoji: "🤐", year: 1893, event: "The zipper is patented, though it takes decades to catch on",
+      wiki: "https://en.wikipedia.org/wiki/Zipper" },
+
+    { emoji: "🎀", year: 1914, event: "A New York socialite patents the modern bra",
+      wiki: "https://en.wikipedia.org/wiki/Caresse_Crosby" },
+
+    { emoji: "🖤", year: 1926, event: "Chanel's 'little black dress' appears in Vogue magazine",
+      wiki: "https://en.wikipedia.org/wiki/Little_black_dress" },
+
+    { emoji: "👙", year: 1946, event: "The bikini is unveiled in Paris and shocks the public",
+      wiki: "https://en.wikipedia.org/wiki/Bikini" },
+
+    { emoji: "🏚️", year: 2013, event: "A garment factory collapses in Bangladesh, killing 1,100",
+      wiki: "https://en.wikipedia.org/wiki/Rana_Plaza_collapse" }
+  ]
+},
+
 /* ============================================================
    TEMPLATE
 
