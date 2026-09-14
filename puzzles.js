@@ -291,6 +291,29 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+   "2026-09-15": {
+  title: "Dogs Edition",
+  events: [
+    { emoji: "🦴", year: -12000, event: "The oldest known pet dog is buried beside two humans in Germany",
+      wiki: "https://en.wikipedia.org/wiki/Bonn%E2%80%93Oberkassel_dog" },
+
+    { emoji: "🏛️", year: 79, event: "A 'beware of the dog' mosaic is sealed at Pompeii by ash",
+      wiki: "https://en.wikipedia.org/wiki/House_of_the_Tragic_Poet" },
+
+    { emoji: "📋", year: 1873, event: "Britain's Kennel Club begins registering dogs by breed",
+      wiki: "https://en.wikipedia.org/wiki/The_Kennel_Club" },
+
+    { emoji: "👮", year: 1899, event: "Belgium opens the world's first police dog training school",
+      wiki: "https://en.wikipedia.org/wiki/Police_dog" },
+
+    { emoji: "🐺", year: 1997, event: "DNA tests confirm every dog descends from the wolf",
+      wiki: "https://en.wikipedia.org/wiki/Origin_of_the_domestic_dog" },
+
+    { emoji: "🧬", year: 2005, event: "Scientists finish mapping the entire dog genome",
+      wiki: "https://en.wikipedia.org/wiki/Dog" }
+  ]
+},
+
 /* ============================================================
    TEMPLATE
 
