@@ -314,6 +314,28 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+   "2026-09-16": {
+  title: "Spy Movies Edition",
+  events: [
+    { emoji: "💥", year: 1994, event: "Arnold Schwarzenegger plays a secret agent in 'True Lies'",
+      wiki: "https://en.wikipedia.org/wiki/True_Lies" },
+
+    { emoji: "🕴️", year: 1996, event: "Tom Cruise dangles from a ceiling in 'Mission: Impossible'",
+      wiki: "https://en.wikipedia.org/wiki/Mission:_Impossible_(film)" },
+
+    { emoji: "🎭", year: 2002, event: "'The Bourne Identity' launches a grittier kind of spy film",
+      wiki: "https://en.wikipedia.org/wiki/The_Bourne_Identity_(2002_film)" },
+
+    { emoji: "🎰", year: 2006, event: "Daniel Craig takes over James Bond in 'Casino Royale'",
+      wiki: "https://en.wikipedia.org/wiki/Casino_Royale_(2006_film)" },
+
+    { emoji: "🧩", year: 2011, event: "'Tinker Tailor Soldier Spy' hunts a mole in British spy ranks",
+      wiki: "https://en.wikipedia.org/wiki/Tinker_Tailor_Soldier_Spy_(film)" },
+
+    { emoji: "🌉", year: 2015, event: "Tom Hanks negotiates a Cold War prisoner swap in 'Bridge of Spies'",
+      wiki: "https://en.wikipedia.org/wiki/Bridge_of_Spies_(film)" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
