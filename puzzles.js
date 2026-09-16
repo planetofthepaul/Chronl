@@ -336,6 +336,31 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Bridge_of_Spies_(film)" }
   ]
 },
+
+   "2026-09-17": {
+  title: "Avoided Catastrophes Edition",
+  events: [
+    { emoji: "💣", year: 1961, event: "Nuclear bombs fall on North Carolina and fail to detonate",
+      wiki: "https://en.wikipedia.org/wiki/1961_Goldsboro_B-52_crash" },
+
+    { emoji: "🚀", year: 1970, event: "Apollo 13's crew limp home after an explosion in space",
+      wiki: "https://en.wikipedia.org/wiki/Apollo_13" },
+
+    { emoji: "☢️", year: 1979, event: "A US nuclear reactor partly melts down but is contained",
+      wiki: "https://en.wikipedia.org/wiki/Three_Mile_Island_accident" },
+
+    { emoji: "🚨", year: 1983, event: "A Soviet officer ignores a false missile attack warning",
+      wiki: "https://en.wikipedia.org/wiki/Stanislav_Petrov" },
+
+    { emoji: "🇳🇴", year: 1995, event: "Russia mistakes a science rocket for an incoming missile",
+      wiki: "https://en.wikipedia.org/wiki/Norwegian_rocket_incident" },
+
+    { emoji: "💻", year: 2000, event: "The dreaded Y2K computer bug passes with barely a glitch",
+      wiki: "https://en.wikipedia.org/wiki/Year_2000_problem" }
+  ]
+},
+
+   
 /* ============================================================
    TEMPLATE
 
