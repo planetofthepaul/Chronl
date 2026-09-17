@@ -360,6 +360,28 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+   "2026-09-18": {
+  title: "Banking Edition",
+  events: [
+    { emoji: "⚜️", year: 1397, event: "The Medici family bank opens and comes to dominate Europe",
+      wiki: "https://en.wikipedia.org/wiki/Medici_Bank" },
+
+    { emoji: "🏛️", year: 1694, event: "The Bank of England is founded to fund a war with France",
+      wiki: "https://en.wikipedia.org/wiki/Bank_of_England" },
+
+    { emoji: "💰", year: 1810, event: "The first savings bank for ordinary people opens in Scotland",
+      wiki: "https://en.wikipedia.org/wiki/Ruthwell_Savings_Bank" },
+
+    { emoji: "🏧", year: 1967, event: "The world's first cash machine opens in a London suburb",
+      wiki: "https://en.wikipedia.org/wiki/Automated_teller_machine" },
+
+    { emoji: "📉", year: 2008, event: "Lehman Brothers collapses and triggers a global crisis",
+      wiki: "https://en.wikipedia.org/wiki/Bankruptcy_of_Lehman_Brothers" },
+
+    { emoji: "📱", year: 2023, event: "Silicon Valley Bank fails in days after a digital panic",
+      wiki: "https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
