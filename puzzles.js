@@ -382,6 +382,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank" }
   ]
 },
+
+   "2026-09-19": {
+  title: "Hip Hop Edition",
+  events: [
+    { emoji: "🎧", year: 1973, event: "A Bronx block party is now seen as the birth of hip hop",
+      wiki: "https://en.wikipedia.org/wiki/DJ_Kool_Herc" },
+
+    { emoji: "💿", year: 1979, event: "'Rapper's Delight' becomes the first big rap hit record",
+      wiki: "https://en.wikipedia.org/wiki/Rapper%27s_Delight" },
+
+    { emoji: "📺", year: 1988, event: "MTV launches a daily show devoted entirely to rap",
+      wiki: "https://en.wikipedia.org/wiki/Yo!_MTV_Raps" },
+
+    { emoji: "🕯️", year: 1996, event: "Tupac Shakur is shot dead in a Las Vegas drive-by",
+      wiki: "https://en.wikipedia.org/wiki/Murder_of_Tupac_Shakur" },
+
+    { emoji: "🏆", year: 2003, event: "Eminem becomes the first rapper to win an Oscar for a song",
+      wiki: "https://en.wikipedia.org/wiki/Lose_Yourself" },
+
+    { emoji: "📜", year: 2018, event: "Kendrick Lamar wins the Pulitzer Prize for his album",
+      wiki: "https://en.wikipedia.org/wiki/Kendrick_Lamar" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
