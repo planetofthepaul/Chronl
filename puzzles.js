@@ -405,6 +405,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Kendrick_Lamar" }
   ]
 },
+
+   "2026-09-20": {
+  title: "Renewable Energy Edition",
+  events: [
+    { emoji: "💧", year: 1882, event: "The first hydroelectric plant powers a Wisconsin paper mill",
+      wiki: "https://en.wikipedia.org/wiki/Vulcan_Street_Plant" },
+
+    { emoji: "🌬️", year: 1888, event: "An inventor lights his mansion with a giant wind turbine",
+      wiki: "https://en.wikipedia.org/wiki/Charles_F._Brush" },
+
+    { emoji: "☀️", year: 1954, event: "Bell Labs builds the first solar cell that actually works",
+      wiki: "https://en.wikipedia.org/wiki/Solar_cell" },
+
+    { emoji: "🏛️", year: 1979, event: "Solar panels are installed on the White House roof",
+      wiki: "https://en.wikipedia.org/wiki/Jimmy_Carter" },
+
+    { emoji: "🌊", year: 1991, event: "Denmark builds the world's first offshore wind farm",
+      wiki: "https://en.wikipedia.org/wiki/Vindeby_Offshore_Wind_Farm" },
+
+    { emoji: "🤝", year: 2015, event: "Nearly every country signs the Paris climate agreement",
+      wiki: "https://en.wikipedia.org/wiki/Paris_Agreement" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
