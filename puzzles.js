@@ -428,6 +428,31 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Paris_Agreement" }
   ]
 },
+
+   "2026-09-21": {
+  title: "Crypto Edition",
+  events: [
+    { emoji: "📄", year: 2008, event: "An anonymous author posts a plan for Bitcoin online",
+      wiki: "https://en.wikipedia.org/wiki/Bitcoin" },
+
+    { emoji: "🍕", year: 2010, event: "Someone buys two pizzas for 10,000 bitcoins",
+      wiki: "https://en.wikipedia.org/wiki/History_of_bitcoin" },
+
+    { emoji: "💥", year: 2014, event: "Mt. Gox, the biggest Bitcoin exchange, collapses",
+      wiki: "https://en.wikipedia.org/wiki/Mt._Gox" },
+
+    { emoji: "📈", year: 2017, event: "Bitcoin's price climbs toward $20,000 for the first time",
+      wiki: "https://en.wikipedia.org/wiki/Cryptocurrency_bubble" },
+
+    { emoji: "🇸🇻", year: 2021, event: "El Salvador makes Bitcoin legal tender nationwide",
+      wiki: "https://en.wikipedia.org/wiki/Bitcoin_in_El_Salvador" },
+
+    { emoji: "🏛️", year: 2024, event: "US regulators approve the first Bitcoin funds for investors",
+      wiki: "https://en.wikipedia.org/wiki/Bitcoin_ETF" }
+  ]
+},
+
+   
    
 /* ============================================================
    TEMPLATE
