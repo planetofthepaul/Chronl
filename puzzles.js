@@ -452,6 +452,30 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+   "2026-09-22": {
+  title: "Harsh Punishments Edition",
+  events: [
+    { emoji: "👑", year: 1536, event: "Henry VIII has his wife Anne Boleyn beheaded in London",
+      wiki: "https://en.wikipedia.org/wiki/Anne_Boleyn" },
+
+    { emoji: "⛵", year: 1788, event: "The first ships of British convicts arrive in Australia",
+      wiki: "https://en.wikipedia.org/wiki/First_Fleet" },
+
+    { emoji: "🇫🇷", year: 1792, event: "France carries out its first execution by guillotine",
+      wiki: "https://en.wikipedia.org/wiki/Guillotine" },
+
+    { emoji: "🏝️", year: 1934, event: "Alcatraz opens as a prison for America's worst inmates",
+      wiki: "https://en.wikipedia.org/wiki/Alcatraz_Federal_Penitentiary" },
+
+    { emoji: "🇿🇦", year: 1964, event: "Nelson Mandela is sentenced to life in prison",
+      wiki: "https://en.wikipedia.org/wiki/Rivonia_Trial" },
+
+    { emoji: "🇸🇬", year: 1994, event: "Singapore canes an American teen for vandalizing cars",
+      wiki: "https://en.wikipedia.org/wiki/Michael_P._Fay" }
+  ]
+},
+
+
    
    
 /* ============================================================
