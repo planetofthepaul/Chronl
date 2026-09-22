@@ -475,7 +475,28 @@ const CHRONL_PUZZLES = {
   ]
 },
 
+"2026-09-23": {
+  title: "Food Safety Edition",
+  events: [
+    { emoji: "📖", year: 1906, event: "'The Jungle' exposes filthy Chicago meatpacking plants",
+      wiki: "https://en.wikipedia.org/wiki/The_Jungle" },
 
+    { emoji: "🍳", year: 1915, event: "A cook known as 'Typhoid Mary' is quarantined for life",
+      wiki: "https://en.wikipedia.org/wiki/Mary_Mallon" },
+
+    { emoji: "🍔", year: 1993, event: "Tainted Jack in the Box burgers sicken hundreds in the US",
+      wiki: "https://en.wikipedia.org/wiki/1993_Jack_in_the_Box_E._coli_outbreak" },
+
+    { emoji: "🐄", year: 1996, event: "Britain admits mad cow disease can spread to humans",
+      wiki: "https://en.wikipedia.org/wiki/Bovine_spongiform_encephalopathy" },
+
+    { emoji: "🍼", year: 2008, event: "Tainted baby formula sickens 300,000 infants in China",
+      wiki: "https://en.wikipedia.org/wiki/2008_Chinese_milk_scandal" },
+
+    { emoji: "🐴", year: 2013, event: "Horse meat is found in beef products across Europe",
+      wiki: "https://en.wikipedia.org/wiki/2013_horse_meat_scandal" }
+  ]
+},
    
    
 /* ============================================================
