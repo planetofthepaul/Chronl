@@ -497,7 +497,28 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/2013_horse_meat_scandal" }
   ]
 },
-   
+   "2026-09-24": {
+  title: "Surprises Edition",
+  events: [
+    { emoji: "☄️", year: 1908, event: "A huge blast flattens Siberian forest, with no clear cause",
+      wiki: "https://en.wikipedia.org/wiki/Tunguska_event" },
+
+    { emoji: "📻", year: 1938, event: "A radio drama about a Martian invasion alarms US listeners",
+      wiki: "https://en.wikipedia.org/wiki/The_War_of_the_Worlds_(1938_radio_drama)" },
+
+    { emoji: "⚓", year: 1941, event: "Japan attacks Pearl Harbor without warning",
+      wiki: "https://en.wikipedia.org/wiki/Attack_on_Pearl_Harbor" },
+
+    { emoji: "🏒", year: 1980, event: "American students beat the Soviet Union at ice hockey",
+      wiki: "https://en.wikipedia.org/wiki/Miracle_on_Ice" },
+
+    { emoji: "🚀", year: 1986, event: "The space shuttle Challenger explodes on live television",
+      wiki: "https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster" },
+
+    { emoji: "⚽", year: 2016, event: "Leicester City win the league after 5000-to-1 odds",
+      wiki: "https://en.wikipedia.org/wiki/2015%E2%80%9316_Premier_League" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
