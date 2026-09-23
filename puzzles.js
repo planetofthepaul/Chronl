@@ -519,6 +519,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/2015%E2%80%9316_Premier_League" }
   ]
 },
+
+   "2026-09-25": {
+  title: "Investment Management Edition",
+  events: [
+    { emoji: "🇳🇱", year: 1774, event: "The first investment fund pools money from small Dutch savers",
+      wiki: "https://en.wikipedia.org/wiki/Mutual_fund" },
+
+    { emoji: "🏦", year: 1924, event: "America's first modern mutual fund opens in Boston",
+      wiki: "https://en.wikipedia.org/wiki/MFS_Investment_Management" },
+
+    { emoji: "🎩", year: 1949, event: "The first hedge fund is set up in New York",
+      wiki: "https://en.wikipedia.org/wiki/Alfred_Winslow_Jones" },
+
+    { emoji: "💼", year: 1965, event: "Warren Buffett takes control of Berkshire Hathaway",
+      wiki: "https://en.wikipedia.org/wiki/Berkshire_Hathaway" },
+
+    { emoji: "📊", year: 1993, event: "The first exchange-traded fund begins trading in America",
+      wiki: "https://en.wikipedia.org/wiki/SPDR_S%26P_500_ETF_Trust" },
+
+    { emoji: "🎭", year: 2008, event: "Bernie Madoff's huge Ponzi scheme is exposed",
+      wiki: "https://en.wikipedia.org/wiki/Bernie_Madoff" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
