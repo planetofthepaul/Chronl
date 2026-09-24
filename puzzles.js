@@ -542,6 +542,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Bernie_Madoff" }
   ]
 },
+
+   "2026-09-26": {
+  title: "Canada Edition",
+  events: [
+    { emoji: "⚔️", year: 1759, event: "Britain seizes Quebec from France on the Plains of Abraham",
+      wiki: "https://en.wikipedia.org/wiki/Battle_of_the_Plains_of_Abraham" },
+
+    { emoji: "🍁", year: 1867, event: "Four provinces join together to create the nation of Canada",
+      wiki: "https://en.wikipedia.org/wiki/Canadian_Confederation" },
+
+    { emoji: "🚂", year: 1885, event: "The last spike completes the Canadian Pacific Railway",
+      wiki: "https://en.wikipedia.org/wiki/Canadian_Pacific_Railway" },
+
+    { emoji: "💉", year: 1922, event: "Insulin is discovered in Toronto, saving diabetics worldwide",
+      wiki: "https://en.wikipedia.org/wiki/Insulin" },
+
+    { emoji: "🚩", year: 1965, event: "Canada adopts the red maple leaf as its new flag",
+      wiki: "https://en.wikipedia.org/wiki/Flag_of_Canada" },
+
+    { emoji: "🐻‍❄️", year: 1999, event: "Nunavut becomes a territory governed by Inuit people",
+      wiki: "https://en.wikipedia.org/wiki/Nunavut" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
