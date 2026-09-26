@@ -565,6 +565,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Nunavut" }
   ]
 },
+
+   "2026-09-27": {
+  title: "Serial Killers Edition",
+  events: [
+    { emoji: "🎬", year: 1957, event: "Ed Gein is arrested in Wisconsin, inspiring horror films",
+      wiki: "https://en.wikipedia.org/wiki/Ed_Gein" },
+
+    { emoji: "🔪", year: 1971, event: "Charles Manson is convicted of murders committed by his cult",
+      wiki: "https://en.wikipedia.org/wiki/Charles_Manson" },
+
+    { emoji: "✉️", year: 1977, event: "New York's 'Son of Sam' killer David Berkowitz is caught",
+      wiki: "https://en.wikipedia.org/wiki/David_Berkowitz" },
+
+    { emoji: "🤡", year: 1980, event: "John Wayne Gacy is convicted after burying victims at home",
+      wiki: "https://en.wikipedia.org/wiki/John_Wayne_Gacy" },
+
+    { emoji: "💊", year: 2000, event: "Doctor Harold Shipman is convicted of murdering his patients",
+      wiki: "https://en.wikipedia.org/wiki/Harold_Shipman" },
+
+    { emoji: "🌲", year: 2003, event: "Gary Ridgway confesses to the Green River killings",
+      wiki: "https://en.wikipedia.org/wiki/Gary_Ridgway" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
