@@ -588,6 +588,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Gary_Ridgway" }
   ]
 },
+
+   "2026-09-28": {
+  title: "Cuba Edition",
+  events: [
+    { emoji: "💥", year: 1898, event: "The USS Maine explodes in Havana harbour, sparking a war",
+      wiki: "https://en.wikipedia.org/wiki/USS_Maine_(1889)" },
+
+    { emoji: "🇨🇺", year: 1902, event: "Cuba becomes an independent republic after Spanish rule",
+      wiki: "https://en.wikipedia.org/wiki/History_of_Cuba" },
+
+    { emoji: "⭐", year: 1959, event: "Fidel Castro's rebels seize power and enter Havana",
+      wiki: "https://en.wikipedia.org/wiki/Cuban_Revolution" },
+
+    { emoji: "🛥️", year: 1980, event: "125,000 Cubans leave for Florida in the Mariel boatlift",
+      wiki: "https://en.wikipedia.org/wiki/Mariel_boatlift" },
+
+    { emoji: "👦", year: 2000, event: "Elián González is returned to Cuba after a custody battle",
+      wiki: "https://en.wikipedia.org/wiki/Eli%C3%A1n_Gonz%C3%A1lez" },
+
+    { emoji: "🕯️", year: 2016, event: "Fidel Castro dies at 90 after decades in power",
+      wiki: "https://en.wikipedia.org/wiki/Fidel_Castro" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
