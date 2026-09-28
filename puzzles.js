@@ -611,6 +611,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Fidel_Castro" }
   ]
 },
+
+   "2026-09-29": {
+  title: "Currency Edition",
+  events: [
+    { emoji: "🪙", year: -600, event: "The first coins are struck in the kingdom of Lydia",
+      wiki: "https://en.wikipedia.org/wiki/Lydia" },
+
+    { emoji: "📜", year: 1023, event: "China's government issues the world's first paper money",
+      wiki: "https://en.wikipedia.org/wiki/Jiaozi_(currency)" },
+
+    { emoji: "🇸🇪", year: 1661, event: "Europe's first banknotes are printed in Sweden",
+      wiki: "https://en.wikipedia.org/wiki/Stockholms_Banco" },
+
+    { emoji: "🛒", year: 1923, event: "German money collapses and cash is carried in wheelbarrows",
+      wiki: "https://en.wikipedia.org/wiki/Hyperinflation_in_the_Weimar_Republic" },
+
+    { emoji: "💶", year: 2002, event: "Euro notes and coins replace twelve national currencies",
+      wiki: "https://en.wikipedia.org/wiki/Euro" },
+
+    { emoji: "💸", year: 2009, event: "Zimbabwe prints a hundred trillion dollar banknote",
+      wiki: "https://en.wikipedia.org/wiki/Banknotes_of_Zimbabwe" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
