@@ -634,6 +634,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Banknotes_of_Zimbabwe" }
   ]
 },
+
+   "2026-09-30": {
+  title: "Mobile Phones Edition",
+  events: [
+    { emoji: "🧱", year: 1973, event: "The first mobile phone call is made on a New York street",
+      wiki: "https://en.wikipedia.org/wiki/Martin_Cooper_(inventor)" },
+
+    { emoji: "📞", year: 1983, event: "Motorola sells the first handheld mobile phone to the public",
+      wiki: "https://en.wikipedia.org/wiki/Motorola_DynaTAC" },
+
+    { emoji: "💬", year: 1992, event: "The first text message is sent, reading 'Merry Christmas'",
+      wiki: "https://en.wikipedia.org/wiki/Text_messaging" },
+
+    { emoji: "🐍", year: 1997, event: "Nokia puts the game Snake on its phones",
+      wiki: "https://en.wikipedia.org/wiki/Snake_(1998_video_game)" },
+
+    { emoji: "🫐", year: 2002, event: "BlackBerry adds email to phones and hooks office workers",
+      wiki: "https://en.wikipedia.org/wiki/BlackBerry" },
+
+    { emoji: "📱", year: 2007, event: "Apple launches the iPhone with a full touchscreen",
+      wiki: "https://en.wikipedia.org/wiki/IPhone_(1st_generation)" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
