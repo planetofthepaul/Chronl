@@ -657,6 +657,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/IPhone_(1st_generation)" }
   ]
 },
+
+   "2026-10-01": {
+  title: "Toys Edition",
+  events: [
+    { emoji: "🧸", year: 1902, event: "The teddy bear is named after US president Teddy Roosevelt",
+      wiki: "https://en.wikipedia.org/wiki/Teddy_bear" },
+
+    { emoji: "🌀", year: 1943, event: "The Slinky is invented when a spring falls off a shelf",
+      wiki: "https://en.wikipedia.org/wiki/Slinky" },
+
+    { emoji: "👛", year: 1959, event: "Barbie goes on sale at a New York toy fair",
+      wiki: "https://en.wikipedia.org/wiki/Barbie" },
+
+    { emoji: "🧩", year: 1974, event: "A Hungarian professor invents the Rubik's Cube",
+      wiki: "https://en.wikipedia.org/wiki/Rubik%27s_Cube" },
+
+    { emoji: "🥬", year: 1983, event: "Cabbage Patch Kids cause fights in American toy shops",
+      wiki: "https://en.wikipedia.org/wiki/Cabbage_Patch_Kids" },
+
+    { emoji: "🦉", year: 1998, event: "Furby becomes the must-have toy of the holidays",
+      wiki: "https://en.wikipedia.org/wiki/Furby" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
