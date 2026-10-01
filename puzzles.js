@@ -680,6 +680,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Furby" }
   ]
 },
+
+   "2026-10-02": {
+  title: "Exploration Edition",
+  events: [
+    { emoji: "🧭", year: 1804, event: "Lewis and Clark set out to cross North America by land",
+      wiki: "https://en.wikipedia.org/wiki/Lewis_and_Clark_Expedition" },
+
+    { emoji: "🌍", year: 1871, event: "A reporter finds David Livingstone alive in central Africa",
+      wiki: "https://en.wikipedia.org/wiki/Henry_Morton_Stanley" },
+
+    { emoji: "🇳🇴", year: 1911, event: "Roald Amundsen is the first person to reach the South Pole",
+      wiki: "https://en.wikipedia.org/wiki/Roald_Amundsen" },
+
+    { emoji: "🌙", year: 1969, event: "Neil Armstrong becomes the first person to walk on the Moon",
+      wiki: "https://en.wikipedia.org/wiki/Apollo_11" },
+
+    { emoji: "🛰️", year: 1977, event: "The Voyager probes launch toward the outer planets",
+      wiki: "https://en.wikipedia.org/wiki/Voyager_program" },
+
+    { emoji: "🚢", year: 1985, event: "The wreck of the Titanic is found on the ocean floor",
+      wiki: "https://en.wikipedia.org/wiki/Wreck_of_the_Titanic" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
