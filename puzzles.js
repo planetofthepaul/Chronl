@@ -703,6 +703,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Wreck_of_the_Titanic" }
   ]
 },
+
+   "2026-10-04": {
+  title: "Wine Edition",
+  events: [
+    { emoji: "⛪", year: 1668, event: "Dom Pérignon takes charge of a French abbey's wine cellar",
+      wiki: "https://en.wikipedia.org/wiki/Hautvillers_Abbey" },
+
+    { emoji: "🍷", year: 1855, event: "Bordeaux's châteaux are ranked for a Paris world's fair",
+      wiki: "https://en.wikipedia.org/wiki/1855_Bordeaux_Classification" },
+
+    { emoji: "🚫", year: 1920, event: "Prohibition shuts down almost every American winery",
+      wiki: "https://en.wikipedia.org/wiki/Prohibition_in_the_United_States" },
+
+    { emoji: "🇫🇷", year: 1935, event: "France sets strict rules on where its wines can be made",
+      wiki: "https://en.wikipedia.org/wiki/Appellation_d%27origine_contr%C3%B4l%C3%A9e" },
+
+    { emoji: "🥇", year: 1976, event: "California wines beat France in a blind tasting in Paris",
+      wiki: "https://en.wikipedia.org/wiki/Judgment_of_Paris_(wine)" },
+
+    { emoji: "🎬", year: 2004, event: "The film 'Sideways' changes what Americans drink",
+      wiki: "https://en.wikipedia.org/wiki/Sideways" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
