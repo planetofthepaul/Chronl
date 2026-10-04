@@ -726,6 +726,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Sideways" }
   ]
 },
+
+   "2026-10-05": {
+  title: "Farming Edition",
+  events: [
+    { emoji: "🌾", year: -10000, event: "Farming begins in the Middle East, replacing hunting",
+      wiki: "https://en.wikipedia.org/wiki/Neolithic_Revolution" },
+
+    { emoji: "🧵", year: 1793, event: "Eli Whitney's cotton gin transforms American farming",
+      wiki: "https://en.wikipedia.org/wiki/Cotton_gin" },
+
+    { emoji: "🚜", year: 1837, event: "John Deere's steel plough cuts through tough prairie soil",
+      wiki: "https://en.wikipedia.org/wiki/John_Deere_(inventor)" },
+
+    { emoji: "🧪", year: 1909, event: "Chemists learn to make fertiliser from air, feeding billions",
+      wiki: "https://en.wikipedia.org/wiki/Haber_process" },
+
+    { emoji: "🌪️", year: 1935, event: "The Dust Bowl buries farms across the American plains",
+      wiki: "https://en.wikipedia.org/wiki/Dust_Bowl" },
+
+    { emoji: "🍅", year: 1994, event: "The first genetically modified food goes on sale",
+      wiki: "https://en.wikipedia.org/wiki/Flavr_Savr" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
