@@ -749,6 +749,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Flavr_Savr" }
   ]
 },
+
+   "2026-10-06": {
+  title: "Pop Superstars Edition",
+  events: [
+    { emoji: "🎸", year: 1956, event: "Elvis Presley's 'Heartbreak Hotel' becomes his first No. 1",
+      wiki: "https://en.wikipedia.org/wiki/Heartbreak_Hotel" },
+
+    { emoji: "📺", year: 1964, event: "The Beatles arrive in America and play The Ed Sullivan Show",
+      wiki: "https://en.wikipedia.org/wiki/British_Invasion" },
+
+    { emoji: "🧤", year: 1982, event: "Michael Jackson releases Thriller, the best-selling album ever",
+      wiki: "https://en.wikipedia.org/wiki/Thriller_(album)" },
+
+    { emoji: "🎀", year: 1998, event: "Britney Spears releases her debut hit 'Baby One More Time'",
+      wiki: "https://en.wikipedia.org/wiki/Britney_Spears" },
+
+    { emoji: "💃", year: 2008, event: "Lady Gaga breaks through with the single 'Just Dance'",
+      wiki: "https://en.wikipedia.org/wiki/Just_Dance_(Lady_Gaga_song)" },
+
+    { emoji: "🎤", year: 2014, event: "Taylor Swift leaves country behind with the album 1989",
+      wiki: "https://en.wikipedia.org/wiki/1989_(Taylor_Swift_album)" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
