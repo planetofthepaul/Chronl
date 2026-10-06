@@ -772,6 +772,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/1989_(Taylor_Swift_album)" }
   ]
 },
+
+   "2026-10-07": {
+  title: "Potato Edition",
+  events: [
+    { emoji: "🥔", year: -8000, event: "Potatoes are first farmed in the Andes mountains of Peru",
+      wiki: "https://en.wikipedia.org/wiki/Potato" },
+
+    { emoji: "⛵", year: 1570, event: "Spanish ships carry the potato from South America to Europe",
+      wiki: "https://en.wikipedia.org/wiki/Columbian_exchange" },
+
+    { emoji: "🍽️", year: 1772, event: "France declares the potato fit to eat after years of suspicion",
+      wiki: "https://en.wikipedia.org/wiki/Antoine-Augustin_Parmentier" },
+
+    { emoji: "☘️", year: 1845, event: "Potato blight triggers the Great Famine in Ireland",
+      wiki: "https://en.wikipedia.org/wiki/Great_Famine_(Ireland)" },
+
+    { emoji: "🧸", year: 1952, event: "Mr. Potato Head becomes the first toy advertised on TV",
+      wiki: "https://en.wikipedia.org/wiki/Mr._Potato_Head" },
+
+    { emoji: "🚀", year: 2015, event: "Matt Damon grows potatoes on Mars in The Martian",
+      wiki: "https://en.wikipedia.org/wiki/The_Martian_(film)" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
