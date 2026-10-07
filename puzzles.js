@@ -795,6 +795,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/The_Martian_(film)" }
   ]
 },
+
+   "2026-10-08": {
+  title: "Autonomy Edition",
+  events: [
+    { emoji: "⚙️", year: 1478, event: "Leonardo da Vinci designs a cart that moves on its own",
+      wiki: "https://en.wikipedia.org/wiki/Leonardo%27s_self-propelled_cart" },
+
+    { emoji: "✈️", year: 1914, event: "Lawrence Sperry demonstrates the first aircraft autopilot",
+      wiki: "https://en.wikipedia.org/wiki/Autopilot" },
+
+    { emoji: "🦾", year: 1961, event: "The first industrial robot starts work at a General Motors plant",
+      wiki: "https://en.wikipedia.org/wiki/Unimate" },
+
+    { emoji: "🔴", year: 1997, event: "NASA's Sojourner rover steers itself around rocks on Mars",
+      wiki: "https://en.wikipedia.org/wiki/Sojourner_(rover)" },
+
+    { emoji: "🧹", year: 2002, event: "The Roomba puts a robot vacuum in ordinary homes",
+      wiki: "https://en.wikipedia.org/wiki/Roomba" },
+
+    { emoji: "🚕", year: 2020, event: "Waymo opens a driverless taxi service to the public in Phoenix",
+      wiki: "https://en.wikipedia.org/wiki/Waymo" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
