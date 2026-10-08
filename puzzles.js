@@ -818,6 +818,52 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Waymo" }
   ]
 },
+
+   "2026-10-09": {
+  title: "Social Media Edition",
+  events: [
+    { emoji: "💬", year: 1997, event: "AOL Instant Messenger brings chat to millions of desktops",
+      wiki: "https://en.wikipedia.org/wiki/AIM_(software)" },
+
+    { emoji: "🎵", year: 2003, event: "MySpace launches and starts the social network boom",
+      wiki: "https://en.wikipedia.org/wiki/Myspace" },
+
+    { emoji: "▶️", year: 2005, event: "The first video is uploaded to YouTube, 'Me at the Zoo'",
+      wiki: "https://en.wikipedia.org/wiki/Me_at_the_zoo" },
+
+    { emoji: "📷", year: 2010, event: "Instagram launches as a photo app for the iPhone",
+      wiki: "https://en.wikipedia.org/wiki/Instagram" },
+
+    { emoji: "📱", year: 2017, event: "TikTok launches outside China and spreads worldwide",
+      wiki: "https://en.wikipedia.org/wiki/TikTok" },
+
+    { emoji: "🐦", year: 2022, event: "Elon Musk buys Twitter for 44 billion dollars",
+      wiki: "https://en.wikipedia.org/wiki/Acquisition_of_Twitter_by_Elon_Musk" }
+  ]
+},
+
+   "2026-10-10": {
+  title: "Meat Edition",
+  events: [
+    { emoji: "🐄", year: -8000, event: "Cattle are domesticated in the Middle East",
+      wiki: "https://en.wikipedia.org/wiki/Cattle" },
+
+    { emoji: "🏭", year: 1865, event: "Chicago's Union Stock Yards open and feed a growing nation",
+      wiki: "https://en.wikipedia.org/wiki/Union_Stock_Yards" },
+
+    { emoji: "🍔", year: 1921, event: "White Castle opens as America's first hamburger chain",
+      wiki: "https://en.wikipedia.org/wiki/White_Castle_(restaurant)" },
+
+    { emoji: "🥫", year: 1937, event: "Spam goes on sale and becomes a canned meat staple",
+      wiki: "https://en.wikipedia.org/wiki/Spam_(food)" },
+
+    { emoji: "⚠️", year: 1996, event: "Mad cow disease leads to a global ban on British beef",
+      wiki: "https://en.wikipedia.org/wiki/Bovine_spongiform_encephalopathy" },
+
+    { emoji: "🧫", year: 2013, event: "The first lab-grown burger is cooked and eaten in London",
+      wiki: "https://en.wikipedia.org/wiki/Cultured_meat" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
