@@ -864,6 +864,28 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Cultured_meat" }
   ]
 },
+   "2026-10-11": {
+  title: "Mexican Food Edition",
+  events: [
+    { emoji: "🌽", year: -7000, event: "Corn is first farmed in southern Mexico",
+      wiki: "https://en.wikipedia.org/wiki/Maize" },
+
+    { emoji: "🐖", year: 1519, event: "Spanish ships bring pigs, cows and cheese to Mexico",
+      wiki: "https://en.wikipedia.org/wiki/Columbian_exchange" },
+
+    { emoji: "🥃", year: 1795, event: "The Cuervo family gets the first licence to make tequila",
+      wiki: "https://en.wikipedia.org/wiki/Jose_Cuervo" },
+
+    { emoji: "🧀", year: 1943, event: "Nachos are invented by a waiter nicknamed Nacho",
+      wiki: "https://en.wikipedia.org/wiki/Nachos" },
+
+    { emoji: "🌮", year: 1962, event: "Taco Bell opens its first restaurant in California",
+      wiki: "https://en.wikipedia.org/wiki/Taco_Bell" },
+
+    { emoji: "🌯", year: 1993, event: "Chipotle opens its first burrito shop in Denver",
+      wiki: "https://en.wikipedia.org/wiki/Chipotle_Mexican_Grill" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
