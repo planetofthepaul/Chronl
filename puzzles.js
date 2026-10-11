@@ -909,6 +909,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/No_Time_to_Die" }
   ]
 },
+
+   "2026-10-13": {
+  title: "Donut Edition",
+  events: [
+    { emoji: "📖", year: 1809, event: "Washington Irving puts the word doughnut in print",
+      wiki: "https://en.wikipedia.org/wiki/A_History_of_New_York" },
+
+    { emoji: "🕳️", year: 1847, event: "Sea captain Hanson Gregory punches a hole in the doughnut",
+      wiki: "https://en.wikipedia.org/wiki/Hanson_Gregory" },
+
+    { emoji: "⚙️", year: 1920, event: "Adolph Levitt builds the first doughnut machine in New York",
+      wiki: "https://en.wikipedia.org/wiki/Doughnut" },
+
+    { emoji: "🍩", year: 1937, event: "Krispy Kreme opens its first shop in North Carolina",
+      wiki: "https://en.wikipedia.org/wiki/Krispy_Kreme" },
+
+    { emoji: "☕", year: 1950, event: "The Open Kettle shop is renamed Dunkin' Donuts",
+      wiki: "https://en.wikipedia.org/wiki/Dunkin%27" },
+
+    { emoji: "🥐", year: 2013, event: "The cronut, a croissant-doughnut hybrid, goes on sale",
+      wiki: "https://en.wikipedia.org/wiki/Cronut" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
