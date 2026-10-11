@@ -886,6 +886,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Chipotle_Mexican_Grill" }
   ]
 },
+
+   "2026-10-12": {
+  title: "James Bond Edition",
+  events: [
+    { emoji: "📕", year: 1953, event: "Ian Fleming publishes the first James Bond novel",
+      wiki: "https://en.wikipedia.org/wiki/Casino_Royale_(novel)" },
+
+    { emoji: "🤵", year: 1962, event: "Sean Connery first plays Bond in Dr. No",
+      wiki: "https://en.wikipedia.org/wiki/Dr._No_(film)" },
+
+    { emoji: "🚤", year: 1973, event: "Roger Moore takes over as Bond in Live and Let Die",
+      wiki: "https://en.wikipedia.org/wiki/Live_and_Let_Die_(film)" },
+
+    { emoji: "🔫", year: 1995, event: "Pierce Brosnan becomes Bond in GoldenEye",
+      wiki: "https://en.wikipedia.org/wiki/GoldenEye" },
+
+    { emoji: "💰", year: 2012, event: "Skyfall is the first Bond film to make a billion dollars",
+      wiki: "https://en.wikipedia.org/wiki/Skyfall" },
+
+    { emoji: "🍸", year: 2021, event: "Daniel Craig plays Bond for the last time in No Time to Die",
+      wiki: "https://en.wikipedia.org/wiki/No_Time_to_Die" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
