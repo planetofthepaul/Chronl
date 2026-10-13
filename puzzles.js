@@ -932,6 +932,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Cronut" }
   ]
 },
+
+   "2026-10-14": {
+  title: "Sailing Edition",
+  events: [
+    { emoji: "⛵", year: -3000, event: "Egyptian boats carry the first known sails on the Nile",
+      wiki: "https://en.wikipedia.org/wiki/Sail" },
+
+    { emoji: "🌊", year: 1588, event: "The Spanish Armada is wrecked trying to invade England",
+      wiki: "https://en.wikipedia.org/wiki/Spanish_Armada" },
+
+    { emoji: "🏆", year: 1851, event: "The schooner America wins the first America's Cup race",
+      wiki: "https://en.wikipedia.org/wiki/America%27s_Cup" },
+
+    { emoji: "🍵", year: 1869, event: "The clipper Cutty Sark is launched for the China tea trade",
+      wiki: "https://en.wikipedia.org/wiki/Cutty_Sark" },
+
+    { emoji: "🥇", year: 1900, event: "Sailing becomes an Olympic sport at the Paris Games",
+      wiki: "https://en.wikipedia.org/wiki/Sailing_at_the_1900_Summer_Olympics" },
+
+    { emoji: "🧭", year: 1969, event: "Robin Knox-Johnston sails solo around the world without stopping",
+      wiki: "https://en.wikipedia.org/wiki/Robin_Knox-Johnston" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
