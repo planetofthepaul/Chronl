@@ -955,6 +955,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Robin_Knox-Johnston" }
   ]
 },
+
+   "2026-10-16": {
+  title: "Pharaohs Edition",
+  events: [
+    { emoji: "🔺", year: -2630, event: "The first pyramid is built for King Djoser at Saqqara",
+      wiki: "https://en.wikipedia.org/wiki/Pyramid_of_Djoser" },
+
+    { emoji: "☀️", year: -1353, event: "Akhenaten orders Egypt to worship the sun alone",
+      wiki: "https://en.wikipedia.org/wiki/Akhenaten" },
+
+    { emoji: "🗡️", year: -332, event: "Alexander the Great is crowned pharaoh of Egypt",
+      wiki: "https://en.wikipedia.org/wiki/Alexander_the_Great" },
+
+    { emoji: "👑", year: -51, event: "Cleopatra takes the throne of Egypt at the age of eighteen",
+      wiki: "https://en.wikipedia.org/wiki/Cleopatra" },
+
+    { emoji: "🪨", year: 1799, event: "French soldiers find the Rosetta Stone in Egypt",
+      wiki: "https://en.wikipedia.org/wiki/Rosetta_Stone" },
+
+    { emoji: "⚱️", year: 1922, event: "Howard Carter opens Tutankhamun's tomb",
+      wiki: "https://en.wikipedia.org/wiki/Tomb_of_Tutankhamun" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
