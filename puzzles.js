@@ -978,6 +978,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Tomb_of_Tutankhamun" }
   ]
 },
+
+   "2026-10-17": {
+  title: "Diarrhea Edition",
+  events: [
+    { emoji: "🚰", year: 1854, event: "John Snow traces cholera to a London water pump",
+      wiki: "https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak" },
+
+    { emoji: "🔬", year: 1884, event: "Robert Koch finds the germ that causes cholera",
+      wiki: "https://en.wikipedia.org/wiki/Robert_Koch" },
+
+    { emoji: "💧", year: 1908, event: "Jersey City starts adding chlorine to its drinking water",
+      wiki: "https://en.wikipedia.org/wiki/Water_chlorination" },
+
+    { emoji: "💊", year: 1976, event: "Imodium is approved as a prescription diarrhea pill",
+      wiki: "https://en.wikipedia.org/wiki/Loperamide" },
+
+    { emoji: "🖥️", year: 1985, event: "The Oregon Trail game kills players off with dysentery",
+      wiki: "https://en.wikipedia.org/wiki/The_Oregon_Trail_(1985_video_game)" },
+
+    { emoji: "💉", year: 2006, event: "Rotavirus vaccines begin protecting babies around the world",
+      wiki: "https://en.wikipedia.org/wiki/Rotavirus_vaccine" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
