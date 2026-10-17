@@ -1001,6 +1001,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Rotavirus_vaccine" }
   ]
 },
+
+   "2026-10-18": {
+  title: "Submarine Edition",
+  events: [
+    { emoji: "🪵", year: 1620, event: "Cornelis Drebbel rows a wooden submarine under the Thames",
+      wiki: "https://en.wikipedia.org/wiki/Cornelis_Drebbel" },
+
+    { emoji: "🐢", year: 1776, event: "The Turtle attacks a British ship in New York harbour",
+      wiki: "https://en.wikipedia.org/wiki/Turtle_(submersible)" },
+
+    { emoji: "⚔️", year: 1864, event: "The Hunley becomes the first submarine to sink a warship",
+      wiki: "https://en.wikipedia.org/wiki/H._L._Hunley_(submarine)" },
+
+    { emoji: "🚢", year: 1915, event: "A German U-boat sinks the liner Lusitania",
+      wiki: "https://en.wikipedia.org/wiki/RMS_Lusitania" },
+
+    { emoji: "☢️", year: 1954, event: "The Nautilus is launched as the first nuclear submarine",
+      wiki: "https://en.wikipedia.org/wiki/USS_Nautilus_(SSN-571)" },
+
+    { emoji: "🌊", year: 2000, event: "The Russian submarine Kursk sinks with all hands",
+      wiki: "https://en.wikipedia.org/wiki/Russian_submarine_Kursk_(K-141)" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
