@@ -1024,6 +1024,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Russian_submarine_Kursk_(K-141)" }
   ]
 },
+
+   "2026-10-19": {
+  title: "French History Edition",
+  events: [
+    { emoji: "👑", year: 800, event: "Charlemagne is crowned emperor of much of Europe",
+      wiki: "https://en.wikipedia.org/wiki/Charlemagne" },
+
+    { emoji: "🔥", year: 1431, event: "Joan of Arc is burned at the stake in Rouen",
+      wiki: "https://en.wikipedia.org/wiki/Joan_of_Arc" },
+
+    { emoji: "🏰", year: 1789, event: "A Paris crowd storms the Bastille prison",
+      wiki: "https://en.wikipedia.org/wiki/Storming_of_the_Bastille" },
+
+    { emoji: "🦅", year: 1804, event: "Napoleon crowns himself emperor of France",
+      wiki: "https://en.wikipedia.org/wiki/Napoleon" },
+
+    { emoji: "🗼", year: 1889, event: "The Eiffel Tower opens for the Paris World's Fair",
+      wiki: "https://en.wikipedia.org/wiki/Eiffel_Tower" },
+
+    { emoji: "🚇", year: 1994, event: "A tunnel under the Channel links France and England",
+      wiki: "https://en.wikipedia.org/wiki/Channel_Tunnel" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
