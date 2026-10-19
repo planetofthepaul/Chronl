@@ -1047,6 +1047,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Channel_Tunnel" }
   ]
 },
+
+   "2026-10-20": {
+  title: "Animation Edition",
+  events: [
+    { emoji: "🎡", year: 1834, event: "The zoetrope makes a spinning strip of drawings move",
+      wiki: "https://en.wikipedia.org/wiki/Zoetrope" },
+
+    { emoji: "🐈‍⬛", year: 1919, event: "Felix the Cat becomes the first cartoon star",
+      wiki: "https://en.wikipedia.org/wiki/Felix_the_Cat" },
+
+    { emoji: "🥕", year: 1940, event: "Bugs Bunny makes his official debut on screen",
+      wiki: "https://en.wikipedia.org/wiki/Bugs_Bunny" },
+
+    { emoji: "🦕", year: 1960, event: "The Flintstones becomes the first cartoon in prime time",
+      wiki: "https://en.wikipedia.org/wiki/The_Flintstones" },
+
+    { emoji: "🧽", year: 1999, event: "SpongeBob SquarePants arrives on television",
+      wiki: "https://en.wikipedia.org/wiki/SpongeBob_SquarePants" },
+
+    { emoji: "❄️", year: 2013, event: "Frozen is released and becomes a billion-dollar hit",
+      wiki: "https://en.wikipedia.org/wiki/Frozen_(2013_film)" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
