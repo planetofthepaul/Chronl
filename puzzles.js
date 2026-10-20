@@ -1070,6 +1070,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Frozen_(2013_film)" }
   ]
 },
+
+   "2026-10-21": {
+  title: "Dragons Edition",
+  events: [
+    { emoji: "🏛️", year: -575, event: "Babylon's Ishtar Gate is covered with dragon figures",
+      wiki: "https://en.wikipedia.org/wiki/Ishtar_Gate" },
+
+    { emoji: "📜", year: 1000, event: "The poem Beowulf ends with a battle against a dragon",
+      wiki: "https://en.wikipedia.org/wiki/Beowulf" },
+
+    { emoji: "🦎", year: 1912, event: "Scientists give the Komodo dragon its name",
+      wiki: "https://en.wikipedia.org/wiki/Komodo_dragon" },
+
+    { emoji: "🐉", year: 1937, event: "The Hobbit introduces the dragon Smaug",
+      wiki: "https://en.wikipedia.org/wiki/The_Hobbit" },
+
+    { emoji: "⚔️", year: 1996, event: "George R.R. Martin publishes A Game of Thrones",
+      wiki: "https://en.wikipedia.org/wiki/A_Game_of_Thrones" },
+
+    { emoji: "🚀", year: 2020, event: "A SpaceX capsule named Dragon carries astronauts to orbit",
+      wiki: "https://en.wikipedia.org/wiki/Crew_Dragon_Demo-2" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
