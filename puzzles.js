@@ -1093,6 +1093,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Crew_Dragon_Demo-2" }
   ]
 },
+
+   "2026-10-22": {
+  title: "Plot Twists Edition",
+  events: [
+    { emoji: "🏹", year: 1066, event: "Harold beats one invader then loses England at Hastings",
+      wiki: "https://en.wikipedia.org/wiki/Battle_of_Hastings" },
+
+    { emoji: "🧨", year: 1605, event: "Guy Fawkes is caught under Parliament with his gunpowder",
+      wiki: "https://en.wikipedia.org/wiki/Gunpowder_Plot" },
+
+    { emoji: "🪖", year: 1815, event: "Napoleon escapes exile and takes back France for 100 days",
+      wiki: "https://en.wikipedia.org/wiki/Hundred_Days" },
+
+    { emoji: "📰", year: 1948, event: "A newspaper prints 'Dewey Defeats Truman' and gets it wrong",
+      wiki: "https://en.wikipedia.org/wiki/Dewey_Defeats_Truman" },
+
+    { emoji: "📼", year: 1974, event: "Nixon resigns after his own tapes expose the cover-up",
+      wiki: "https://en.wikipedia.org/wiki/Watergate_scandal" },
+
+    { emoji: "⚾", year: 2004, event: "The Red Sox come back from 3-0 down to beat the Yankees",
+      wiki: "https://en.wikipedia.org/wiki/2004_American_League_Championship_Series" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
