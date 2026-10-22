@@ -1116,6 +1116,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/2004_American_League_Championship_Series" }
   ]
 },
+
+   "2026-10-23": {
+  title: "1920s Edition",
+  events: [
+    { emoji: "🚫", year: 1920, event: "Prohibition makes alcohol illegal across America",
+      wiki: "https://en.wikipedia.org/wiki/Prohibition_in_the_United_States" },
+
+    { emoji: "🎞️", year: 1923, event: "The Hollywood sign goes up above Los Angeles",
+      wiki: "https://en.wikipedia.org/wiki/Hollywood_Sign" },
+
+    { emoji: "📗", year: 1925, event: "F. Scott Fitzgerald publishes The Great Gatsby",
+      wiki: "https://en.wikipedia.org/wiki/The_Great_Gatsby" },
+
+    { emoji: "✈️", year: 1927, event: "Charles Lindbergh flies alone across the Atlantic",
+      wiki: "https://en.wikipedia.org/wiki/Charles_Lindbergh" },
+
+    { emoji: "🧫", year: 1928, event: "Alexander Fleming spots penicillin in a dirty dish",
+      wiki: "https://en.wikipedia.org/wiki/Penicillin" },
+
+    { emoji: "🏆", year: 1929, event: "The first Academy Awards are handed out",
+      wiki: "https://en.wikipedia.org/wiki/1st_Academy_Awards" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
