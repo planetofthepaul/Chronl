@@ -1139,6 +1139,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/1st_Academy_Awards" }
   ]
 },
+
+   "2026-10-24": {
+  title: "Immigration Edition",
+  events: [
+    { emoji: "⛔", year: 1882, event: "The Chinese Exclusion Act bars Chinese workers from America",
+      wiki: "https://en.wikipedia.org/wiki/Chinese_Exclusion_Act" },
+
+    { emoji: "🗽", year: 1892, event: "Ellis Island opens as America's main immigration gate",
+      wiki: "https://en.wikipedia.org/wiki/Ellis_Island" },
+
+    { emoji: "📋", year: 1924, event: "Congress sets strict quotas on who can enter America",
+      wiki: "https://en.wikipedia.org/wiki/Immigration_Act_of_1924" },
+
+    { emoji: "🚢", year: 1948, event: "The Empire Windrush brings Caribbean workers to Britain",
+      wiki: "https://en.wikipedia.org/wiki/HMT_Empire_Windrush" },
+
+    { emoji: "🌍", year: 1965, event: "America scraps the quota system and opens up immigration",
+      wiki: "https://en.wikipedia.org/wiki/Immigration_and_Nationality_Act_of_1965" },
+
+    { emoji: "✍️", year: 1986, event: "Reagan grants amnesty to three million immigrants",
+      wiki: "https://en.wikipedia.org/wiki/Immigration_Reform_and_Control_Act" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
