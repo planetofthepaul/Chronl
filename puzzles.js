@@ -1162,6 +1162,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Immigration_Reform_and_Control_Act" }
   ]
 },
+
+   "2026-10-25": {
+  title: "Trashy TV Edition",
+  events: [
+    { emoji: "📹", year: 1948, event: "Candid Camera starts filming pranks with hidden cameras",
+      wiki: "https://en.wikipedia.org/wiki/Candid_Camera" },
+
+    { emoji: "🚔", year: 1989, event: "Cops begins filming real police arrests for TV",
+      wiki: "https://en.wikipedia.org/wiki/Cops_(TV_program)" },
+
+    { emoji: "🏠", year: 1992, event: "The Real World puts seven strangers in one house",
+      wiki: "https://en.wikipedia.org/wiki/The_Real_World_(TV_series)" },
+
+    { emoji: "🏝️", year: 2000, event: "Survivor begins voting contestants off an island",
+      wiki: "https://en.wikipedia.org/wiki/Survivor_(American_TV_series)" },
+
+    { emoji: "💅", year: 2009, event: "Jersey Shore brings its cast to a New Jersey beach house",
+      wiki: "https://en.wikipedia.org/wiki/Jersey_Shore_(TV_series)" },
+
+    { emoji: "🐅", year: 2020, event: "Tiger King becomes a lockdown hit on Netflix",
+      wiki: "https://en.wikipedia.org/wiki/Tiger_King" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
