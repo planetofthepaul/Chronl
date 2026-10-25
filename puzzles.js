@@ -1185,6 +1185,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Tiger_King" }
   ]
 },
+
+   "2026-10-26": {
+  title: "Famous Islands Edition",
+  events: [
+    { emoji: "🗿", year: 1722, event: "Dutch sailors reach Easter Island and find its stone heads",
+      wiki: "https://en.wikipedia.org/wiki/Easter_Island" },
+
+    { emoji: "🐢", year: 1835, event: "Charles Darwin studies the wildlife of the Galapagos",
+      wiki: "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_Islands" },
+
+    { emoji: "🏴‍☠️", year: 1883, event: "Robert Louis Stevenson publishes Treasure Island",
+      wiki: "https://en.wikipedia.org/wiki/Treasure_Island" },
+
+    { emoji: "🔒", year: 1934, event: "Alcatraz opens as a prison island in San Francisco Bay",
+      wiki: "https://en.wikipedia.org/wiki/Alcatraz_Island" },
+
+    { emoji: "🌺", year: 1959, event: "Hawaii becomes America's fiftieth state",
+      wiki: "https://en.wikipedia.org/wiki/Hawaii" },
+
+    { emoji: "🏙️", year: 1997, event: "Britain hands Hong Kong back to China",
+      wiki: "https://en.wikipedia.org/wiki/Handover_of_Hong_Kong" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
