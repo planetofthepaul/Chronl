@@ -1208,6 +1208,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Handover_of_Hong_Kong" }
   ]
 },
+
+   "2026-10-27": {
+  title: "Salt Edition",
+  events: [
+    { emoji: "🏺", year: -1500, event: "Egyptians use salt to dry out and preserve mummies",
+      wiki: "https://en.wikipedia.org/wiki/Natron" },
+
+    { emoji: "📜", year: -119, event: "China makes salt a government monopoly",
+      wiki: "https://en.wikipedia.org/wiki/Salt_in_Chinese_history" },
+
+    { emoji: "💰", year: 1341, event: "France makes its salt tax permanent",
+      wiki: "https://en.wikipedia.org/wiki/Gabelle" },
+
+    { emoji: "🧪", year: 1924, event: "Iodine is added to table salt to stop a common illness",
+      wiki: "https://en.wikipedia.org/wiki/Iodised_salt" },
+
+    { emoji: "🚶", year: 1930, event: "Gandhi walks to the sea to make salt against British law",
+      wiki: "https://en.wikipedia.org/wiki/Salt_March" },
+
+    { emoji: "🧂", year: 2017, event: "A chef nicknamed Salt Bae becomes an internet meme",
+      wiki: "https://en.wikipedia.org/wiki/Nusret_G%C3%B6k%C3%A7e" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
