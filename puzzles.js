@@ -1231,6 +1231,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Nusret_G%C3%B6k%C3%A7e" }
   ]
 },
+
+   "2026-10-28": {
+  title: "EDM Edition",
+  events: [
+    { emoji: "💿", year: 1983, event: "New Order releases Blue Monday on a twelve-inch single",
+      wiki: "https://en.wikipedia.org/wiki/Blue_Monday_(New_Order_song)" },
+
+    { emoji: "😃", year: 1988, event: "Acid house parties sweep across Britain",
+      wiki: "https://en.wikipedia.org/wiki/Second_Summer_of_Love" },
+
+    { emoji: "🚫", year: 1994, event: "Britain passes a law banning raves with repetitive beats",
+      wiki: "https://en.wikipedia.org/wiki/Criminal_Justice_and_Public_Order_Act_1994" },
+
+    { emoji: "🏜️", year: 1999, event: "Darude releases the dance anthem Sandstorm",
+      wiki: "https://en.wikipedia.org/wiki/Sandstorm_(Darude_song)" },
+
+    { emoji: "🎚️", year: 2011, event: "Avicii releases Levels and tops charts worldwide",
+      wiki: "https://en.wikipedia.org/wiki/Levels_(Avicii_song)" },
+
+    { emoji: "🎮", year: 2019, event: "Marshmello plays a concert inside the game Fortnite",
+      wiki: "https://en.wikipedia.org/wiki/Marshmello" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
