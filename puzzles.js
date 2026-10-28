@@ -1254,6 +1254,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Marshmello" }
   ]
 },
+
+   "2026-10-29": {
+  title: "Southeast Asia Edition",
+  events: [
+    { emoji: "🛕", year: 1113, event: "Work begins on Angkor Wat in Cambodia",
+      wiki: "https://en.wikipedia.org/wiki/Angkor_Wat" },
+
+    { emoji: "⚔️", year: 1521, event: "Magellan is killed in a battle in the Philippines",
+      wiki: "https://en.wikipedia.org/wiki/Battle_of_Mactan" },
+
+    { emoji: "⚓", year: 1819, event: "Stamford Raffles sets up a British port at Singapore",
+      wiki: "https://en.wikipedia.org/wiki/Stamford_Raffles" },
+
+    { emoji: "📜", year: 1945, event: "Indonesia declares independence from the Dutch",
+      wiki: "https://en.wikipedia.org/wiki/Proclamation_of_Indonesian_Independence" },
+
+    { emoji: "🚁", year: 1975, event: "Saigon falls and the Vietnam War comes to an end",
+      wiki: "https://en.wikipedia.org/wiki/Fall_of_Saigon" },
+
+    { emoji: "✊", year: 1986, event: "Crowds in Manila force President Marcos to flee",
+      wiki: "https://en.wikipedia.org/wiki/People_Power_Revolution" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
