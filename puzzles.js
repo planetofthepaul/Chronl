@@ -1277,6 +1277,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/People_Power_Revolution" }
   ]
 },
+
+   "2026-10-30": {
+  title: "Chinese Food Edition",
+  events: [
+    { emoji: "🌾", year: -6000, event: "Rice farming begins along China's Yangtze River",
+      wiki: "https://en.wikipedia.org/wiki/Rice" },
+
+    { emoji: "🍜", year: -2000, event: "The world's oldest noodles are made in northern China",
+      wiki: "https://en.wikipedia.org/wiki/Noodle" },
+
+    { emoji: "🫘", year: -150, event: "Tofu is first made in China from soybeans",
+      wiki: "https://en.wikipedia.org/wiki/Tofu" },
+
+    { emoji: "⛏️", year: 1849, event: "Chinese restaurants open for miners in the Gold Rush",
+      wiki: "https://en.wikipedia.org/wiki/American_Chinese_cuisine" },
+
+    { emoji: "🤝", year: 1972, event: "Nixon eats a Chinese banquet on live television in Beijing",
+      wiki: "https://en.wikipedia.org/wiki/1972_visit_by_Richard_Nixon_to_China" },
+
+    { emoji: "🐼", year: 1983, event: "Panda Express opens its first shop in a California mall",
+      wiki: "https://en.wikipedia.org/wiki/Panda_Express" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
