@@ -1300,6 +1300,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Panda_Express" }
   ]
 },
+
+   "2026-10-31": {
+  title: "Air Force Edition",
+  events: [
+    { emoji: "🛩️", year: 1918, event: "Britain creates the world's first independent air force",
+      wiki: "https://en.wikipedia.org/wiki/Royal_Air_Force" },
+
+    { emoji: "✈️", year: 1940, event: "RAF pilots fight off German bombers in the Battle of Britain",
+      wiki: "https://en.wikipedia.org/wiki/Battle_of_Britain" },
+
+    { emoji: "🚀", year: 1947, event: "Chuck Yeager breaks the sound barrier in a rocket plane",
+      wiki: "https://en.wikipedia.org/wiki/Chuck_Yeager" },
+
+    { emoji: "🛫", year: 1962, event: "A Boeing jet enters service as Air Force One",
+      wiki: "https://en.wikipedia.org/wiki/Air_Force_One" },
+
+    { emoji: "🥷", year: 1988, event: "The F-117 stealth fighter is shown to the public",
+      wiki: "https://en.wikipedia.org/wiki/Lockheed_F-117_Nighthawk" },
+
+    { emoji: "🎯", year: 2001, event: "Predator drones are armed with missiles for the first time",
+      wiki: "https://en.wikipedia.org/wiki/General_Atomics_MQ-1_Predator" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
