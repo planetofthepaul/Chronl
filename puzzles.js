@@ -1323,6 +1323,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/General_Atomics_MQ-1_Predator" }
   ]
 },
+
+   "2026-11-01": {
+  title: "Halloween Edition",
+  events: [
+    { emoji: "⛪", year: 835, event: "The church moves All Saints' Day to the first of November",
+      wiki: "https://en.wikipedia.org/wiki/All_Saints%27_Day" },
+
+    { emoji: "⚡", year: 1818, event: "Mary Shelley publishes Frankenstein",
+      wiki: "https://en.wikipedia.org/wiki/Frankenstein" },
+
+    { emoji: "🦇", year: 1897, event: "Bram Stoker publishes Dracula",
+      wiki: "https://en.wikipedia.org/wiki/Dracula" },
+
+    { emoji: "🍬", year: 1927, event: "The phrase 'trick or treat' first appears in print",
+      wiki: "https://en.wikipedia.org/wiki/Trick-or-treating" },
+
+    { emoji: "🎃", year: 1966, event: "Charlie Brown waits for the Great Pumpkin on TV",
+      wiki: "https://en.wikipedia.org/wiki/It%27s_the_Great_Pumpkin,_Charlie_Brown" },
+
+    { emoji: "🔪", year: 1978, event: "John Carpenter's film Halloween starts the slasher craze",
+      wiki: "https://en.wikipedia.org/wiki/Halloween_(1978_film)" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
