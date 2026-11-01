@@ -1346,6 +1346,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Halloween_(1978_film)" }
   ]
 },
+
+   "2026-11-02": {
+  title: "Christmas Edition",
+  events: [
+    { emoji: "✝️", year: 336, event: "Rome holds the first recorded Christmas on December 25",
+      wiki: "https://en.wikipedia.org/wiki/Christmas" },
+
+    { emoji: "📕", year: 1843, event: "Charles Dickens publishes A Christmas Carol",
+      wiki: "https://en.wikipedia.org/wiki/A_Christmas_Carol" },
+
+    { emoji: "📅", year: 1870, event: "Christmas becomes an official holiday in the United States",
+      wiki: "https://en.wikipedia.org/wiki/Federal_holidays_in_the_United_States" },
+
+    { emoji: "🕊️", year: 1914, event: "British and German troops hold a Christmas truce",
+      wiki: "https://en.wikipedia.org/wiki/Christmas_truce" },
+
+    { emoji: "🦌", year: 1939, event: "Rudolph the Red-Nosed Reindeer is invented for a store",
+      wiki: "https://en.wikipedia.org/wiki/Rudolph_the_Red-Nosed_Reindeer" },
+
+    { emoji: "🎤", year: 1994, event: "Mariah Carey releases All I Want for Christmas Is You",
+      wiki: "https://en.wikipedia.org/wiki/All_I_Want_for_Christmas_Is_You" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
