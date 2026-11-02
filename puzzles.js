@@ -1369,6 +1369,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/All_I_Want_for_Christmas_Is_You" }
   ]
 },
+
+   "2026-11-03": {
+  title: "Tacos Edition",
+  events: [
+    { emoji: "🫓", year: -700, event: "Corn tortillas are cooked on clay griddles in Mexico",
+      wiki: "https://en.wikipedia.org/wiki/Corn_tortilla" },
+
+    { emoji: "📰", year: 1905, event: "The word taco first appears in print in America",
+      wiki: "https://en.wikipedia.org/wiki/Taco" },
+
+    { emoji: "🔧", year: 1950, event: "A cook patents a machine for frying taco shells",
+      wiki: "https://en.wikipedia.org/wiki/Hard-shell_taco" },
+
+    { emoji: "🚚", year: 1974, event: "The first taco truck starts selling in Los Angeles",
+      wiki: "https://en.wikipedia.org/wiki/Taco_stand" },
+
+    { emoji: "📅", year: 1989, event: "Taco John's trademarks the phrase Taco Tuesday",
+      wiki: "https://en.wikipedia.org/wiki/Taco_John%27s" },
+
+    { emoji: "📱", year: 2015, event: "A taco emoji is added to phones everywhere",
+      wiki: "https://en.wikipedia.org/wiki/Food_and_drink_emoji" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
