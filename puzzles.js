@@ -1392,7 +1392,28 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Food_and_drink_emoji" }
   ]
 },
-   
+   "2026-11-04": {
+  title: "Action Movies Edition",
+  events: [
+    { emoji: "🎥", year: 1903, event: "The Great Train Robbery puts a chase and a shootout on film",
+      wiki: "https://en.wikipedia.org/wiki/The_Great_Train_Robbery_(1903_film)" },
+
+    { emoji: "🥋", year: 1973, event: "Bruce Lee stars in Enter the Dragon",
+      wiki: "https://en.wikipedia.org/wiki/Enter_the_Dragon" },
+
+    { emoji: "🏺", year: 1981, event: "Indiana Jones first appears in Raiders of the Lost Ark",
+      wiki: "https://en.wikipedia.org/wiki/Raiders_of_the_Lost_Ark" },
+
+    { emoji: "🏢", year: 1988, event: "Bruce Willis fights off thieves in Die Hard",
+      wiki: "https://en.wikipedia.org/wiki/Die_Hard" },
+
+    { emoji: "🗡️", year: 2000, event: "Gladiator puts Russell Crowe in the Roman arena",
+      wiki: "https://en.wikipedia.org/wiki/Gladiator_(2000_film)" },
+
+    { emoji: "🔫", year: 2014, event: "Keanu Reeves begins the John Wick films",
+      wiki: "https://en.wikipedia.org/wiki/John_Wick" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
