@@ -1414,6 +1414,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/John_Wick" }
   ]
 },
+
+   "2026-11-05": {
+  title: "Dancing Edition",
+  events: [
+    { emoji: "🩰", year: 1661, event: "Louis XIV sets up the first dance academy in Paris",
+      wiki: "https://en.wikipedia.org/wiki/Acad%C3%A9mie_Royale_de_Danse" },
+
+    { emoji: "💃", year: 1812, event: "The waltz arrives in London and shocks polite society",
+      wiki: "https://en.wikipedia.org/wiki/Waltz" },
+
+    { emoji: "🎻", year: 1913, event: "The Rite of Spring sets off a riot in a Paris theatre",
+      wiki: "https://en.wikipedia.org/wiki/The_Rite_of_Spring" },
+
+    { emoji: "🕺", year: 1960, event: "Chubby Checker's The Twist starts a dance craze",
+      wiki: "https://en.wikipedia.org/wiki/The_Twist_(song)" },
+
+    { emoji: "🪩", year: 1977, event: "Saturday Night Fever fills dance floors with disco",
+      wiki: "https://en.wikipedia.org/wiki/Saturday_Night_Fever" },
+
+    { emoji: "🐴", year: 2012, event: "Gangnam Style becomes the first video with a billion views",
+      wiki: "https://en.wikipedia.org/wiki/Gangnam_Style" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
