@@ -1437,6 +1437,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Gangnam_Style" }
   ]
 },
+
+   "2026-11-06": {
+  title: "16th Century Edition",
+  events: [
+    { emoji: "📜", year: 1517, event: "Martin Luther attacks the church with his 95 theses",
+      wiki: "https://en.wikipedia.org/wiki/Ninety-five_Theses" },
+
+    { emoji: "🪙", year: 1532, event: "Pizarro captures the Inca emperor and takes Peru",
+      wiki: "https://en.wikipedia.org/wiki/Spanish_conquest_of_the_Inca_Empire" },
+
+    { emoji: "☀️", year: 1543, event: "Copernicus argues that the Earth circles the Sun",
+      wiki: "https://en.wikipedia.org/wiki/De_revolutionibus_orbium_coelestium" },
+
+    { emoji: "👑", year: 1558, event: "Elizabeth I becomes queen of England at twenty-five",
+      wiki: "https://en.wikipedia.org/wiki/Elizabeth_I" },
+
+    { emoji: "📅", year: 1582, event: "The new Gregorian calendar skips ten days",
+      wiki: "https://en.wikipedia.org/wiki/Gregorian_calendar" },
+
+    { emoji: "🎭", year: 1599, event: "The Globe Theatre opens for Shakespeare's plays",
+      wiki: "https://en.wikipedia.org/wiki/Globe_Theatre" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
