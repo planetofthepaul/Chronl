@@ -1440,6 +1440,7 @@ const CHRONL_PUZZLES = {
 
    "2026-11-06": {
   title: "16th Century Edition",
+      sponsor: { name: "Example History Podcast", url: "https://example.com/?ref=chronl", blurb: "Weekly stories from the past, told in 20 minutes.", button: "Listen now →" },
   events: [
     { emoji: "📜", year: 1517, event: "Martin Luther attacks the church with his 95 theses",
       wiki: "https://en.wikipedia.org/wiki/Ninety-five_Theses" },
