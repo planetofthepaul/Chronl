@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- Favicons & home screen icons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#121212">
+<meta name="apple-mobile-web-app-title" content="Chronl">
+<meta name="application-name" content="Chronl">
+
+<title>Chronl — Past Puzzles</title>
+<meta name="description" content="Play every past Chronl daily history puzzle.">
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-t_vbjTf4hFMPaLpLuH51O.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+<style>
+:root {
+    --bg: #ffffff;
+    --card-bg: #f8f9fa;
+    --text-main: #121212;
+    --text-muted: #5a5a5a;
+    --nyt-line: #e2e2e2;
+    --nyt-dark: #121212;
+    --correct-bg: #6aaa64;
+    --gold: #d4a017;
+    --font-serif: "Imperial", Georgia, serif;
+    --font-sans: "Franklin Standard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); background-color: var(--bg); color: var(--text-main); display: flex; justify-content: center; padding: 0 16px; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+
+.page { width: 100%; max-width: 500px; margin-top: 24px; margin-bottom: 48px; }
+
+header { text-align: center; border-bottom: 1px solid var(--nyt-line); padding-bottom: 16px; margin-bottom: 20px; }
+h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 4px; }
+.subtitle { color: var(--text-muted); font-size: 14px; letter-spacing: 0.2px; }
+.date-line { color: var(--text-muted); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-top: 8px; }
+
+/* Today's puzzle — the one thing that should always be one tap away */
+.today-card {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 14px 16px; margin-bottom: 20px;
+    border: 1px solid var(--text-main); border-radius: 24px;
+    font-weight: 600; font-size: 15px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.today-card:hover { background-color: var(--nyt-dark); color: #ffffff; }
+.today-card .today-sub { font-weight: 500; font-size: 13px; opacity: 0.75; }
+
+/* Count + filter + random */
+.toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+.count { font-size: 13px; color: var(--text-muted); }
+.count strong { color: var(--text-main); font-weight: 600; }
+.tools { display: flex; gap: 8px; }
+.segmented { display: inline-flex; border: 1px solid var(--nyt-line); border-radius: 14px; overflow: hidden; }
+.segmented button, .random-btn {
+    font-family: var(--font-sans); font-size: 12px; font-weight: 600; letter-spacing: 0.3px;
+    border: 0; background: var(--bg); color: var(--text-muted); padding: 6px 11px; cursor: pointer;
+}
+.segmented button.active { background: var(--nyt-dark); color: #ffffff; }
+.random-btn { border: 1px solid var(--nyt-line); border-radius: 14px; color: var(--text-main); }
+.random-btn:hover { border-color: var(--text-main); }
+
+/* Month groups */
+.month { margin-bottom: 22px; }
+.month-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin: 0 2px 8px; }
+.list { border: 1px solid var(--nyt-line); border-radius: 8px; overflow: hidden; }
+
+.row { display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-top: 1px solid var(--nyt-line); background: #ffffff; transition: background-color 0.15s ease; }
+.row:first-child { border-top: 0; }
+.row:hover { background-color: var(--card-bg); }
+
+.day { width: 34px; flex-shrink: 0; text-align: center; line-height: 1.1; }
+.day .dow { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); }
+.day .num { display: block; font-family: var(--font-serif); font-size: 20px; font-weight: 700; }
+
+.info { flex: 1 1 auto; min-width: 0; }
+.title { font-size: 14.5px; font-weight: 600; letter-spacing: -0.1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.emojis { font-size: 13px; letter-spacing: 2px; margin-top: 3px; white-space: nowrap; overflow: hidden; }
+
+.status { flex-shrink: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 12px; white-space: nowrap; }
+.status.play { border: 1px solid var(--text-main); color: var(--text-main); }
+.status.done { background: var(--correct-bg); color: #ffffff; }
+.status.perfect { background: var(--gold); color: #ffffff; }
+.status.partial { background: var(--card-bg); border: 1px solid var(--nyt-line); color: var(--text-muted); }
+
+.empty { text-align: center; padding: 32px 16px; color: var(--text-muted); font-size: 14px; border: 1px dashed var(--nyt-line); border-radius: 8px; }
+
+footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--nyt-line); text-align: center; font-size: 13px; color: var(--text-muted); }
+footer a { color: var(--text-main); font-weight: 600; border-bottom: 1px solid var(--nyt-line); }
+footer a:hover { border-bottom-color: var(--text-main); }
+
+@media (max-width: 600px) {
+    .page { margin-top: 16px; }
+    h1 { font-size: 30px; }
+    header { padding-bottom: 12px; margin-bottom: 16px; }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+    <header>
+        <a href="../"><h1>Chronl</h1></a>
+        <div class="subtitle">Organize history from past to present</div>
+        <div class="date-line">Past puzzles</div>
+    </header>
+
+    <a class="today-card" href="../" id="today-card">
+        <span>Today's puzzle <span class="today-sub" id="today-sub"></span></span>
+        <span aria-hidden="true">→</span>
+    </a>
+
+    <div class="toolbar">
+        <div class="count" id="count"></div>
+        <div class="tools">
+            <div class="segmented" role="group" aria-label="Filter puzzles">
+                <button type="button" data-filter="all" class="active">All</button>
+                <button type="button" data-filter="unplayed">Unplayed</button>
+            </div>
+            <button type="button" class="random-btn" id="random-btn" title="Play a random puzzle you haven't done">🎲 Random</button>
+        </div>
+    </div>
+
+    <div id="months"></div>
+
+    <footer>
+        A daily puzzle by <a href="https://paulwstaples.com/" target="_blank" rel="noopener">Paul Staples</a>
+    </footer>
+</div>
+
+<script src="../past-puzzles.js?v=1"></script>
+<script src="../puzzles.js?v=1"></script>
+<script>
+// ===== CHRONL ARCHIVE =====
+// Lists every puzzle dated before today (in the visitor's timezone).
+// Puzzles come from puzzles.js and past-puzzles.js — nothing to edit here;
+// each day's puzzle appears in this list automatically the next day.
+
+const ALL = Object.assign({},
+    (typeof CHRONL_PAST_PUZZLES !== "undefined") ? CHRONL_PAST_PUZZLES : {},
+    (typeof CHRONL_PUZZLES !== "undefined") ? CHRONL_PUZZLES : {});
+
+function localDateStr(d) {
+    return d.getFullYear() + "-" +
+           String(d.getMonth() + 1).padStart(2, "0") + "-" +
+           String(d.getDate()).padStart(2, "0");
+}
+function toDate(ds) {
+    const p = ds.split("-").map(Number);
+    return new Date(p[0], p[1] - 1, p[2]);
+}
+
+const TODAY = localDateStr(new Date());
+const PAST = Object.keys(ALL).filter(d => d < TODAY).sort().reverse(); // newest first
+
+// Same storage the game writes to when a puzzle is finished.
+function readPlayed() {
+    try {
+        const parsed = JSON.parse(localStorage.getItem("chronl_played_v1") || "{}");
+        return (parsed && typeof parsed === "object") ? parsed : {};
+    } catch (e) {
+        return {};
+    }
+}
+const PLAYED = readPlayed();
+
+const FILTER_KEY = "chronl_archive_filter";
+let filter = "all";
+try { if (localStorage.getItem(FILTER_KEY) === "unplayed") filter = "unplayed"; } catch (e) {}
+
+function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function statusHtml(rec) {
+    if (!rec) return '<span class="status play">Play</span>';
+    if (rec.score === null || rec.score === undefined) return '<span class="status done">✓ Played</span>';
+    if (rec.perfect) return `<span class="status perfect">★ ${rec.score}/${rec.of}</span>`;
+    if (rec.score === rec.of) return `<span class="status done">✓ ${rec.score}/${rec.of}</span>`;
+    return `<span class="status partial">${rec.score}/${rec.of}</span>`;
+}
+
+function render() {
+    // Today card
+    const todayDate = new Date();
+    document.getElementById("today-sub").textContent = "· " + todayDate.toLocaleDateString(undefined, {
+        weekday: "short", month: "short", day: "numeric"
+    });
+
+    // Count
+    const playedCount = PAST.filter(d => PLAYED[d]).length;
+    document.getElementById("count").innerHTML =
+        `<strong>${PAST.length}</strong> puzzles · <strong>${playedCount}</strong> played`;
+
+    // Filter buttons
+    document.querySelectorAll(".segmented button").forEach(b =>
+        b.classList.toggle("active", b.dataset.filter === filter));
+
+    // Rows grouped by month
+    const shown = PAST.filter(d => filter === "all" || !PLAYED[d]);
+    const container = document.getElementById("months");
+
+    if (!shown.length) {
+        container.innerHTML = PAST.length
+            ? '<div class="empty">You\'ve played every past Chronl. 🎉<br>Come back tomorrow for a new one.</div>'
+            : '<div class="empty">No past puzzles yet.</div>';
+        return;
+    }
+
+    const groups = [];
+    shown.forEach(ds => {
+        const key = ds.slice(0, 7);
+        if (!groups.length || groups[groups.length - 1].key !== key) groups.push({ key, dates: [] });
+        groups[groups.length - 1].dates.push(ds);
+    });
+
+    container.innerHTML = groups.map(g => {
+        const label = toDate(g.key + "-01").toLocaleDateString(undefined, { month: "long", year: "numeric" });
+        const rows = g.dates.map(ds => {
+            const p = ALL[ds];
+            const d = toDate(ds);
+            const dow = d.toLocaleDateString(undefined, { weekday: "short" });
+            const title = String(p.title || "History Edition").replace(/\s+Edition\s*$/i, "");
+            const emojis = (p.events || []).map(e => e.emoji).join("");
+            return `<a class="row" href="../?date=${ds}" aria-label="${escapeHtml(title)}, ${escapeHtml(d.toDateString())}">
+                <div class="day"><span class="dow">${escapeHtml(dow)}</span><span class="num">${d.getDate()}</span></div>
+                <div class="info">
+                    <div class="title">${escapeHtml(title)}</div>
+                    <div class="emojis">${escapeHtml(emojis)}</div>
+                </div>
+                ${statusHtml(PLAYED[ds])}
+            </a>`;
+        }).join("");
+        return `<section class="month"><div class="month-label">${escapeHtml(label)}</div><div class="list">${rows}</div></section>`;
+    }).join("");
+}
+
+document.querySelectorAll(".segmented button").forEach(b => {
+    b.addEventListener("click", () => {
+        filter = b.dataset.filter;
+        try { localStorage.setItem(FILTER_KEY, filter); } catch (e) {}
+        render();
+    });
+});
+
+document.getElementById("random-btn").addEventListener("click", () => {
+    const pool = PAST.filter(d => !PLAYED[d]);
+    const from = pool.length ? pool : PAST;
+    if (!from.length) return;
+    if (window.plausible) plausible("Archive_Random_Clicked");
+    window.location.href = "../?date=" + from[Math.floor(Math.random() * from.length)];
+});
+
+render();
+</script>
+</body>
+</html>

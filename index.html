@@ -306,6 +306,44 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     border-bottom: 1px solid var(--nyt-line);
 }
 .result-credit a:hover { border-bottom-color: var(--text-main); }
+
+/* ===== ARCHIVE =====
+   Header links shown only when playing a past puzzle (?date=YYYY-MM-DD).
+   They sit where the streak pill normally goes, so the mobile layout
+   keeps the same height. */
+.archive-nav { display: none; justify-content: center; gap: 8px; margin-top: 10px; }
+.archive-nav.visible { display: flex; }
+.archive-nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--nyt-line);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: var(--text-main);
+    text-decoration: none;
+}
+.archive-nav a:hover { border-color: var(--text-main); }
+
+/* "Play yesterday's puzzle →" / "Next puzzle →" under Copy Results */
+.play-more { margin-top: 12px; }
+.play-more .action-btn { display: none; }
+.play-more.has-next .action-btn { display: block; }
+.play-more-done { display: none; font-size: 14px; color: var(--text-muted); margin-bottom: 4px; }
+.play-more.all-done .play-more-done { display: block; }
+.more-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--nyt-line);
+}
+.more-link:hover { border-bottom-color: var(--text-main); }
 </style>
 </head>
 
@@ -316,6 +354,10 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
         <div class="subtitle">Organize history from past to present</div>
         <div class="date-line" id="date-line"></div>
         <div class="streak-pill" id="streak-pill"><span class="flame">🔥</span><span id="streak-pill-count"></span></div>
+        <nav class="archive-nav" id="archive-nav">
+            <a href="archive/">← All puzzles</a>
+            <a href="./">Today's puzzle →</a>
+        </nav>
     </header>
 
     <div class="attempt-banner" id="attempt-banner">
@@ -349,6 +391,15 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 
         <button class="action-btn" id="copy-btn" onclick="copyResults()">Copy Results</button>
 
+        <!-- Keep playing: the most recent past puzzle this browser hasn't
+             finished yet, plus a link to the full archive. Filled in by
+             setupPlayMore() when the game ends. -->
+        <div class="play-more" id="play-more">
+            <div class="play-more-done">You've played every past Chronl! 🎉</div>
+            <button class="action-btn" id="play-more-btn" onclick="playMore()">Play yesterday's puzzle →</button>
+            <a class="more-link" href="archive/">See all past puzzles</a>
+        </div>
+
         <!-- Email signup — only becomes visible once SIGNUP_ENDPOINT is set
              in the script below, and stays hidden for already-subscribed users. -->
         <div class="email-capture" id="email-capture">
@@ -367,14 +418,19 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     </div>
 </div>
 
+<script src="past-puzzles.js?v=1"></script>
 <script src="puzzles.js?v=1"></script>
 <script>
 // ===== TODAY'S PUZZLE =====
-// Puzzles now live in puzzles.js. This block just picks the right one for
-// today's date. You should not need to edit anything below this line.
+// Puzzles now live in puzzles.js (plus the older ones in past-puzzles.js).
+// This block just picks the right one for today's date. You should not need
+// to edit anything below this line.
 
 const CHRONL = (function () {
-    const all = (typeof CHRONL_PUZZLES !== "undefined") ? CHRONL_PUZZLES : {};
+    // puzzles.js wins if a date is ever in both files.
+    const all = Object.assign({},
+        (typeof CHRONL_PAST_PUZZLES !== "undefined") ? CHRONL_PAST_PUZZLES : {},
+        (typeof CHRONL_PUZZLES !== "undefined") ? CHRONL_PUZZLES : {});
     const params = new URLSearchParams(window.location.search);
 
     // Today as "YYYY-MM-DD" in the visitor's own timezone.
@@ -384,10 +440,31 @@ const CHRONL = (function () {
                String(d.getDate()).padStart(2, "0");
     }
 
-    // ?date=2026-10-14 previews a future puzzle. Ignored by normal visitors.
+    const realToday = dateStr(new Date());
+
+    // ?date=YYYY-MM-DD
+    //   past date   → ARCHIVE: plays that day's puzzle (the archive page links
+    //                 here). Doesn't touch the daily streak.
+    //   future date → PREVIEW: lets you check an upcoming puzzle, as before.
+    //   today       → just the normal daily puzzle.
     const requested = params.get("date");
-    const preview = !!(requested && /^\d{4}-\d{2}-\d{2}$/.test(requested));
-    const today = preview ? requested : dateStr(new Date());
+    const validRequest = !!(requested && /^\d{4}-\d{2}-\d{2}$/.test(requested));
+    let preview = false;
+    let archive = false;
+    let today = realToday;
+
+    if (validRequest && requested > realToday) {
+        preview = true;
+        today = requested;
+    } else if (validRequest && requested < realToday) {
+        // A day with nothing scheduled (the site repeated the day before)
+        // shows the puzzle that actually ran: the closest earlier one.
+        const earlier = Object.keys(all).filter(function (d) { return d <= requested; }).sort();
+        if (earlier.length) {
+            archive = true;
+            today = earlier[earlier.length - 1];
+        }
+    }
 
     let puzzle = all[today];
     let servedDate = today;
@@ -457,7 +534,10 @@ const CHRONL = (function () {
         title: puzzle.title || "History Edition",
         events: events,
         preview: preview,
+        archive: archive,
         servedDate: servedDate,
+        todayStr: realToday,
+        all: all,
         displayDate: new Date(shown[0], shown[1] - 1, shown[2])
     };
 })();
@@ -506,6 +586,21 @@ document.getElementById("date-line").innerText =
     CHRONL.displayDate.toLocaleDateString(undefined, {
         weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
     }) + (CHRONL.preview ? "  ·  PREVIEW" : "");
+
+// Playing a past puzzle: swap the streak pill for links back to the
+// archive and to today's puzzle, and name the tab after the puzzle.
+if (CHRONL.archive) {
+    document.getElementById("archive-nav").classList.add("visible");
+    document.title = "Chronl — " + CHRONL.title + " (" + shortDate(CHRONL.servedDate) + ")";
+}
+
+// "2026-09-04" → "Sep 4, 2026" in the visitor's locale
+function shortDate(ds) {
+    const p = ds.split("-").map(Number);
+    return new Date(p[0], p[1] - 1, p[2]).toLocaleDateString(undefined, {
+        month: 'short', day: 'numeric', year: 'numeric'
+    });
+}
 
 // Format a year as "3000 BC" or "1969 AD"
 function formatYear(y) {
@@ -558,8 +653,9 @@ function writeStreak(s) {
 // Called once when finalize() runs. Returns updated streak state plus a
 // `change` flag: "same" | "continued" | "started" | "reset"
 function recordPlay() {
-    // Previewing a future puzzle shouldn't touch the visitor's real streak.
-    if (CHRONL.preview) {
+    // Previewing a future puzzle or replaying an old one shouldn't touch
+    // the visitor's real streak.
+    if (CHRONL.preview || CHRONL.archive) {
         return { streak: readStreak().currentStreak, change: "same" };
     }
     const today = localDateStr();
@@ -595,7 +691,7 @@ function renderHeaderStreak() {
     const yesterday = yesterdayStr();
     const isAlive = s.currentStreak >= 1 && (s.lastPlayDate === today || s.lastPlayDate === yesterday);
     const pill = document.getElementById("streak-pill");
-    if (isAlive) {
+    if (isAlive && !CHRONL.archive) {
         document.getElementById("streak-pill-count").innerText = s.currentStreak;
         pill.classList.add("visible");
     } else {
@@ -605,6 +701,7 @@ function renderHeaderStreak() {
 
 // Show the streak announcement inside the result panel (sets text + triggers animation).
 function showStreakAnnounce(streak, change) {
+    if (CHRONL.archive) return; // archive games don't count toward the streak
     const el = document.getElementById("streak-announce");
     const milestones = [7, 30, 50, 100, 365];
     let text = "";
@@ -623,6 +720,114 @@ function showStreakAnnounce(streak, change) {
     el.innerText = text;
     el.classList.toggle("milestone", isMilestone);
     el.classList.add("visible");
+}
+// =========================
+
+
+// ===== PLAYED HISTORY =====
+// Remembers which puzzles this browser has finished (daily or archive),
+// keyed by puzzle date, so the archive can show ✓ + score and the
+// "Play yesterday's puzzle" button can skip ones already done.
+// Shape: { "2026-10-12": { score: 5, of: 6, perfect: false }, ... }
+// score is null for days we only know about from the streak (see below).
+const PLAYED_KEY = "chronl_played_v1";
+
+function readPlayed() {
+    try {
+        const parsed = JSON.parse(localStorage.getItem(PLAYED_KEY) || "{}");
+        return (parsed && typeof parsed === "object") ? parsed : {};
+    } catch (e) {
+        return {};
+    }
+}
+
+function writePlayed(p) {
+    try { localStorage.setItem(PLAYED_KEY, JSON.stringify(p)); } catch (e) { /* fail silently */ }
+}
+
+// First finish counts — replays don't overwrite a real score.
+function markPlayed(date, record) {
+    if (CHRONL.preview) return;
+    const p = readPlayed();
+    if (p[date] && p[date].score !== null && p[date].score !== undefined) return;
+    p[date] = record;
+    writePlayed(p);
+}
+
+// The puzzle the homepage served on a given day: that day's, or the most
+// recent earlier one if nothing was scheduled.
+function puzzleServedOn(day) {
+    const earlier = Object.keys(CHRONL.all).filter(d => d <= day).sort();
+    return earlier.length ? earlier[earlier.length - 1] : null;
+}
+
+// Players who already have a streak played those days before this history
+// existed. Mark them as played (no score) so "Play yesterday's puzzle"
+// doesn't offer them a puzzle they've done.
+function backfillPlayedFromStreak() {
+    const s = readStreak();
+    if (!s.lastPlayDate || s.currentStreak < 1) return;
+    const p = readPlayed();
+    const parts = s.lastPlayDate.split("-").map(Number);
+    const d = new Date(parts[0], parts[1] - 1, parts[2]);
+    let changed = false;
+    for (let i = 0; i < Math.min(s.currentStreak, 400); i++) {
+        const served = puzzleServedOn(localDateStr(d));
+        if (served && !p[served]) {
+            p[served] = { score: null, of: 6, perfect: false };
+            changed = true;
+        }
+        d.setDate(d.getDate() - 1);
+    }
+    if (changed) writePlayed(p);
+}
+
+// Past puzzles (before today), newest first.
+function pastPuzzleDates() {
+    return Object.keys(CHRONL.all).filter(d => d < CHRONL.todayStr).sort().reverse();
+}
+
+// What "keep playing" should open next: the newest unplayed past puzzle.
+// When already in the archive, keep walking back in time from the current
+// one, wrapping round to the newest if everything older is done.
+function nextUnplayedDate() {
+    const played = readPlayed();
+    const unplayed = pastPuzzleDates().filter(d => !played[d] && d !== CHRONL.servedDate);
+    if (!unplayed.length) return null;
+    if (CHRONL.archive) {
+        const older = unplayed.find(d => d < CHRONL.servedDate);
+        return older || unplayed[0];
+    }
+    return unplayed[0];
+}
+
+let nextPuzzleDate = null;
+
+function setupPlayMore() {
+    const wrap = document.getElementById("play-more");
+    const btn = document.getElementById("play-more-btn");
+    nextPuzzleDate = nextUnplayedDate();
+    wrap.classList.remove("has-next", "all-done");
+    if (!nextPuzzleDate) {
+        wrap.classList.add("all-done");
+        return;
+    }
+    wrap.classList.add("has-next");
+    if (CHRONL.archive) {
+        btn.innerText = "Next puzzle →";
+    } else if (nextPuzzleDate === puzzleServedOn(yesterdayStr())) {
+        btn.innerText = "Play yesterday's puzzle →";
+    } else {
+        btn.innerText = "Play a past puzzle →";
+    }
+}
+
+function playMore() {
+    if (!nextPuzzleDate) return;
+    if (window.plausible) {
+        plausible("Play_More_Clicked");
+    }
+    window.location.href = window.location.pathname + "?date=" + nextPuzzleDate;
 }
 // =========================
 
@@ -909,7 +1114,9 @@ function finalize(results, perfectFirstTry) {
     // Build the shareable text — two rows in placement order, one per attempt.
     // Perfect first try gets gold squares (one row only).
   
-shareString = "Today's Chronl History Puzzle - " + CHRONL.title + ":\n";
+    shareString = CHRONL.archive
+        ? "Chronl History Puzzle - " + CHRONL.title + " (" + shortDate(CHRONL.servedDate) + "):\n"
+        : "Today's Chronl History Puzzle - " + CHRONL.title + ":\n";
     firstAttemptResults.forEach(r => {
         if (perfectFirstTry) {
             shareString += "🟨";
@@ -930,12 +1137,23 @@ shareString = "Today's Chronl History Puzzle - " + CHRONL.title + ":\n";
     renderHeaderStreak();
 
     // Bake the streak into the share string (subtle flex, no explanation needed)
-    if (streakResult.streak >= 1) {
+    if (streakResult.streak >= 1 && !CHRONL.archive) {
         shareString += ` 🔥${streakResult.streak}`;
     }
 
-    const shareUrl = window.location.origin + window.location.pathname + "?ref=share";
-shareString += "\n\nSee if you can beat me here: " + shareUrl;
+    // Archive shares link straight to the same puzzle so friends play that one.
+    const shareUrl = window.location.origin + window.location.pathname +
+        (CHRONL.archive ? "?date=" + CHRONL.servedDate + "&ref=share" : "?ref=share");
+    shareString += "\n\nSee if you can beat me here: " + shareUrl;
+
+    // Remember this one as played, then work out what "keep playing" offers.
+    // (correctCount is 0 on a perfect first try — lockedIds only fills after a miss.)
+    markPlayed(CHRONL.servedDate, {
+        score: perfectFirstTry ? data.length : correctCount,
+        of: data.length,
+        perfect: perfectFirstTry
+    });
+    setupPlayMore();
 
     // Result title
     let performanceTitle;
@@ -957,9 +1175,10 @@ shareString += "\n\nSee if you can beat me here: " + shareUrl;
     document.querySelector(".game-container").classList.add("results-shown");
     document.getElementById("result-panel").style.display = "block";
 
-    // Plausible: fires once when the final grid is revealed
+    // Plausible: fires once when the final grid is revealed. Archive games
+    // get their own event so they don't inflate the daily numbers.
     if (window.plausible) {
-        plausible("Game_Complete");
+        plausible(CHRONL.archive ? "Archive_Complete" : "Game_Complete");
     }
 
     // Hide the attempt banner now that the game is over
@@ -1128,7 +1347,7 @@ function attachWikiLinks() {
 function copyResults() {
     // Plausible: fires the moment the share/copy button is clicked
     if (window.plausible) {
-        plausible("Share_Clicked");
+        plausible(CHRONL.archive ? "Archive_Share_Clicked" : "Share_Clicked");
     }
 
     navigator.clipboard.writeText(shareString).then(() => {
@@ -1275,6 +1494,7 @@ function fireConfetti() {
 
 render();
 renderHeaderStreak();
+backfillPlayedFromStreak();
 initEmailCapture();
 </script>
 </body>
