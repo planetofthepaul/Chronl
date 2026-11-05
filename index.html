@@ -359,27 +359,28 @@ header.sponsored .sponsor-line { display: block; }
 .sponsor-line a { color: var(--text-main); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--nyt-line); }
 .sponsor-line a:hover { border-bottom-color: var(--text-main); }
 
+/* Warm tint so it reads clearly as a sponsor, not part of the game */
 .sponsor-card {
     display: none;
     margin-top: 20px;
-    padding: 16px;
-    border: 1px solid var(--nyt-line);
+    padding: 18px 16px;
+    border: 1px solid #f0d6a8;
     border-radius: 8px;
-    background-color: #ffffff;
+    background-color: #fff8ec;
     text-align: center;
 }
 .sponsor-card.visible { display: block; }
-.sponsor-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+.sponsor-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8a5a00; margin-bottom: 6px; }
 .sponsor-name { font-family: var(--font-serif); font-size: 19px; font-weight: 700; margin-bottom: 4px; }
 .sponsor-blurb { font-size: 13.5px; color: var(--text-muted); line-height: 1.45; margin-bottom: 12px; }
 .sponsor-blurb:empty { display: none; }
 .sponsor-cta {
     display: inline-block;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 10px 22px;
+    border-radius: 22px;
     background-color: var(--nyt-dark);
     color: #ffffff;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     text-decoration: none;
 }
