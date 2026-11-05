@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Chronl site update: Nov 5, 2026 (sponsor card colour) -->
+<!-- Chronl site update: Nov 5, 2026 (results fit on one screen) -->
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -387,6 +387,28 @@ header.sponsored .sponsor-line { display: block; }
 }
 .sponsor-cta:hover { opacity: 0.85; }
 
+/* ===== RESULTS FIT ON ONE SCREEN =====
+   Tighter spacing inside the results box so that on a typical phone the
+   heading, score squares, buttons and sponsor card all fit on screen
+   together when the game ends — no scrolling needed. */
+.result-panel { padding: 18px 16px; }
+.result-heading { margin-bottom: 4px; }
+.score-display { margin-bottom: 10px; }
+.result-grid { margin-bottom: 10px; }
+.summary-line { margin-bottom: 12px; }
+.streak-announce { margin-bottom: 12px; padding: 8px 14px; }
+.streak-announce.milestone { padding: 9px 18px; }
+.helper-callout { padding: 10px 12px; margin-bottom: 14px; font-size: 13px; }
+.helper-emoji { font-size: 18px; }
+.result-panel .action-btn { padding: 12px; }
+.play-more { margin-top: 10px; }
+.more-link { margin-top: 8px; }
+.sponsor-card { margin-top: 14px; padding: 14px; }
+.sponsor-eyebrow { margin-bottom: 4px; }
+.sponsor-name { font-size: 18px; margin-bottom: 2px; }
+.sponsor-blurb { margin-bottom: 10px; }
+.sponsor-cta { padding: 9px 20px; }
+
 /* Phones: the puzzle title adds a line to the header, so the spacing
    around it is tightened to give the cards back the same room they
    had before. (Kept at the end so it overrides the rules above.) */
@@ -443,7 +465,7 @@ header.sponsored .sponsor-line { display: block; }
 
         <div class="helper-callout">
             <div class="helper-emoji">💡</div>
-            <div><strong>Keep exploring:</strong> Tap any historical event on the board above to read its full Wikipedia article.</div>
+            <div><strong>Keep exploring:</strong> tap any event above to read its Wikipedia article.</div>
         </div>
 
         <button class="action-btn" id="copy-btn" onclick="copyResults()">Copy Results</button>
@@ -1339,17 +1361,18 @@ function finalize(results, perfectFirstTry) {
 }
 
 // After a game, bring the results into view WITHOUT scrolling past the
-// score squares. Shows as much as fits, down to the "Play yesterday's
-// puzzle" button, but never pushes the top of the results box (heading +
-// squares animation) off the top of the screen. Everything below — sponsor
-// card, email signup — is a normal scroll away.
+// score squares. Scrolls just far enough to show everything down to the
+// sponsor card (or the "Play yesterday's puzzle" button on unsponsored
+// days), but never pushes the top of the results box (heading + squares
+// animation) off the top of the screen. On very small phones that can't
+// fit it all, the heading and squares win.
 function scrollToResults() {
     const pageTop = el => el.getBoundingClientRect().top + window.scrollY;
     const pageBottom = el => el.getBoundingClientRect().bottom + window.scrollY;
-    const panelTop = pageTop(document.getElementById("result-panel")) - 12;
-    const playMore = document.getElementById("play-more");
-    const lastWanted = (playMore && playMore.offsetHeight) ? playMore : document.getElementById("copy-btn");
-    const wanted = pageBottom(lastWanted) + 16 - window.innerHeight;
+    const panelTop = pageTop(document.getElementById("result-panel")) - 8;
+    const shown = id => { const el = document.getElementById(id); return el && el.offsetHeight ? el : null; };
+    const lastWanted = shown("sponsor-card") || shown("play-more") || document.getElementById("copy-btn");
+    const wanted = pageBottom(lastWanted) + 12 - window.innerHeight;
     const top = Math.max(0, Math.min(panelTop, wanted));
     window.scrollTo({ top: top, behavior: 'smooth' });
 }
