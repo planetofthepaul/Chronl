@@ -1331,11 +1331,27 @@ function finalize(results, perfectFirstTry) {
         growCardsToFinalSize();
         showStreakAnnounce(streakResult.streak, streakResult.change);
         setTimeout(() => {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            scrollToResults();
         }, 500);
         setTimeout(triggerBlockAnimations, 700);
         setTimeout(fireConfetti, 1000);
     }
+}
+
+// After a game, bring the results into view WITHOUT scrolling past the
+// score squares. Shows as much as fits, down to the "Play yesterday's
+// puzzle" button, but never pushes the top of the results box (heading +
+// squares animation) off the top of the screen. Everything below — sponsor
+// card, email signup — is a normal scroll away.
+function scrollToResults() {
+    const pageTop = el => el.getBoundingClientRect().top + window.scrollY;
+    const pageBottom = el => el.getBoundingClientRect().bottom + window.scrollY;
+    const panelTop = pageTop(document.getElementById("result-panel")) - 12;
+    const playMore = document.getElementById("play-more");
+    const lastWanted = (playMore && playMore.offsetHeight) ? playMore : document.getElementById("copy-btn");
+    const wanted = pageBottom(lastWanted) + 16 - window.innerHeight;
+    const top = Math.max(0, Math.min(panelTop, wanted));
+    window.scrollTo({ top: top, behavior: 'smooth' });
 }
 
 // Use FLIP animation to slide cards into the correct chronological order
@@ -1405,7 +1421,7 @@ function animateToCorrectOrder(stillWrongIds, triggerBlockAnimations, streakResu
         growCardsToFinalSize();
         showStreakAnnounce(streakResult.streak, streakResult.change);
         setTimeout(() => {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            scrollToResults();
         }, 500);
         setTimeout(triggerBlockAnimations, 700);
     }, 800);
