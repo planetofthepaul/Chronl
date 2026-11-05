@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Chronl site update: Nov 5, 2026 (results fit on one screen) -->
+<!-- Chronl site update: Nov 5, 2026 (results scroll, with and without sponsor) -->
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -1361,17 +1361,20 @@ function finalize(results, perfectFirstTry) {
 }
 
 // After a game, bring the results into view WITHOUT scrolling past the
-// score squares. Scrolls just far enough to show everything down to the
-// sponsor card (or the "Play yesterday's puzzle" button on unsponsored
-// days), but never pushes the top of the results box (heading + squares
+// score squares. Scrolls just far enough to show everything down to:
+//   - sponsored puzzles: the bottom of the sponsor card
+//   - everything else:   the bottom of the results box (email signup and
+//                        "A daily puzzle by Paul Staples" included)
+// but never pushes the top of the results box (heading + squares
 // animation) off the top of the screen. On very small phones that can't
 // fit it all, the heading and squares win.
 function scrollToResults() {
     const pageTop = el => el.getBoundingClientRect().top + window.scrollY;
     const pageBottom = el => el.getBoundingClientRect().bottom + window.scrollY;
-    const panelTop = pageTop(document.getElementById("result-panel")) - 8;
-    const shown = id => { const el = document.getElementById(id); return el && el.offsetHeight ? el : null; };
-    const lastWanted = shown("sponsor-card") || shown("play-more") || document.getElementById("copy-btn");
+    const panel = document.getElementById("result-panel");
+    const panelTop = pageTop(panel) - 8;
+    const sponsor = document.getElementById("sponsor-card");
+    const lastWanted = (sponsor && sponsor.offsetHeight) ? sponsor : panel;
     const wanted = pageBottom(lastWanted) + 12 - window.innerHeight;
     const top = Math.max(0, Math.min(panelTop, wanted));
     window.scrollTo({ top: top, behavior: 'smooth' });
