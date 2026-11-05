@@ -348,6 +348,43 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
 }
 .more-link:hover { border-bottom-color: var(--text-main); }
 
+/* ===== SPONSORS =====
+   A puzzle in puzzles.js can have an optional `sponsor: { ... }` line.
+   On those days, "Presented by ___" takes the place of the tagline under
+   "Chronl" (so the header doesn't get any taller), and a sponsor card
+   appears in the results panel. Puzzles without a sponsor are unchanged. */
+.sponsor-line { display: none; font-size: 14px; color: var(--text-muted); letter-spacing: 0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+header.sponsored .subtitle { display: none; }
+header.sponsored .sponsor-line { display: block; }
+.sponsor-line a { color: var(--text-main); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--nyt-line); }
+.sponsor-line a:hover { border-bottom-color: var(--text-main); }
+
+.sponsor-card {
+    display: none;
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid var(--nyt-line);
+    border-radius: 8px;
+    background-color: #ffffff;
+    text-align: center;
+}
+.sponsor-card.visible { display: block; }
+.sponsor-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+.sponsor-name { font-family: var(--font-serif); font-size: 19px; font-weight: 700; margin-bottom: 4px; }
+.sponsor-blurb { font-size: 13.5px; color: var(--text-muted); line-height: 1.45; margin-bottom: 12px; }
+.sponsor-blurb:empty { display: none; }
+.sponsor-cta {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: var(--nyt-dark);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.sponsor-cta:hover { opacity: 0.85; }
+
 /* Phones: the puzzle title adds a line to the header, so the spacing
    around it is tightened to give the cards back the same room they
    had before. (Kept at the end so it overrides the rules above.) */
@@ -368,6 +405,7 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     <header>
         <h1>Chronl</h1>
         <div class="subtitle">Organize history from past to present</div>
+        <div class="sponsor-line" id="sponsor-line">Presented by <a id="sponsor-line-link" target="_blank" rel="sponsored noopener"></a></div>
         <div class="puzzle-title" id="puzzle-title"></div>
         <div class="date-line" id="date-line"></div>
         <div class="streak-pill" id="streak-pill"><span class="flame">🔥</span><span id="streak-pill-count"></span></div>
@@ -415,6 +453,14 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
             <div class="play-more-done">You've played every past Chronl! 🎉</div>
             <button class="action-btn" id="play-more-btn" onclick="playMore()">Play yesterday's puzzle →</button>
             <a class="more-link" href="archive/">See all past puzzles</a>
+        </div>
+
+        <!-- Sponsor card — only shown for puzzles that have a sponsor -->
+        <div class="sponsor-card" id="sponsor-card">
+            <div class="sponsor-eyebrow" id="sponsor-eyebrow">Today's puzzle was presented by</div>
+            <div class="sponsor-name" id="sponsor-name"></div>
+            <div class="sponsor-blurb" id="sponsor-blurb"></div>
+            <a class="sponsor-cta" id="sponsor-cta" target="_blank" rel="sponsored noopener"></a>
         </div>
 
         <!-- Email signup — only becomes visible once SIGNUP_ENDPOINT is set
@@ -547,8 +593,26 @@ const CHRONL = (function () {
 
     const shown = today.split("-").map(Number);
 
+    // Optional sponsor: { name: "...", url: "https://...", blurb: "...", button: "..." }
+    // Only `name` is required. A bad url is ignored rather than linked.
+    let sponsor = null;
+    if (puzzle.sponsor && typeof puzzle.sponsor === "object" && puzzle.sponsor.name) {
+        const url = String(puzzle.sponsor.url || "");
+        sponsor = {
+            name: String(puzzle.sponsor.name),
+            url: /^https?:\/\//i.test(url) ? url : "",
+            blurb: puzzle.sponsor.blurb ? String(puzzle.sponsor.blurb) : "",
+            button: puzzle.sponsor.button ? String(puzzle.sponsor.button) : ""
+        };
+        if (url && !sponsor.url)
+            console.warn("[Chronl] " + servedDate + " sponsor url should start with https:// — it won't be linked.");
+    } else if (puzzle.sponsor) {
+        console.warn("[Chronl] " + servedDate + " has a sponsor with no name — ignoring it.");
+    }
+
     return {
         title: puzzle.title || "History Edition",
+        sponsor: sponsor,
         events: events,
         preview: preview,
         archive: archive,
@@ -611,6 +675,49 @@ if (CHRONL.archive) {
     document.getElementById("archive-nav").classList.add("visible");
     document.title = "Chronl — " + CHRONL.title + " (" + shortDate(CHRONL.servedDate) + ")";
 }
+
+// ===== SPONSOR =====
+// Fills in "Presented by ___" in the header (replacing the tagline, so the
+// header stays the same height) and the sponsor card in the results panel.
+function setupSponsor() {
+    const sp = CHRONL.sponsor;
+    if (!sp) return;
+
+    document.querySelector("header").classList.add("sponsored");
+
+    const headerLink = document.getElementById("sponsor-line-link");
+    headerLink.textContent = sp.name;
+    if (sp.url) {
+        headerLink.href = sp.url;
+        headerLink.addEventListener("click", () => trackSponsorClick("header"));
+    } else {
+        headerLink.removeAttribute("target");
+        headerLink.style.borderBottom = "0";
+    }
+
+    document.getElementById("sponsor-eyebrow").textContent =
+        CHRONL.archive ? "This puzzle was presented by" : "Today's puzzle was presented by";
+    document.getElementById("sponsor-name").textContent = sp.name;
+    document.getElementById("sponsor-blurb").textContent = sp.blurb;
+    const cta = document.getElementById("sponsor-cta");
+    if (sp.url) {
+        cta.href = sp.url;
+        cta.textContent = sp.button || ("Visit " + sp.name + " →");
+        cta.addEventListener("click", () => trackSponsorClick("results"));
+    } else {
+        cta.style.display = "none";
+    }
+    document.getElementById("sponsor-card").classList.add("visible");
+}
+
+// Plausible: counts sponsor clicks so you can tell sponsors how many people
+// visited them. Add "Sponsor_Click" as a goal in Plausible to see it.
+function trackSponsorClick(where) {
+    if (window.plausible) {
+        plausible("Sponsor_Click", { props: { sponsor: CHRONL.sponsor.name, date: CHRONL.servedDate, where: where } });
+    }
+}
+// =========================
 
 // "2026-09-04" → "Sep 4, 2026" in the visitor's locale
 function shortDate(ds) {
@@ -1512,6 +1619,7 @@ function fireConfetti() {
 
 render();
 renderHeaderStreak();
+setupSponsor();
 backfillPlayedFromStreak();
 initEmailCapture();
 </script>
