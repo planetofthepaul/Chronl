@@ -54,6 +54,9 @@ header { text-align: center; border-bottom: 1px solid var(--nyt-line); padding-b
 h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-spacing: -0.5px; color: var(--text-main); margin-bottom: 4px; }
 .subtitle { font-family: var(--font-sans); color: var(--text-muted); font-size: 14px; letter-spacing: 0.2px; }
 .date-line { font-family: var(--font-sans); color: var(--text-muted); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; margin-top: 8px; }
+/* The puzzle's theme, e.g. "Hippie Edition" — set from puzzles.js */
+.puzzle-title { font-family: var(--font-serif); font-style: italic; font-size: 20px; line-height: 1.25; color: var(--text-main); margin-top: 12px; }
+.puzzle-title:empty { display: none; }
 
 .attempt-banner { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
 .attempt-banner .pill { display: inline-block; padding: 4px 10px; border-radius: 12px; background-color: var(--card-bg); border: 1px solid var(--nyt-line); }
@@ -344,6 +347,19 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     border-bottom: 1px solid var(--nyt-line);
 }
 .more-link:hover { border-bottom-color: var(--text-main); }
+
+/* Phones: the puzzle title adds a line to the header, so the spacing
+   around it is tightened to give the cards back the same room they
+   had before. (Kept at the end so it overrides the rules above.) */
+@media (max-width: 600px) {
+    .game-container { padding-top: 12px; padding-bottom: 12px; }
+    header { padding-bottom: 10px; margin-bottom: 10px; }
+    .puzzle-title { font-size: 17px; margin-top: 4px; }
+    .date-line { margin-top: 3px; }
+    .streak-pill, .archive-nav { margin-top: 7px; }
+    .attempt-banner { margin-bottom: 8px; }
+    .board-wrapper { margin-bottom: 10px; }
+}
 </style>
 </head>
 
@@ -352,6 +368,7 @@ h1 { font-family: var(--font-serif); font-size: 36px; font-weight: 700; letter-s
     <header>
         <h1>Chronl</h1>
         <div class="subtitle">Organize history from past to present</div>
+        <div class="puzzle-title" id="puzzle-title"></div>
         <div class="date-line" id="date-line"></div>
         <div class="streak-pill" id="streak-pill"><span class="flame">🔥</span><span id="streak-pill-count"></span></div>
         <nav class="archive-nav" id="archive-nav">
@@ -581,7 +598,8 @@ function chronlQueueStatus() {
 
 // ==========================
 
-// Show today's date in the header
+// Show the puzzle's title ("Hippie Edition") and date in the header
+document.getElementById("puzzle-title").innerText = CHRONL.title;
 document.getElementById("date-line").innerText =
     CHRONL.displayDate.toLocaleDateString(undefined, {
         weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
