@@ -1461,6 +1461,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Globe_Theatre" }
   ]
 },
+
+   "2026-11-07": {
+  title: "Beer Edition",
+  events: [
+    { emoji: "🏺", year: -1800, event: "A Sumerian hymn records the oldest known beer recipe",
+      wiki: "https://en.wikipedia.org/wiki/Ninkasi" },
+
+    { emoji: "⚖️", year: 1516, event: "Bavaria's purity law limits beer to three ingredients",
+      wiki: "https://en.wikipedia.org/wiki/Reinheitsgebot" },
+
+    { emoji: "🍺", year: 1759, event: "Arthur Guinness takes over a brewery in Dublin",
+      wiki: "https://en.wikipedia.org/wiki/Guinness" },
+
+    { emoji: "🍻", year: 1842, event: "The first golden pilsner is brewed in Bohemia",
+      wiki: "https://en.wikipedia.org/wiki/Pilsner" },
+
+    { emoji: "🥫", year: 1935, event: "Beer goes on sale in cans for the first time",
+      wiki: "https://en.wikipedia.org/wiki/Drink_can" },
+
+    { emoji: "🏠", year: 1978, event: "Home brewing becomes legal again in America",
+      wiki: "https://en.wikipedia.org/wiki/Homebrewing" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
