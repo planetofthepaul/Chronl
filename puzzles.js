@@ -1484,6 +1484,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Homebrewing" }
   ]
 },
+
+   "2026-11-08": {
+  title: "Missiles Edition",
+  events: [
+    { emoji: "🧨", year: 1232, event: "Chinese soldiers fire gunpowder rockets in battle",
+      wiki: "https://en.wikipedia.org/wiki/History_of_rockets" },
+
+    { emoji: "🎆", year: 1814, event: "Rockets over Fort McHenry inspire the US anthem",
+      wiki: "https://en.wikipedia.org/wiki/Congreve_rocket" },
+
+    { emoji: "🚀", year: 1944, event: "Germany fires V-2 rockets at London",
+      wiki: "https://en.wikipedia.org/wiki/V-2_rocket" },
+
+    { emoji: "⚠️", year: 1962, event: "America and the Soviets face off over missiles in Cuba",
+      wiki: "https://en.wikipedia.org/wiki/Cuban_Missile_Crisis" },
+
+    { emoji: "🛰️", year: 1983, event: "Reagan calls for a missile shield in space",
+      wiki: "https://en.wikipedia.org/wiki/Strategic_Defense_Initiative" },
+
+    { emoji: "🎯", year: 1991, event: "Patriot missiles are fired at Scuds in the Gulf War",
+      wiki: "https://en.wikipedia.org/wiki/MIM-104_Patriot" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
