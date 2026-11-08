@@ -1507,6 +1507,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/MIM-104_Patriot" }
   ]
 },
+
+   "2026-11-09": {
+  title: "Clothing Stores Edition",
+  events: [
+    { emoji: "🛍️", year: 1858, event: "Macy's opens its first store in New York",
+      wiki: "https://en.wikipedia.org/wiki/Macy%27s" },
+
+    { emoji: "📦", year: 1886, event: "Sears begins selling goods by mail order catalogue",
+      wiki: "https://en.wikipedia.org/wiki/Sears" },
+
+    { emoji: "🏬", year: 1909, event: "Selfridges opens as a grand London department store",
+      wiki: "https://en.wikipedia.org/wiki/Selfridges" },
+
+    { emoji: "🏷️", year: 1962, event: "Walmart's first discount store opens in Arkansas",
+      wiki: "https://en.wikipedia.org/wiki/Walmart" },
+
+    { emoji: "👗", year: 1975, event: "Zara starts out with one shop in northern Spain",
+      wiki: "https://en.wikipedia.org/wiki/Zara_(retailer)" },
+
+    { emoji: "👔", year: 2020, event: "Brooks Brothers goes bankrupt after two centuries",
+      wiki: "https://en.wikipedia.org/wiki/Brooks_Brothers" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
