@@ -1530,6 +1530,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Brooks_Brothers" }
   ]
 },
+
+   "2026-11-10": {
+  title: "Motorcycles Edition",
+  events: [
+    { emoji: "🔧", year: 1885, event: "Daimler builds the first petrol-powered motorcycle",
+      wiki: "https://en.wikipedia.org/wiki/Daimler_Reitwagen" },
+
+    { emoji: "🏍️", year: 1903, event: "Harley-Davidson is founded in a Milwaukee shed",
+      wiki: "https://en.wikipedia.org/wiki/Harley-Davidson" },
+
+    { emoji: "🛵", year: 1958, event: "Honda launches the Super Cub, its best-selling bike",
+      wiki: "https://en.wikipedia.org/wiki/Honda_Super_Cub" },
+
+    { emoji: "🎬", year: 1969, event: "Easy Rider puts two bikers on a road trip across America",
+      wiki: "https://en.wikipedia.org/wiki/Easy_Rider" },
+
+    { emoji: "🪂", year: 1974, event: "Evel Knievel tries to jump a canyon on a rocket bike",
+      wiki: "https://en.wikipedia.org/wiki/Evel_Knievel" },
+
+    { emoji: "⚡", year: 2019, event: "Harley-Davidson sells its first electric motorcycle",
+      wiki: "https://en.wikipedia.org/wiki/Harley-Davidson_LiveWire" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
