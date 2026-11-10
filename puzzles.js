@@ -1553,6 +1553,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Harley-Davidson_LiveWire" }
   ]
 },
+
+   "2026-11-11": {
+  title: "Buffets Edition",
+  events: [
+    { emoji: "🪙", year: 1902, event: "The Automat lets diners serve themselves from coin slots",
+      wiki: "https://en.wikipedia.org/wiki/Automat" },
+
+    { emoji: "🍽️", year: 1939, event: "Sweden's smorgasbord arrives at the New York World's Fair",
+      wiki: "https://en.wikipedia.org/wiki/Sm%C3%B6rg%C3%A5sbord" },
+
+    { emoji: "🤠", year: 1946, event: "Las Vegas serves its first all-you-can-eat buffet for a dollar",
+      wiki: "https://en.wikipedia.org/wiki/El_Rancho_Vegas" },
+
+    { emoji: "🍗", year: 1973, event: "Golden Corral opens its first restaurant in North Carolina",
+      wiki: "https://en.wikipedia.org/wiki/Golden_Corral" },
+
+    { emoji: "🥂", year: 1998, event: "The Bellagio opens a high-end casino buffet",
+      wiki: "https://en.wikipedia.org/wiki/Bellagio_(resort)" },
+
+    { emoji: "🚷", year: 2020, event: "The pandemic shuts buffets down across America",
+      wiki: "https://en.wikipedia.org/wiki/Buffet" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
