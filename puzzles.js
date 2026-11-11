@@ -1576,6 +1576,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Buffet" }
   ]
 },
+
+   "2026-11-12": {
+  title: "Watches Edition",
+  events: [
+    { emoji: "⏱️", year: 1761, event: "John Harrison's sea clock solves the longitude problem",
+      wiki: "https://en.wikipedia.org/wiki/John_Harrison" },
+
+    { emoji: "⌚", year: 1904, event: "Cartier designs a wristwatch for a pilot friend",
+      wiki: "https://en.wikipedia.org/wiki/Cartier_(jeweler)" },
+
+    { emoji: "💧", year: 1926, event: "Rolex makes the first waterproof wristwatch",
+      wiki: "https://en.wikipedia.org/wiki/Rolex" },
+
+    { emoji: "🔋", year: 1969, event: "Seiko sells the first quartz wristwatch",
+      wiki: "https://en.wikipedia.org/wiki/Quartz_crisis" },
+
+    { emoji: "🎨", year: 1983, event: "Swatch sells cheap plastic watches by the million",
+      wiki: "https://en.wikipedia.org/wiki/Swatch" },
+
+    { emoji: "📲", year: 2015, event: "The Apple Watch goes on sale",
+      wiki: "https://en.wikipedia.org/wiki/Apple_Watch" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
