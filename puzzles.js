@@ -1599,6 +1599,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Apple_Watch" }
   ]
 },
+
+   "2026-11-13": {
+  title: "Headphones Edition",
+  events: [
+    { emoji: "📻", year: 1910, event: "Nathaniel Baldwin builds headphones for the US Navy",
+      wiki: "https://en.wikipedia.org/wiki/Nathaniel_Baldwin" },
+
+    { emoji: "🎶", year: 1958, event: "John Koss makes the first headphones for music",
+      wiki: "https://en.wikipedia.org/wiki/Koss_Corporation" },
+
+    { emoji: "📼", year: 1979, event: "The Sony Walkman puts headphones on the street",
+      wiki: "https://en.wikipedia.org/wiki/Walkman" },
+
+    { emoji: "✈️", year: 1989, event: "Bose sells noise-cancelling headphones to pilots",
+      wiki: "https://en.wikipedia.org/wiki/Bose_Corporation" },
+
+    { emoji: "😎", year: 2008, event: "Beats by Dre turns headphones into a fashion item",
+      wiki: "https://en.wikipedia.org/wiki/Beats_Electronics" },
+
+    { emoji: "🎧", year: 2016, event: "Apple's AirPods cut the cord completely",
+      wiki: "https://en.wikipedia.org/wiki/AirPods" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
