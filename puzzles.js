@@ -1622,6 +1622,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/AirPods" }
   ]
 },
+
+   "2026-11-14": {
+  title: "Glasses Edition",
+  events: [
+    { emoji: "👓", year: 1286, event: "The first eyeglasses are made in northern Italy",
+      wiki: "https://en.wikipedia.org/wiki/Glasses" },
+
+    { emoji: "💡", year: 1784, event: "Benjamin Franklin invents bifocal glasses",
+      wiki: "https://en.wikipedia.org/wiki/Bifocals" },
+
+    { emoji: "🫧", year: 1888, event: "The first contact lenses are made from glass",
+      wiki: "https://en.wikipedia.org/wiki/Contact_lens" },
+
+    { emoji: "🕶️", year: 1937, event: "Ray-Ban sells aviator sunglasses to American pilots",
+      wiki: "https://en.wikipedia.org/wiki/Ray-Ban" },
+
+    { emoji: "✨", year: 1999, event: "Laser eye surgery is approved as an alternative to glasses",
+      wiki: "https://en.wikipedia.org/wiki/LASIK" },
+
+    { emoji: "🤖", year: 2013, event: "Google Glass puts a screen on a pair of glasses",
+      wiki: "https://en.wikipedia.org/wiki/Google_Glass" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
