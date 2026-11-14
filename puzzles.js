@@ -1645,6 +1645,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Google_Glass" }
   ]
 },
+
+   "2026-11-15": {
+  title: "Fire Edition",
+  events: [
+    { emoji: "🍖", year: -400000, event: "Early humans learn to cook their food over fire",
+      wiki: "https://en.wikipedia.org/wiki/Control_of_fire_by_early_humans" },
+
+    { emoji: "🔥", year: 1826, event: "John Walker invents the friction match",
+      wiki: "https://en.wikipedia.org/wiki/John_Walker_(inventor)" },
+
+    { emoji: "💦", year: 1874, event: "The first automatic fire sprinkler is patented",
+      wiki: "https://en.wikipedia.org/wiki/Fire_sprinkler_system" },
+
+    { emoji: "🪔", year: 1932, event: "The Zippo lighter company is founded in Pennsylvania",
+      wiki: "https://en.wikipedia.org/wiki/Zippo" },
+
+    { emoji: "🚨", year: 1965, event: "The first home smoke alarm is invented in Colorado",
+      wiki: "https://en.wikipedia.org/wiki/Smoke_detector" },
+
+    { emoji: "🌲", year: 1988, event: "Wildfires burn a third of Yellowstone park",
+      wiki: "https://en.wikipedia.org/wiki/Yellowstone_fires_of_1988" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
