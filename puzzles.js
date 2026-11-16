@@ -1690,6 +1690,28 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Comedian_(artwork)" }
   ]
 },
+   "2026-11-17": {
+  title: "Vapes Edition",
+  events: [
+    { emoji: "📄", year: 1927, event: "A patent describes a device for vaporising medicine",
+      wiki: "https://en.wikipedia.org/wiki/Electronic_cigarette" },
+
+    { emoji: "✏️", year: 1963, event: "Herbert Gilbert designs a smokeless cigarette",
+      wiki: "https://en.wikipedia.org/wiki/Herbert_A._Gilbert" },
+
+    { emoji: "💨", year: 2003, event: "Hon Lik invents the modern e-cigarette in China",
+      wiki: "https://en.wikipedia.org/wiki/Hon_Lik" },
+
+    { emoji: "🔋", year: 2015, event: "Juul puts a sleek nicotine vape on sale",
+      wiki: "https://en.wikipedia.org/wiki/Juul" },
+
+    { emoji: "🏥", year: 2019, event: "A wave of lung illnesses is traced to vaping",
+      wiki: "https://en.wikipedia.org/wiki/Vaping-associated_pulmonary_injury" },
+
+    { emoji: "🗑️", year: 2024, event: "Britain announces a ban on disposable vapes",
+      wiki: "https://en.wikipedia.org/wiki/Regulation_of_electronic_cigarettes" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
