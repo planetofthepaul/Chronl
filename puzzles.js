@@ -1668,6 +1668,28 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Yellowstone_fires_of_1988" }
   ]
 },
+   "2026-11-16": {
+  title: "Bananas Edition",
+  events: [
+    { emoji: "🌱", year: -5000, event: "Bananas are first grown by farmers in New Guinea",
+      wiki: "https://en.wikipedia.org/wiki/Banana" },
+
+    { emoji: "🎪", year: 1876, event: "Americans try bananas at a fair in Philadelphia",
+      wiki: "https://en.wikipedia.org/wiki/Centennial_Exposition" },
+
+    { emoji: "🍨", year: 1904, event: "The banana split is invented at a soda fountain",
+      wiki: "https://en.wikipedia.org/wiki/Banana_split" },
+
+    { emoji: "🎵", year: 1923, event: "Yes! We Have No Bananas becomes a hit song",
+      wiki: "https://en.wikipedia.org/wiki/Yes!_We_Have_No_Bananas" },
+
+    { emoji: "🦠", year: 1965, event: "Disease wipes out the banana variety the world ate",
+      wiki: "https://en.wikipedia.org/wiki/Gros_Michel_banana" },
+
+    { emoji: "🍌", year: 2019, event: "A banana taped to a wall sells as art for $120,000",
+      wiki: "https://en.wikipedia.org/wiki/Comedian_(artwork)" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
