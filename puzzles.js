@@ -1712,6 +1712,77 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Regulation_of_electronic_cigarettes" }
   ]
 },
+
+   "2026-11-18": {
+  title: "Racing Edition",
+  events: [
+    { emoji: "🚗", year: 1894, event: "The first motor race runs from Paris to Rouen",
+      wiki: "https://en.wikipedia.org/wiki/Paris%E2%80%93Rouen_(1894)" },
+
+    { emoji: "🥛", year: 1911, event: "The first Indianapolis 500 is run in Indiana",
+      wiki: "https://en.wikipedia.org/wiki/1911_Indianapolis_500" },
+
+    { emoji: "🕐", year: 1923, event: "The first 24-hour race is held at Le Mans",
+      wiki: "https://en.wikipedia.org/wiki/24_Hours_of_Le_Mans" },
+
+    { emoji: "🏁", year: 1948, event: "NASCAR is founded in a Florida hotel room",
+      wiki: "https://en.wikipedia.org/wiki/NASCAR" },
+
+    { emoji: "🕯️", year: 1994, event: "Ayrton Senna is killed in a crash at Imola",
+      wiki: "https://en.wikipedia.org/wiki/Ayrton_Senna" },
+
+    { emoji: "🔌", year: 2014, event: "Formula E holds its first all-electric race",
+      wiki: "https://en.wikipedia.org/wiki/Formula_E" }
+  ]
+},
+
+   "2026-11-19": {
+  title: "Logging Edition",
+  events: [
+    { emoji: "🏕️", year: 1854, event: "Thoreau publishes Walden about living in the woods",
+      wiki: "https://en.wikipedia.org/wiki/Walden" },
+
+    { emoji: "🏞️", year: 1872, event: "Yellowstone becomes the world's first national park",
+      wiki: "https://en.wikipedia.org/wiki/Yellowstone_National_Park" },
+
+    { emoji: "🪓", year: 1906, event: "Paul Bunyan the giant lumberjack first appears in print",
+      wiki: "https://en.wikipedia.org/wiki/Paul_Bunyan" },
+
+    { emoji: "🪚", year: 1926, event: "The first electric chainsaw is built in Germany",
+      wiki: "https://en.wikipedia.org/wiki/Chainsaw" },
+
+    { emoji: "🎬", year: 1974, event: "The Texas Chain Saw Massacre reaches cinemas",
+      wiki: "https://en.wikipedia.org/wiki/The_Texas_Chain_Saw_Massacre" },
+
+    { emoji: "📈", year: 2021, event: "Lumber prices hit record highs during the pandemic",
+      wiki: "https://en.wikipedia.org/wiki/Lumber" }
+  ]
+},
+
+   "2026-11-20": {
+  title: "Garbage Edition",
+  events: [
+    { emoji: "📜", year: 1388, event: "England passes a law against dumping rubbish in rivers",
+      wiki: "https://en.wikipedia.org/wiki/Waste_management" },
+
+    { emoji: "🗑️", year: 1948, event: "The world's biggest landfill opens on Staten Island",
+      wiki: "https://en.wikipedia.org/wiki/Fresh_Kills_Landfill" },
+
+    { emoji: "🌍", year: 1970, event: "America holds the first Earth Day",
+      wiki: "https://en.wikipedia.org/wiki/Earth_Day" },
+
+    { emoji: "🚢", year: 1987, event: "A barge of New York garbage sails for months unwanted",
+      wiki: "https://en.wikipedia.org/wiki/Mobro_4000" },
+
+    { emoji: "🌊", year: 1997, event: "A sailor finds a huge patch of plastic in the Pacific",
+      wiki: "https://en.wikipedia.org/wiki/Great_Pacific_garbage_patch" },
+
+    { emoji: "🥤", year: 2018, event: "Starbucks says it will stop handing out plastic straws",
+      wiki: "https://en.wikipedia.org/wiki/Plastic_straw" }
+  ]
+},
+
+   
 /* ============================================================
    TEMPLATE
 
