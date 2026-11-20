@@ -1781,7 +1781,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Plastic_straw" }
   ]
 },
+   
+"2026-11-21": {
+  title: "Credit Cards Edition",
+  events: [
+    { emoji: "🍽️", year: 1950, event: "Diners Club issues the first charge card in New York",
+      wiki: "https://en.wikipedia.org/wiki/Diners_Club_International" },
 
+    { emoji: "📬", year: 1958, event: "A bank mails credit cards to everyone in Fresno",
+      wiki: "https://en.wikipedia.org/wiki/BankAmericard" },
+
+    { emoji: "💳", year: 1976, event: "BankAmericard changes its name to Visa",
+      wiki: "https://en.wikipedia.org/wiki/Visa_Inc." },
+
+    { emoji: "🛒", year: 1986, event: "Sears launches the Discover card",
+      wiki: "https://en.wikipedia.org/wiki/Discover_Card" },
+
+    { emoji: "🔢", year: 2004, event: "Britain switches to chip and PIN cards",
+      wiki: "https://en.wikipedia.org/wiki/EMV" },
+
+    { emoji: "📲", year: 2014, event: "Apple Pay lets a phone stand in for a card",
+      wiki: "https://en.wikipedia.org/wiki/Apple_Pay" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
