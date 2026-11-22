@@ -1804,6 +1804,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Apple_Pay" }
   ]
 },
+
+   "2026-11-22": {
+  title: "World War Two Edition",
+  events: [
+    { emoji: "🎙️", year: 1933, event: "Hitler becomes chancellor of Germany",
+      wiki: "https://en.wikipedia.org/wiki/Adolf_Hitler%27s_rise_to_power" },
+
+    { emoji: "🗺️", year: 1939, event: "Germany invades Poland and the war begins",
+      wiki: "https://en.wikipedia.org/wiki/Invasion_of_Poland" },
+
+    { emoji: "💥", year: 1941, event: "Japan attacks the American fleet at Pearl Harbor",
+      wiki: "https://en.wikipedia.org/wiki/Attack_on_Pearl_Harbor" },
+
+    { emoji: "🪂", year: 1944, event: "Allied troops land in Normandy on D-Day",
+      wiki: "https://en.wikipedia.org/wiki/Normandy_landings" },
+
+    { emoji: "🕊️", year: 1945, event: "Germany surrenders and the war in Europe ends",
+      wiki: "https://en.wikipedia.org/wiki/Victory_in_Europe_Day" },
+
+    { emoji: "⚖️", year: 1946, event: "Nazi leaders are sentenced at the Nuremberg trials",
+      wiki: "https://en.wikipedia.org/wiki/Nuremberg_trials" }
+  ]
+},
    
 /* ============================================================
    TEMPLATE
