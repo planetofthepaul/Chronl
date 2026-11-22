@@ -1827,7 +1827,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Nuremberg_trials" }
   ]
 },
-   
+
+   "2026-11-23": {
+  title: "Real Estate Edition",
+  events: [
+    { emoji: "🏝️", year: 1626, event: "The Dutch buy Manhattan for a handful of goods",
+      wiki: "https://en.wikipedia.org/wiki/New_Amsterdam" },
+
+    { emoji: "💵", year: 1803, event: "America buys Louisiana from France and doubles in size",
+      wiki: "https://en.wikipedia.org/wiki/Louisiana_Purchase" },
+
+    { emoji: "🐎", year: 1889, event: "Settlers race to claim free land in Oklahoma",
+      wiki: "https://en.wikipedia.org/wiki/Land_Rush_of_1889" },
+
+    { emoji: "🏘️", year: 1947, event: "Levittown opens as America's first mass-built suburb",
+      wiki: "https://en.wikipedia.org/wiki/Levittown,_New_York" },
+
+    { emoji: "⚖️", year: 1968, event: "America outlaws racial discrimination in housing",
+      wiki: "https://en.wikipedia.org/wiki/Fair_Housing_Act" },
+
+    { emoji: "💻", year: 2006, event: "Zillow starts putting house prices online",
+      wiki: "https://en.wikipedia.org/wiki/Zillow" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
