@@ -1850,6 +1850,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Zillow" }
   ]
 },
+
+   "2026-11-24": {
+  title: "Fingerprints Edition",
+  events: [
+    { emoji: "🩸", year: 1892, event: "A murder in Argentina is solved by a bloody fingerprint",
+      wiki: "https://en.wikipedia.org/wiki/Juan_Vucetich" },
+
+    { emoji: "🕵️", year: 1901, event: "Scotland Yard opens a fingerprint bureau in London",
+      wiki: "https://en.wikipedia.org/wiki/Fingerprint" },
+
+    { emoji: "🗂️", year: 1924, event: "The FBI starts a national collection of fingerprints",
+      wiki: "https://en.wikipedia.org/wiki/Federal_Bureau_of_Investigation" },
+
+    { emoji: "🧪", year: 1934, event: "John Dillinger burns his fingertips with acid to hide",
+      wiki: "https://en.wikipedia.org/wiki/John_Dillinger" },
+
+    { emoji: "🧬", year: 1984, event: "Alec Jeffreys invents DNA fingerprinting in England",
+      wiki: "https://en.wikipedia.org/wiki/DNA_profiling" },
+
+    { emoji: "📱", year: 2013, event: "The iPhone adds a fingerprint reader",
+      wiki: "https://en.wikipedia.org/wiki/Touch_ID" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
