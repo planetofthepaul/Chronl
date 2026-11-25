@@ -1873,6 +1873,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Touch_ID" }
   ]
 },
+
+   "2026-11-26": {
+  title: "Scuba Edition",
+  events: [
+    { emoji: "🔔", year: 1690, event: "Edmond Halley builds a diving bell to hunt for wrecks",
+      wiki: "https://en.wikipedia.org/wiki/Diving_bell" },
+
+    { emoji: "⚓", year: 1837, event: "Augustus Siebe builds the first practical diving suit",
+      wiki: "https://en.wikipedia.org/wiki/Augustus_Siebe" },
+
+    { emoji: "🤿", year: 1943, event: "Jacques Cousteau invents the Aqua-Lung and scuba is born",
+      wiki: "https://en.wikipedia.org/wiki/Aqua-Lung" },
+
+    { emoji: "🎞️", year: 1956, event: "The Silent World wins the top prize at Cannes",
+      wiki: "https://en.wikipedia.org/wiki/The_Silent_World" },
+
+    { emoji: "🎓", year: 1966, event: "PADI begins certifying recreational divers",
+      wiki: "https://en.wikipedia.org/wiki/Professional_Association_of_Diving_Instructors" },
+
+    { emoji: "📏", year: 2014, event: "A diver sets a record by reaching 332 metres down",
+      wiki: "https://en.wikipedia.org/wiki/Ahmed_Gabr" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
