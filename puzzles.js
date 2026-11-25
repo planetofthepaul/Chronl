@@ -1874,7 +1874,7 @@ const CHRONL_PUZZLES = {
   ]
 },
 
-   "2026-11-26": {
+   "2026-11-25": {
   title: "Scuba Edition",
   events: [
     { emoji: "🔔", year: 1690, event: "Edmond Halley builds a diving bell to hunt for wrecks",
@@ -1894,6 +1894,29 @@ const CHRONL_PUZZLES = {
 
     { emoji: "📏", year: 2014, event: "A diver sets a record by reaching 332 metres down",
       wiki: "https://en.wikipedia.org/wiki/Ahmed_Gabr" }
+  ]
+},
+
+   "2026-11-26": {
+  title: "Thanksgiving Edition",
+  events: [
+    { emoji: "🍂", year: 1621, event: "Pilgrims and the Wampanoag share a harvest feast",
+      wiki: "https://en.wikipedia.org/wiki/Thanksgiving_(United_States)" },
+
+    { emoji: "📜", year: 1789, event: "George Washington declares a day of thanksgiving",
+      wiki: "https://en.wikipedia.org/wiki/Thanksgiving_Proclamation" },
+
+    { emoji: "🏛️", year: 1863, event: "Lincoln makes Thanksgiving a national holiday",
+      wiki: "https://en.wikipedia.org/wiki/Abraham_Lincoln" },
+
+    { emoji: "🎈", year: 1924, event: "Macy's holds its first Thanksgiving Day parade",
+      wiki: "https://en.wikipedia.org/wiki/Macy%27s_Thanksgiving_Day_Parade" },
+
+    { emoji: "📆", year: 1941, event: "Congress fixes the holiday on the fourth Thursday",
+      wiki: "https://en.wikipedia.org/wiki/Franksgiving" },
+
+    { emoji: "🦃", year: 1989, event: "A president pardons a turkey for the first time",
+      wiki: "https://en.wikipedia.org/wiki/National_Thanksgiving_Turkey_Presentation" }
   ]
 },
 /* ============================================================
