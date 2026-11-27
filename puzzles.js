@@ -1942,6 +1942,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/Amazon_Prime_Day" }
   ]
 },
+
+   "2026-11-28": {
+  title: "Consumerism Edition",
+  events: [
+    { emoji: "🪙", year: 1879, event: "Woolworth opens a store where everything costs five cents",
+      wiki: "https://en.wikipedia.org/wiki/F._W._Woolworth_Company" },
+
+    { emoji: "🛒", year: 1916, event: "Piggly Wiggly lets shoppers pick goods off the shelf",
+      wiki: "https://en.wikipedia.org/wiki/Piggly_Wiggly" },
+
+    { emoji: "🏬", year: 1956, event: "America's first enclosed shopping mall opens in Minnesota",
+      wiki: "https://en.wikipedia.org/wiki/Southdale_Center" },
+
+    { emoji: "☕", year: 1971, event: "Starbucks opens its first coffee shop in Seattle",
+      wiki: "https://en.wikipedia.org/wiki/Starbucks" },
+
+    { emoji: "🔦", year: 1995, event: "The first thing sold on eBay is a broken laser pointer",
+      wiki: "https://en.wikipedia.org/wiki/EBay" },
+
+    { emoji: "🥬", year: 2017, event: "Amazon buys Whole Foods and moves into groceries",
+      wiki: "https://en.wikipedia.org/wiki/Whole_Foods_Market" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
