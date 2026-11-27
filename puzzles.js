@@ -1919,6 +1919,29 @@ const CHRONL_PUZZLES = {
       wiki: "https://en.wikipedia.org/wiki/National_Thanksgiving_Turkey_Presentation" }
   ]
 },
+
+   "2026-11-27": {
+  title: "Black Friday Edition",
+  events: [
+    { emoji: "📆", year: 1939, event: "Roosevelt moves Thanksgiving to stretch the shopping season",
+      wiki: "https://en.wikipedia.org/wiki/Franksgiving" },
+
+    { emoji: "🚨", year: 1961, event: "Philadelphia police coin the name Black Friday",
+      wiki: "https://en.wikipedia.org/wiki/Black_Friday_(shopping)" },
+
+    { emoji: "🪆", year: 1983, event: "Shoppers brawl over Cabbage Patch Kids dolls",
+      wiki: "https://en.wikipedia.org/wiki/Cabbage_Patch_Kids" },
+
+    { emoji: "🧸", year: 1996, event: "Parents fight over Tickle Me Elmo toys",
+      wiki: "https://en.wikipedia.org/wiki/Tickle_Me_Elmo" },
+
+    { emoji: "🖱️", year: 2005, event: "Retailers give Cyber Monday its name",
+      wiki: "https://en.wikipedia.org/wiki/Cyber_Monday" },
+
+    { emoji: "📦", year: 2015, event: "Amazon invents its own shopping holiday, Prime Day",
+      wiki: "https://en.wikipedia.org/wiki/Amazon_Prime_Day" }
+  ]
+},
 /* ============================================================
    TEMPLATE
 
